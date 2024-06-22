@@ -695,6 +695,7 @@ static int usbasp_initialize(const PROGRAMMER *pgm, const AVRPART *p) {
 
   /* get capabilities */
   memset(temp, 0, sizeof(temp));
+  
   if(usbasp_transmit(pgm, 1, USBASP_FUNC_GETCAPABILITIES, temp, res, sizeof(res)) == 4)
     pdata->capabilities = res[0] | ((unsigned int)res[1] << 8) | ((unsigned int)res[2] << 16) | ((unsigned int)res[3] << 24);
   else
@@ -704,7 +705,11 @@ static int usbasp_initialize(const PROGRAMMER *pgm, const AVRPART *p) {
   // query support for 3 MHz SCK in UsbAsp-flash firmware
   // https://github.com/nofeletru/UsbAsp-flash
   pdata->sck_3mhz = ((pdata->capabilities & USBASP_CAP_3MHZ) != 0) ? 1 :0;
-
+  if (pdata->capabilities & USBASP_CAP_89S52) {
+    pmsg_debug("Supports AT89S52/51\n");
+  } else {
+    pmsg_debug("Does not support AT89S52/51\n");
+  }
   if(pdata->use_tpi)
   {
     /* calc tpiclk delay */
@@ -723,8 +728,9 @@ static int usbasp_initialize(const PROGRAMMER *pgm, const AVRPART *p) {
   {
     /* set sck period */
     pgm->set_sck_period(pgm, pgm->bitclock);
-
+    
     /* connect to target device */
+    temp[0] = p->stk500_devcode; // to support AT89S51/52
     usbasp_transmit(pgm, 1, USBASP_FUNC_CONNECT, temp, res, sizeof(res));
   }
 
