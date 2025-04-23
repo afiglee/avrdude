@@ -257,7 +257,8 @@ static void usage(void)
     "  -q                     Quell progress output; -q -q for less\n"
     "  -l logfile             Use logfile rather than stderr for diagnostics\n"
     "  -?                     Display this usage\n"
-    "\navrdude version %s, https://github.com/avrdudes/avrdude\n",
+    "AT89S51/52 devices support with usbasp https://github.com/afiglee/USBasp"
+    "\navrdude version %s, https://github.com/afiglee/avrdude\n",
     progname, strlen(cfg) < 24? "config file ": "", cfg, AVRDUDE_FULL_VERSION);
 
   mmt_free(cfg);

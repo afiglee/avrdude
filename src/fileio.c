@@ -526,7 +526,7 @@ static int b2srec(const AVRMEM *mem, const Segment *segp, Segorder where,
   }
   
   if(where & FIRST_SEG) {       // Write header record
-    const char *s = "https://github.com/avrdudes/avrdude";
+    const char *s = "https://github.com/afiglee/avrdude";
     unsigned char len = strlen(s);
 
     fprintf(outf, "S0%02X0000", len+3);
