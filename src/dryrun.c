@@ -70,6 +70,88 @@ typedef struct {
 #define Retwarning(...) do { pmsg_warning(__VA_ARGS__); \
   msg_warning("; not initialising %s memories\n", p->desc); return -1; } while(0)
 
+  void print_operations(OPCODE * const p[]){
+  char buffer[64];
+  if (p) {
+    for (uint8_t xx = 0; xx < AVR_OP_MAX; xx++) {
+      if (p[xx]) {
+        memset(buffer, 0, sizeof(buffer));
+        uint8_t seek = 0;
+        OPCODE op = *(p[xx]);
+        for (int8_t yy = 32; yy >= 0; --yy) {
+          switch(op.bit[yy].type){
+            case AVR_CMDBIT_IGNORE:
+              buffer[seek++] = 'x';
+              break;
+            case AVR_CMDBIT_VALUE:
+              buffer[seek++] = (op.bit[yy].value == 0)? '0': '1';
+              break;
+            case AVR_CMDBIT_ADDRESS:
+              buffer[seek++] = 'a';
+              break;
+            case AVR_CMDBIT_INPUT:
+              buffer[seek++] = 'i';
+              break;
+            case AVR_CMDBIT_OUTPUT:
+              buffer[seek++] = 'o';
+              break;
+          }
+          if (yy && !(yy%8)){
+            buffer[seek++] = '-';
+            buffer[seek++] = '-';
+          } else if (yy && !(yy%4)) {
+            buffer[seek++] = '.';
+          }
+        }
+        buffer[seek] = '\0';
+        char code[32];
+        memset(code, 0, sizeof(code));
+        switch (xx) {
+            case AVR_OP_READ:
+              snprintf(code, sizeof(code), "AVR_OP_READ");
+              break;
+            case AVR_OP_WRITE:
+              snprintf(code, sizeof(code), "AVR_OP_WRITE");
+              break;
+            case AVR_OP_READ_LO:
+              snprintf(code, sizeof(code), "AVR_OP_READ_LO");
+              break;
+            case AVR_OP_READ_HI:
+              snprintf(code, sizeof(code), "AVR_OP_READ_HI");
+              break;
+            case AVR_OP_WRITE_LO:
+              snprintf(code, sizeof(code), "AVR_OP_WRITE_LO");
+              break;
+            case AVR_OP_WRITE_HI:
+              snprintf(code, sizeof(code), "AVR_OP_WRITE_HI");
+              break;
+            case AVR_OP_LOADPAGE_LO:
+              snprintf(code, sizeof(code), "AVR_OP_LOADPAGE_LO");
+              break;
+            case AVR_OP_LOADPAGE_HI:
+              snprintf(code, sizeof(code), "AVR_OP_LOADPAGE_HI");
+              break;
+            case AVR_OP_LOAD_EXT_ADDR:
+              snprintf(code, sizeof(code), "AVR_OP_LOAD_EXT_ADDR");
+              break;
+            case AVR_OP_WRITEPAGE:
+              snprintf(code, sizeof(code), "AVR_OP_WRITEPAGE");
+              break;
+            case AVR_OP_CHIP_ERASE:
+              snprintf(code, sizeof(code), "AVR_OP_CHIP_ERASE");
+              break;
+            case AVR_OP_PGM_ENABLE:
+              snprintf(code, sizeof(code), "AVR_OP_PGM_ENABLE");
+              break;
+            default:
+            snprintf(code, sizeof(code), "OP_%d", xx);
+        }
+        msg_debug("%s has operation %s\n", code, buffer + 2);
+      }
+    }
+  }
+}
+
 static int dryrun_readonly(const PROGRAMMER *pgm, const AVRPART *p, const AVRMEM *mem, unsigned int addr);
 
 // Read expected signature bytes from part description
@@ -81,6 +163,99 @@ static int dryrun_read_sig_bytes(const PROGRAMMER *pgm, const AVRPART *p, const 
 
   memcpy(sigmem->buf, p->signature, 3);
   msg_debug(" returns 0x%02x%02x%02x\n", sigmem->buf[0], sigmem->buf[1], sigmem->buf[2]);
+  /* -- START -- */
+  print_operations(p->op);
+  if (sigmem) {
+    msg_debug("SIGMEM:\n");
+    print_operations(sigmem->op);
+  }
+  AVRMEM *mem = avr_locate_eeprom(p);
+  if (mem) {
+    msg_debug("EEPROM:\n");
+    print_operations(mem->op);
+  }
+  mem = avr_locate_flash(p);
+  if (mem) {
+    msg_debug("FLASH:\n");
+    print_operations(mem->op);
+  }
+  mem = avr_locate_application(p);
+  if (mem) {
+    msg_debug("APPLICATION:\n");
+    print_operations(mem->op);
+  }
+  mem = avr_locate_apptable(p);
+  if (mem) {
+    msg_debug("APPTABLE:\n");
+    print_operations(mem->op);
+  }
+  mem = avr_locate_boot(p);
+  if (mem) {
+    msg_debug("BOOT:\n");
+    print_operations(mem->op);
+  }
+  mem = avr_locate_fuses(p);
+  if (mem) {
+    msg_debug("FUSES:\n");
+    print_operations(mem->op);
+  }
+  mem = avr_locate_lock(p);
+  if (mem) {
+    msg_debug("LOCK:\n");
+    print_operations(mem->op);
+  }
+  mem = avr_locate_lockbits(p);
+  if (mem) {
+    msg_debug("LOCKBITS:\n");
+    print_operations(mem->op);
+  }
+  mem = avr_locate_prodsig(p);
+  if (mem) {
+    msg_debug("PRODSIG:\n");
+    print_operations(mem->op);
+  }
+  mem = avr_locate_sigrow(p);
+  if (mem) {
+    msg_debug("SIGROW:\n");
+    print_operations(mem->op);
+  }
+  mem = avr_locate_signature(p);
+  if (mem) {
+    msg_debug("SIGNATURE:\n");
+    print_operations(mem->op);
+  }
+  mem = avr_locate_calibration(p);
+  if (mem) {
+    msg_debug("CALIBRATION:\n");
+    print_operations(mem->op);
+  }
+  mem = avr_locate_tempsense(p);
+  if (mem) {
+    msg_debug("TEMPSENSE:\n");
+    print_operations(mem->op);
+  }
+  mem = avr_locate_sernum(p);
+  if (mem) {
+    msg_debug("SERNUM:\n");
+    print_operations(mem->op);
+  }
+  mem = avr_locate_bootrow(p);
+  if (mem) {
+    msg_debug("BOOTROW:\n");
+    print_operations(mem->op);
+  }
+  mem = avr_locate_usersig(p);
+  if (mem) {
+    msg_debug("USERSIG:\n");
+    print_operations(mem->op);
+  }
+  mem = avr_locate_userrow(p);
+  if (mem) {
+    msg_debug("USERROW:\n");
+    print_operations(mem->op);
+  }
+  /* -- END -- */
+
   return 3;
 }
 
