@@ -40,6 +40,7 @@
 
 // USBASP capabilities
 #define USBASP_CAP_TPI    0x01
+#define USBASP_CAP_89S52  0x02     // AT89S52/51 support
 #define USBASP_CAP_3MHZ   (1 << 24)     // 3 MHz SCK in UsbAsp-flash firmware
 
 // Block mode flags

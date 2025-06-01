@@ -723,6 +723,11 @@ static int usbasp_initialize(const PROGRAMMER *pgm, const AVRPART *p) {
   pdata->use_tpi = (pdata->capabilities & USBASP_CAP_TPI) && is_tpi(p);
   // Query support for 3 MHz SCK in UsbAsp-flash firmware https://github.com/nofeletru/UsbAsp-flash
   pdata->sck_3mhz = ((pdata->capabilities & USBASP_CAP_3MHZ) != 0)? 1: 0;
+  if (pdata->capabilities & USBASP_CAP_89S52) {
+    pmsg_debug("Supports AT89S52/51\n");
+  } else {
+    pmsg_debug("Does not support AT89S52/51\n");
+  }
 
   if(pdata->use_tpi) {
     // Calc tpiclk delay
