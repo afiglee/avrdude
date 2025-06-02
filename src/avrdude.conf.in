@@ -24601,3 +24601,78 @@ part parent ".avr-sx" # 32sd32
     n_interrupts           = 56;
     signature              = 0x1e 0x95 0x52;
 ;
+
+#------------------------------------------------------------
+# AT89LP51ED2
+#------------------------------------------------------------
+
+part 
+    desc                   = "AT89LP51ED2";
+    id                     = "89LP51ED2";
+    variants               =
+        "AT89LP51ED2:      N/A,    Fmax=20 MHz, T=[N/A,   85 C], Vcc=[N/A,     N/A]"
+    prog_modes             = PM_ISP;
+    mcuid                  = 512; #TODO
+
+    chip_erase_delay       = 8000;
+    signature              = 0x1e 0x64 0x65;
+
+    memory "signature"
+        size               = 128;
+        read               = "0011.1000--0000.0000--0aaa.aaaa--oooo.oooo";
+    ;
+
+    memory "eeprom"
+        size               = 64;
+        page_size          = 4;
+        min_write_delay    = 4000;
+        max_write_delay    = 4000;
+        mode               = 0x41;
+        delay              = 5;
+        blocksize          = 4;
+        readsize           = 256;
+        read               = "1010.0000--000x.xxxx--xxaa.aaaa--oooo.oooo";
+        write              = "1100.0000--000x.xxxx--xxaa.aaaa--iiii.iiii";
+        loadpage_lo        = "1100.0001--0000.0000--0000.00aa--iiii.iiii";
+        writepage          = "1100.0010--00xx.xxxx--xxaa.aa00--xxxx.xxxx";
+    ;
+
+    memory "flash"
+        paged              = yes;
+        size               = 1024;
+        page_size          = 32;
+        num_pages          = 32;
+        min_write_delay    = 4500;
+        max_write_delay    = 4500;
+        mode               = 0x41;
+        delay              = 10;
+        blocksize          = 32;
+        readsize           = 256;
+        read_lo            = "0010.0000--0000.000a--aaaa.aaaa--oooo.oooo";
+        read_hi            = "0010.1000--0000.000a--aaaa.aaaa--oooo.oooo";
+        loadpage_lo        = "0100.0000--000x.xxxx--xxxx.aaaa--iiii.iiii";
+        loadpage_hi        = "0100.1000--000x.xxxx--xxxx.aaaa--iiii.iiii";
+        writepage          = "0100.1100--0000.000a--aaaa.xxxx--xxxx.xxxx";
+    ;
+
+    memory "lock"
+        bitmask            = 0x03;
+        min_write_delay    = 4500;
+        max_write_delay    = 4500;
+    ;
+
+    memory "calibration"
+        size               = 2;
+        read               = "0011.1000--000x.xxxx--0000.000a--oooo.oooo";
+    ;
+
+    memory "io"
+        size               = 64;
+    ;
+
+    memory "sram"
+        size               = 64;
+        offset             = 0x60;
+    ;
+;
+
