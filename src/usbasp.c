@@ -746,6 +746,7 @@ static int usbasp_initialize(const PROGRAMMER *pgm, const AVRPART *p) {
     pgm->set_sck_period(pgm, pgm->bitclock);
 
     // Connect to target device
+    temp[0] = p->stk500_devcode; // to support AT89S51/52
     usbasp_transmit(pgm, 1, USBASP_FUNC_CONNECT, temp, res, sizeof(res));
   }
 
