@@ -9,7 +9,7 @@
  * Meta-author Stefan Rueger <stefan.rueger@urclocks.com>
  *
  * v 1.44
- * 23.04.2025
+ * 05.06.2025
  *
  */
 
@@ -1323,20 +1323,6 @@ const Avrintel uP_table[] = {   // Value of -1 typically means unknown
   /*AT86RF401*/          0,  1,   3, vtab_at86rf401,        0, NULL, // ISRs, Config
   /*AT86RF401*/          0, NULL,                   0,         UART_NONE, -1, NULL, // Register file, UART
   /*AT86RF401*/         -1, NULL, WDT_CLASSIC3}, // Ports, WDT
-
-  //AT89S51                                                   avrdude // Sources
-  {"AT89S51",          372,  F_AVR8, {0x1E, 0x51, 0x06}, // ID
-  /*AT89S51*/            0, 0x01000, 0x001,  0,      0,       0,      0,  0,     -1,     -1, // Mem
-  /*AT89S51*/           -1, -1,   0, NULL,                  0, NULL, // ISRs, Config
-  /*AT89S51*/            0, NULL,                   0,      UART_UNKNOWN, -1, NULL, // Register file, UART
-  /*AT89S51*/           -1, NULL, WDT_UNKNOWN}, // Ports, WDT
-
-  //AT89S52                                                   avrdude // Sources
-  {"AT89S52",          373,  F_AVR8, {0x1E, 0x52, 0x06}, // ID
-  /*AT89S52*/            0, 0x02000, 0x001,  0,      0,       0,      0,  0,     -1,     -1, // Mem
-  /*AT89S52*/           -1, -1,   0, NULL,                  0, NULL, // ISRs, Config
-  /*AT89S52*/            0, NULL,                   0,      UART_UNKNOWN, -1, NULL, // Register file, UART
-  /*AT89S52*/           -1, NULL, WDT_UNKNOWN}, // Ports, WDT
 
   //AT90PWM1                            atdf, avr-gcc 12.2.0, avrdude // Sources
   {"AT90PWM1",         166,  F_AVR8, {0x1E, 0x93, 0x83}, // ID
@@ -3026,6 +3012,21 @@ const Avrintel uP_table[] = {   // Value of -1 typically means unknown
   /*AVR128DB64*/        16,  4,  65, vtab_avr128db64,      16, cfgtab_avr32db28, // ISRs, Config
   /*AVR128DB64*/       698, rgftab_avr128db64,      6,        UART_AVR8X, 12, uarts_avr64da64, // Register file, UART
   /*AVR128DB64*/         7, ports_avr64da64, WDT_AVR8X}, // Ports, WDT
+
+
+  //AT89S51                                                   avrdude // Sources
+  {"AT89S51",          372, F_MCS51, {0x1E, 0x51, 0x06}, // ID
+  /*AT89S51*/            0, 0x01000, 0x001,  0,      0,       0,      0,  0,     -1,     -1, // Mem
+  /*AT89S51*/           -1, -1,   0, NULL,                  0, NULL, // ISRs, Config
+  /*AT89S51*/            0, NULL,                   0,      UART_UNKNOWN, -1, NULL, // Register file, UART
+  /*AT89S51*/           -1, NULL, WDT_UNKNOWN}, // Ports, WDT
+
+  //AT89S52                                                   avrdude // Sources
+  {"AT89S52",          373, F_MCS51, {0x1E, 0x52, 0x06}, // ID
+  /*AT89S52*/            0, 0x02000, 0x001,  0,      0,       0,      0,  0,     -1,     -1, // Mem
+  /*AT89S52*/           -1, -1,   0, NULL,                  0, NULL, // ISRs, Config
+  /*AT89S52*/            0, NULL,                   0,      UART_UNKNOWN, -1, NULL, // Register file, UART
+  /*AT89S52*/           -1, NULL, WDT_UNKNOWN}, // Ports, WDT
 };
 
 
