@@ -9,7 +9,7 @@
  * Meta-author Stefan Rueger <stefan.rueger@urclocks.com>
  *
  * v 1.44
- * 05.06.2025
+ * 20.06.2025
  *
  */
 
@@ -132,7 +132,7 @@ int upmatchingsig(uint8_t sigs[3], char *p, size_t n) {
 #define UART_XMEGA        UARTTYPE_XMEGA,   1, 12, 4
 #define UART_AVR8X        UARTTYPE_AVR8X,   1, 12, 4
 
-const Avrintel uP_table[] = {   // Value of -1 typically means unknown
+const Avrintel uP_table[412] = { // Value of -1 typically means unknown
   //mcu_name                                                          // Sources
   //{mcu_name,       mcuid,  family, {sig,    na, ture}, // ID
   //mcu_name       flstart,  flsize, pgsiz, nb, bootsz, eestart, eesize, ep, rambeg, ramsiz, // Mem
@@ -2639,7 +2639,7 @@ const Avrintel uP_table[] = {   // Value of -1 typically means unknown
   {"AVR32SD20",        402, F_AVR8X, {0x1E, 0x95, 0x54}, // ID
   /*AVR32SD20*/          0, 0x08000, 0x200,  1, 0x0200, 0x01400, 0x0100,  1, 0x7000, 0x1000, // Mem
   /*AVR32SD20*/         16,  4,  50, vtab_avr32sd20,       18, cfgtab_avr32sd20, // ISRs, Config
-  /*AVR32SD20*/        543, rgftab_avr32sd20,       2,        UART_AVR8X,  7, uarts_avr16dd20, // Register file, UART
+  /*AVR32SD20*/        540, rgftab_avr32sd20,       2,        UART_AVR8X,  7, uarts_avr16dd20, // Register file, UART
   /*AVR32SD20*/          4, ports_avr16dd20, WDT_AVR8X_DUAL}, // Ports, WDT
 
   //AVR32DA28                                           atdf, avrdude // Sources
@@ -2695,7 +2695,7 @@ const Avrintel uP_table[] = {   // Value of -1 typically means unknown
   {"AVR32SD28",        403, F_AVR8X, {0x1E, 0x95, 0x53}, // ID
   /*AVR32SD28*/          0, 0x08000, 0x200,  1, 0x0200, 0x01400, 0x0100,  1, 0x7000, 0x1000, // Mem
   /*AVR32SD28*/         16,  4,  54, vtab_avr32sd28,       18, cfgtab_avr32sd20, // ISRs, Config
-  /*AVR32SD28*/        562, rgftab_avr32sd28,       3,        UART_AVR8X,  8, uarts_avr16ea28, // Register file, UART
+  /*AVR32SD28*/        559, rgftab_avr32sd28,       3,        UART_AVR8X,  8, uarts_avr16ea28, // Register file, UART
   /*AVR32SD28*/          4, ports_avr16dd28, WDT_AVR8X_DUAL}, // Ports, WDT
 
   //AVR32DA32                                           atdf, avrdude // Sources
@@ -2751,7 +2751,7 @@ const Avrintel uP_table[] = {   // Value of -1 typically means unknown
   {"AVR32SD32",        404, F_AVR8X, {0x1E, 0x95, 0x52}, // ID
   /*AVR32SD32*/          0, 0x08000, 0x200,  1, 0x0200, 0x01400, 0x0100,  1, 0x7000, 0x1000, // Mem
   /*AVR32SD32*/         16,  4,  56, vtab_avr32sd32,       18, cfgtab_avr32sd20, // ISRs, Config
-  /*AVR32SD32*/        577, rgftab_avr32sd32,       3,        UART_AVR8X,  9, uarts_avr16ea32, // Register file, UART
+  /*AVR32SD32*/        575, rgftab_avr32sd32,       3,        UART_AVR8X,  9, uarts_avr16ea32, // Register file, UART
   /*AVR32SD32*/          4, ports_avr16dd32, WDT_AVR8X_DUAL}, // Ports, WDT
 
   //AVR32DA48                                           atdf, avrdude // Sources
@@ -47841,7 +47841,7 @@ const Register_file rgftab_avr16ea28[444] = { // I/O memory [0, 4159]
 };
 
 // AVR32SD20
-const Register_file rgftab_avr32sd20[543] = { // I/O memory [0, 4159]
+const Register_file rgftab_avr32sd20[540] = { // I/O memory [0, 4159]
   {"vporta.dir",             0x0000,  1,     -1,   0x00, "data direction register"},
   {"vporta.out",             0x0001,  1,     -1,   0x00, "I/O port output register"},
   {"vporta.in",              0x0002,  1,     -1,   0x00, "I/O port input register"},
@@ -48002,7 +48002,6 @@ const Register_file rgftab_avr32sd20[543] = { // I/O memory [0, 4159]
   {"evsys.userevsysevouta",  0x022e,  1,     -1,   0x00, "user EVOUT port A register"},
   {"evsys.userevsysevoutc",  0x022f,  1,     -1,   0x00, "user EVOUT port C register"},
   {"evsys.userevsysevoutd",  0x0230,  1,     -1,   0x00, "user EVOUT port D register"},
-  {"evsys.userevsysevoutf",  0x0231,  1,     -1,   0x00, "user EVOUT port F register"},
   {"evsys.userusart0irda",   0x0232,  1,     -1,   0x00, "user USART 0 IrDA event register"},
   {"evsys.userusart1irda",   0x0233,  1,     -1,   0x00, "user USART 1 IrDA event register"},
   {"evsys.usertca0cnta",     0x0235,  1,     -1,   0x00, "user TCA 0 event A register"},
@@ -48021,8 +48020,6 @@ const Register_file rgftab_avr32sd20[543] = { // I/O memory [0, 4159]
   {"evsys.usererrctrlevent1", 0x0242,  1,     -1,   0x00, "user 34 - ERRCTRL event 1 register"},
   {"evsys.userclkctrlcfd",   0x0243,  1,     -1,   0x00, "user 35 - CLKCTRL CFD register"},
   {"evsys.userclkctrlcfm",   0x0244,  1,     -1,   0x00, "user 36 - CLKCTRL CFM register"},
-  {"evsys.userevsysevoutb",  0x0245,  1,     -1,   0x00, "user EVOUT port B register"},
-  {"evsys.userevsysevoute",  0x0246,  1,     -1,   0x00, "user EVOUT port E register"},
   {"porta.dir",              0x0400,  1,     -1,   0x00, "data direction register"},
   {"porta.dirset",           0x0401,  1,     -1,   0x00, "data direction set register"},
   {"porta.dirclr",           0x0402,  1,     -1,   0x00, "data direction clear register"},
@@ -49289,7 +49286,7 @@ const Register_file rgftab_avr32db28[461] = { // I/O memory [0, 4159]
 };
 
 // AVR32SD28
-const Register_file rgftab_avr32sd28[562] = { // I/O memory [0, 4159]
+const Register_file rgftab_avr32sd28[559] = { // I/O memory [0, 4159]
   {"vporta.dir",             0x0000,  1,     -1,   0x00, "data direction register"},
   {"vporta.out",             0x0001,  1,     -1,   0x00, "I/O port output register"},
   {"vporta.in",              0x0002,  1,     -1,   0x00, "I/O port input register"},
@@ -49450,7 +49447,6 @@ const Register_file rgftab_avr32sd28[562] = { // I/O memory [0, 4159]
   {"evsys.userevsysevouta",  0x022e,  1,     -1,   0x00, "user EVOUT port A register"},
   {"evsys.userevsysevoutc",  0x022f,  1,     -1,   0x00, "user EVOUT port C register"},
   {"evsys.userevsysevoutd",  0x0230,  1,     -1,   0x00, "user EVOUT port D register"},
-  {"evsys.userevsysevoutf",  0x0231,  1,     -1,   0x00, "user EVOUT port F register"},
   {"evsys.userusart0irda",   0x0232,  1,     -1,   0x00, "user USART 0 IrDA event register"},
   {"evsys.userusart1irda",   0x0233,  1,     -1,   0x00, "user USART 1 IrDA event register"},
   {"evsys.userusart2irda",   0x0234,  1,     -1,   0x00, "user USART 2 IrDA event register"},
@@ -49470,8 +49466,6 @@ const Register_file rgftab_avr32sd28[562] = { // I/O memory [0, 4159]
   {"evsys.usererrctrlevent1", 0x0242,  1,     -1,   0x00, "user 34 - ERRCTRL event 1 register"},
   {"evsys.userclkctrlcfd",   0x0243,  1,     -1,   0x00, "user 35 - CLKCTRL CFD register"},
   {"evsys.userclkctrlcfm",   0x0244,  1,     -1,   0x00, "user 36 - CLKCTRL CFM register"},
-  {"evsys.userevsysevoutb",  0x0245,  1,     -1,   0x00, "user EVOUT port B register"},
-  {"evsys.userevsysevoute",  0x0246,  1,     -1,   0x00, "user EVOUT port E register"},
   {"porta.dir",              0x0400,  1,     -1,   0x00, "data direction register"},
   {"porta.dirset",           0x0401,  1,     -1,   0x00, "data direction set register"},
   {"porta.dirclr",           0x0402,  1,     -1,   0x00, "data direction clear register"},
@@ -50786,7 +50780,7 @@ const Register_file rgftab_avr32db32[476] = { // I/O memory [0, 4159]
 };
 
 // AVR32SD32
-const Register_file rgftab_avr32sd32[577] = { // I/O memory [0, 4159]
+const Register_file rgftab_avr32sd32[575] = { // I/O memory [0, 4159]
   {"vporta.dir",             0x0000,  1,     -1,   0x00, "data direction register"},
   {"vporta.out",             0x0001,  1,     -1,   0x00, "I/O port output register"},
   {"vporta.in",              0x0002,  1,     -1,   0x00, "I/O port input register"},
@@ -50967,8 +50961,6 @@ const Register_file rgftab_avr32sd32[577] = { // I/O memory [0, 4159]
   {"evsys.usererrctrlevent1", 0x0242,  1,     -1,   0x00, "user 34 - ERRCTRL event 1 register"},
   {"evsys.userclkctrlcfd",   0x0243,  1,     -1,   0x00, "user 35 - CLKCTRL CFD register"},
   {"evsys.userclkctrlcfm",   0x0244,  1,     -1,   0x00, "user 36 - CLKCTRL CFM register"},
-  {"evsys.userevsysevoutb",  0x0245,  1,     -1,   0x00, "user EVOUT port B register"},
-  {"evsys.userevsysevoute",  0x0246,  1,     -1,   0x00, "user EVOUT port E register"},
   {"porta.dir",              0x0400,  1,     -1,   0x00, "data direction register"},
   {"porta.dirset",           0x0401,  1,     -1,   0x00, "data direction set register"},
   {"porta.dirclr",           0x0402,  1,     -1,   0x00, "data direction clear register"},
