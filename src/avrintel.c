@@ -9,7 +9,7 @@
  * Meta-author Stefan Rueger <stefan.rueger@urclocks.com>
  *
  * v 1.44
- * 20.06.2025
+ * 07.01.2026
  *
  */
 
@@ -132,7 +132,7 @@ int upmatchingsig(uint8_t sigs[3], char *p, size_t n) {
 #define UART_XMEGA        UARTTYPE_XMEGA,   1, 12, 4
 #define UART_AVR8X        UARTTYPE_AVR8X,   1, 12, 4
 
-const Avrintel uP_table[412] = { // Value of -1 typically means unknown
+const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   //mcu_name                                                          // Sources
   //{mcu_name,       mcuid,  family, {sig,    na, ture}, // ID
   //mcu_name       flstart,  flsize, pgsiz, nb, bootsz, eestart, eesize, ep, rambeg, ramsiz, // Mem
@@ -680,11 +680,18 @@ const Avrintel uP_table[412] = { // Value of -1 typically means unknown
   /*ATmega64C1*/       122, rgftab_atmega64c1,      1,          UART_LIN,  1, uarts_atmega16m1, // Register file, UART
   /*ATmega64C1*/         4, ports_atmega16m1, WDT_CLASSIC4}, // Ports, WDT
 
+  //ATmegaS64M1                                                  atdf // Sources
+  {"ATmegaS64M1",      412,  F_AVR8, {0x1E, 0x96, 0x84}, // ID
+  /*ATmegaS64M1*/        0, 0x10000, 0x100,  4, 0x0400,       0, 0x0800,  8, 0x0100, 0x1000, // Mem
+  /*ATmegaS64M1*/        3,  1,  31, vtab_atmega64m1,      17, cfgtab_atmega64c1, // ISRs, Config
+  /*ATmegaS64M1*/      136, rgftab_atmegas64m1,     1,          UART_LIN, -1, NULL, // Register file, UART
+  /*ATmegaS64M1*/        4, ports_atmegas64m1, WDT_CLASSIC4}, // Ports, WDT
+
   //ATmega64M1                          atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATmega64M1",        76,  F_AVR8, {0x1E, 0x96, 0x84}, // ID
   /*ATmega64M1*/         0, 0x10000, 0x100,  4, 0x0400,       0, 0x0800,  8, 0x0100, 0x1000, // Mem
   /*ATmega64M1*/         3,  1,  31, vtab_atmega64m1,      17, cfgtab_atmega64c1, // ISRs, Config
-  /*ATmega64M1*/       136, rgftab_atmega64m1,      1,          UART_LIN,  1, uarts_atmega16m1, // Register file, UART
+  /*ATmega64M1*/       136, rgftab_atmegas64m1,     1,          UART_LIN,  1, uarts_atmega16m1, // Register file, UART
   /*ATmega64M1*/         4, ports_atmega16m1, WDT_CLASSIC4}, // Ports, WDT
 
   //ATmega64HVE2                        atdf, avr-gcc 12.2.0, avrdude // Sources
@@ -756,6 +763,13 @@ const Avrintel uP_table[412] = { // Value of -1 typically means unknown
   /*ATmega128*/          3,  1,  35, vtab_atmega128a,      15, cfgtab_atmega128, // ISRs, Config
   /*ATmega128*/        103, rgftab_atmega128,       2, UART_CLASSIC_2x12,  2, uarts_atmega64, // Register file, UART
   /*ATmega128*/          7, ports_atmega64, WDT_CLASSIC3}, // Ports, WDT
+
+  //ATmegaS128                                                   atdf // Sources
+  {"ATmegaS128",       413,  F_AVR8, {0x1E, 0x97, 0x02}, // ID
+  /*ATmegaS128*/         0, 0x20000, 0x100,  4, 0x0400,       0, 0x1000,  8, 0x0100, 0x1000, // Mem
+  /*ATmegaS128*/         3,  1,  35, vtab_atmega128a,      15, cfgtab_atmega128, // ISRs, Config
+  /*ATmegaS128*/       103, rgftab_atmega128,       2, UART_CLASSIC_2x12,  2, uarts_atmega64, // Register file, UART
+  /*ATmegaS128*/         7, ports_atmegas128, WDT_CLASSIC3}, // Ports, WDT
 
   //ATmega128A                          atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATmega128A",        86,  F_AVR8, {0x1E, 0x97, 0x02}, // ID
@@ -2509,6 +2523,13 @@ const Avrintel uP_table[412] = { // Value of -1 typically means unknown
   /*AVR16EB14*/        390, rgftab_avr16eb14,       1,        UART_AVR8X,  4, uarts_avr16eb14, // Register file, UART
   /*AVR16EB14*/          4, ports_avr16eb14, WDT_AVR8X}, // Ports, WDT
 
+  //AVR16LA14                                                    atdf // Sources
+  {"AVR16LA14",        414, F_AVR8X, {0x1E, 0x94, 0x54}, // ID
+  /*AVR16LA14*/          0, 0x04000, 0x040,  1, 0x0100, 0x01400, 0x0200,  8, 0x7800, 0x0800, // Mem
+  /*AVR16LA14*/         12,  4,  29, vtab_avr32la32,       20, cfgtab_avr16la14, // ISRs, Config
+  /*AVR16LA14*/        339, rgftab_avr16la14,       1,        UART_AVR8X,  3, uarts_avr16la14, // Register file, UART
+  /*AVR16LA14*/          4, ports_avr16eb14, WDT_AVR8X}, // Ports, WDT
+
   //AVR16DD20                                           atdf, avrdude // Sources
   {"AVR16DD20",        330, F_AVR8X, {0x1E, 0x94, 0x33}, // ID
   /*AVR16DD20*/          0, 0x04000, 0x200,  1, 0x0200, 0x01400, 0x0100,  1, 0x7800, 0x0800, // Mem
@@ -2529,6 +2550,13 @@ const Avrintel uP_table[412] = { // Value of -1 typically means unknown
   /*AVR16EB20*/         16,  4,  31, vtab_avr16eb32,       18, cfgtab_avr16eb14, // ISRs, Config
   /*AVR16EB20*/        391, rgftab_avr16eb20,       1,        UART_AVR8X,  6, uarts_avr16eb20, // Register file, UART
   /*AVR16EB20*/          4, ports_avr16eb20, WDT_AVR8X}, // Ports, WDT
+
+  //AVR16LA20                                                    atdf // Sources
+  {"AVR16LA20",        415, F_AVR8X, {0x1E, 0x94, 0x53}, // ID
+  /*AVR16LA20*/          0, 0x04000, 0x040,  1, 0x0100, 0x01400, 0x0200,  8, 0x7800, 0x0800, // Mem
+  /*AVR16LA20*/         12,  4,  29, vtab_avr32la32,       20, cfgtab_avr16la14, // ISRs, Config
+  /*AVR16LA20*/        341, rgftab_avr16la20,       1,        UART_AVR8X,  5, uarts_avr16la20, // Register file, UART
+  /*AVR16LA20*/          4, ports_avr16eb20, WDT_AVR8X}, // Ports, WDT
 
   //AVR16DD28                                           atdf, avrdude // Sources
   {"AVR16DD28",        331, F_AVR8X, {0x1E, 0x94, 0x32}, // ID
@@ -2558,6 +2586,13 @@ const Avrintel uP_table[412] = { // Value of -1 typically means unknown
   /*AVR16EB28*/        391, rgftab_avr16eb20,       1,        UART_AVR8X,  6, uarts_avr16eb20, // Register file, UART
   /*AVR16EB28*/          4, ports_avr16ea28, WDT_AVR8X}, // Ports, WDT
 
+  //AVR16LA28                                                    atdf // Sources
+  {"AVR16LA28",        416, F_AVR8X, {0x1E, 0x94, 0x52}, // ID
+  /*AVR16LA28*/          0, 0x04000, 0x040,  1, 0x0100, 0x01400, 0x0200,  8, 0x7800, 0x0800, // Mem
+  /*AVR16LA28*/         12,  4,  29, vtab_avr32la32,       20, cfgtab_avr16la14, // ISRs, Config
+  /*AVR16LA28*/        341, rgftab_avr16la20,       1,        UART_AVR8X,  5, uarts_avr16la20, // Register file, UART
+  /*AVR16LA28*/          4, ports_avr16ea28, WDT_AVR8X}, // Ports, WDT
+
   //AVR16DD32                                           atdf, avrdude // Sources
   {"AVR16DD32",        333, F_AVR8X, {0x1E, 0x94, 0x31}, // ID
   /*AVR16DD32*/          0, 0x04000, 0x200,  1, 0x0200, 0x01400, 0x0100,  1, 0x7800, 0x0800, // Mem
@@ -2585,6 +2620,13 @@ const Avrintel uP_table[412] = { // Value of -1 typically means unknown
   /*AVR16EB32*/         16,  4,  31, vtab_avr16eb32,       18, cfgtab_avr16eb14, // ISRs, Config
   /*AVR16EB32*/        391, rgftab_avr16eb20,       1,        UART_AVR8X,  6, uarts_avr16eb20, // Register file, UART
   /*AVR16EB32*/          4, ports_avr16ea32, WDT_AVR8X}, // Ports, WDT
+
+  //AVR16LA32                                                    atdf // Sources
+  {"AVR16LA32",        417, F_AVR8X, {0x1E, 0x94, 0x51}, // ID
+  /*AVR16LA32*/          0, 0x04000, 0x040,  1, 0x0100, 0x01400, 0x0200,  8, 0x7800, 0x0800, // Mem
+  /*AVR16LA32*/         12,  4,  29, vtab_avr32la32,       20, cfgtab_avr16la14, // ISRs, Config
+  /*AVR16LA32*/        341, rgftab_avr16la20,       1,        UART_AVR8X,  5, uarts_avr16la20, // Register file, UART
+  /*AVR16LA32*/          4, ports_avr16ea32, WDT_AVR8X}, // Ports, WDT
 
   //AVR16EA48                                           atdf, avrdude // Sources
   {"AVR16EA48",        335, F_AVR8X, {0x1E, 0x94, 0x35}, // ID
@@ -2614,6 +2656,13 @@ const Avrintel uP_table[412] = { // Value of -1 typically means unknown
   /*AVR32EB14*/        390, rgftab_avr16eb14,       1,        UART_AVR8X,  4, uarts_avr16eb14, // Register file, UART
   /*AVR32EB14*/          4, ports_avr16eb14, WDT_AVR8X}, // Ports, WDT
 
+  //AVR32LA14                                                    atdf // Sources
+  {"AVR32LA14",        418, F_AVR8X, {0x1E, 0x95, 0x29}, // ID
+  /*AVR32LA14*/          0, 0x08000, 0x040,  1, 0x0100, 0x01400, 0x0200,  8, 0x7800, 0x0800, // Mem
+  /*AVR32LA14*/         12,  4,  29, vtab_avr32la32,       20, cfgtab_avr16la14, // ISRs, Config
+  /*AVR32LA14*/        339, rgftab_avr16la14,       1,        UART_AVR8X,  3, uarts_avr16la14, // Register file, UART
+  /*AVR32LA14*/          4, ports_avr16eb14, WDT_AVR8X}, // Ports, WDT
+
   //AVR32DD20                                           atdf, avrdude // Sources
   {"AVR32DD20",        337, F_AVR8X, {0x1E, 0x95, 0x3A}, // ID
   /*AVR32DD20*/          0, 0x08000, 0x200,  1, 0x0200, 0x01400, 0x0100,  1, 0x7000, 0x1000, // Mem
@@ -2634,6 +2683,13 @@ const Avrintel uP_table[412] = { // Value of -1 typically means unknown
   /*AVR32EB20*/         16,  4,  31, vtab_avr32eb32,       18, cfgtab_avr16eb14, // ISRs, Config
   /*AVR32EB20*/        391, rgftab_avr16eb20,       1,        UART_AVR8X,  6, uarts_avr16eb20, // Register file, UART
   /*AVR32EB20*/          4, ports_avr16eb20, WDT_AVR8X}, // Ports, WDT
+
+  //AVR32LA20                                                    atdf // Sources
+  {"AVR32LA20",        419, F_AVR8X, {0x1E, 0x95, 0x60}, // ID
+  /*AVR32LA20*/          0, 0x08000, 0x040,  1, 0x0100, 0x01400, 0x0200,  8, 0x7800, 0x0800, // Mem
+  /*AVR32LA20*/         12,  4,  29, vtab_avr32la32,       20, cfgtab_avr16la14, // ISRs, Config
+  /*AVR32LA20*/        341, rgftab_avr16la20,       1,        UART_AVR8X,  5, uarts_avr16la20, // Register file, UART
+  /*AVR32LA20*/          4, ports_avr16eb20, WDT_AVR8X}, // Ports, WDT
 
   //AVR32SD20                                           atdf, avrdude // Sources
   {"AVR32SD20",        402, F_AVR8X, {0x1E, 0x95, 0x54}, // ID
@@ -2691,6 +2747,13 @@ const Avrintel uP_table[412] = { // Value of -1 typically means unknown
   /*AVR32EB28*/        391, rgftab_avr16eb20,       1,        UART_AVR8X,  6, uarts_avr16eb20, // Register file, UART
   /*AVR32EB28*/          4, ports_avr16ea28, WDT_AVR8X}, // Ports, WDT
 
+  //AVR32LA28                                                    atdf // Sources
+  {"AVR32LA28",        420, F_AVR8X, {0x1E, 0x95, 0x59}, // ID
+  /*AVR32LA28*/          0, 0x08000, 0x040,  1, 0x0100, 0x01400, 0x0200,  8, 0x7800, 0x0800, // Mem
+  /*AVR32LA28*/         12,  4,  29, vtab_avr32la32,       20, cfgtab_avr16la14, // ISRs, Config
+  /*AVR32LA28*/        341, rgftab_avr16la20,       1,        UART_AVR8X,  5, uarts_avr16la20, // Register file, UART
+  /*AVR32LA28*/          4, ports_avr16ea28, WDT_AVR8X}, // Ports, WDT
+
   //AVR32SD28                                           atdf, avrdude // Sources
   {"AVR32SD28",        403, F_AVR8X, {0x1E, 0x95, 0x53}, // ID
   /*AVR32SD28*/          0, 0x08000, 0x200,  1, 0x0200, 0x01400, 0x0100,  1, 0x7000, 0x1000, // Mem
@@ -2746,6 +2809,13 @@ const Avrintel uP_table[412] = { // Value of -1 typically means unknown
   /*AVR32EB32*/         16,  4,  31, vtab_avr32eb32,       18, cfgtab_avr16eb14, // ISRs, Config
   /*AVR32EB32*/        391, rgftab_avr16eb20,       1,        UART_AVR8X,  6, uarts_avr16eb20, // Register file, UART
   /*AVR32EB32*/          4, ports_avr16ea32, WDT_AVR8X}, // Ports, WDT
+
+  //AVR32LA32                                                    atdf // Sources
+  {"AVR32LA32",        421, F_AVR8X, {0x1E, 0x95, 0x58}, // ID
+  /*AVR32LA32*/          0, 0x08000, 0x040,  1, 0x0100, 0x01400, 0x0200,  8, 0x7800, 0x0800, // Mem
+  /*AVR32LA32*/         12,  4,  29, vtab_avr32la32,       20, cfgtab_avr16la14, // ISRs, Config
+  /*AVR32LA32*/        341, rgftab_avr16la20,       1,        UART_AVR8X,  5, uarts_avr16la20, // Register file, UART
+  /*AVR32LA32*/          4, ports_avr16ea32, WDT_AVR8X}, // Ports, WDT
 
   //AVR32SD32                                           atdf, avrdude // Sources
   {"AVR32SD32",        404, F_AVR8X, {0x1E, 0x95, 0x52}, // ID
@@ -3732,7 +3802,7 @@ const char * const vtab_atmega32u6[vts_atmega32u6] = {
   "SPM_READY",                  //  37: Store Program Memory Ready
 };
 
-// ATmega64M1 ATmega64C1 ATmega32M1 ATmega32C1 ATmega16M1
+// ATmega64M1 ATmegaS64M1 ATmega64C1 ATmega32M1 ATmega32C1 ATmega16M1
 const char * const vtab_atmega64m1[vts_atmega64m1] = {
   "RESET",                      //   0: Reset (various reasons)
   "ANACOMP0",                   //   1: Analog Comparator 0
@@ -3824,7 +3894,7 @@ const char * const vtab_atmega103[vts_atmega103] = {
   "ANALOG_COMP",                //  23: Analog Comparator
 };
 
-// ATmega128A ATmega128 ATmega64A ATmega64
+// ATmega128A ATmegaS128 ATmega128 ATmega64A ATmega64
 const char * const vtab_atmega128a[vts_atmega128a] = {
   "RESET",                      //   0: Reset (various reasons)
   "INT0",                       //   1: External Interrupt 0
@@ -7914,6 +7984,39 @@ const char * const vtab_avr32eb32[vts_avr32eb32] = {
   "NVMCTRL_EEREADY/NVMCTRL_FLREADY/NVMCTRL_NVMREADY", //  30: NVM EEPROM Ready/NVM Flash Ready/NVM Ready
 };
 
+// AVR32LA32 AVR32LA28 AVR32LA20 AVR32LA14 AVR16LA32 AVR16LA28 AVR16LA20 AVR16LA14
+const char * const vtab_avr32la32[vts_avr32la32] = {
+  "RESET",                      //   0: Reset (various reasons)
+  "CPU_CRCSCAN_NMI",            //   1: Non-Maskable Interrupt from CRCSCAN
+  "BOD_VLM",                    //   2: Brown-out Detector Voltage Level Monitor
+  "CRCSCAN_INT",                //   3: Scan Period Done Interrupt from CRCSCAN
+  "RTC_CNT",                    //   4: RTC Counter Interrupt
+  "RTC_PIT",                    //   5: RTC Periodic Interrupt Timer
+  "CCL_CCL",                    //   6: Configurable Custom Logic
+  "PORTA_PORT",                 //   7: Interrupt PORT A
+  "TCE0_OVF",                   //   8: TC E0 Overflow
+  "TCE0_CMP0",                  //   9: TC E0 Compare 0
+  "TCE0_CMP1",                  //  10: TC E0 Compare 1
+  "TCE0_CMP2",                  //  11: TC E0 Compare 2
+  "TCB0_INT",                   //  12: TC B0 Interrupt
+  "TCB1_INT",                   //  13: TC B1 Interrupt
+  "TWI0_TWIP",                  //  14: 2-Wire Interface 0 Peripheral
+  "TWI0_TWIM",                  //  15: 2-Wire Interface 0 Controller
+  "SPI0_INT",                   //  16: SPI 0 Interrupt
+  "USART0_ERROR",               //  17: USART 0 Error
+  "USART0_RXC",                 //  18: USART 0 Receive Complete
+  "USART0_DRE",                 //  19: USART 0 Data Register Empty
+  "USART0_TXC",                 //  20: USART 0 Transmit Complete
+  "PORTD_PORT",                 //  21: Interrupt PORT D
+  "AC0_INT",                    //  22: AC0 Interrupt
+  "ADC0_ERROR",                 //  23: ADC 0 Error
+  "ADC0_RESRDY",                //  24: ADC 0 Result Ready
+  "ADC0_SAMPRDY",               //  25: ADC 0 Sample Ready
+  "PORTC_PORT",                 //  26: Interrupt PORT C
+  "PORTF_PORT",                 //  27: Interrupt PORT F
+  "NVMCTRL_NVMREADY",           //  28: NVM Ready
+};
+
 // AVR32SD32
 const char * const vtab_avr32sd32[vts_avr32sd32] = {
   "RESET",                      //   0: Reset (various reasons)
@@ -8773,7 +8876,10 @@ static const Configvalue _values_sut_cksel_atmega328[55] = {
   {0x3f, "extxosc_8mhz_xx_16kck_14ck_65ms", "ext crystal osc 8.0+ MHz; startup time PWRDWN/RESET: 16384 CK/14 CK + 65 ms"},
 };
 
-// ATmega16M1 ATmega32C1 ATmega32M1 ATmega64C1 ATmega64M1 AT90PWM2B AT90PWM3B AT90PWM316
+/*
+ * ATmega16M1 ATmega32C1 ATmega32M1 ATmega64C1 ATmegaS64M1 ATmega64M1 AT90PWM2B AT90PWM3B
+ * AT90PWM316
+ */
 static const Configvalue _values_sut_cksel_atmega16m1[53] = {
   {0x00, "extclk_6ck_14ck_0ms", "ext clock; startup time PWRDWN/RESET: 6 CK/14 CK + 0 ms"},
   {0x01, "pllclk_pllin_extclk_6kck_14ck_0ms", "PLL clock/4; PLL input: ext clock; startup time PWRDWN/RESET: 6K CK/14 CK + 0 ms"},
@@ -8883,7 +8989,7 @@ static const Configvalue _values_sut_cksel_atmega328pb[47] = {
 
 /*
  * ATmega8515 ATmega103comp AT90S8535comp ATmega8 ATmega8A ATmega16 ATmega16A ATmega32 ATmega32A
- * ATmega64 ATmega64A ATmega128 ATmega128A ATmega8535 AT90S8515comp
+ * ATmega64 ATmega64A ATmega128 ATmegaS128 ATmega128A ATmega8535 AT90S8515comp
  */
 static const Configvalue _values_sut_cksel_atmega8515[58] = {
   {0x00, "extclk_6ck_0ms", "ext clock; startup time: 6 CK + 0 ms"},
@@ -9806,7 +9912,7 @@ static const Configvalue _values_ckout_atmega328[2] = {
   {1, "co_disabled", "clock signal is not output on a pin"},
 };
 
-// ATmega16M1 AT90PWM81 ATmega32C1 ATmega32M1 ATmega64C1 ATmega64M1 AT90PWM161
+// ATmega16M1 AT90PWM81 ATmega32C1 ATmega32M1 ATmega64C1 ATmegaS64M1 ATmega64M1 AT90PWM161
 static const Configvalue _values_ckout_atmega16m1[2] = {
   {0, "gpio_pd1", "clock output on GPIO PD1"},
   {1, "co_disabled", "clock signal is not output on a pin"},
@@ -9896,15 +10002,15 @@ static const Configvalue _values_ckout_atmega64rfr2[2] = {
  * ATtiny261 ATtiny261A ATtiny461 ATtiny461A ATtiny828 ATtiny828R ATtiny841 ATtiny861 ATtiny861A
  * ATtiny1634 ATtiny1634R ATtiny2313 ATtiny2313A ATtiny4313 ATmega8U2 ATmega16HVB ATmega16U2
  * ATmega16U4 ATmega32HVB ATmega32C1 ATmega32M1 ATmega32U2 ATmega32U4 ATmega32U6 ATmega48
- * ATmega48A ATmega48P ATmega48PA ATmega48PB ATmega64C1 ATmega64M1 ATmega64HVE2 ATmega64RFR2
- * ATmega88 ATmega88A ATmega88P ATmega88PA ATmega88PB ATmega128RFA1 ATmega128RFR2 ATmega162
- * ATmega164A ATmega164P ATmega164PA ATmega165 ATmega165A ATmega165P ATmega165PA ATmega168
- * ATmega168A ATmega168P ATmega168PA ATmega168PB ATmega169 ATmega169A ATmega169P ATmega169PA
- * ATmega256RFR2 ATmega324A ATmega324P ATmega324PA ATmega324PB ATmega325 ATmega325A ATmega325P
- * ATmega325PA ATmega328P ATmega329 ATmega329A ATmega329P ATmega329PA ATmega640 ATmega644
- * ATmega644A ATmega644P ATmega644PA ATmega644RFR2 ATmega645 ATmega645A ATmega645P ATmega649
- * ATmega649A ATmega649P ATmega1280 ATmega1281 ATmega1284 ATmega1284P ATmega1284RFR2 ATmega2560
- * ATmega2561 ATmega2564RFR2 ATmega3250 ATmega3250A ATmega3250P ATmega3250PA ATmega3290
+ * ATmega48A ATmega48P ATmega48PA ATmega48PB ATmega64C1 ATmegaS64M1 ATmega64M1 ATmega64HVE2
+ * ATmega64RFR2 ATmega88 ATmega88A ATmega88P ATmega88PA ATmega88PB ATmega128RFA1 ATmega128RFR2
+ * ATmega162 ATmega164A ATmega164P ATmega164PA ATmega165 ATmega165A ATmega165P ATmega165PA
+ * ATmega168 ATmega168A ATmega168P ATmega168PA ATmega168PB ATmega169 ATmega169A ATmega169P
+ * ATmega169PA ATmega256RFR2 ATmega324A ATmega324P ATmega324PA ATmega324PB ATmega325 ATmega325A
+ * ATmega325P ATmega325PA ATmega328P ATmega329 ATmega329A ATmega329P ATmega329PA ATmega640
+ * ATmega644 ATmega644A ATmega644P ATmega644PA ATmega644RFR2 ATmega645 ATmega645A ATmega645P
+ * ATmega649 ATmega649A ATmega649P ATmega1280 ATmega1281 ATmega1284 ATmega1284P ATmega1284RFR2
+ * ATmega2560 ATmega2561 ATmega2564RFR2 ATmega3250 ATmega3250A ATmega3250P ATmega3250PA ATmega3290
  * ATmega3290A ATmega3290P ATmega3290PA ATmega6450 ATmega6450A ATmega6450P ATmega6490 ATmega6490A
  * ATmega6490P AT90PWM1 AT90PWM2B AT90PWM3 AT90PWM3B AT90CAN32 AT90CAN64 AT90USB82 AT90PWM161
  * AT90PWM216 AT90PWM316 AT90USB646 AT90USB647 AT90USB1286 AT90USB1287 ATA5272 ATA5505 ATA5782
@@ -9923,27 +10029,27 @@ static const Configvalue _values_ckdiv8_atmega328[2] = {
  * ATmega103comp AT90SCR100H ATmega161comp AT90S8535comp ATtiny828 ATtiny828R ATmega8 ATmega8A
  * ATmega8U2 ATmega16 ATmega16A ATmega16HVB ATmega16HVBrevB ATmega16U2 ATmega16U4 ATmega32
  * ATmega32A ATmega32HVB ATmega32C1 ATmega32M1 ATmega32U2 ATmega32U4 ATmega32U6 ATmega64 ATmega64A
- * ATmega64C1 ATmega64M1 ATmega64HVE2 ATmega64RFR2 ATmega88 ATmega88A ATmega88P ATmega88PA
- * ATmega88PB ATmega128 ATmega128A ATmega128RFA1 ATmega128RFR2 ATmega161 ATmega162 ATmega163
- * ATmega164A ATmega164P ATmega164PA ATmega165 ATmega165A ATmega165P ATmega165PA ATmega168
- * ATmega168A ATmega168P ATmega168PA ATmega168PB ATmega169 ATmega169A ATmega169P ATmega169PA
- * ATmega256RFR2 ATmega323 ATmega324A ATmega324P ATmega324PA ATmega324PB ATmega325 ATmega325A
- * ATmega325P ATmega325PA ATmega328P ATmega329 ATmega329A ATmega329P ATmega329PA ATmega406
- * ATmega640 ATmega644 ATmega644A ATmega644P ATmega644PA ATmega644RFR2 ATmega645 ATmega645A
- * ATmega645P ATmega649 ATmega649A ATmega649P ATmega1280 ATmega1281 ATmega1284 ATmega1284P
- * ATmega1284RFR2 ATmega2560 ATmega2561 ATmega2564RFR2 ATmega3250 ATmega3250A ATmega3250P
- * ATmega3250PA ATmega3290 ATmega3290A ATmega3290P ATmega3290PA ATmega6450 ATmega6450A ATmega6450P
- * ATmega6490 ATmega6490A ATmega6490P ATmega8535 AT90PWM1 AT90PWM2B AT90PWM3 AT90PWM3B AT90CAN32
- * AT90CAN64 AT90USB82 AT90SCR100 AT90PWM161 AT90PWM216 AT90PWM316 AT90USB646 AT90USB647
- * AT90USB1286 AT90USB1287 AT90S8515comp ATA5702M322 ATA5782 ATA5783 ATA5787 ATA5831 ATA5832
- * ATA5833 ATA5835 ATA6286 ATA6289 ATA6612C ATA6613C ATA6614Q ATA8210 ATA8215 ATA8510 ATA8515
- * ATxmega8E5 ATxmega16A4 ATxmega16A4U ATxmega16C4 ATxmega16D4 ATxmega32C3 ATxmega32D3 ATxmega32A4
- * ATxmega32A4U ATxmega32C4 ATxmega32D4 ATxmega32E5 ATxmega64A1 ATxmega64A1U ATxmega64B1
- * ATxmega64A3 ATxmega64A3U ATxmega64B3 ATxmega64C3 ATxmega64D3 ATxmega64A4U ATxmega64D4
- * ATxmega128A1 ATxmega128A1revD ATxmega128A1U ATxmega128B1 ATxmega128B3 ATxmega128C3 ATxmega128D3
- * ATxmega128A4U ATxmega128D4 ATxmega192A3 ATxmega192A3U ATxmega192C3 ATxmega192D3 ATxmega256A3
- * ATxmega256A3B ATxmega256A3BU ATxmega256A3U ATxmega256C3 ATxmega256D3 ATxmega384C3 ATxmega384D3
- * ATmega32HVE2
+ * ATmega64C1 ATmegaS64M1 ATmega64M1 ATmega64HVE2 ATmega64RFR2 ATmega88 ATmega88A ATmega88P
+ * ATmega88PA ATmega88PB ATmega128 ATmegaS128 ATmega128A ATmega128RFA1 ATmega128RFR2 ATmega161
+ * ATmega162 ATmega163 ATmega164A ATmega164P ATmega164PA ATmega165 ATmega165A ATmega165P
+ * ATmega165PA ATmega168 ATmega168A ATmega168P ATmega168PA ATmega168PB ATmega169 ATmega169A
+ * ATmega169P ATmega169PA ATmega256RFR2 ATmega323 ATmega324A ATmega324P ATmega324PA ATmega324PB
+ * ATmega325 ATmega325A ATmega325P ATmega325PA ATmega328P ATmega329 ATmega329A ATmega329P
+ * ATmega329PA ATmega406 ATmega640 ATmega644 ATmega644A ATmega644P ATmega644PA ATmega644RFR2
+ * ATmega645 ATmega645A ATmega645P ATmega649 ATmega649A ATmega649P ATmega1280 ATmega1281
+ * ATmega1284 ATmega1284P ATmega1284RFR2 ATmega2560 ATmega2561 ATmega2564RFR2 ATmega3250
+ * ATmega3250A ATmega3250P ATmega3250PA ATmega3290 ATmega3290A ATmega3290P ATmega3290PA ATmega6450
+ * ATmega6450A ATmega6450P ATmega6490 ATmega6490A ATmega6490P ATmega8535 AT90PWM1 AT90PWM2B
+ * AT90PWM3 AT90PWM3B AT90CAN32 AT90CAN64 AT90USB82 AT90SCR100 AT90PWM161 AT90PWM216 AT90PWM316
+ * AT90USB646 AT90USB647 AT90USB1286 AT90USB1287 AT90S8515comp ATA5702M322 ATA5782 ATA5783 ATA5787
+ * ATA5831 ATA5832 ATA5833 ATA5835 ATA6286 ATA6289 ATA6612C ATA6613C ATA6614Q ATA8210 ATA8215
+ * ATA8510 ATA8515 ATxmega8E5 ATxmega16A4 ATxmega16A4U ATxmega16C4 ATxmega16D4 ATxmega32C3
+ * ATxmega32D3 ATxmega32A4 ATxmega32A4U ATxmega32C4 ATxmega32D4 ATxmega32E5 ATxmega64A1
+ * ATxmega64A1U ATxmega64B1 ATxmega64A3 ATxmega64A3U ATxmega64B3 ATxmega64C3 ATxmega64D3
+ * ATxmega64A4U ATxmega64D4 ATxmega128A1 ATxmega128A1revD ATxmega128A1U ATxmega128B1 ATxmega128B3
+ * ATxmega128C3 ATxmega128D3 ATxmega128A4U ATxmega128D4 ATxmega192A3 ATxmega192A3U ATxmega192C3
+ * ATxmega192D3 ATxmega256A3 ATxmega256A3B ATxmega256A3BU ATxmega256A3U ATxmega256C3 ATxmega256D3
+ * ATxmega384C3 ATxmega384D3 ATmega32HVE2
  */
 static const Configvalue _values_bootrst_atmega328[2] = {
   {0, "boot_section", "reset jumps to start of boot section"},
@@ -9976,10 +10082,10 @@ static const Configvalue _values_bootsz_atmega16m1[4] = {
 };
 
 /*
- * ATmega64HVE AT90SCR100H ATmega64 ATmega64A ATmega64C1 ATmega64M1 ATmega64HVE2 ATmega64RFR2
- * ATmega640 ATmega644 ATmega644A ATmega644P ATmega644PA ATmega644RFR2 ATmega645 ATmega645A
- * ATmega645P ATmega649 ATmega649A ATmega649P ATmega6450 ATmega6450A ATmega6450P ATmega6490
- * ATmega6490A ATmega6490P AT90CAN64 AT90SCR100 ATmega32HVE2
+ * ATmega64HVE AT90SCR100H ATmega64 ATmega64A ATmega64C1 ATmegaS64M1 ATmega64M1 ATmega64HVE2
+ * ATmega64RFR2 ATmega640 ATmega644 ATmega644A ATmega644P ATmega644PA ATmega644RFR2 ATmega645
+ * ATmega645A ATmega645P ATmega649 ATmega649A ATmega649P ATmega6450 ATmega6450A ATmega6450P
+ * ATmega6490 ATmega6490A ATmega6490P AT90CAN64 AT90SCR100 ATmega32HVE2
  */
 static const Configvalue _values_bootsz_atmega64hve[4] = {
   {0, "bs_4096w", "boot size 8192 bytes; boot address 0xe000"},
@@ -10001,8 +10107,8 @@ static const Configvalue _values_bootsz_atmega8515[4] = {
 };
 
 /*
- * AT90CAN128 ATmega103comp ATmega128 ATmega128A ATmega128RFA1 ATmega128RFR2 ATmega1280 ATmega1281
- * ATmega1284 ATmega1284P ATmega1284RFR2 AT90USB1286 AT90USB1287
+ * AT90CAN128 ATmega103comp ATmega128 ATmegaS128 ATmega128A ATmega128RFA1 ATmega128RFR2 ATmega1280
+ * ATmega1281 ATmega1284 ATmega1284P ATmega1284RFR2 AT90USB1286 AT90USB1287
  */
 static const Configvalue _values_bootsz_at90can128[4] = {
   {0, "bs_4096w", "boot size 8192 bytes; boot address 0x1e000"},
@@ -10081,28 +10187,28 @@ static const Configvalue _values_bootsz_at90usb646[4] = {
  * ATtiny2313 ATtiny2313A ATtiny4313 ATmega8 ATmega8A ATmega8HVA ATmega8U2 ATmega16 ATmega16A
  * ATmega16HVA ATmega16HVB ATmega16HVBrevB ATmega16U2 ATmega16U4 ATmega32 ATmega32A ATmega32HVB
  * ATmega32C1 ATmega32M1 ATmega32U2 ATmega32U4 ATmega32U6 ATmega48 ATmega48A ATmega48P ATmega48PA
- * ATmega48PB ATmega64 ATmega64A ATmega64C1 ATmega64M1 ATmega64HVE2 ATmega64RFR2 ATmega88
- * ATmega88A ATmega88P ATmega88PA ATmega88PB ATmega103 ATmega128 ATmega128A ATmega128RFA1
- * ATmega128RFR2 ATmega162 ATmega164A ATmega164P ATmega164PA ATmega165 ATmega165A ATmega165P
- * ATmega165PA ATmega168 ATmega168A ATmega168P ATmega168PA ATmega168PB ATmega169 ATmega169A
- * ATmega169P ATmega169PA ATmega256RFR2 ATmega323 ATmega324A ATmega324P ATmega324PA ATmega324PB
- * ATmega325 ATmega325A ATmega325P ATmega325PA ATmega328P ATmega329 ATmega329A ATmega329P
- * ATmega329PA ATmega406 ATmega640 ATmega644 ATmega644A ATmega644P ATmega644PA ATmega644RFR2
- * ATmega645 ATmega645A ATmega645P ATmega649 ATmega649A ATmega649P ATmega1280 ATmega1281
- * ATmega1284 ATmega1284P ATmega1284RFR2 ATmega2560 ATmega2561 ATmega2564RFR2 ATmega3250
- * ATmega3250A ATmega3250P ATmega3250PA ATmega3290 ATmega3290A ATmega3290P ATmega3290PA ATmega6450
- * ATmega6450A ATmega6450P ATmega6490 ATmega6490A ATmega6490P ATmega8535 AT90PWM1 AT90PWM2B
- * AT90PWM3 AT90PWM3B AT90CAN32 AT90CAN64 AT90USB82 AT90SCR100 AT90PWM161 AT90PWM216 AT90PWM316
- * AT90USB646 AT90USB647 AT90USB1286 AT90USB1287 AT90S8515comp ATA5272 ATA5505 ATA5702M322 ATA5782
- * ATA5783 ATA5787 ATA5790N ATA5791 ATA5795 ATA5831 ATA5832 ATA5833 ATA5835 ATA6286 ATA6289
- * ATA6612C ATA6613C ATA6614Q ATA6616C ATA6617C ATA8210 ATA8215 ATA8510 ATA8515 ATA664251
- * ATxmega8E5 ATxmega16A4 ATxmega16A4U ATxmega16C4 ATxmega16D4 ATxmega32C3 ATxmega32D3 ATxmega32A4
- * ATxmega32A4U ATxmega32C4 ATxmega32D4 ATxmega32E5 ATxmega64A1 ATxmega64A1U ATxmega64B1
- * ATxmega64A3 ATxmega64A3U ATxmega64B3 ATxmega64C3 ATxmega64D3 ATxmega64A4U ATxmega64D4
- * ATxmega128A1 ATxmega128A1revD ATxmega128A1U ATxmega128B1 ATxmega128B3 ATxmega128C3 ATxmega128D3
- * ATxmega128A4U ATxmega128D4 ATxmega192A3 ATxmega192A3U ATxmega192C3 ATxmega192D3 ATxmega256A3
- * ATxmega256A3B ATxmega256A3BU ATxmega256A3U ATxmega256C3 ATxmega256D3 ATxmega384C3 ATxmega384D3
- * ATmega32HVE2
+ * ATmega48PB ATmega64 ATmega64A ATmega64C1 ATmegaS64M1 ATmega64M1 ATmega64HVE2 ATmega64RFR2
+ * ATmega88 ATmega88A ATmega88P ATmega88PA ATmega88PB ATmega103 ATmega128 ATmegaS128 ATmega128A
+ * ATmega128RFA1 ATmega128RFR2 ATmega162 ATmega164A ATmega164P ATmega164PA ATmega165 ATmega165A
+ * ATmega165P ATmega165PA ATmega168 ATmega168A ATmega168P ATmega168PA ATmega168PB ATmega169
+ * ATmega169A ATmega169P ATmega169PA ATmega256RFR2 ATmega323 ATmega324A ATmega324P ATmega324PA
+ * ATmega324PB ATmega325 ATmega325A ATmega325P ATmega325PA ATmega328P ATmega329 ATmega329A
+ * ATmega329P ATmega329PA ATmega406 ATmega640 ATmega644 ATmega644A ATmega644P ATmega644PA
+ * ATmega644RFR2 ATmega645 ATmega645A ATmega645P ATmega649 ATmega649A ATmega649P ATmega1280
+ * ATmega1281 ATmega1284 ATmega1284P ATmega1284RFR2 ATmega2560 ATmega2561 ATmega2564RFR2
+ * ATmega3250 ATmega3250A ATmega3250P ATmega3250PA ATmega3290 ATmega3290A ATmega3290P ATmega3290PA
+ * ATmega6450 ATmega6450A ATmega6450P ATmega6490 ATmega6490A ATmega6490P ATmega8535 AT90PWM1
+ * AT90PWM2B AT90PWM3 AT90PWM3B AT90CAN32 AT90CAN64 AT90USB82 AT90SCR100 AT90PWM161 AT90PWM216
+ * AT90PWM316 AT90USB646 AT90USB647 AT90USB1286 AT90USB1287 AT90S8515comp ATA5272 ATA5505
+ * ATA5702M322 ATA5782 ATA5783 ATA5787 ATA5790N ATA5791 ATA5795 ATA5831 ATA5832 ATA5833 ATA5835
+ * ATA6286 ATA6289 ATA6612C ATA6613C ATA6614Q ATA6616C ATA6617C ATA8210 ATA8215 ATA8510 ATA8515
+ * ATA664251 ATxmega8E5 ATxmega16A4 ATxmega16A4U ATxmega16C4 ATxmega16D4 ATxmega32C3 ATxmega32D3
+ * ATxmega32A4 ATxmega32A4U ATxmega32C4 ATxmega32D4 ATxmega32E5 ATxmega64A1 ATxmega64A1U
+ * ATxmega64B1 ATxmega64A3 ATxmega64A3U ATxmega64B3 ATxmega64C3 ATxmega64D3 ATxmega64A4U
+ * ATxmega64D4 ATxmega128A1 ATxmega128A1revD ATxmega128A1U ATxmega128B1 ATxmega128B3 ATxmega128C3
+ * ATxmega128D3 ATxmega128A4U ATxmega128D4 ATxmega192A3 ATxmega192A3U ATxmega192C3 ATxmega192D3
+ * ATxmega256A3 ATxmega256A3B ATxmega256A3BU ATxmega256A3U ATxmega256C3 ATxmega256D3 ATxmega384C3
+ * ATxmega384D3 ATmega32HVE2
  */
 static const Configvalue _values_eesave_atmega328[2] = {
   {0, "ee_preserved", "EEPROM content is preserved during chip erase"},
@@ -10115,15 +10221,16 @@ static const Configvalue _values_eesave_atmega328[2] = {
  * ATtiny804 ATtiny806 ATtiny807 ATtiny814 ATtiny816 ATtiny817 ATtiny824 ATtiny826 ATtiny827
  * ATtiny1604 ATtiny1606 ATtiny1607 ATtiny1614 ATtiny1616 ATtiny1617 ATtiny1626 ATtiny1627
  * ATtiny3216 ATtiny3217 ATtiny3224 ATtiny3226 ATtiny3227 ATmega808 ATmega809 ATmega1608
- * ATmega1609 ATmega3208 ATmega3209 ATmega4808 ATmega4809 AVR16DD14 AVR16DU14 AVR16EB14 AVR16DD20
- * AVR16DU20 AVR16EB20 AVR16DD28 AVR16DU28 AVR16EA28 AVR16EB28 AVR16DD32 AVR16DU32 AVR16EA32
- * AVR16EB32 AVR16EA48 AVR32DU14 AVR32EB14 AVR32DD20 AVR32DU20 AVR32EB20 AVR32SD20 AVR32DA28
- * AVR32DA28S AVR32DB28 AVR32DD28 AVR32DU28 AVR32EA28 AVR32EB28 AVR32SD28 AVR32DA32 AVR32DA32S
- * AVR32DB32 AVR32DD32 AVR32DU32 AVR32EA32 AVR32EB32 AVR32SD32 AVR32DA48 AVR32DA48S AVR32DB48
- * AVR32EA48 AVR64DD14 AVR64DD20 AVR64DA28 AVR64DA28S AVR64DB28 AVR64DD28 AVR64DU28 AVR64EA28
- * AVR64DA32 AVR64DA32S AVR64DB32 AVR64DD32 AVR64DU32 AVR64EA32 AVR64DA48 AVR64DA48S AVR64DB48
- * AVR64DA64 AVR64DA64S AVR64DB64 AVR128DA28 AVR128DA28S AVR128DB28 AVR128DA32 AVR128DA32S
- * AVR128DB32 AVR128DA48 AVR128DA48S AVR128DB48 AVR128DA64 AVR128DA64S AVR128DB64
+ * ATmega1609 ATmega3208 ATmega3209 ATmega4808 ATmega4809 AVR16DD14 AVR16DU14 AVR16EB14 AVR16LA14
+ * AVR16DD20 AVR16DU20 AVR16EB20 AVR16LA20 AVR16DD28 AVR16DU28 AVR16EA28 AVR16EB28 AVR16LA28
+ * AVR16DD32 AVR16DU32 AVR16EA32 AVR16EB32 AVR16LA32 AVR16EA48 AVR32DU14 AVR32EB14 AVR32LA14
+ * AVR32DD20 AVR32DU20 AVR32EB20 AVR32LA20 AVR32SD20 AVR32DA28 AVR32DA28S AVR32DB28 AVR32DD28
+ * AVR32DU28 AVR32EA28 AVR32EB28 AVR32LA28 AVR32SD28 AVR32DA32 AVR32DA32S AVR32DB32 AVR32DD32
+ * AVR32DU32 AVR32EA32 AVR32EB32 AVR32LA32 AVR32SD32 AVR32DA48 AVR32DA48S AVR32DB48 AVR32EA48
+ * AVR64DD14 AVR64DD20 AVR64DA28 AVR64DA28S AVR64DB28 AVR64DD28 AVR64DU28 AVR64EA28 AVR64DA32
+ * AVR64DA32S AVR64DB32 AVR64DD32 AVR64DU32 AVR64EA32 AVR64DA48 AVR64DA48S AVR64DB48 AVR64DA64
+ * AVR64DA64S AVR64DB64 AVR128DA28 AVR128DA28S AVR128DB28 AVR128DA32 AVR128DA32S AVR128DB32
+ * AVR128DA48 AVR128DA48S AVR128DB48 AVR128DA64 AVR128DA64S AVR128DB64
  */
 static const Configvalue _values_eesave_attiny204[2] = {
   {0, "eex_erased", "EEPROM content is erased during chip erase"},
@@ -10140,14 +10247,14 @@ static const Configvalue _values_eesave_attiny204[2] = {
  * ATtiny2313 ATtiny2313A ATtiny4313 ATmega8 ATmega8A ATmega8HVA ATmega8U2 ATmega16HVA ATmega16HVB
  * ATmega16HVBrevB ATmega16U2 ATmega16U4 ATmega32HVB ATmega32C1 ATmega32M1 ATmega32U2 ATmega32U4
  * ATmega32U6 ATmega48 ATmega48A ATmega48P ATmega48PA ATmega48PB ATmega64 ATmega64A ATmega64C1
- * ATmega64M1 ATmega64HVE2 ATmega64RFR2 ATmega88 ATmega88A ATmega88P ATmega88PA ATmega88PB
- * ATmega128 ATmega128A ATmega128RFA1 ATmega128RFR2 ATmega162 ATmega164A ATmega164P ATmega164PA
- * ATmega165 ATmega165A ATmega165P ATmega165PA ATmega168 ATmega168A ATmega168P ATmega168PA
- * ATmega168PB ATmega169 ATmega169A ATmega169P ATmega169PA ATmega256RFR2 ATmega324A ATmega324P
- * ATmega324PA ATmega324PB ATmega325 ATmega325A ATmega325P ATmega325PA ATmega328P ATmega329
- * ATmega329A ATmega329P ATmega329PA ATmega406 ATmega640 ATmega644 ATmega644A ATmega644P
- * ATmega644PA ATmega644RFR2 ATmega645 ATmega645A ATmega645P ATmega649 ATmega649A ATmega649P
- * ATmega1280 ATmega1281 ATmega1284 ATmega1284P ATmega1284RFR2 ATmega2560 ATmega2561
+ * ATmegaS64M1 ATmega64M1 ATmega64HVE2 ATmega64RFR2 ATmega88 ATmega88A ATmega88P ATmega88PA
+ * ATmega88PB ATmega128 ATmegaS128 ATmega128A ATmega128RFA1 ATmega128RFR2 ATmega162 ATmega164A
+ * ATmega164P ATmega164PA ATmega165 ATmega165A ATmega165P ATmega165PA ATmega168 ATmega168A
+ * ATmega168P ATmega168PA ATmega168PB ATmega169 ATmega169A ATmega169P ATmega169PA ATmega256RFR2
+ * ATmega324A ATmega324P ATmega324PA ATmega324PB ATmega325 ATmega325A ATmega325P ATmega325PA
+ * ATmega328P ATmega329 ATmega329A ATmega329P ATmega329PA ATmega406 ATmega640 ATmega644 ATmega644A
+ * ATmega644P ATmega644PA ATmega644RFR2 ATmega645 ATmega645A ATmega645P ATmega649 ATmega649A
+ * ATmega649P ATmega1280 ATmega1281 ATmega1284 ATmega1284P ATmega1284RFR2 ATmega2560 ATmega2561
  * ATmega2564RFR2 ATmega3250 ATmega3250A ATmega3250P ATmega3250PA ATmega3290 ATmega3290A
  * ATmega3290P ATmega3290PA ATmega6450 ATmega6450A ATmega6450P ATmega6490 ATmega6490A ATmega6490P
  * ATmega8535 AT90PWM1 AT90PWM2B AT90PWM3 AT90PWM3B AT90CAN32 AT90CAN64 AT90USB82 AT90SCR100
@@ -10171,23 +10278,23 @@ static const Configvalue _values_wdton_atmega328[2] = {
  * ATtiny2313 ATtiny2313A ATtiny4313 ATmega8 ATmega8A ATmega8HVA ATmega8U2 ATmega16 ATmega16A
  * ATmega16HVA ATmega16HVB ATmega16HVBrevB ATmega16U2 ATmega16U4 ATmega32 ATmega32A ATmega32HVB
  * ATmega32C1 ATmega32M1 ATmega32U2 ATmega32U4 ATmega32U6 ATmega48 ATmega48A ATmega48P ATmega48PA
- * ATmega48PB ATmega64 ATmega64A ATmega64C1 ATmega64M1 ATmega64HVE2 ATmega64RFR2 ATmega88
- * ATmega88A ATmega88P ATmega88PA ATmega88PB ATmega103 ATmega128 ATmega128A ATmega128RFA1
- * ATmega128RFR2 ATmega161 ATmega162 ATmega163 ATmega164A ATmega164P ATmega164PA ATmega165
- * ATmega165A ATmega165P ATmega165PA ATmega168 ATmega168A ATmega168P ATmega168PA ATmega168PB
- * ATmega169 ATmega169A ATmega169P ATmega169PA ATmega256RFR2 ATmega323 ATmega324A ATmega324P
- * ATmega324PA ATmega324PB ATmega325 ATmega325A ATmega325P ATmega325PA ATmega328P ATmega329
- * ATmega329A ATmega329P ATmega329PA ATmega640 ATmega644 ATmega644A ATmega644P ATmega644PA
- * ATmega644RFR2 ATmega645 ATmega645A ATmega645P ATmega649 ATmega649A ATmega649P ATmega1280
- * ATmega1281 ATmega1284 ATmega1284P ATmega1284RFR2 ATmega2560 ATmega2561 ATmega2564RFR2
- * ATmega3250 ATmega3250A ATmega3250P ATmega3250PA ATmega3290 ATmega3290A ATmega3290P ATmega3290PA
- * ATmega6450 ATmega6450A ATmega6450P ATmega6490 ATmega6490A ATmega6490P ATmega8535 AT90PWM1
- * AT90PWM2B AT90PWM3 AT90PWM3B AT90CAN32 AT90CAN64 AT90USB82 AT90SCR100 AT90PWM161 AT90PWM216
- * AT90PWM316 AT90USB646 AT90USB647 AT90USB1286 AT90USB1287 AT90S2323 AT90S2333 AT90S2343
- * AT90S4414 AT90S4433 AT90S4434 AT90S8515 AT90S8515comp AT90S8535 ATA5272 ATA5505 ATA5702M322
- * ATA5782 ATA5783 ATA5787 ATA5790N ATA5791 ATA5795 ATA5831 ATA5832 ATA5833 ATA5835 ATA6286
- * ATA6289 ATA6612C ATA6613C ATA6614Q ATA6616C ATA6617C ATA8210 ATA8215 ATA8510 ATA8515 ATA664251
- * ATmega32HVE2
+ * ATmega48PB ATmega64 ATmega64A ATmega64C1 ATmegaS64M1 ATmega64M1 ATmega64HVE2 ATmega64RFR2
+ * ATmega88 ATmega88A ATmega88P ATmega88PA ATmega88PB ATmega103 ATmega128 ATmegaS128 ATmega128A
+ * ATmega128RFA1 ATmega128RFR2 ATmega161 ATmega162 ATmega163 ATmega164A ATmega164P ATmega164PA
+ * ATmega165 ATmega165A ATmega165P ATmega165PA ATmega168 ATmega168A ATmega168P ATmega168PA
+ * ATmega168PB ATmega169 ATmega169A ATmega169P ATmega169PA ATmega256RFR2 ATmega323 ATmega324A
+ * ATmega324P ATmega324PA ATmega324PB ATmega325 ATmega325A ATmega325P ATmega325PA ATmega328P
+ * ATmega329 ATmega329A ATmega329P ATmega329PA ATmega640 ATmega644 ATmega644A ATmega644P
+ * ATmega644PA ATmega644RFR2 ATmega645 ATmega645A ATmega645P ATmega649 ATmega649A ATmega649P
+ * ATmega1280 ATmega1281 ATmega1284 ATmega1284P ATmega1284RFR2 ATmega2560 ATmega2561
+ * ATmega2564RFR2 ATmega3250 ATmega3250A ATmega3250P ATmega3250PA ATmega3290 ATmega3290A
+ * ATmega3290P ATmega3290PA ATmega6450 ATmega6450A ATmega6450P ATmega6490 ATmega6490A ATmega6490P
+ * ATmega8535 AT90PWM1 AT90PWM2B AT90PWM3 AT90PWM3B AT90CAN32 AT90CAN64 AT90USB82 AT90SCR100
+ * AT90PWM161 AT90PWM216 AT90PWM316 AT90USB646 AT90USB647 AT90USB1286 AT90USB1287 AT90S2323
+ * AT90S2333 AT90S2343 AT90S4414 AT90S4433 AT90S4434 AT90S8515 AT90S8515comp AT90S8535 ATA5272
+ * ATA5505 ATA5702M322 ATA5782 ATA5783 ATA5787 ATA5790N ATA5791 ATA5795 ATA5831 ATA5832 ATA5833
+ * ATA5835 ATA6286 ATA6289 ATA6612C ATA6613C ATA6614Q ATA6616C ATA6617C ATA8210 ATA8215 ATA8510
+ * ATA8515 ATA664251 ATmega32HVE2
  */
 static const Configvalue _values_spien_atmega328[2] = {
   {0, "isp_enabled", "serial programming enabled"},
@@ -10201,7 +10308,7 @@ static const Configvalue _values_spien_atmega328[2] = {
  * ATtiny88 ATtiny167 ATtiny261 ATtiny261A ATtiny461 ATtiny461A ATtiny828 ATtiny828R ATtiny841
  * ATtiny861 ATtiny861A ATtiny1634 ATtiny1634R ATtiny2313 ATtiny2313A ATtiny4313 ATmega8HVA
  * ATmega8U2 ATmega16HVA ATmega16HVB ATmega16HVBrevB ATmega16U2 ATmega32HVB ATmega32C1 ATmega32M1
- * ATmega32U2 ATmega48 ATmega48A ATmega48P ATmega48PA ATmega48PB ATmega64C1 ATmega64M1
+ * ATmega32U2 ATmega48 ATmega48A ATmega48P ATmega48PA ATmega48PB ATmega64C1 ATmegaS64M1 ATmega64M1
  * ATmega64HVE2 ATmega88 ATmega88A ATmega88P ATmega88PA ATmega88PB ATmega168 ATmega168A ATmega168P
  * ATmega168PA ATmega168PB ATmega328P AT90PWM1 AT90PWM2B AT90PWM3 AT90PWM3B AT90USB82 AT90PWM161
  * AT90PWM216 AT90PWM316 ATA5272 ATA5505 ATA5702M322 ATA5782 ATA5783 ATA5787 ATA5790N ATA5791
@@ -10216,9 +10323,10 @@ static const Configvalue _values_dwen_atmega328[2] = {
 /*
  * ATmega328 ATmega16M1 ATmega328PB AT90PWM2 AT90USB162 ATtiny48 ATtiny88 ATtiny828 ATtiny828R
  * ATmega8 ATmega8A ATmega8U2 ATmega16U2 ATmega32C1 ATmega32M1 ATmega32U2 ATmega48 ATmega48A
- * ATmega48P ATmega48PA ATmega48PB ATmega64C1 ATmega64M1 ATmega88 ATmega88A ATmega88P ATmega88PA
- * ATmega88PB ATmega168 ATmega168A ATmega168P ATmega168PA ATmega168PB ATmega328P AT90PWM1
- * AT90PWM2B AT90PWM3 AT90PWM3B AT90USB82 AT90PWM216 AT90PWM316 ATA6612C ATA6613C ATA6614Q
+ * ATmega48P ATmega48PA ATmega48PB ATmega64C1 ATmegaS64M1 ATmega64M1 ATmega88 ATmega88A ATmega88P
+ * ATmega88PA ATmega88PB ATmega168 ATmega168A ATmega168P ATmega168PA ATmega168PB ATmega328P
+ * AT90PWM1 AT90PWM2B AT90PWM3 AT90PWM3B AT90USB82 AT90PWM216 AT90PWM316 ATA6612C ATA6613C
+ * ATA6614Q
  */
 static const Configvalue _values_rstdisbl_atmega328[2] = {
   {0, "gpio_pc6_warning_external_reset_disabled", "reset pin configured as GPIO PC6 (warning: external reset disabled)"},
@@ -10297,8 +10405,8 @@ static const Configvalue _values_bodlevel_atmega328[4] = {
 };
 
 /*
- * ATmega16M1 AT90PWM2 ATmega32C1 ATmega32M1 ATmega64C1 ATmega64M1 AT90PWM1 AT90PWM2B AT90PWM3
- * AT90PWM3B AT90PWM216 AT90PWM316
+ * ATmega16M1 AT90PWM2 ATmega32C1 ATmega32M1 ATmega64C1 ATmegaS64M1 ATmega64M1 AT90PWM1 AT90PWM2B
+ * AT90PWM3 AT90PWM3B AT90PWM216 AT90PWM316
  */
 static const Configvalue _values_bodlevel_atmega16m1[8] = {
   {0, "bod_2v6", "brownout detection at 2.6 V"},
@@ -10313,8 +10421,8 @@ static const Configvalue _values_bodlevel_atmega16m1[8] = {
 
 /*
  * ATmega8515 ATmega103comp AT90S8535comp ATtiny15 ATtiny26 ATmega8 ATmega8A ATmega16 ATmega16A
- * ATmega32 ATmega32A ATmega64 ATmega64A ATmega128 ATmega128A ATmega163 ATmega323 ATmega8535
- * AT90S2333 AT90S4433 AT90S8515comp
+ * ATmega32 ATmega32A ATmega64 ATmega64A ATmega128 ATmegaS128 ATmega128A ATmega163 ATmega323
+ * ATmega8535 AT90S2333 AT90S4433 AT90S8515comp
  */
 static const Configvalue _values_bodlevel_atmega8515[2] = {
   {0, "bod_4v0", "brownout detection at 4.0 V"},
@@ -10516,6 +10624,14 @@ static const Configvalue _values_bodlevel_attiny416auto[2] = {
   {7, "bod_4v2", "brownout detection at 4.2 V"},
 };
 
+// AVR16LA14 AVR16LA20 AVR16LA28 AVR16LA32 AVR32LA14 AVR32LA20 AVR32LA28 AVR32LA32
+static const Configvalue _values_bodlevel_avr16la14[4] = {
+  {0, "bodlevel0", "1.65 V"},
+  {1, "bodlevel1", "1.90 V"},
+  {2, "bodlevel2", "2.60 V"},
+  {3, "bodlevel3", "4.30 V"},
+};
+
 /*
  * ATmega328 ATmega16M1 ATmega16HVA2 ATmega32HVBrevB ATmega64HVE ATmega328PB ATmega8515 ATtiny102
  * ATtiny28 ATtiny441 AT90PWM2 AT90PWM81 AT90CAN128 AT90USB162 AT90S1200 AT90S2313 ATA5700M322
@@ -10527,13 +10643,13 @@ static const Configvalue _values_bodlevel_attiny416auto[2] = {
  * ATtiny2313 ATtiny2313A ATtiny4313 ATmega8 ATmega8A ATmega8HVA ATmega8U2 ATmega16 ATmega16A
  * ATmega16HVA ATmega16HVB ATmega16HVBrevB ATmega16U2 ATmega16U4 ATmega32 ATmega32A ATmega32HVB
  * ATmega32C1 ATmega32M1 ATmega32U2 ATmega32U4 ATmega32U6 ATmega48 ATmega48A ATmega48P ATmega48PA
- * ATmega48PB ATmega64 ATmega64A ATmega64C1 ATmega64M1 ATmega64HVE2 ATmega64RFR2 ATmega88
- * ATmega88A ATmega88P ATmega88PA ATmega88PB ATmega103 ATmega128 ATmega128A ATmega128RFA1
- * ATmega128RFR2 ATmega161 ATmega162 ATmega163 ATmega164A ATmega164P ATmega164PA ATmega165
- * ATmega165A ATmega165P ATmega165PA ATmega168 ATmega168A ATmega168P ATmega168PA ATmega168PB
- * ATmega169 ATmega169A ATmega169P ATmega169PA ATmega256RFR2 ATmega323 ATmega324A ATmega324P
- * ATmega324PA ATmega324PB ATmega325 ATmega325A ATmega325P ATmega325PA ATmega328P ATmega329
- * ATmega329A ATmega329P ATmega329PA ATmega406 ATmega640 ATmega644 ATmega644A ATmega644P
+ * ATmega48PB ATmega64 ATmega64A ATmega64C1 ATmegaS64M1 ATmega64M1 ATmega64HVE2 ATmega64RFR2
+ * ATmega88 ATmega88A ATmega88P ATmega88PA ATmega88PB ATmega103 ATmega128 ATmegaS128 ATmega128A
+ * ATmega128RFA1 ATmega128RFR2 ATmega161 ATmega162 ATmega163 ATmega164A ATmega164P ATmega164PA
+ * ATmega165 ATmega165A ATmega165P ATmega165PA ATmega168 ATmega168A ATmega168P ATmega168PA
+ * ATmega168PB ATmega169 ATmega169A ATmega169P ATmega169PA ATmega256RFR2 ATmega323 ATmega324A
+ * ATmega324P ATmega324PA ATmega324PB ATmega325 ATmega325A ATmega325P ATmega325PA ATmega328P
+ * ATmega329 ATmega329A ATmega329P ATmega329PA ATmega406 ATmega640 ATmega644 ATmega644A ATmega644P
  * ATmega644PA ATmega644RFR2 ATmega645 ATmega645A ATmega645P ATmega649 ATmega649A ATmega649P
  * ATmega1280 ATmega1281 ATmega1284 ATmega1284P ATmega1284RFR2 ATmega2560 ATmega2561
  * ATmega2564RFR2 ATmega3250 ATmega3250A ATmega3250P ATmega3250PA ATmega3290 ATmega3290A
@@ -10591,21 +10707,21 @@ static const Configvalue _values_lb_at90s2333[3] = {
  * AT90CAN128 AT90USB162 ATA5781 ATA5790 ATA6285 ATmega103comp AT90SCR100H ATmega161comp
  * AT90S8535comp ATtiny828 ATtiny828R ATmega8 ATmega8A ATmega8U2 ATmega16 ATmega16A ATmega16HVB
  * ATmega16HVBrevB ATmega16U2 ATmega16U4 ATmega32 ATmega32A ATmega32HVB ATmega32C1 ATmega32M1
- * ATmega32U2 ATmega32U4 ATmega32U6 ATmega64 ATmega64A ATmega64C1 ATmega64M1 ATmega64HVE2
- * ATmega64RFR2 ATmega88 ATmega88A ATmega88P ATmega88PA ATmega88PB ATmega128 ATmega128A
- * ATmega128RFA1 ATmega128RFR2 ATmega161 ATmega162 ATmega163 ATmega164A ATmega164P ATmega164PA
- * ATmega165 ATmega165A ATmega165P ATmega165PA ATmega168 ATmega168A ATmega168P ATmega168PA
- * ATmega168PB ATmega169 ATmega169A ATmega169P ATmega169PA ATmega256RFR2 ATmega323 ATmega324A
- * ATmega324P ATmega324PA ATmega324PB ATmega325 ATmega325A ATmega325P ATmega325PA ATmega328P
- * ATmega329 ATmega329A ATmega329P ATmega329PA ATmega406 ATmega640 ATmega644 ATmega644A ATmega644P
- * ATmega644PA ATmega644RFR2 ATmega645 ATmega645A ATmega645P ATmega649 ATmega649A ATmega649P
- * ATmega1280 ATmega1281 ATmega1284 ATmega1284P ATmega1284RFR2 ATmega2560 ATmega2561
- * ATmega2564RFR2 ATmega3250 ATmega3250A ATmega3250P ATmega3250PA ATmega3290 ATmega3290A
- * ATmega3290P ATmega3290PA ATmega6450 ATmega6450A ATmega6450P ATmega6490 ATmega6490A ATmega6490P
- * ATmega8535 AT90PWM1 AT90PWM2B AT90PWM3 AT90PWM3B AT90CAN32 AT90CAN64 AT90USB82 AT90SCR100
- * AT90PWM161 AT90PWM216 AT90PWM316 AT90USB646 AT90USB647 AT90USB1286 AT90USB1287 AT90S8515comp
- * ATA5782 ATA5783 ATA5787 ATA5790N ATA5791 ATA5795 ATA5831 ATA5832 ATA5833 ATA5835 ATA6286
- * ATA6289 ATA6612C ATA6613C ATA6614Q ATA8210 ATA8215 ATA8510 ATA8515 ATmega32HVE2
+ * ATmega32U2 ATmega32U4 ATmega32U6 ATmega64 ATmega64A ATmega64C1 ATmegaS64M1 ATmega64M1
+ * ATmega64HVE2 ATmega64RFR2 ATmega88 ATmega88A ATmega88P ATmega88PA ATmega88PB ATmega128
+ * ATmegaS128 ATmega128A ATmega128RFA1 ATmega128RFR2 ATmega161 ATmega162 ATmega163 ATmega164A
+ * ATmega164P ATmega164PA ATmega165 ATmega165A ATmega165P ATmega165PA ATmega168 ATmega168A
+ * ATmega168P ATmega168PA ATmega168PB ATmega169 ATmega169A ATmega169P ATmega169PA ATmega256RFR2
+ * ATmega323 ATmega324A ATmega324P ATmega324PA ATmega324PB ATmega325 ATmega325A ATmega325P
+ * ATmega325PA ATmega328P ATmega329 ATmega329A ATmega329P ATmega329PA ATmega406 ATmega640
+ * ATmega644 ATmega644A ATmega644P ATmega644PA ATmega644RFR2 ATmega645 ATmega645A ATmega645P
+ * ATmega649 ATmega649A ATmega649P ATmega1280 ATmega1281 ATmega1284 ATmega1284P ATmega1284RFR2
+ * ATmega2560 ATmega2561 ATmega2564RFR2 ATmega3250 ATmega3250A ATmega3250P ATmega3250PA ATmega3290
+ * ATmega3290A ATmega3290P ATmega3290PA ATmega6450 ATmega6450A ATmega6450P ATmega6490 ATmega6490A
+ * ATmega6490P ATmega8535 AT90PWM1 AT90PWM2B AT90PWM3 AT90PWM3B AT90CAN32 AT90CAN64 AT90USB82
+ * AT90SCR100 AT90PWM161 AT90PWM216 AT90PWM316 AT90USB646 AT90USB647 AT90USB1286 AT90USB1287
+ * AT90S8515comp ATA5782 ATA5783 ATA5787 ATA5790N ATA5791 ATA5795 ATA5831 ATA5832 ATA5833 ATA5835
+ * ATA6286 ATA6289 ATA6612C ATA6613C ATA6614Q ATA8210 ATA8215 ATA8510 ATA8515 ATmega32HVE2
  */
 static const Configvalue _values_blb0_atmega328[4] = {
   {0, "lpm_spm_disabled_in_app", "LPM and SPM prohibited in application section"},
@@ -10619,21 +10735,21 @@ static const Configvalue _values_blb0_atmega328[4] = {
  * AT90CAN128 AT90USB162 ATA5781 ATA5790 ATA6285 ATmega103comp AT90SCR100H ATmega161comp
  * AT90S8535comp ATtiny828 ATtiny828R ATmega8 ATmega8A ATmega8U2 ATmega16 ATmega16A ATmega16HVB
  * ATmega16HVBrevB ATmega16U2 ATmega16U4 ATmega32 ATmega32A ATmega32HVB ATmega32C1 ATmega32M1
- * ATmega32U2 ATmega32U4 ATmega32U6 ATmega64 ATmega64A ATmega64C1 ATmega64M1 ATmega64HVE2
- * ATmega64RFR2 ATmega88 ATmega88A ATmega88P ATmega88PA ATmega88PB ATmega128 ATmega128A
- * ATmega128RFA1 ATmega128RFR2 ATmega161 ATmega162 ATmega163 ATmega164A ATmega164P ATmega164PA
- * ATmega165 ATmega165A ATmega165P ATmega165PA ATmega168 ATmega168A ATmega168P ATmega168PA
- * ATmega168PB ATmega169 ATmega169A ATmega169P ATmega169PA ATmega256RFR2 ATmega323 ATmega324A
- * ATmega324P ATmega324PA ATmega324PB ATmega325 ATmega325A ATmega325P ATmega325PA ATmega328P
- * ATmega329 ATmega329A ATmega329P ATmega329PA ATmega406 ATmega640 ATmega644 ATmega644A ATmega644P
- * ATmega644PA ATmega644RFR2 ATmega645 ATmega645A ATmega645P ATmega649 ATmega649A ATmega649P
- * ATmega1280 ATmega1281 ATmega1284 ATmega1284P ATmega1284RFR2 ATmega2560 ATmega2561
- * ATmega2564RFR2 ATmega3250 ATmega3250A ATmega3250P ATmega3250PA ATmega3290 ATmega3290A
- * ATmega3290P ATmega3290PA ATmega6450 ATmega6450A ATmega6450P ATmega6490 ATmega6490A ATmega6490P
- * ATmega8535 AT90PWM1 AT90PWM2B AT90PWM3 AT90PWM3B AT90CAN32 AT90CAN64 AT90USB82 AT90SCR100
- * AT90PWM161 AT90PWM216 AT90PWM316 AT90USB646 AT90USB647 AT90USB1286 AT90USB1287 AT90S8515comp
- * ATA5782 ATA5783 ATA5787 ATA5790N ATA5791 ATA5795 ATA5831 ATA5832 ATA5833 ATA5835 ATA6286
- * ATA6289 ATA6612C ATA6613C ATA6614Q ATA8210 ATA8215 ATA8510 ATA8515 ATmega32HVE2
+ * ATmega32U2 ATmega32U4 ATmega32U6 ATmega64 ATmega64A ATmega64C1 ATmegaS64M1 ATmega64M1
+ * ATmega64HVE2 ATmega64RFR2 ATmega88 ATmega88A ATmega88P ATmega88PA ATmega88PB ATmega128
+ * ATmegaS128 ATmega128A ATmega128RFA1 ATmega128RFR2 ATmega161 ATmega162 ATmega163 ATmega164A
+ * ATmega164P ATmega164PA ATmega165 ATmega165A ATmega165P ATmega165PA ATmega168 ATmega168A
+ * ATmega168P ATmega168PA ATmega168PB ATmega169 ATmega169A ATmega169P ATmega169PA ATmega256RFR2
+ * ATmega323 ATmega324A ATmega324P ATmega324PA ATmega324PB ATmega325 ATmega325A ATmega325P
+ * ATmega325PA ATmega328P ATmega329 ATmega329A ATmega329P ATmega329PA ATmega406 ATmega640
+ * ATmega644 ATmega644A ATmega644P ATmega644PA ATmega644RFR2 ATmega645 ATmega645A ATmega645P
+ * ATmega649 ATmega649A ATmega649P ATmega1280 ATmega1281 ATmega1284 ATmega1284P ATmega1284RFR2
+ * ATmega2560 ATmega2561 ATmega2564RFR2 ATmega3250 ATmega3250A ATmega3250P ATmega3250PA ATmega3290
+ * ATmega3290A ATmega3290P ATmega3290PA ATmega6450 ATmega6450A ATmega6450P ATmega6490 ATmega6490A
+ * ATmega6490P ATmega8535 AT90PWM1 AT90PWM2B AT90PWM3 AT90PWM3B AT90CAN32 AT90CAN64 AT90USB82
+ * AT90SCR100 AT90PWM161 AT90PWM216 AT90PWM316 AT90USB646 AT90USB647 AT90USB1286 AT90USB1287
+ * AT90S8515comp ATA5782 ATA5783 ATA5787 ATA5790N ATA5791 ATA5795 ATA5831 ATA5832 ATA5833 ATA5835
+ * ATA6286 ATA6289 ATA6612C ATA6613C ATA6614Q ATA8210 ATA8215 ATA8510 ATA8515 ATmega32HVE2
  */
 static const Configvalue _values_blb1_atmega328[4] = {
   {0, "lpm_spm_disabled_in_boot", "LPM and SPM prohibited in boot section"},
@@ -10642,19 +10758,19 @@ static const Configvalue _values_blb1_atmega328[4] = {
   {3, "no_lock_in_boot", "no lock on SPM and LPM in boot section"},
 };
 
-// ATmega16M1 ATmega32C1 ATmega32M1 ATmega64C1 ATmega64M1
+// ATmega16M1 ATmega32C1 ATmega32M1 ATmega64C1 ATmegaS64M1 ATmega64M1
 static const Configvalue _values_pscrvb_atmega16m1[2] = {
   {0, "v_0", "PSC0UTnB reset value 0"},
   {1, "v_1", "PSC0UTnB reset value 1"},
 };
 
-// ATmega16M1 ATmega32C1 ATmega32M1 ATmega64C1 ATmega64M1
+// ATmega16M1 ATmega32C1 ATmega32M1 ATmega64C1 ATmegaS64M1 ATmega64M1
 static const Configvalue _values_pscrva_atmega16m1[2] = {
   {0, "v_0", "PSCOUTnA reset value 0"},
   {1, "v_1", "PSCOUTnA reset value 1"},
 };
 
-// ATmega16M1 ATmega32C1 ATmega32M1 ATmega64C1 ATmega64M1
+// ATmega16M1 ATmega32C1 ATmega32M1 ATmega64C1 ATmegaS64M1 ATmega64M1
 static const Configvalue _values_pscrb_atmega16m1[2] = {
   {0, "rb_enabled", "PSC reset behavior enabled"},
   {1, "rb_disabled", "PSC reset behavior disabled"},
@@ -10698,15 +10814,16 @@ static const Configvalue _values_sut_atmega64hve[4] = {
  * ATtiny804 ATtiny806 ATtiny807 ATtiny814 ATtiny816 ATtiny817 ATtiny824 ATtiny826 ATtiny827
  * ATtiny1604 ATtiny1606 ATtiny1607 ATtiny1614 ATtiny1616 ATtiny1617 ATtiny1626 ATtiny1627
  * ATtiny3216 ATtiny3217 ATtiny3224 ATtiny3226 ATtiny3227 ATmega808 ATmega809 ATmega1608
- * ATmega1609 ATmega3208 ATmega3209 ATmega4808 ATmega4809 AVR16DD14 AVR16DU14 AVR16EB14 AVR16DD20
- * AVR16DU20 AVR16EB20 AVR16DD28 AVR16DU28 AVR16EA28 AVR16EB28 AVR16DD32 AVR16DU32 AVR16EA32
- * AVR16EB32 AVR16EA48 AVR32DU14 AVR32EB14 AVR32DD20 AVR32DU20 AVR32EB20 AVR32SD20 AVR32DA28
- * AVR32DA28S AVR32DB28 AVR32DD28 AVR32DU28 AVR32EA28 AVR32EB28 AVR32SD28 AVR32DA32 AVR32DA32S
- * AVR32DB32 AVR32DD32 AVR32DU32 AVR32EA32 AVR32EB32 AVR32SD32 AVR32DA48 AVR32DA48S AVR32DB48
- * AVR32EA48 AVR64DD14 AVR64DD20 AVR64DA28 AVR64DA28S AVR64DB28 AVR64DD28 AVR64DU28 AVR64EA28
- * AVR64DA32 AVR64DA32S AVR64DB32 AVR64DD32 AVR64DU32 AVR64EA32 AVR64DA48 AVR64DA48S AVR64DB48
- * AVR64DA64 AVR64DA64S AVR64DB64 AVR128DA28 AVR128DA28S AVR128DB28 AVR128DA32 AVR128DA32S
- * AVR128DB32 AVR128DA48 AVR128DA48S AVR128DB48 AVR128DA64 AVR128DA64S AVR128DB64
+ * ATmega1609 ATmega3208 ATmega3209 ATmega4808 ATmega4809 AVR16DD14 AVR16DU14 AVR16EB14 AVR16LA14
+ * AVR16DD20 AVR16DU20 AVR16EB20 AVR16LA20 AVR16DD28 AVR16DU28 AVR16EA28 AVR16EB28 AVR16LA28
+ * AVR16DD32 AVR16DU32 AVR16EA32 AVR16EB32 AVR16LA32 AVR16EA48 AVR32DU14 AVR32EB14 AVR32LA14
+ * AVR32DD20 AVR32DU20 AVR32EB20 AVR32LA20 AVR32SD20 AVR32DA28 AVR32DA28S AVR32DB28 AVR32DD28
+ * AVR32DU28 AVR32EA28 AVR32EB28 AVR32LA28 AVR32SD28 AVR32DA32 AVR32DA32S AVR32DB32 AVR32DD32
+ * AVR32DU32 AVR32EA32 AVR32EB32 AVR32LA32 AVR32SD32 AVR32DA48 AVR32DA48S AVR32DB48 AVR32EA48
+ * AVR64DD14 AVR64DD20 AVR64DA28 AVR64DA28S AVR64DB28 AVR64DD28 AVR64DU28 AVR64EA28 AVR64DA32
+ * AVR64DA32S AVR64DB32 AVR64DD32 AVR64DU32 AVR64EA32 AVR64DA48 AVR64DA48S AVR64DB48 AVR64DA64
+ * AVR64DA64S AVR64DB64 AVR128DA28 AVR128DA28S AVR128DB28 AVR128DA32 AVR128DA32S AVR128DB32
+ * AVR128DA48 AVR128DA48S AVR128DB48 AVR128DA64 AVR128DA64S AVR128DB64
  */
 static const Configvalue _values_sut_attiny204[8] = {
   {0, "sut_0ms", "startup time 0 ms"},
@@ -10851,8 +10968,8 @@ static const Configvalue _values_duvrdinit_atmega32hvbrevb[2] = {
 /*
  * ATmega64HVE ATmega8515 ATA6285 ATmega103comp AT90S8535comp ATtiny12 ATtiny15 ATtiny26 ATmega8
  * ATmega8A ATmega16 ATmega16A ATmega32 ATmega32A ATmega64 ATmega64A ATmega64HVE2 ATmega128
- * ATmega128A ATmega163 ATmega323 ATmega8535 AT90S2333 AT90S4433 AT90S8515comp ATA6286 ATA6289
- * ATmega32HVE2
+ * ATmegaS128 ATmega128A ATmega163 ATmega323 ATmega8535 AT90S2333 AT90S4433 AT90S8515comp ATA6286
+ * ATA6289 ATmega32HVE2
  */
 static const Configvalue _values_boden_atmega64hve[2] = {
   {0, "bod_enabled", "brownout detection enabled"},
@@ -10873,7 +10990,7 @@ static const Configvalue _values_cfd_atmega328pb[2] = {
 
 /*
  * ATmega8515 ATmega103comp AT90S8535comp ATmega8 ATmega8A ATmega16 ATmega16A ATmega32 ATmega32A
- * ATmega64 ATmega64A ATmega128 ATmega128A ATmega8535 AT90S8515comp
+ * ATmega64 ATmega64A ATmega128 ATmegaS128 ATmega128A ATmega8535 AT90S8515comp
  */
 static const Configvalue _values_ckopt_atmega8515[2] = {
   {0, "full_railtorail", "oscillator swings full rail-to-rail"},
@@ -11010,13 +11127,13 @@ static const Configvalue _values_psc2rba_at90pwm81[2] = {
 /*
  * AT90CAN128 ATxmega128A3 ATxmega128A3U ATmega103comp AT90SCR100H ATmega161comp ATmega16 ATmega16A
  * ATmega16U4 ATmega32 ATmega32A ATmega32U4 ATmega32U6 ATmega64 ATmega64A ATmega64RFR2 ATmega128
- * ATmega128A ATmega128RFA1 ATmega128RFR2 ATmega162 ATmega164A ATmega164P ATmega164PA ATmega165
- * ATmega165A ATmega165P ATmega165PA ATmega169 ATmega169A ATmega169P ATmega169PA ATmega256RFR2
- * ATmega323 ATmega324A ATmega324P ATmega324PA ATmega324PB ATmega325 ATmega325A ATmega325P
- * ATmega325PA ATmega329 ATmega329A ATmega329P ATmega329PA ATmega406 ATmega640 ATmega644
- * ATmega644A ATmega644P ATmega644PA ATmega644RFR2 ATmega645 ATmega645A ATmega645P ATmega649
- * ATmega649A ATmega649P ATmega1280 ATmega1281 ATmega1284 ATmega1284P ATmega1284RFR2 ATmega2560
- * ATmega2561 ATmega2564RFR2 ATmega3250 ATmega3250A ATmega3250P ATmega3250PA ATmega3290
+ * ATmegaS128 ATmega128A ATmega128RFA1 ATmega128RFR2 ATmega162 ATmega164A ATmega164P ATmega164PA
+ * ATmega165 ATmega165A ATmega165P ATmega165PA ATmega169 ATmega169A ATmega169P ATmega169PA
+ * ATmega256RFR2 ATmega323 ATmega324A ATmega324P ATmega324PA ATmega324PB ATmega325 ATmega325A
+ * ATmega325P ATmega325PA ATmega329 ATmega329A ATmega329P ATmega329PA ATmega406 ATmega640
+ * ATmega644 ATmega644A ATmega644P ATmega644PA ATmega644RFR2 ATmega645 ATmega645A ATmega645P
+ * ATmega649 ATmega649A ATmega649P ATmega1280 ATmega1281 ATmega1284 ATmega1284P ATmega1284RFR2
+ * ATmega2560 ATmega2561 ATmega2564RFR2 ATmega3250 ATmega3250A ATmega3250P ATmega3250PA ATmega3290
  * ATmega3290A ATmega3290P ATmega3290PA ATmega6450 ATmega6450A ATmega6450P ATmega6490 ATmega6490A
  * ATmega6490P AT90CAN32 AT90CAN64 AT90SCR100 AT90USB646 AT90USB647 AT90USB1286 AT90USB1287
  * ATxmega16A4 ATxmega16A4U ATxmega32A4 ATxmega32A4U ATxmega64A1 ATxmega64A1U ATxmega64B1
@@ -11031,7 +11148,7 @@ static const Configvalue _values_jtagen_at90can128[2] = {
 
 /*
  * AT90CAN128 ATmega103comp AT90SCR100H ATmega161comp ATmega16 ATmega16A ATmega16U4 ATmega32
- * ATmega32A ATmega32U4 ATmega32U6 ATmega64 ATmega64A ATmega64RFR2 ATmega128 ATmega128A
+ * ATmega32A ATmega32U4 ATmega32U6 ATmega64 ATmega64A ATmega64RFR2 ATmega128 ATmegaS128 ATmega128A
  * ATmega128RFA1 ATmega128RFR2 ATmega162 ATmega164A ATmega164P ATmega164PA ATmega165 ATmega165A
  * ATmega165P ATmega165PA ATmega169 ATmega169A ATmega169P ATmega169PA ATmega256RFR2 ATmega323
  * ATmega324A ATmega324P ATmega324PA ATmega324PB ATmega325 ATmega325A ATmega325P ATmega325PA
@@ -11106,21 +11223,21 @@ static const Configvalue _values_extclken_ata5781[2] = {
  * AT90CAN128 AT90USB162 ATA5781 ATA5790 ATA6285 ATmega103comp AT90SCR100H ATmega161comp
  * AT90S8535comp ATtiny828 ATtiny828R ATmega8 ATmega8A ATmega8U2 ATmega16 ATmega16A ATmega16HVB
  * ATmega16HVBrevB ATmega16U2 ATmega16U4 ATmega32 ATmega32A ATmega32HVB ATmega32C1 ATmega32M1
- * ATmega32U2 ATmega32U4 ATmega32U6 ATmega64 ATmega64A ATmega64C1 ATmega64M1 ATmega64HVE2
- * ATmega64RFR2 ATmega88 ATmega88A ATmega88P ATmega88PA ATmega88PB ATmega128 ATmega128A
- * ATmega128RFA1 ATmega128RFR2 ATmega161 ATmega162 ATmega163 ATmega164A ATmega164P ATmega164PA
- * ATmega165 ATmega165A ATmega165P ATmega165PA ATmega168 ATmega168A ATmega168P ATmega168PA
- * ATmega168PB ATmega169 ATmega169A ATmega169P ATmega169PA ATmega256RFR2 ATmega323 ATmega324A
- * ATmega324P ATmega324PA ATmega324PB ATmega325 ATmega325A ATmega325P ATmega325PA ATmega328P
- * ATmega329 ATmega329A ATmega329P ATmega329PA ATmega406 ATmega640 ATmega644 ATmega644A ATmega644P
- * ATmega644PA ATmega644RFR2 ATmega645 ATmega645A ATmega645P ATmega649 ATmega649A ATmega649P
- * ATmega1280 ATmega1281 ATmega1284 ATmega1284P ATmega1284RFR2 ATmega2560 ATmega2561
- * ATmega2564RFR2 ATmega3250 ATmega3250A ATmega3250P ATmega3250PA ATmega3290 ATmega3290A
- * ATmega3290P ATmega3290PA ATmega6450 ATmega6450A ATmega6450P ATmega6490 ATmega6490A ATmega6490P
- * ATmega8535 AT90PWM1 AT90PWM2B AT90PWM3 AT90PWM3B AT90CAN32 AT90CAN64 AT90USB82 AT90SCR100
- * AT90PWM161 AT90PWM216 AT90PWM316 AT90USB646 AT90USB647 AT90USB1286 AT90USB1287 AT90S8515comp
- * ATA5782 ATA5783 ATA5787 ATA5790N ATA5791 ATA5795 ATA5831 ATA5832 ATA5833 ATA5835 ATA6286
- * ATA6289 ATA6612C ATA6613C ATA6614Q ATA8210 ATA8215 ATA8510 ATA8515 ATmega32HVE2
+ * ATmega32U2 ATmega32U4 ATmega32U6 ATmega64 ATmega64A ATmega64C1 ATmegaS64M1 ATmega64M1
+ * ATmega64HVE2 ATmega64RFR2 ATmega88 ATmega88A ATmega88P ATmega88PA ATmega88PB ATmega128
+ * ATmegaS128 ATmega128A ATmega128RFA1 ATmega128RFR2 ATmega161 ATmega162 ATmega163 ATmega164A
+ * ATmega164P ATmega164PA ATmega165 ATmega165A ATmega165P ATmega165PA ATmega168 ATmega168A
+ * ATmega168P ATmega168PA ATmega168PB ATmega169 ATmega169A ATmega169P ATmega169PA ATmega256RFR2
+ * ATmega323 ATmega324A ATmega324P ATmega324PA ATmega324PB ATmega325 ATmega325A ATmega325P
+ * ATmega325PA ATmega328P ATmega329 ATmega329A ATmega329P ATmega329PA ATmega406 ATmega640
+ * ATmega644 ATmega644A ATmega644P ATmega644PA ATmega644RFR2 ATmega645 ATmega645A ATmega645P
+ * ATmega649 ATmega649A ATmega649P ATmega1280 ATmega1281 ATmega1284 ATmega1284P ATmega1284RFR2
+ * ATmega2560 ATmega2561 ATmega2564RFR2 ATmega3250 ATmega3250A ATmega3250P ATmega3250PA ATmega3290
+ * ATmega3290A ATmega3290P ATmega3290PA ATmega6450 ATmega6450A ATmega6450P ATmega6490 ATmega6490A
+ * ATmega6490P ATmega8535 AT90PWM1 AT90PWM2B AT90PWM3 AT90PWM3B AT90CAN32 AT90CAN64 AT90USB82
+ * AT90SCR100 AT90PWM161 AT90PWM216 AT90PWM316 AT90USB646 AT90USB647 AT90USB1286 AT90USB1287
+ * AT90S8515comp ATA5782 ATA5783 ATA5787 ATA5790N ATA5791 ATA5795 ATA5831 ATA5832 ATA5833 ATA5835
+ * ATA6286 ATA6289 ATA6612C ATA6613C ATA6614Q ATA8210 ATA8215 ATA8510 ATA8515 ATmega32HVE2
  */
 static const Configvalue _values_ap_atmega328[4] = {
   {0, "lpm_spm_disabled_in_app", "LPM and SPM prohibited in application section"},
@@ -11134,21 +11251,21 @@ static const Configvalue _values_ap_atmega328[4] = {
  * AT90CAN128 AT90USB162 ATA5781 ATA5790 ATA6285 ATmega103comp AT90SCR100H ATmega161comp
  * AT90S8535comp ATtiny828 ATtiny828R ATmega8 ATmega8A ATmega8U2 ATmega16 ATmega16A ATmega16HVB
  * ATmega16HVBrevB ATmega16U2 ATmega16U4 ATmega32 ATmega32A ATmega32HVB ATmega32C1 ATmega32M1
- * ATmega32U2 ATmega32U4 ATmega32U6 ATmega64 ATmega64A ATmega64C1 ATmega64M1 ATmega64HVE2
- * ATmega64RFR2 ATmega88 ATmega88A ATmega88P ATmega88PA ATmega88PB ATmega128 ATmega128A
- * ATmega128RFA1 ATmega128RFR2 ATmega161 ATmega162 ATmega163 ATmega164A ATmega164P ATmega164PA
- * ATmega165 ATmega165A ATmega165P ATmega165PA ATmega168 ATmega168A ATmega168P ATmega168PA
- * ATmega168PB ATmega169 ATmega169A ATmega169P ATmega169PA ATmega256RFR2 ATmega323 ATmega324A
- * ATmega324P ATmega324PA ATmega324PB ATmega325 ATmega325A ATmega325P ATmega325PA ATmega328P
- * ATmega329 ATmega329A ATmega329P ATmega329PA ATmega406 ATmega640 ATmega644 ATmega644A ATmega644P
- * ATmega644PA ATmega644RFR2 ATmega645 ATmega645A ATmega645P ATmega649 ATmega649A ATmega649P
- * ATmega1280 ATmega1281 ATmega1284 ATmega1284P ATmega1284RFR2 ATmega2560 ATmega2561
- * ATmega2564RFR2 ATmega3250 ATmega3250A ATmega3250P ATmega3250PA ATmega3290 ATmega3290A
- * ATmega3290P ATmega3290PA ATmega6450 ATmega6450A ATmega6450P ATmega6490 ATmega6490A ATmega6490P
- * ATmega8535 AT90PWM1 AT90PWM2B AT90PWM3 AT90PWM3B AT90CAN32 AT90CAN64 AT90USB82 AT90SCR100
- * AT90PWM161 AT90PWM216 AT90PWM316 AT90USB646 AT90USB647 AT90USB1286 AT90USB1287 AT90S8515comp
- * ATA5782 ATA5783 ATA5787 ATA5790N ATA5791 ATA5795 ATA5831 ATA5832 ATA5833 ATA5835 ATA6286
- * ATA6289 ATA6612C ATA6613C ATA6614Q ATA8210 ATA8215 ATA8510 ATA8515 ATmega32HVE2
+ * ATmega32U2 ATmega32U4 ATmega32U6 ATmega64 ATmega64A ATmega64C1 ATmegaS64M1 ATmega64M1
+ * ATmega64HVE2 ATmega64RFR2 ATmega88 ATmega88A ATmega88P ATmega88PA ATmega88PB ATmega128
+ * ATmegaS128 ATmega128A ATmega128RFA1 ATmega128RFR2 ATmega161 ATmega162 ATmega163 ATmega164A
+ * ATmega164P ATmega164PA ATmega165 ATmega165A ATmega165P ATmega165PA ATmega168 ATmega168A
+ * ATmega168P ATmega168PA ATmega168PB ATmega169 ATmega169A ATmega169P ATmega169PA ATmega256RFR2
+ * ATmega323 ATmega324A ATmega324P ATmega324PA ATmega324PB ATmega325 ATmega325A ATmega325P
+ * ATmega325PA ATmega328P ATmega329 ATmega329A ATmega329P ATmega329PA ATmega406 ATmega640
+ * ATmega644 ATmega644A ATmega644P ATmega644PA ATmega644RFR2 ATmega645 ATmega645A ATmega645P
+ * ATmega649 ATmega649A ATmega649P ATmega1280 ATmega1281 ATmega1284 ATmega1284P ATmega1284RFR2
+ * ATmega2560 ATmega2561 ATmega2564RFR2 ATmega3250 ATmega3250A ATmega3250P ATmega3250PA ATmega3290
+ * ATmega3290A ATmega3290P ATmega3290PA ATmega6450 ATmega6450A ATmega6450P ATmega6490 ATmega6490A
+ * ATmega6490P ATmega8535 AT90PWM1 AT90PWM2B AT90PWM3 AT90PWM3B AT90CAN32 AT90CAN64 AT90USB82
+ * AT90SCR100 AT90PWM161 AT90PWM216 AT90PWM316 AT90USB646 AT90USB647 AT90USB1286 AT90USB1287
+ * AT90S8515comp ATA5782 ATA5783 ATA5787 ATA5790N ATA5791 ATA5795 ATA5831 ATA5832 ATA5833 ATA5835
+ * ATA6286 ATA6289 ATA6612C ATA6613C ATA6614Q ATA8210 ATA8215 ATA8510 ATA8515 ATmega32HVE2
  */
 static const Configvalue _values_blp_atmega328[4] = {
   {0, "lpm_spm_disabled_in_boot", "LPM and SPM prohibited in boot section"},
@@ -11398,7 +11515,8 @@ static const Configvalue _values_toscsel_atxmega128a3u[2] = {
  * ATtiny807 ATtiny814 ATtiny816 ATtiny817 ATtiny824 ATtiny826 ATtiny827 ATtiny1604 ATtiny1606
  * ATtiny1607 ATtiny1614 ATtiny1616 ATtiny1617 ATtiny1626 ATtiny1627 ATtiny3216 ATtiny3217
  * ATtiny3224 ATtiny3226 ATtiny3227 ATmega808 ATmega809 ATmega1608 ATmega1609 ATmega3208
- * ATmega3209 ATmega4808 ATmega4809
+ * ATmega3209 ATmega4808 ATmega4809 AVR16LA14 AVR16LA20 AVR16LA28 AVR16LA32 AVR32LA14 AVR32LA20
+ * AVR32LA28 AVR32LA32
  */
 static const Configvalue _values_wdtperiod_attiny204[12] = {
   {0x00, "t_off", "watchdog timer off"},
@@ -11463,7 +11581,8 @@ static const Configvalue _values_wdtperiod_avr32sd20[12] = {
  * ATtiny807 ATtiny814 ATtiny816 ATtiny817 ATtiny824 ATtiny826 ATtiny827 ATtiny1604 ATtiny1606
  * ATtiny1607 ATtiny1614 ATtiny1616 ATtiny1617 ATtiny1626 ATtiny1627 ATtiny3216 ATtiny3217
  * ATtiny3224 ATtiny3226 ATtiny3227 ATmega808 ATmega809 ATmega1608 ATmega1609 ATmega3208
- * ATmega3209 ATmega4808 ATmega4809
+ * ATmega3209 ATmega4808 ATmega4809 AVR16LA14 AVR16LA20 AVR16LA28 AVR16LA32 AVR32LA14 AVR32LA20
+ * AVR32LA28 AVR32LA32
  */
 static const Configvalue _values_wdtwindow_attiny204[12] = {
   {0x00, "t_off", "window mode off"},
@@ -11537,15 +11656,16 @@ static const Configvalue _values_bodsleep_attiny204[3] = {
 };
 
 /*
- * AVR32DD14 AVR64EA48 AVR16DD14 AVR16DU14 AVR16EB14 AVR16DD20 AVR16DU20 AVR16EB20 AVR16DD28
- * AVR16DU28 AVR16EA28 AVR16EB28 AVR16DD32 AVR16DU32 AVR16EA32 AVR16EB32 AVR16EA48 AVR32DU14
- * AVR32EB14 AVR32DD20 AVR32DU20 AVR32EB20 AVR32SD20 AVR32DA28 AVR32DA28S AVR32DB28 AVR32DD28
- * AVR32DU28 AVR32EA28 AVR32EB28 AVR32SD28 AVR32DA32 AVR32DA32S AVR32DB32 AVR32DD32 AVR32DU32
- * AVR32EA32 AVR32EB32 AVR32SD32 AVR32DA48 AVR32DA48S AVR32DB48 AVR32EA48 AVR64DD14 AVR64DD20
- * AVR64DA28 AVR64DA28S AVR64DB28 AVR64DD28 AVR64DU28 AVR64EA28 AVR64DA32 AVR64DA32S AVR64DB32
- * AVR64DD32 AVR64DU32 AVR64EA32 AVR64DA48 AVR64DA48S AVR64DB48 AVR64DA64 AVR64DA64S AVR64DB64
- * AVR128DA28 AVR128DA28S AVR128DB28 AVR128DA32 AVR128DA32S AVR128DB32 AVR128DA48 AVR128DA48S
- * AVR128DB48 AVR128DA64 AVR128DA64S AVR128DB64
+ * AVR32DD14 AVR64EA48 AVR16DD14 AVR16DU14 AVR16EB14 AVR16LA14 AVR16DD20 AVR16DU20 AVR16EB20
+ * AVR16LA20 AVR16DD28 AVR16DU28 AVR16EA28 AVR16EB28 AVR16LA28 AVR16DD32 AVR16DU32 AVR16EA32
+ * AVR16EB32 AVR16LA32 AVR16EA48 AVR32DU14 AVR32EB14 AVR32LA14 AVR32DD20 AVR32DU20 AVR32EB20
+ * AVR32LA20 AVR32SD20 AVR32DA28 AVR32DA28S AVR32DB28 AVR32DD28 AVR32DU28 AVR32EA28 AVR32EB28
+ * AVR32LA28 AVR32SD28 AVR32DA32 AVR32DA32S AVR32DB32 AVR32DD32 AVR32DU32 AVR32EA32 AVR32EB32
+ * AVR32LA32 AVR32SD32 AVR32DA48 AVR32DA48S AVR32DB48 AVR32EA48 AVR64DD14 AVR64DD20 AVR64DA28
+ * AVR64DA28S AVR64DB28 AVR64DD28 AVR64DU28 AVR64EA28 AVR64DA32 AVR64DA32S AVR64DB32 AVR64DD32
+ * AVR64DU32 AVR64EA32 AVR64DA48 AVR64DA48S AVR64DB48 AVR64DA64 AVR64DA64S AVR64DB64 AVR128DA28
+ * AVR128DA28S AVR128DB28 AVR128DA32 AVR128DA32S AVR128DB32 AVR128DA48 AVR128DA48S AVR128DB48
+ * AVR128DA64 AVR128DA64S AVR128DB64
  */
 static const Configvalue _values_bodsleep_avr32dd14[3] = {
   {0, "bod_disabled", "brownout detection disabled"},
@@ -11569,15 +11689,16 @@ static const Configvalue _values_bodactive_attiny204[4] = {
 };
 
 /*
- * AVR32DD14 AVR64EA48 AVR16DD14 AVR16DU14 AVR16EB14 AVR16DD20 AVR16DU20 AVR16EB20 AVR16DD28
- * AVR16DU28 AVR16EA28 AVR16EB28 AVR16DD32 AVR16DU32 AVR16EA32 AVR16EB32 AVR16EA48 AVR32DU14
- * AVR32EB14 AVR32DD20 AVR32DU20 AVR32EB20 AVR32SD20 AVR32DA28 AVR32DA28S AVR32DB28 AVR32DD28
- * AVR32DU28 AVR32EA28 AVR32EB28 AVR32SD28 AVR32DA32 AVR32DA32S AVR32DB32 AVR32DD32 AVR32DU32
- * AVR32EA32 AVR32EB32 AVR32SD32 AVR32DA48 AVR32DA48S AVR32DB48 AVR32EA48 AVR64DD14 AVR64DD20
- * AVR64DA28 AVR64DA28S AVR64DB28 AVR64DD28 AVR64DU28 AVR64EA28 AVR64DA32 AVR64DA32S AVR64DB32
- * AVR64DD32 AVR64DU32 AVR64EA32 AVR64DA48 AVR64DA48S AVR64DB48 AVR64DA64 AVR64DA64S AVR64DB64
- * AVR128DA28 AVR128DA28S AVR128DB28 AVR128DA32 AVR128DA32S AVR128DB32 AVR128DA48 AVR128DA48S
- * AVR128DB48 AVR128DA64 AVR128DA64S AVR128DB64
+ * AVR32DD14 AVR64EA48 AVR16DD14 AVR16DU14 AVR16EB14 AVR16LA14 AVR16DD20 AVR16DU20 AVR16EB20
+ * AVR16LA20 AVR16DD28 AVR16DU28 AVR16EA28 AVR16EB28 AVR16LA28 AVR16DD32 AVR16DU32 AVR16EA32
+ * AVR16EB32 AVR16LA32 AVR16EA48 AVR32DU14 AVR32EB14 AVR32LA14 AVR32DD20 AVR32DU20 AVR32EB20
+ * AVR32LA20 AVR32SD20 AVR32DA28 AVR32DA28S AVR32DB28 AVR32DD28 AVR32DU28 AVR32EA28 AVR32EB28
+ * AVR32LA28 AVR32SD28 AVR32DA32 AVR32DA32S AVR32DB32 AVR32DD32 AVR32DU32 AVR32EA32 AVR32EB32
+ * AVR32LA32 AVR32SD32 AVR32DA48 AVR32DA48S AVR32DB48 AVR32EA48 AVR64DD14 AVR64DD20 AVR64DA28
+ * AVR64DA28S AVR64DB28 AVR64DD28 AVR64DU28 AVR64EA28 AVR64DA32 AVR64DA32S AVR64DB32 AVR64DD32
+ * AVR64DU32 AVR64EA32 AVR64DA48 AVR64DA48S AVR64DB48 AVR64DA64 AVR64DA64S AVR64DB64 AVR128DA28
+ * AVR128DA28S AVR128DB28 AVR128DA32 AVR128DA32S AVR128DB32 AVR128DA48 AVR128DA48S AVR128DB48
+ * AVR128DA64 AVR128DA64S AVR128DB64
  */
 static const Configvalue _values_bodactive_avr32dd14[4] = {
   {0, "bod_disabled", "brownout detection disabled"},
@@ -11600,15 +11721,16 @@ static const Configvalue _values_bodsampfreq_attiny204[2] = {
 };
 
 /*
- * AVR32DD14 AVR64EA48 AVR16DD14 AVR16DU14 AVR16EB14 AVR16DD20 AVR16DU20 AVR16EB20 AVR16DD28
- * AVR16DU28 AVR16EA28 AVR16EB28 AVR16DD32 AVR16DU32 AVR16EA32 AVR16EB32 AVR16EA48 AVR32DU14
- * AVR32EB14 AVR32DD20 AVR32DU20 AVR32EB20 AVR32SD20 AVR32DA28 AVR32DA28S AVR32DB28 AVR32DD28
- * AVR32DU28 AVR32EA28 AVR32EB28 AVR32SD28 AVR32DA32 AVR32DA32S AVR32DB32 AVR32DD32 AVR32DU32
- * AVR32EA32 AVR32EB32 AVR32SD32 AVR32DA48 AVR32DA48S AVR32DB48 AVR32EA48 AVR64DD14 AVR64DD20
- * AVR64DA28 AVR64DA28S AVR64DB28 AVR64DD28 AVR64DU28 AVR64EA28 AVR64DA32 AVR64DA32S AVR64DB32
- * AVR64DD32 AVR64DU32 AVR64EA32 AVR64DA48 AVR64DA48S AVR64DB48 AVR64DA64 AVR64DA64S AVR64DB64
- * AVR128DA28 AVR128DA28S AVR128DB28 AVR128DA32 AVR128DA32S AVR128DB32 AVR128DA48 AVR128DA48S
- * AVR128DB48 AVR128DA64 AVR128DA64S AVR128DB64
+ * AVR32DD14 AVR64EA48 AVR16DD14 AVR16DU14 AVR16EB14 AVR16LA14 AVR16DD20 AVR16DU20 AVR16EB20
+ * AVR16LA20 AVR16DD28 AVR16DU28 AVR16EA28 AVR16EB28 AVR16LA28 AVR16DD32 AVR16DU32 AVR16EA32
+ * AVR16EB32 AVR16LA32 AVR16EA48 AVR32DU14 AVR32EB14 AVR32LA14 AVR32DD20 AVR32DU20 AVR32EB20
+ * AVR32LA20 AVR32SD20 AVR32DA28 AVR32DA28S AVR32DB28 AVR32DD28 AVR32DU28 AVR32EA28 AVR32EB28
+ * AVR32LA28 AVR32SD28 AVR32DA32 AVR32DA32S AVR32DB32 AVR32DD32 AVR32DU32 AVR32EA32 AVR32EB32
+ * AVR32LA32 AVR32SD32 AVR32DA48 AVR32DA48S AVR32DB48 AVR32EA48 AVR64DD14 AVR64DD20 AVR64DA28
+ * AVR64DA28S AVR64DB28 AVR64DD28 AVR64DU28 AVR64EA28 AVR64DA32 AVR64DA32S AVR64DB32 AVR64DD32
+ * AVR64DU32 AVR64EA32 AVR64DA48 AVR64DA48S AVR64DB48 AVR64DA64 AVR64DA64S AVR64DB64 AVR128DA28
+ * AVR128DA28S AVR128DB28 AVR128DA32 AVR128DA32S AVR128DB32 AVR128DA48 AVR128DA48S AVR128DB48
+ * AVR128DA64 AVR128DA64S AVR128DB64
  */
 static const Configvalue _values_bodsampfreq_avr32dd14[2] = {
   {0, "bod_128hz", "128 Hz sampling frequency"},
@@ -11629,8 +11751,9 @@ static const Configvalue _values_freqsel_attiny204[2] = {
 };
 
 /*
- * AVR64EA48 AVR16EB14 AVR16EB20 AVR16EA28 AVR16EB28 AVR16EA32 AVR16EB32 AVR16EA48 AVR32EB14
- * AVR32EB20 AVR32EA28 AVR32EB28 AVR32EA32 AVR32EB32 AVR32EA48 AVR64EA28 AVR64EA32
+ * AVR64EA48 AVR16EB14 AVR16LA14 AVR16EB20 AVR16LA20 AVR16EA28 AVR16EB28 AVR16LA28 AVR16EA32
+ * AVR16EB32 AVR16LA32 AVR16EA48 AVR32EB14 AVR32LA14 AVR32EB20 AVR32LA20 AVR32EA28 AVR32EB28
+ * AVR32LA28 AVR32EA32 AVR32EB32 AVR32LA32 AVR32EA48 AVR64EA28 AVR64EA32
  */
 static const Configvalue _values_freqsel_avr64ea48[2] = {
   {0, "fcpu_20mhz", "OSCHF running at 20 MHz"},
@@ -11777,6 +11900,12 @@ static const Configvalue _values_rstpincfg_avr64ea48[2] = {
   {1, "reset", "PF6 configured as reset pin"},
 };
 
+// AVR16LA14 AVR16LA20 AVR16LA28 AVR16LA32 AVR32LA14 AVR32LA20 AVR32LA28 AVR32LA32
+static const Configvalue _values_rstpincfg_avr16la14[2] = {
+  {0, "input", "PF6 configures as INPUT pin"},
+  {1, "reset", "PF6 configures as RESET pin"},
+};
+
 /*
  * AVR32DA28 AVR32DA28S AVR32DB28 AVR32DA32 AVR32DA32S AVR32DB32 AVR32DA48 AVR32DA48S AVR32DB48
  * AVR64DA28 AVR64DA28S AVR64DB28 AVR64DA32 AVR64DA32S AVR64DB32 AVR64DA48 AVR64DA48S AVR64DB48
@@ -11853,16 +11982,23 @@ static const Configvalue _values_updipincfg_avr64ea48[2] = {
   {1, "updi", "PF7 configured as UPDI pin"},
 };
 
+// AVR16LA14 AVR16LA20 AVR16LA28 AVR16LA32 AVR32LA14 AVR32LA20 AVR32LA28 AVR32LA32
+static const Configvalue _values_updipincfg_avr16la14[2] = {
+  {0, "gpio", "PF7 configures as GPIO pin"},
+  {1, "updi", "PF7 configures as UPDI pin"},
+};
+
 /*
- * AVR32DD14 AVR64EA48 AVR16DD14 AVR16DU14 AVR16EB14 AVR16DD20 AVR16DU20 AVR16EB20 AVR16DD28
- * AVR16DU28 AVR16EA28 AVR16EB28 AVR16DD32 AVR16DU32 AVR16EA32 AVR16EB32 AVR16EA48 AVR32DU14
- * AVR32EB14 AVR32DD20 AVR32DU20 AVR32EB20 AVR32SD20 AVR32DA28 AVR32DA28S AVR32DB28 AVR32DD28
- * AVR32DU28 AVR32EA28 AVR32EB28 AVR32SD28 AVR32DA32 AVR32DA32S AVR32DB32 AVR32DD32 AVR32DU32
- * AVR32EA32 AVR32EB32 AVR32SD32 AVR32DA48 AVR32DA48S AVR32DB48 AVR32EA48 AVR64DD14 AVR64DD20
- * AVR64DA28 AVR64DA28S AVR64DB28 AVR64DD28 AVR64DU28 AVR64EA28 AVR64DA32 AVR64DA32S AVR64DB32
- * AVR64DD32 AVR64DU32 AVR64EA32 AVR64DA48 AVR64DA48S AVR64DB48 AVR64DA64 AVR64DA64S AVR64DB64
- * AVR128DA28 AVR128DA28S AVR128DB28 AVR128DA32 AVR128DA32S AVR128DB32 AVR128DA48 AVR128DA48S
- * AVR128DB48 AVR128DA64 AVR128DA64S AVR128DB64
+ * AVR32DD14 AVR64EA48 AVR16DD14 AVR16DU14 AVR16EB14 AVR16LA14 AVR16DD20 AVR16DU20 AVR16EB20
+ * AVR16LA20 AVR16DD28 AVR16DU28 AVR16EA28 AVR16EB28 AVR16LA28 AVR16DD32 AVR16DU32 AVR16EA32
+ * AVR16EB32 AVR16LA32 AVR16EA48 AVR32DU14 AVR32EB14 AVR32LA14 AVR32DD20 AVR32DU20 AVR32EB20
+ * AVR32LA20 AVR32SD20 AVR32DA28 AVR32DA28S AVR32DB28 AVR32DD28 AVR32DU28 AVR32EA28 AVR32EB28
+ * AVR32LA28 AVR32SD28 AVR32DA32 AVR32DA32S AVR32DB32 AVR32DD32 AVR32DU32 AVR32EA32 AVR32EB32
+ * AVR32LA32 AVR32SD32 AVR32DA48 AVR32DA48S AVR32DB48 AVR32EA48 AVR64DD14 AVR64DD20 AVR64DA28
+ * AVR64DA28S AVR64DB28 AVR64DD28 AVR64DU28 AVR64EA28 AVR64DA32 AVR64DA32S AVR64DB32 AVR64DD32
+ * AVR64DU32 AVR64EA32 AVR64DA48 AVR64DA48S AVR64DB48 AVR64DA64 AVR64DA64S AVR64DB64 AVR128DA28
+ * AVR128DA28S AVR128DB28 AVR128DA32 AVR128DA32S AVR128DB32 AVR128DA48 AVR128DA48S AVR128DB48
+ * AVR128DA64 AVR128DA64S AVR128DB64
  */
 static const Configvalue _values_crcsel_avr32dd14[2] = {
   {0, "crc16", "enable CRC16"},
@@ -11887,13 +12023,14 @@ static const Configvalue _values_mvsyscfg_avr32sd20[3] = {
 };
 
 /*
- * AVR32DD14 AVR64EA48 AVR16DD14 AVR16DU14 AVR16EB14 AVR16DD20 AVR16DU20 AVR16EB20 AVR16DD28
- * AVR16DU28 AVR16EA28 AVR16EB28 AVR16DD32 AVR16DU32 AVR16EA32 AVR16EB32 AVR16EA48 AVR32DU14
- * AVR32EB14 AVR32DD20 AVR32DU20 AVR32EB20 AVR32DA28 AVR32DA28S AVR32DB28 AVR32DD28 AVR32DU28
- * AVR32EA28 AVR32EB28 AVR32DA32 AVR32DA32S AVR32DB32 AVR32DD32 AVR32DU32 AVR32EA32 AVR32EB32
- * AVR32DA48 AVR32DA48S AVR32DB48 AVR32EA48 AVR64DD14 AVR64DD20 AVR64DA28 AVR64DA28S AVR64DB28
- * AVR64DD28 AVR64DU28 AVR64EA28 AVR64DA32 AVR64DA32S AVR64DB32 AVR64DD32 AVR64DU32 AVR64EA32
- * AVR64DA48 AVR64DA48S AVR64DB48 AVR64DA64 AVR64DA64S AVR64DB64 AVR128DA28 AVR128DA28S AVR128DB28
+ * AVR32DD14 AVR64EA48 AVR16DD14 AVR16DU14 AVR16EB14 AVR16LA14 AVR16DD20 AVR16DU20 AVR16EB20
+ * AVR16LA20 AVR16DD28 AVR16DU28 AVR16EA28 AVR16EB28 AVR16LA28 AVR16DD32 AVR16DU32 AVR16EA32
+ * AVR16EB32 AVR16LA32 AVR16EA48 AVR32DU14 AVR32EB14 AVR32LA14 AVR32DD20 AVR32DU20 AVR32EB20
+ * AVR32LA20 AVR32DA28 AVR32DA28S AVR32DB28 AVR32DD28 AVR32DU28 AVR32EA28 AVR32EB28 AVR32LA28
+ * AVR32DA32 AVR32DA32S AVR32DB32 AVR32DD32 AVR32DU32 AVR32EA32 AVR32EB32 AVR32LA32 AVR32DA48
+ * AVR32DA48S AVR32DB48 AVR32EA48 AVR64DD14 AVR64DD20 AVR64DA28 AVR64DA28S AVR64DB28 AVR64DD28
+ * AVR64DU28 AVR64EA28 AVR64DA32 AVR64DA32S AVR64DB32 AVR64DD32 AVR64DU32 AVR64EA32 AVR64DA48
+ * AVR64DA48S AVR64DB48 AVR64DA64 AVR64DA64S AVR64DB64 AVR128DA28 AVR128DA28S AVR128DB28
  * AVR128DA32 AVR128DA32S AVR128DB32 AVR128DA48 AVR128DA48S AVR128DB48 AVR128DA64 AVR128DA64S
  * AVR128DB64
  */
@@ -11908,7 +12045,7 @@ static const Configvalue _values_key_avr32sd20[2] = {
   {0x5cc5c55c, "nolock", "no locks"},
 };
 
-// ATmega103comp ATmega64 ATmega64A ATmega128 ATmega128A
+// ATmega103comp ATmega64 ATmega64A ATmega128 ATmegaS128 ATmega128A
 static const Configvalue _values_m103c_atmega103comp[2] = {
   {0, "c103_enabled", "ATmega103 compatibility mode enabled"},
   {1, "c103_disabled", "ATmega103 compatibility mode disabled"},
@@ -11955,6 +12092,12 @@ static const Configvalue _values_nvmlevel_avr16du14[2] = {
   {3, "basic", "UPDI and UPDI pins working normally"},
 };
 
+// AVR16LA14 AVR16LA20 AVR16LA28 AVR16LA32 AVR32LA14 AVR32LA20 AVR32LA28 AVR32LA32
+static const Configvalue _values_nvmlevel_avr16la14[2] = {
+  {2, "nvmaccdis", "NVM access through UPDI disabled"},
+  {3, "unprot", "UPDI and UPDI pins working normally"},
+};
+
 /*
  * AVR16DU14 AVR16EB14 AVR16DU20 AVR16EB20 AVR16DU28 AVR16EB28 AVR16DU32 AVR16EB32 AVR32DU14
  * AVR32EB14 AVR32DU20 AVR32EB20 AVR32DA28S AVR32DU28 AVR32EB28 AVR32DA32S AVR32DU32 AVR32EB32
@@ -11966,14 +12109,23 @@ static const Configvalue _values_nvmkey_avr16du14[2] = {
   {0xb45, "nvmact", "NVM protection active"},
 };
 
+// AVR16LA14 AVR16LA20 AVR16LA28 AVR16LA32 AVR32LA14 AVR32LA20 AVR32LA28 AVR32LA32
+static const Configvalue _values_nvmkey_avr16la14[2] = {
+  {0x00, "unlocked", "Protection Disabled"},
+  {0xb45, "lock", "Protection Enabled"},
+};
+
 // AVR32SD20 AVR32SD28 AVR32SD32
 static const Configvalue _values_nvmkey_avr32sd20[2] = {
   {0x00, "notact", "Not active"},
   {0xb45, "nvmact", "NVM Protection active"},
 };
 
-// AVR32SD20 AVR32SD28 AVR32SD32
-static const Configvalue _values_crcboot_avr32sd20[2] = {
+/*
+ * AVR16LA14 AVR16LA20 AVR16LA28 AVR16LA32 AVR32LA14 AVR32LA20 AVR32SD20 AVR32LA28 AVR32SD28
+ * AVR32LA32 AVR32SD32
+ */
+static const Configvalue _values_crcboot_avr16la14[2] = {
   {0, "cb_no", "No CRC scan of boot section during reset"},
   {1, "cb_yes", "CRC scan of boot section during reset"},
 };
@@ -13038,7 +13190,7 @@ const Configitem cfgtab_atmega64[15] = {
   {"blb1", 4, _values_blb1_atmega328, "lock", 0, 0x30, 4, 3, "boot lock bits: boot section"},
 };
 
-// ATmega64C1 ATmega64M1
+// ATmega64C1 ATmegaS64M1 ATmega64M1
 const Configitem cfgtab_atmega64c1[17] = {
   {"sut_cksel", 53, _values_sut_cksel_atmega16m1, "lfuse", 0, 0x3f, 0, 0x22, "clock source"},
   {"ckout", 2, _values_ckout_atmega16m1, "lfuse", 0, 0x40, 6, 1, "clock output"},
@@ -13138,7 +13290,7 @@ const Configitem cfgtab_atmega103[4] = {
   {"lb", 3, _values_lb_atmega328, "lock", 0, 0x06, 1, 3, "lock bits"},
 };
 
-// ATmega128 ATmega128A
+// ATmega128 ATmegaS128 ATmega128A
 const Configitem cfgtab_atmega128[15] = {
   {"sut_cksel", 58, _values_sut_cksel_atmega8515, "lfuse", 0, 0x3f, 0, 0x21, "clock source"},
   {"boden", 2, _values_boden_atmega64hve, "lfuse", 0, 0x40, 6, 1, "brownout detection"},
@@ -13985,6 +14137,30 @@ const Configitem cfgtab_avr16eb14[18] = {
   {"key", 2, _values_key_avr32dd14, "lock", 0, 0xffffffff, 0, 0x5cc5c55c, "lock key"},
 };
 
+// AVR16LA14 AVR16LA20 AVR16LA28 AVR16LA32 AVR32LA14 AVR32LA20 AVR32LA28 AVR32LA32
+const Configitem cfgtab_avr16la14[20] = {
+  {"wdtperiod", 12, _values_wdtperiod_attiny204, "wdtcfg", 0, 0x0f, 0, 0x00, "watchdog timeout period"},
+  {"wdtwindow", 12, _values_wdtwindow_attiny204, "wdtcfg", 0, 0xf0, 4, 0x00, "watchdog window timeout period"},
+  {"bodsleep", 3, _values_bodsleep_avr32dd14, "bodcfg", 1, 0x03, 0, 0, "brownout detection in sleep mode"},
+  {"bodactive", 4, _values_bodactive_avr32dd14, "bodcfg", 1, 0x0c, 2, 0, "brownout detection in active/idle mode"},
+  {"bodsampfreq", 2, _values_bodsampfreq_avr32dd14, "bodcfg", 1, 0x10, 4, 0, "brownout detection sampling frequency"},
+  {"bodlevel", 4, _values_bodlevel_avr16la14, "bodcfg", 1, 0xe0, 5, 0, "brownout detection level"},
+  {"freqsel", 2, _values_freqsel_avr64ea48, "osccfg", 2, 0x08, 3, 0, "HF oscillator frequency"},
+  {"rstpincfg", 2, _values_rstpincfg_avr16la14, "pincfg", 3, 0x01, 0, 0, "Reset Pin Configuration select"},
+  {"updipincfg", 2, _values_updipincfg_avr16la14, "pincfg", 3, 0x02, 1, 0, "UPDI Pin Configuration select"},
+  {"cpumon", 0, NULL, "hvmoncfg", 4, 0x01, 0, 0, "CPU Monitor"},
+  {"eesave", 2, _values_eesave_attiny204, "syscfg0", 5, 0x01, 0, 0, "EEPROM after chip erase"},
+  {"bootrowsave", 0, NULL, "syscfg0", 5, 0x02, 1, 0, "BOOTROW Save"},
+  {"crcsel", 2, _values_crcsel_avr32dd14, "syscfg0", 5, 0x40, 6, 0, "CRC select"},
+  {"crcboot", 2, _values_crcboot_avr16la14, "syscfg0", 5, 0x80, 7, 0, "CRC of boot section during reset"},
+  {"sut", 8, _values_sut_attiny204, "syscfg1", 6, 0x07, 0, 7, "startup time"},
+  {"codesize", 0, NULL, "codesize", 7, 0xff, 0, 0x00, "code section size [# of blocks]"},
+  {"bootsize", 0, NULL, "bootsize", 8, 0xff, 0, 0x00, "boot section size [# of blocks]"},
+  {"nvmlevel", 2, _values_nvmlevel_avr16la14, "pdicfg", 10, 0x03, 0, 3, "NVM protection level"},
+  {"nvmkey", 2, _values_nvmkey_avr16la14, "pdicfg", 10, 0xfff0, 4, 0x00, "NVM protection activation key"},
+  {"key", 2, _values_key_avr32dd14, "lock", 0, 0xffffffff, 0, 0x5cc5c55c, "lock key"},
+};
+
 // AVR32SD20 AVR32SD28 AVR32SD32
 const Configitem cfgtab_avr32sd20[18] = {
   {"wdtperiod", 12, _values_wdtperiod_avr32sd20, "wdtcfg", 0, 0x0f, 0, 0x00, "watchdog timeout period"},
@@ -13996,7 +14172,7 @@ const Configitem cfgtab_avr32sd20[18] = {
   {"eesave", 2, _values_eesave_attiny204, "syscfg0", 5, 0x01, 0, 0, "EEPROM after chip erase"},
   {"browsave", 2, _values_browsave_avr16du14, "syscfg0", 5, 0x02, 1, 0, "BOOTROW after chip erase"},
   {"crcsel", 2, _values_crcsel_avr32dd14, "syscfg0", 5, 0x40, 6, 0, "CRC select"},
-  {"crcboot", 2, _values_crcboot_avr32sd20, "syscfg0", 5, 0x80, 7, 0, "CRC of boot section during reset"},
+  {"crcboot", 2, _values_crcboot_avr16la14, "syscfg0", 5, 0x80, 7, 0, "CRC of boot section during reset"},
   {"sut", 8, _values_sut_attiny204, "syscfg1", 6, 0x07, 0, 0, "startup time"},
   {"mvsyscfg", 3, _values_mvsyscfg_avr32sd20, "syscfg1", 6, 0x18, 3, 1, "MVIO system configuration"},
   {"wdtmon", 4, _values_wdtmon_avr32sd20, "syscfg1", 6, 0xc0, 6, 1, "WDT Monitor Configuration"},
@@ -22146,8 +22322,8 @@ const Register_file rgftab_atmega64c1[122] = { // I/O memory [0, 223] + 32
   {"can.canmsg",             0xda,  1,   0xff,     -1, "CAN message data register"},
 };
 
-// ATmega64M1
-const Register_file rgftab_atmega64m1[136] = { // I/O memory [0, 223] + 32
+// ATmegaS64M1 ATmega64M1
+const Register_file rgftab_atmegas64m1[136] = { // I/O memory [0, 223] + 32
   {"portb.pinb",             0x03,  1,   0xff,     -1, "port B input register"},
   {"portb.ddrb",             0x04,  1,   0xff,     -1, "port B data direction register"},
   {"portb.portb",            0x05,  1,   0xff,     -1, "port B data register"},
@@ -22836,7 +23012,7 @@ const Register_file rgftab_atmega88pb[95] = { // I/O memory [0, 223] + 32
   {"deviceid.devid8",        0xd8,  1,     -1,     -1, "device ID byte 8"},
 };
 
-// ATmega128
+// ATmega128 ATmegaS128
 const Register_file rgftab_atmega128[103] = { // I/O memory [0, 223] + 32
   {"portf.pinf",             0x00,  1,   0xff,     -1, "port F input register"},
   {"porte.pine",             0x01,  1,   0xff,     -1, "port E input register"},
@@ -45822,6 +45998,349 @@ const Register_file rgftab_avr16eb14[390] = { // I/O memory [0, 4159]
   {"nvmctrl.addr",           0x100c,  4,     -1, 0x00000000, "address register (32 bits)"},
 };
 
+// AVR16LA14 AVR32LA14
+const Register_file rgftab_avr16la14[339] = { // I/O memory [0, 4159]
+  {"vporta.dir",             0x0000,  1,     -1,   0x00, "data direction register"},
+  {"vporta.out",             0x0001,  1,     -1,   0x00, "I/O port output register"},
+  {"vporta.in",              0x0002,  1,     -1,   0x00, "I/O port input register"},
+  {"vporta.intflags",        0x0003,  1,     -1,   0x00, "interrupt flags register"},
+  {"vportc.dir",             0x0008,  1,     -1,   0x00, "data direction register"},
+  {"vportc.out",             0x0009,  1,     -1,   0x00, "I/O port output register"},
+  {"vportc.in",              0x000a,  1,     -1,   0x00, "I/O port input register"},
+  {"vportc.intflags",        0x000b,  1,     -1,   0x00, "interrupt flags register"},
+  {"vportd.dir",             0x000c,  1,     -1,   0x00, "data direction register"},
+  {"vportd.out",             0x000d,  1,     -1,   0x00, "I/O port output register"},
+  {"vportd.in",              0x000e,  1,     -1,   0x00, "I/O port input register"},
+  {"vportd.intflags",        0x000f,  1,     -1,   0x00, "interrupt flags register"},
+  {"vportf.dir",             0x0014,  1,     -1,   0x00, "data direction register"},
+  {"vportf.out",             0x0015,  1,     -1,   0x00, "I/O port output register"},
+  {"vportf.in",              0x0016,  1,     -1,   0x00, "I/O port input register"},
+  {"vportf.intflags",        0x0017,  1,     -1,   0x00, "interrupt flags register"},
+  {"gpr.gpr0",               0x001c,  1,     -1,     -1, "general purpose register 0"},
+  {"gpr.gpr1",               0x001d,  1,     -1,     -1, "general purpose register 1"},
+  {"gpr.gpr2",               0x001e,  1,     -1,     -1, "general purpose register 2"},
+  {"gpr.gpr3",               0x001f,  1,     -1,     -1, "general purpose register 3"},
+  {"cpu.splim",              0x0030,  2,     -1, 0x0000, "stack pointer limit register (16 bits)"},
+  {"cpu.ccp",                0x0034,  1,     -1,   0x00, "configuration change protection register"},
+  {"cpu.ctrla",              0x0035,  1,     -1,   0x00, "control register A"},
+  {"cpu.intflags",           0x0036,  1,     -1,     -1, "interrupt flags register"},
+  {"cpu.sp",                 0x003d,  2,     -1, 0x7fff, "stack pointer (16 bits)"},
+  {"cpu.sreg",               0x003f,  1,     -1,   0x00, "status register"},
+  {"rstctrl.rstfr",          0x0040,  1,     -1,   0x00, "reset flags register"},
+  {"rstctrl.swrr",           0x0041,  1,     -1,   0x00, "software reset register"},
+  {"slpctrl.ctrla",          0x0050,  1,     -1,   0x00, "control register A"},
+  {"clkctrl.mclkctrla",      0x0060,  1,     -1,   0x00, "MCLK control A register"},
+  {"clkctrl.mclkctrlb",      0x0061,  1,     -1,   0x11, "MCLK control B register"},
+  {"clkctrl.mclkstatus",     0x0065,  1,     -1,   0x00, "MCLK status register"},
+  {"clkctrl.mclktimebase",   0x0066,  1,     -1,   0x00, "MCLK timebase register"},
+  {"clkctrl.oschfctrla",     0x0068,  1,     -1,   0x00, "OSCHF control A register"},
+  {"clkctrl.oschftune",      0x0069,  1,     -1,   0x00, "OSCHF tune register"},
+  {"clkctrl.osc32kctrla",    0x0078,  1,     -1,   0x00, "OSC32K control A register"},
+  {"clkctrl.xosc32kctrla",   0x007c,  1,     -1,   0x00, "XOSC32K control A register"},
+  {"bod.ctrla",              0x00a0,  1,     -1,   0x01, "control register A"},
+  {"bod.ctrlb",              0x00a1,  1,     -1,   0x00, "control register B"},
+  {"bod.vlmctrla",           0x00a8,  1,     -1,   0x00, "voltage level monitor control register"},
+  {"bod.intctrl",            0x00a9,  1,     -1,   0x00, "interrupt control register"},
+  {"bod.intflags",           0x00aa,  1,     -1,   0x00, "interrupt flags register"},
+  {"bod.status",             0x00ab,  1,     -1,   0x00, "status register"},
+  {"vref.acref",             0x00b4,  1,     -1,   0x00, "AC reference register"},
+  {"wdt.ctrla",              0x0100,  1,     -1,   0x00, "control register A"},
+  {"wdt.status",             0x0101,  1,     -1,   0x00, "status register"},
+  {"cpuint.ctrla",           0x0110,  1,     -1,   0x00, "control register A"},
+  {"cpuint.status",          0x0111,  1,     -1,   0x00, "status register"},
+  {"cpuint.lvl0pri",         0x0112,  1,     -1,   0x00, "interrupt level 0 priority register"},
+  {"cpuint.lvl1vec",         0x0113,  1,     -1,   0x00, "interrupt level 1 priority vector register"},
+  {"crcscan.ctrla",          0x0120,  1,     -1,   0x00, "control register A"},
+  {"crcscan.ctrlb",          0x0121,  1,     -1,   0x00, "control register B"},
+  {"crcscan.intctrl",        0x0122,  1,     -1,   0x00, "interrupt control register"},
+  {"crcscan.intflags",       0x0123,  1,     -1,   0x00, "interrupt flags register"},
+  {"crcscan.statusa",        0x0124,  1,     -1,   0x04, "status A register"},
+  {"crcscan.scanadr",        0x0125,  1,     -1,   0x00, "scan address register"},
+  {"crcscan.data",           0x0126,  1,     -1,   0x00, "data register"},
+  {"crcscan.crc",            0x0128,  4,     -1, 0xffffffff, "CRC result register (32 bits)"},
+  {"rtc.ctrla",              0x0140,  1,     -1,   0x00, "control register A"},
+  {"rtc.status",             0x0141,  1,     -1,   0x00, "status register"},
+  {"rtc.intctrl",            0x0142,  1,     -1,   0x00, "interrupt control register"},
+  {"rtc.intflags",           0x0143,  1,     -1,   0x00, "interrupt flags register"},
+  {"rtc.temp",               0x0144,  1,     -1,     -1, "temporary register"},
+  {"rtc.dbgctrl",            0x0145,  1,     -1,   0x00, "debug control register"},
+  {"rtc.calib",              0x0146,  1,     -1,   0x00, "calibration register"},
+  {"rtc.clksel",             0x0147,  1,     -1,   0x00, "clock select register"},
+  {"rtc.cnt",                0x0148,  2,     -1,     -1, "counter (16 bits)"},
+  {"rtc.per",                0x014a,  2,     -1, 0xffff, "period register (16 bits)"},
+  {"rtc.cmp",                0x014c,  2,     -1,     -1, "compare register (16 bits)"},
+  {"rtc.pitctrla",           0x0150,  1,     -1,   0x00, "PIT control A register"},
+  {"rtc.pitstatus",          0x0151,  1,     -1,   0x00, "PIT status register"},
+  {"rtc.pitintctrl",         0x0152,  1,     -1,   0x00, "PIT interrupt control register"},
+  {"rtc.pitintflags",        0x0153,  1,     -1,   0x00, "PIT interrupt flags register"},
+  {"rtc.pitdbgctrl",         0x0155,  1,     -1,   0x00, "PIT debug control register"},
+  {"rtc.pitevgenctrla",      0x0156,  1,     -1,   0x00, "PIT event generation control A register"},
+  {"ccl.ctrla",              0x01c0,  1,     -1,   0x00, "control register A"},
+  {"ccl.seqctrl0",           0x01c1,  1,     -1,   0x00, "sequential control register 0"},
+  {"ccl.seqctrl1",           0x01c2,  1,     -1,   0x00, "sequential control register 1"},
+  {"ccl.intctrl0",           0x01c5,  1,     -1,   0x00, "interrupt control register 0"},
+  {"ccl.intflags",           0x01c7,  1,     -1,   0x00, "interrupt flags register"},
+  {"ccl.lut0ctrla",          0x01c8,  1,     -1,   0x00, "LUT 0 control A register"},
+  {"ccl.lut0ctrlb",          0x01c9,  1,     -1,   0x00, "LUT 0 control B register"},
+  {"ccl.lut0ctrlc",          0x01ca,  1,     -1,   0x00, "LUT 0 control C register"},
+  {"ccl.truth0",             0x01cb,  1,     -1,   0x00, "truth register 0"},
+  {"ccl.lut1ctrla",          0x01cc,  1,     -1,   0x00, "LUT 1 control A register"},
+  {"ccl.lut1ctrlb",          0x01cd,  1,     -1,   0x00, "LUT 1 control B register"},
+  {"ccl.lut1ctrlc",          0x01ce,  1,     -1,   0x00, "LUT 1 control C register"},
+  {"ccl.truth1",             0x01cf,  1,     -1,   0x00, "truth register 1"},
+  {"ccl.lut2ctrla",          0x01d0,  1,     -1,   0x00, "LUT 2 control A register"},
+  {"ccl.lut2ctrlb",          0x01d1,  1,     -1,   0x00, "LUT 2 control B register"},
+  {"ccl.lut2ctrlc",          0x01d2,  1,     -1,   0x00, "LUT 2 control C register"},
+  {"ccl.truth2",             0x01d3,  1,     -1,   0x00, "truth register 2"},
+  {"ccl.lut3ctrla",          0x01d4,  1,     -1,   0x00, "LUT 3 control A register"},
+  {"ccl.lut3ctrlb",          0x01d5,  1,     -1,   0x00, "LUT 3 control B register"},
+  {"ccl.lut3ctrlc",          0x01d6,  1,     -1,   0x00, "LUT 3 control C register"},
+  {"ccl.truth3",             0x01d7,  1,     -1,   0x00, "truth register 3"},
+  {"evsys.sweventa",         0x0200,  1,     -1,   0x00, "software event A register"},
+  {"evsys.channel0",         0x0210,  1,     -1,   0x00, "multiplexer channel 0 register"},
+  {"evsys.channel1",         0x0211,  1,     -1,   0x00, "multiplexer channel 1 register"},
+  {"evsys.channel2",         0x0212,  1,     -1,   0x00, "multiplexer channel 2 register"},
+  {"evsys.channel3",         0x0213,  1,     -1,   0x00, "multiplexer channel 3 register"},
+  {"evsys.userccllut0a",     0x0220,  1,     -1,   0x00, "user CCL LUT 0 event A register"},
+  {"evsys.userccllut0b",     0x0221,  1,     -1,   0x00, "user CCL LUT 0 event B register"},
+  {"evsys.userccllut1a",     0x0222,  1,     -1,   0x00, "user CCL LUT 1 event A register"},
+  {"evsys.userccllut1b",     0x0223,  1,     -1,   0x00, "user CCL LUT 1 event B register"},
+  {"evsys.userac0sample",    0x0224,  1,     -1,   0x00, "user 4 - AC0 register"},
+  {"evsys.useradc0start",    0x0225,  1,     -1,   0x00, "user ADC 0 start register"},
+  {"evsys.userevsysevouta",  0x0226,  1,     -1,   0x00, "user EVOUT port A register"},
+  {"evsys.userevsysevoutc",  0x0227,  1,     -1,   0x00, "user EVOUT port C register"},
+  {"evsys.userevsysevoutd",  0x0228,  1,     -1,   0x00, "user EVOUT port D register"},
+  {"evsys.userevsysevoutf",  0x0229,  1,     -1,   0x00, "user EVOUT port F register"},
+  {"evsys.userusart0rxd",    0x022a,  1,     -1,   0x00, "user 10 - USART0 RxD event input register"},
+  {"evsys.usertce0cnta",     0x022b,  1,     -1,   0x00, "user TCE 0 event A register"},
+  {"evsys.usertce0cntb",     0x022c,  1,     -1,   0x00, "user TCE 0 event B register"},
+  {"evsys.usertcb0capt",     0x022d,  1,     -1,   0x00, "user TCB 0 capture register"},
+  {"evsys.usertcb0count",    0x022e,  1,     -1,   0x00, "user TCB 0 event register"},
+  {"evsys.usertcb1capt",     0x022f,  1,     -1,   0x00, "user TCB 1 capture register"},
+  {"evsys.usertcb1count",    0x0230,  1,     -1,   0x00, "user TCB 1 event register"},
+  {"porta.dir",              0x0400,  1,     -1,   0x00, "data direction register"},
+  {"porta.dirset",           0x0401,  1,     -1,   0x00, "data direction set register"},
+  {"porta.dirclr",           0x0402,  1,     -1,   0x00, "data direction clear register"},
+  {"porta.dirtgl",           0x0403,  1,     -1,   0x00, "data direction toggle register"},
+  {"porta.out",              0x0404,  1,     -1,   0x00, "I/O port output register"},
+  {"porta.outset",           0x0405,  1,     -1,   0x00, "I/O port output set register"},
+  {"porta.outclr",           0x0406,  1,     -1,   0x00, "I/O port output clear register"},
+  {"porta.outtgl",           0x0407,  1,     -1,   0x00, "I/O port output toggle register"},
+  {"porta.in",               0x0408,  1,     -1,   0x00, "I/O port input register"},
+  {"porta.intflags",         0x0409,  1,     -1,   0x00, "interrupt flags register"},
+  {"porta.portctrl",         0x040a,  1,     -1,   0x00, "port control register"},
+  {"porta.pinconfig",        0x040b,  1,     -1,   0x00, "pin control config register"},
+  {"porta.pinctrlupd",       0x040c,  1,     -1,   0x00, "pin control update register"},
+  {"porta.pinctrlset",       0x040d,  1,     -1,   0x00, "pin control set register"},
+  {"porta.pinctrlclr",       0x040e,  1,     -1,   0x00, "pin control clear register"},
+  {"porta.pin0ctrl",         0x0410,  1,     -1,   0x00, "pin 0 control register"},
+  {"porta.pin1ctrl",         0x0411,  1,     -1,   0x00, "pin 1 control register"},
+  {"porta.pin2ctrl",         0x0412,  1,     -1,   0x00, "pin 2 control register"},
+  {"porta.pin3ctrl",         0x0413,  1,     -1,   0x00, "pin 3 control register"},
+  {"porta.pin4ctrl",         0x0414,  1,     -1,   0x00, "pin 4 control register"},
+  {"porta.pin5ctrl",         0x0415,  1,     -1,   0x00, "pin 5 control register"},
+  {"porta.pin6ctrl",         0x0416,  1,     -1,   0x00, "pin 6 control register"},
+  {"porta.pin7ctrl",         0x0417,  1,     -1,   0x00, "pin 7 control register"},
+  {"porta.evgenctrla",       0x0418,  1,     -1,   0x00, "event generation control A register"},
+  {"portc.dir",              0x0440,  1,     -1,   0x00, "data direction register"},
+  {"portc.dirset",           0x0441,  1,     -1,   0x00, "data direction set register"},
+  {"portc.dirclr",           0x0442,  1,     -1,   0x00, "data direction clear register"},
+  {"portc.dirtgl",           0x0443,  1,     -1,   0x00, "data direction toggle register"},
+  {"portc.out",              0x0444,  1,     -1,   0x00, "I/O port output register"},
+  {"portc.outset",           0x0445,  1,     -1,   0x00, "I/O port output set register"},
+  {"portc.outclr",           0x0446,  1,     -1,   0x00, "I/O port output clear register"},
+  {"portc.outtgl",           0x0447,  1,     -1,   0x00, "I/O port output toggle register"},
+  {"portc.in",               0x0448,  1,     -1,   0x00, "I/O port input register"},
+  {"portc.intflags",         0x0449,  1,     -1,   0x00, "interrupt flags register"},
+  {"portc.portctrl",         0x044a,  1,     -1,   0x00, "port control register"},
+  {"portc.pinconfig",        0x044b,  1,     -1,   0x00, "pin control config register"},
+  {"portc.pinctrlupd",       0x044c,  1,     -1,   0x00, "pin control update register"},
+  {"portc.pinctrlset",       0x044d,  1,     -1,   0x00, "pin control set register"},
+  {"portc.pinctrlclr",       0x044e,  1,     -1,   0x00, "pin control clear register"},
+  {"portc.pin0ctrl",         0x0450,  1,     -1,   0x00, "pin 0 control register"},
+  {"portc.pin1ctrl",         0x0451,  1,     -1,   0x00, "pin 1 control register"},
+  {"portc.pin2ctrl",         0x0452,  1,     -1,   0x00, "pin 2 control register"},
+  {"portc.pin3ctrl",         0x0453,  1,     -1,   0x00, "pin 3 control register"},
+  {"portc.pin4ctrl",         0x0454,  1,     -1,   0x00, "pin 4 control register"},
+  {"portc.pin5ctrl",         0x0455,  1,     -1,   0x00, "pin 5 control register"},
+  {"portc.pin6ctrl",         0x0456,  1,     -1,   0x00, "pin 6 control register"},
+  {"portc.pin7ctrl",         0x0457,  1,     -1,   0x00, "pin 7 control register"},
+  {"portc.evgenctrla",       0x0458,  1,     -1,   0x00, "event generation control A register"},
+  {"portd.dir",              0x0460,  1,     -1,   0x00, "data direction register"},
+  {"portd.dirset",           0x0461,  1,     -1,   0x00, "data direction set register"},
+  {"portd.dirclr",           0x0462,  1,     -1,   0x00, "data direction clear register"},
+  {"portd.dirtgl",           0x0463,  1,     -1,   0x00, "data direction toggle register"},
+  {"portd.out",              0x0464,  1,     -1,   0x00, "I/O port output register"},
+  {"portd.outset",           0x0465,  1,     -1,   0x00, "I/O port output set register"},
+  {"portd.outclr",           0x0466,  1,     -1,   0x00, "I/O port output clear register"},
+  {"portd.outtgl",           0x0467,  1,     -1,   0x00, "I/O port output toggle register"},
+  {"portd.in",               0x0468,  1,     -1,   0x00, "I/O port input register"},
+  {"portd.intflags",         0x0469,  1,     -1,   0x00, "interrupt flags register"},
+  {"portd.portctrl",         0x046a,  1,     -1,   0x00, "port control register"},
+  {"portd.pinconfig",        0x046b,  1,     -1,   0x00, "pin control config register"},
+  {"portd.pinctrlupd",       0x046c,  1,     -1,   0x00, "pin control update register"},
+  {"portd.pinctrlset",       0x046d,  1,     -1,   0x00, "pin control set register"},
+  {"portd.pinctrlclr",       0x046e,  1,     -1,   0x00, "pin control clear register"},
+  {"portd.pin0ctrl",         0x0470,  1,     -1,   0x00, "pin 0 control register"},
+  {"portd.pin1ctrl",         0x0471,  1,     -1,   0x00, "pin 1 control register"},
+  {"portd.pin2ctrl",         0x0472,  1,     -1,   0x00, "pin 2 control register"},
+  {"portd.pin3ctrl",         0x0473,  1,     -1,   0x00, "pin 3 control register"},
+  {"portd.pin4ctrl",         0x0474,  1,     -1,   0x00, "pin 4 control register"},
+  {"portd.pin5ctrl",         0x0475,  1,     -1,   0x00, "pin 5 control register"},
+  {"portd.pin6ctrl",         0x0476,  1,     -1,   0x00, "pin 6 control register"},
+  {"portd.pin7ctrl",         0x0477,  1,     -1,   0x00, "pin 7 control register"},
+  {"portd.evgenctrla",       0x0478,  1,     -1,   0x00, "event generation control A register"},
+  {"portf.dir",              0x04a0,  1,     -1,   0x00, "data direction register"},
+  {"portf.dirset",           0x04a1,  1,     -1,   0x00, "data direction set register"},
+  {"portf.dirclr",           0x04a2,  1,     -1,   0x00, "data direction clear register"},
+  {"portf.dirtgl",           0x04a3,  1,     -1,   0x00, "data direction toggle register"},
+  {"portf.out",              0x04a4,  1,     -1,   0x00, "I/O port output register"},
+  {"portf.outset",           0x04a5,  1,     -1,   0x00, "I/O port output set register"},
+  {"portf.outclr",           0x04a6,  1,     -1,   0x00, "I/O port output clear register"},
+  {"portf.outtgl",           0x04a7,  1,     -1,   0x00, "I/O port output toggle register"},
+  {"portf.in",               0x04a8,  1,     -1,   0x00, "I/O port input register"},
+  {"portf.intflags",         0x04a9,  1,     -1,   0x00, "interrupt flags register"},
+  {"portf.portctrl",         0x04aa,  1,     -1,   0x00, "port control register"},
+  {"portf.pinconfig",        0x04ab,  1,     -1,   0x00, "pin control config register"},
+  {"portf.pinctrlupd",       0x04ac,  1,     -1,   0x00, "pin control update register"},
+  {"portf.pinctrlset",       0x04ad,  1,     -1,   0x00, "pin control set register"},
+  {"portf.pinctrlclr",       0x04ae,  1,     -1,   0x00, "pin control clear register"},
+  {"portf.pin0ctrl",         0x04b0,  1,     -1,   0x00, "pin 0 control register"},
+  {"portf.pin1ctrl",         0x04b1,  1,     -1,   0x00, "pin 1 control register"},
+  {"portf.pin2ctrl",         0x04b2,  1,     -1,   0x00, "pin 2 control register"},
+  {"portf.pin3ctrl",         0x04b3,  1,     -1,   0x00, "pin 3 control register"},
+  {"portf.pin4ctrl",         0x04b4,  1,     -1,   0x00, "pin 4 control register"},
+  {"portf.pin5ctrl",         0x04b5,  1,     -1,   0x00, "pin 5 control register"},
+  {"portf.pin6ctrl",         0x04b6,  1,     -1,   0x00, "pin 6 control register"},
+  {"portf.pin7ctrl",         0x04b7,  1,     -1,   0x00, "pin 7 control register"},
+  {"portf.evgenctrla",       0x04b8,  1,     -1,   0x00, "event generation control A register"},
+  {"portmux.evsysroutea",    0x05e0,  1,     -1,   0x00, "port multiplexer EVSYS register"},
+  {"portmux.cclroutea",      0x05e1,  1,     -1,   0x00, "CCL route A register"},
+  {"portmux.usartroutea",    0x05e2,  1,     -1,   0x00, "USART route A register"},
+  {"portmux.spiroutea",      0x05e5,  1,     -1,   0x00, "SPI route A register"},
+  {"portmux.twiroutea",      0x05e6,  1,     -1,   0x00, "TWI route A register"},
+  {"portmux.tceroutea",      0x05e7,  1,     -1,   0x00, "TCE route A register"},
+  {"adc0.ctrla",             0x0600,  1,     -1,   0x00, "control register A"},
+  {"adc0.ctrlb",             0x0601,  1,     -1,   0x00, "control register B"},
+  {"adc0.ctrlc",             0x0602,  1,     -1,   0x00, "control register C"},
+  {"adc0.ctrld",             0x0603,  1,     -1,   0x00, "control register D"},
+  {"adc0.ctrle",             0x0604,  1,     -1,   0x00, "control register E"},
+  {"adc0.ctrlf",             0x0605,  1,     -1,   0x00, "control register F"},
+  {"adc0.intctrl",           0x0606,  1,     -1,   0x00, "interrupt control register"},
+  {"adc0.intflags",          0x0607,  1,     -1,   0x00, "interrupt flags register"},
+  {"adc0.status",            0x0608,  1,     -1,   0x00, "status register"},
+  {"adc0.dbgctrl",           0x0609,  1,     -1,   0x00, "debug control register"},
+  {"adc0.command",           0x060a,  1,     -1,   0x00, "command register"},
+  {"adc0.muxpos",            0x060b,  1,     -1,   0x00, "positive mux input register"},
+  {"adc0.result",            0x060c,  2,     -1, 0x0000, "result register (32 bits)"},
+  {"adc0.sample",            0x060e,  2,     -1, 0x0000, "sample register (16 bits)"},
+  {"adc0.winlt",             0x0610,  2,     -1,     -1, "window comparator low threshold register (16 bits)"},
+  {"adc0.winht",             0x0612,  2,     -1,     -1, "window comparator high threshold register (16 bits)"},
+  {"adc0.temp",              0x0614,  1,     -1,   0x00, "temporary data register"},
+  {"ac0.ctrla",              0x0680,  1,     -1,   0x00, "control register A"},
+  {"ac0.ctrlb",              0x0681,  1,     -1,   0x00, "control register B"},
+  {"ac0.muxctrl",            0x0682,  1,     -1,   0x00, "mux control A register"},
+  {"ac0.refscale",           0x0683,  1,     -1,   0xff, "reference scaling register"},
+  {"ac0.intctrl",            0x0684,  1,     -1,   0x00, "interrupt control register"},
+  {"ac0.intflags",           0x0685,  1,     -1,     -1, "interrupt flags register"},
+  {"ac0.status",             0x0686,  1,     -1,   0x00, "status register"},
+  {"usart0.ctrla",           0x0800,  1,     -1,   0x00, "control register A"},
+  {"usart0.ctrlb",           0x0801,  1,     -1,   0x00, "control register B"},
+  {"usart0.ctrlc",           0x0802,  1,     -1,   0x00, "control register C"},
+  {"usart0.ctrld",           0x0803,  1,     -1,   0x00, "control register D"},
+  {"usart0.ctrle",           0x0804,  1,     -1,   0x00, "control register E"},
+  {"usart0.ctrlf",           0x0805,  1,     -1,   0x00, "control register F"},
+  {"usart0.ctrlg",           0x0806,  1,     -1,   0x00, "control register G"},
+  {"usart0.command",         0x0807,  1,     -1,   0x00, "command register"},
+  {"usart0.evctrl",          0x0809,  1,     -1,   0x00, "event control register"},
+  {"usart0.baud",            0x080a,  2,     -1, 0x0000, "baud rate register (16 bits)"},
+  {"usart0.intctrl",         0x080c,  1,     -1,   0x00, "interrupt control register"},
+  {"usart0.intflags",        0x080d,  1,     -1,   0x01, "interrupt flags register"},
+  {"usart0.status",          0x080e,  1,     -1,   0x00, "status register"},
+  {"usart0.rxdatal",         0x0810,  1,     -1,   0x00, "receive data low byte"},
+  {"usart0.rxdatah",         0x0811,  1,     -1,   0x00, "receive data high byte"},
+  {"usart0.txdatal",         0x0812,  1,     -1,   0x00, "transmit data low byte"},
+  {"usart0.txdatah",         0x0813,  1,     -1,   0x00, "transmit data high byte"},
+  {"usart0.auxdata0",        0x0818,  1,     -1,   0x00, "auxiliary data 0 register"},
+  {"usart0.auxdata1",        0x0819,  1,     -1,   0x00, "auxiliary data 1 register"},
+  {"usart0.auxdata2",        0x081a,  1,     -1,   0x00, "auxiliary data 2 register"},
+  {"usart0.dbgctrl",         0x081f,  1,     -1,   0x00, "debug control register"},
+  {"twi0.ctrla",             0x0900,  1,     -1,   0x00, "control register A"},
+  {"twi0.dualctrl",          0x0901,  1,     -1,   0x00, "dual-mode control register"},
+  {"twi0.dbgctrl",           0x0902,  1,     -1,   0x00, "debug control register"},
+  {"twi0.mctrla",            0x0903,  1,     -1,   0x00, "host control A register"},
+  {"twi0.mctrlb",            0x0904,  1,     -1,   0x00, "host control B register"},
+  {"twi0.hstatus",           0x0905,  1,     -1,   0x00, "host status register"},
+  {"twi0.mbaud",             0x0906,  1,     -1,   0x00, "host baud rate register"},
+  {"twi0.haddr",             0x0907,  1,     -1,   0x00, "host address register"},
+  {"twi0.hdata",             0x0908,  1,     -1,   0x00, "host data register"},
+  {"twi0.sctrla",            0x0909,  1,     -1,   0x00, "client control A register"},
+  {"twi0.sctrlb",            0x090a,  1,     -1,   0x00, "client control B register"},
+  {"twi0.sstatus",           0x090b,  1,     -1,   0x00, "client status register"},
+  {"twi0.saddr",             0x090c,  1,     -1,   0x00, "client address register"},
+  {"twi0.sdata",             0x090d,  1,     -1,   0x00, "client data register"},
+  {"twi0.saddrmask",         0x090e,  1,     -1,   0x00, "client address mask register"},
+  {"spi0.ctrla",             0x0940,  1,     -1,   0x00, "control register A"},
+  {"spi0.ctrlb",             0x0941,  1,     -1,   0x00, "control register B"},
+  {"spi0.intctrl",           0x0942,  1,     -1,   0x00, "interrupt control register"},
+  {"spi0.intflags",          0x0943,  1,     -1,   0x00, "interrupt flags register"},
+  {"spi0.data",              0x0944,  1,     -1,     -1, "data register"},
+  {"tce0.ctrla",             0x0a00,  1,     -1,   0x00, "control register A"},
+  {"tce0.ctrlb",             0x0a01,  1,     -1,   0x00, "control register B"},
+  {"tce0.ctrlc",             0x0a02,  1,     -1,   0x00, "control register C"},
+  {"tce0.ctrleclr",          0x0a04,  1,     -1,   0x00, "control register E clear"},
+  {"tce0.ctrleset",          0x0a05,  1,     -1,   0x00, "control register E set"},
+  {"tce0.ctrlfclr",          0x0a06,  1,     -1,   0x00, "control register F clear"},
+  {"tce0.ctrlfset",          0x0a07,  1,     -1,   0x00, "control register F set"},
+  {"tce0.evgenctrl",         0x0a08,  1,     -1,   0x00, "event generation control register"},
+  {"tce0.evctrl",            0x0a09,  1,     -1,   0x00, "event control register"},
+  {"tce0.intctrl",           0x0a0a,  1,     -1,   0x00, "interrupt control register"},
+  {"tce0.intflags",          0x0a0b,  1,     -1,   0x00, "interrupt flags register"},
+  {"tce0.dbgctrl",           0x0a0e,  1,     -1,   0x00, "debug control register"},
+  {"tce0.temp",              0x0a0f,  1,     -1,   0x00, "temporary register for 16-bit access"},
+  {"tce0.cnt",               0x0a20,  2,     -1, 0x0000, "counter (16 bits)"},
+  {"tce0.per",               0x0a26,  2,     -1, 0x0000, "period register (16 bits)"},
+  {"tce0.cmp0",              0x0a28,  2,     -1, 0x0000, "compare 0 register (16 bits)"},
+  {"tce0.cmp1",              0x0a2a,  2,     -1, 0x0000, "compare 1 register (16 bits)"},
+  {"tce0.cmp2",              0x0a2c,  2,     -1, 0x0000, "compare 2 register (16 bits)"},
+  {"tce0.perbuf",            0x0a36,  2,     -1, 0x0000, "period buffer register (16 bits)"},
+  {"tce0.cmp0buf",           0x0a38,  2,     -1, 0x0000, "compare 0 buffer register (16 bits)"},
+  {"tce0.cmp1buf",           0x0a3a,  2,     -1, 0x0000, "compare 1 buffer register (16 bits)"},
+  {"tce0.cmp2buf",           0x0a3c,  2,     -1, 0x0000, "compare 2 buffer register (16 bits)"},
+  {"tcb0.ctrla",             0x0b00,  1,     -1,   0x00, "control register A"},
+  {"tcb0.ctrlb",             0x0b01,  1,     -1,   0x00, "control register B"},
+  {"tcb0.ctrlc",             0x0b02,  1,     -1,   0x00, "control register C"},
+  {"tcb0.evctrl",            0x0b04,  1,     -1,   0x00, "event control register"},
+  {"tcb0.intctrl",           0x0b05,  1,     -1,   0x00, "interrupt control register"},
+  {"tcb0.intflags",          0x0b06,  1,     -1,   0x00, "interrupt flags register"},
+  {"tcb0.status",            0x0b07,  1,     -1,   0x00, "status register"},
+  {"tcb0.dbgctrl",           0x0b08,  1,     -1,   0x00, "debug control register"},
+  {"tcb0.temp",              0x0b09,  1,     -1,     -1, "temporary register for 16-bit access"},
+  {"tcb0.cnt",               0x0b0a,  2,     -1, 0x0000, "counter (16 bits)"},
+  {"tcb0.ccmp",              0x0b0c,  2,     -1,     -1, "compare or capture register (16 bits)"},
+  {"tcb1.ctrla",             0x0b10,  1,     -1,   0x00, "control register A"},
+  {"tcb1.ctrlb",             0x0b11,  1,     -1,   0x00, "control register B"},
+  {"tcb1.ctrlc",             0x0b12,  1,     -1,   0x00, "control register C"},
+  {"tcb1.evctrl",            0x0b14,  1,     -1,   0x00, "event control register"},
+  {"tcb1.intctrl",           0x0b15,  1,     -1,   0x00, "interrupt control register"},
+  {"tcb1.intflags",          0x0b16,  1,     -1,   0x00, "interrupt flags register"},
+  {"tcb1.status",            0x0b17,  1,     -1,   0x00, "status register"},
+  {"tcb1.dbgctrl",           0x0b18,  1,     -1,   0x00, "debug control register"},
+  {"tcb1.temp",              0x0b19,  1,     -1,     -1, "temporary register for 16-bit access"},
+  {"tcb1.cnt",               0x0b1a,  2,     -1, 0x0000, "counter (16 bits)"},
+  {"tcb1.ccmp",              0x0b1c,  2,     -1,     -1, "compare or capture register (16 bits)"},
+  {"syscfg.revid",           0x0f01,  1,     -1,     -1, "revision ID register"},
+  {"syscfg.vddctrl",         0x0f07,  1,     -1,   0x01, "VDD range control register"},
+  {"nvmctrl.ctrla",          0x1000,  1,     -1,   0x00, "control register A"},
+  {"nvmctrl.ctrlb",          0x1001,  1,     -1,   0x30, "control register B"},
+  {"nvmctrl.ctrlc",          0x1002,  1,     -1,   0x00, "control register C"},
+  {"nvmctrl.intctrl",        0x1004,  1,     -1,   0x00, "interrupt control register"},
+  {"nvmctrl.intflags",       0x1005,  1,     -1,   0x00, "interrupt flags register"},
+  {"nvmctrl.status",         0x1006,  1,     -1,   0x00, "status register"},
+  {"nvmctrl.data",           0x1008,  2,     -1, 0x0000, "data register (16 bits)"},
+  {"nvmctrl.addr",           0x100c,  4,     -1, 0x00000000, "address register (32 bits)"},
+};
+
 // AVR16DD20 AVR32DD20 AVR64DD20
 const Register_file rgftab_avr16dd20[391] = { // I/O memory [0, 4159]
   {"vporta.dir",             0x0000,  1,     -1,     -1, "data direction register"},
@@ -46977,6 +47496,351 @@ const Register_file rgftab_avr16eb20[391] = { // I/O memory [0, 4159]
   {"wex0.pgmovrbuf",         0x0c9c,  1,     -1,   0x00, "pattern generation override buffer register"},
   {"wex0.pgmoutbuf",         0x0c9d,  1,     -1,   0x00, "pattern generation output buffer register"},
   {"syscfg.revid",           0x0f01,  1,     -1,     -1, "revision ID register"},
+  {"nvmctrl.ctrla",          0x1000,  1,     -1,   0x00, "control register A"},
+  {"nvmctrl.ctrlb",          0x1001,  1,     -1,   0x30, "control register B"},
+  {"nvmctrl.ctrlc",          0x1002,  1,     -1,   0x00, "control register C"},
+  {"nvmctrl.intctrl",        0x1004,  1,     -1,   0x00, "interrupt control register"},
+  {"nvmctrl.intflags",       0x1005,  1,     -1,   0x00, "interrupt flags register"},
+  {"nvmctrl.status",         0x1006,  1,     -1,   0x00, "status register"},
+  {"nvmctrl.data",           0x1008,  2,     -1, 0x0000, "data register (16 bits)"},
+  {"nvmctrl.addr",           0x100c,  4,     -1, 0x00000000, "address register (32 bits)"},
+};
+
+// AVR16LA20 AVR16LA28 AVR16LA32 AVR32LA20 AVR32LA28 AVR32LA32
+const Register_file rgftab_avr16la20[341] = { // I/O memory [0, 4159]
+  {"vporta.dir",             0x0000,  1,     -1,   0x00, "data direction register"},
+  {"vporta.out",             0x0001,  1,     -1,   0x00, "I/O port output register"},
+  {"vporta.in",              0x0002,  1,     -1,   0x00, "I/O port input register"},
+  {"vporta.intflags",        0x0003,  1,     -1,   0x00, "interrupt flags register"},
+  {"vportc.dir",             0x0008,  1,     -1,   0x00, "data direction register"},
+  {"vportc.out",             0x0009,  1,     -1,   0x00, "I/O port output register"},
+  {"vportc.in",              0x000a,  1,     -1,   0x00, "I/O port input register"},
+  {"vportc.intflags",        0x000b,  1,     -1,   0x00, "interrupt flags register"},
+  {"vportd.dir",             0x000c,  1,     -1,   0x00, "data direction register"},
+  {"vportd.out",             0x000d,  1,     -1,   0x00, "I/O port output register"},
+  {"vportd.in",              0x000e,  1,     -1,   0x00, "I/O port input register"},
+  {"vportd.intflags",        0x000f,  1,     -1,   0x00, "interrupt flags register"},
+  {"vportf.dir",             0x0014,  1,     -1,   0x00, "data direction register"},
+  {"vportf.out",             0x0015,  1,     -1,   0x00, "I/O port output register"},
+  {"vportf.in",              0x0016,  1,     -1,   0x00, "I/O port input register"},
+  {"vportf.intflags",        0x0017,  1,     -1,   0x00, "interrupt flags register"},
+  {"gpr.gpr0",               0x001c,  1,     -1,     -1, "general purpose register 0"},
+  {"gpr.gpr1",               0x001d,  1,     -1,     -1, "general purpose register 1"},
+  {"gpr.gpr2",               0x001e,  1,     -1,     -1, "general purpose register 2"},
+  {"gpr.gpr3",               0x001f,  1,     -1,     -1, "general purpose register 3"},
+  {"cpu.splim",              0x0030,  2,     -1, 0x0000, "stack pointer limit register (16 bits)"},
+  {"cpu.ccp",                0x0034,  1,     -1,   0x00, "configuration change protection register"},
+  {"cpu.ctrla",              0x0035,  1,     -1,   0x00, "control register A"},
+  {"cpu.intflags",           0x0036,  1,     -1,     -1, "interrupt flags register"},
+  {"cpu.sp",                 0x003d,  2,     -1, 0x7fff, "stack pointer (16 bits)"},
+  {"cpu.sreg",               0x003f,  1,     -1,   0x00, "status register"},
+  {"rstctrl.rstfr",          0x0040,  1,     -1,   0x00, "reset flags register"},
+  {"rstctrl.swrr",           0x0041,  1,     -1,   0x00, "software reset register"},
+  {"slpctrl.ctrla",          0x0050,  1,     -1,   0x00, "control register A"},
+  {"clkctrl.mclkctrla",      0x0060,  1,     -1,   0x00, "MCLK control A register"},
+  {"clkctrl.mclkctrlb",      0x0061,  1,     -1,   0x11, "MCLK control B register"},
+  {"clkctrl.mclkstatus",     0x0065,  1,     -1,   0x00, "MCLK status register"},
+  {"clkctrl.mclktimebase",   0x0066,  1,     -1,   0x00, "MCLK timebase register"},
+  {"clkctrl.oschfctrla",     0x0068,  1,     -1,   0x00, "OSCHF control A register"},
+  {"clkctrl.oschftune",      0x0069,  1,     -1,   0x00, "OSCHF tune register"},
+  {"clkctrl.osc32kctrla",    0x0078,  1,     -1,   0x00, "OSC32K control A register"},
+  {"clkctrl.xosc32kctrla",   0x007c,  1,     -1,   0x00, "XOSC32K control A register"},
+  {"bod.ctrla",              0x00a0,  1,     -1,   0x01, "control register A"},
+  {"bod.ctrlb",              0x00a1,  1,     -1,   0x00, "control register B"},
+  {"bod.vlmctrla",           0x00a8,  1,     -1,   0x00, "voltage level monitor control register"},
+  {"bod.intctrl",            0x00a9,  1,     -1,   0x00, "interrupt control register"},
+  {"bod.intflags",           0x00aa,  1,     -1,   0x00, "interrupt flags register"},
+  {"bod.status",             0x00ab,  1,     -1,   0x00, "status register"},
+  {"vref.acref",             0x00b4,  1,     -1,   0x00, "AC reference register"},
+  {"wdt.ctrla",              0x0100,  1,     -1,   0x00, "control register A"},
+  {"wdt.status",             0x0101,  1,     -1,   0x00, "status register"},
+  {"cpuint.ctrla",           0x0110,  1,     -1,   0x00, "control register A"},
+  {"cpuint.status",          0x0111,  1,     -1,   0x00, "status register"},
+  {"cpuint.lvl0pri",         0x0112,  1,     -1,   0x00, "interrupt level 0 priority register"},
+  {"cpuint.lvl1vec",         0x0113,  1,     -1,   0x00, "interrupt level 1 priority vector register"},
+  {"crcscan.ctrla",          0x0120,  1,     -1,   0x00, "control register A"},
+  {"crcscan.ctrlb",          0x0121,  1,     -1,   0x00, "control register B"},
+  {"crcscan.intctrl",        0x0122,  1,     -1,   0x00, "interrupt control register"},
+  {"crcscan.intflags",       0x0123,  1,     -1,   0x00, "interrupt flags register"},
+  {"crcscan.statusa",        0x0124,  1,     -1,   0x04, "status A register"},
+  {"crcscan.scanadr",        0x0125,  1,     -1,   0x00, "scan address register"},
+  {"crcscan.data",           0x0126,  1,     -1,   0x00, "data register"},
+  {"crcscan.crc",            0x0128,  4,     -1, 0xffffffff, "CRC result register (32 bits)"},
+  {"rtc.ctrla",              0x0140,  1,     -1,   0x00, "control register A"},
+  {"rtc.status",             0x0141,  1,     -1,   0x00, "status register"},
+  {"rtc.intctrl",            0x0142,  1,     -1,   0x00, "interrupt control register"},
+  {"rtc.intflags",           0x0143,  1,     -1,   0x00, "interrupt flags register"},
+  {"rtc.temp",               0x0144,  1,     -1,     -1, "temporary register"},
+  {"rtc.dbgctrl",            0x0145,  1,     -1,   0x00, "debug control register"},
+  {"rtc.calib",              0x0146,  1,     -1,   0x00, "calibration register"},
+  {"rtc.clksel",             0x0147,  1,     -1,   0x00, "clock select register"},
+  {"rtc.cnt",                0x0148,  2,     -1,     -1, "counter (16 bits)"},
+  {"rtc.per",                0x014a,  2,     -1, 0xffff, "period register (16 bits)"},
+  {"rtc.cmp",                0x014c,  2,     -1,     -1, "compare register (16 bits)"},
+  {"rtc.pitctrla",           0x0150,  1,     -1,   0x00, "PIT control A register"},
+  {"rtc.pitstatus",          0x0151,  1,     -1,   0x00, "PIT status register"},
+  {"rtc.pitintctrl",         0x0152,  1,     -1,   0x00, "PIT interrupt control register"},
+  {"rtc.pitintflags",        0x0153,  1,     -1,   0x00, "PIT interrupt flags register"},
+  {"rtc.pitdbgctrl",         0x0155,  1,     -1,   0x00, "PIT debug control register"},
+  {"rtc.pitevgenctrla",      0x0156,  1,     -1,   0x00, "PIT event generation control A register"},
+  {"ccl.ctrla",              0x01c0,  1,     -1,   0x00, "control register A"},
+  {"ccl.seqctrl0",           0x01c1,  1,     -1,   0x00, "sequential control register 0"},
+  {"ccl.seqctrl1",           0x01c2,  1,     -1,   0x00, "sequential control register 1"},
+  {"ccl.intctrl0",           0x01c5,  1,     -1,   0x00, "interrupt control register 0"},
+  {"ccl.intflags",           0x01c7,  1,     -1,   0x00, "interrupt flags register"},
+  {"ccl.lut0ctrla",          0x01c8,  1,     -1,   0x00, "LUT 0 control A register"},
+  {"ccl.lut0ctrlb",          0x01c9,  1,     -1,   0x00, "LUT 0 control B register"},
+  {"ccl.lut0ctrlc",          0x01ca,  1,     -1,   0x00, "LUT 0 control C register"},
+  {"ccl.truth0",             0x01cb,  1,     -1,   0x00, "truth register 0"},
+  {"ccl.lut1ctrla",          0x01cc,  1,     -1,   0x00, "LUT 1 control A register"},
+  {"ccl.lut1ctrlb",          0x01cd,  1,     -1,   0x00, "LUT 1 control B register"},
+  {"ccl.lut1ctrlc",          0x01ce,  1,     -1,   0x00, "LUT 1 control C register"},
+  {"ccl.truth1",             0x01cf,  1,     -1,   0x00, "truth register 1"},
+  {"ccl.lut2ctrla",          0x01d0,  1,     -1,   0x00, "LUT 2 control A register"},
+  {"ccl.lut2ctrlb",          0x01d1,  1,     -1,   0x00, "LUT 2 control B register"},
+  {"ccl.lut2ctrlc",          0x01d2,  1,     -1,   0x00, "LUT 2 control C register"},
+  {"ccl.truth2",             0x01d3,  1,     -1,   0x00, "truth register 2"},
+  {"ccl.lut3ctrla",          0x01d4,  1,     -1,   0x00, "LUT 3 control A register"},
+  {"ccl.lut3ctrlb",          0x01d5,  1,     -1,   0x00, "LUT 3 control B register"},
+  {"ccl.lut3ctrlc",          0x01d6,  1,     -1,   0x00, "LUT 3 control C register"},
+  {"ccl.truth3",             0x01d7,  1,     -1,   0x00, "truth register 3"},
+  {"evsys.sweventa",         0x0200,  1,     -1,   0x00, "software event A register"},
+  {"evsys.channel0",         0x0210,  1,     -1,   0x00, "multiplexer channel 0 register"},
+  {"evsys.channel1",         0x0211,  1,     -1,   0x00, "multiplexer channel 1 register"},
+  {"evsys.channel2",         0x0212,  1,     -1,   0x00, "multiplexer channel 2 register"},
+  {"evsys.channel3",         0x0213,  1,     -1,   0x00, "multiplexer channel 3 register"},
+  {"evsys.userccllut0a",     0x0220,  1,     -1,   0x00, "user CCL LUT 0 event A register"},
+  {"evsys.userccllut0b",     0x0221,  1,     -1,   0x00, "user CCL LUT 0 event B register"},
+  {"evsys.userccllut1a",     0x0222,  1,     -1,   0x00, "user CCL LUT 1 event A register"},
+  {"evsys.userccllut1b",     0x0223,  1,     -1,   0x00, "user CCL LUT 1 event B register"},
+  {"evsys.userac0sample",    0x0224,  1,     -1,   0x00, "user 4 - AC0 register"},
+  {"evsys.useradc0start",    0x0225,  1,     -1,   0x00, "user ADC 0 start register"},
+  {"evsys.userevsysevouta",  0x0226,  1,     -1,   0x00, "user EVOUT port A register"},
+  {"evsys.userevsysevoutc",  0x0227,  1,     -1,   0x00, "user EVOUT port C register"},
+  {"evsys.userevsysevoutd",  0x0228,  1,     -1,   0x00, "user EVOUT port D register"},
+  {"evsys.userevsysevoutf",  0x0229,  1,     -1,   0x00, "user EVOUT port F register"},
+  {"evsys.userusart0rxd",    0x022a,  1,     -1,   0x00, "user 10 - USART0 RxD event input register"},
+  {"evsys.usertce0cnta",     0x022b,  1,     -1,   0x00, "user TCE 0 event A register"},
+  {"evsys.usertce0cntb",     0x022c,  1,     -1,   0x00, "user TCE 0 event B register"},
+  {"evsys.usertcb0capt",     0x022d,  1,     -1,   0x00, "user TCB 0 capture register"},
+  {"evsys.usertcb0count",    0x022e,  1,     -1,   0x00, "user TCB 0 event register"},
+  {"evsys.usertcb1capt",     0x022f,  1,     -1,   0x00, "user TCB 1 capture register"},
+  {"evsys.usertcb1count",    0x0230,  1,     -1,   0x00, "user TCB 1 event register"},
+  {"porta.dir",              0x0400,  1,     -1,   0x00, "data direction register"},
+  {"porta.dirset",           0x0401,  1,     -1,   0x00, "data direction set register"},
+  {"porta.dirclr",           0x0402,  1,     -1,   0x00, "data direction clear register"},
+  {"porta.dirtgl",           0x0403,  1,     -1,   0x00, "data direction toggle register"},
+  {"porta.out",              0x0404,  1,     -1,   0x00, "I/O port output register"},
+  {"porta.outset",           0x0405,  1,     -1,   0x00, "I/O port output set register"},
+  {"porta.outclr",           0x0406,  1,     -1,   0x00, "I/O port output clear register"},
+  {"porta.outtgl",           0x0407,  1,     -1,   0x00, "I/O port output toggle register"},
+  {"porta.in",               0x0408,  1,     -1,   0x00, "I/O port input register"},
+  {"porta.intflags",         0x0409,  1,     -1,   0x00, "interrupt flags register"},
+  {"porta.portctrl",         0x040a,  1,     -1,   0x00, "port control register"},
+  {"porta.pinconfig",        0x040b,  1,     -1,   0x00, "pin control config register"},
+  {"porta.pinctrlupd",       0x040c,  1,     -1,   0x00, "pin control update register"},
+  {"porta.pinctrlset",       0x040d,  1,     -1,   0x00, "pin control set register"},
+  {"porta.pinctrlclr",       0x040e,  1,     -1,   0x00, "pin control clear register"},
+  {"porta.pin0ctrl",         0x0410,  1,     -1,   0x00, "pin 0 control register"},
+  {"porta.pin1ctrl",         0x0411,  1,     -1,   0x00, "pin 1 control register"},
+  {"porta.pin2ctrl",         0x0412,  1,     -1,   0x00, "pin 2 control register"},
+  {"porta.pin3ctrl",         0x0413,  1,     -1,   0x00, "pin 3 control register"},
+  {"porta.pin4ctrl",         0x0414,  1,     -1,   0x00, "pin 4 control register"},
+  {"porta.pin5ctrl",         0x0415,  1,     -1,   0x00, "pin 5 control register"},
+  {"porta.pin6ctrl",         0x0416,  1,     -1,   0x00, "pin 6 control register"},
+  {"porta.pin7ctrl",         0x0417,  1,     -1,   0x00, "pin 7 control register"},
+  {"porta.evgenctrla",       0x0418,  1,     -1,   0x00, "event generation control A register"},
+  {"portc.dir",              0x0440,  1,     -1,   0x00, "data direction register"},
+  {"portc.dirset",           0x0441,  1,     -1,   0x00, "data direction set register"},
+  {"portc.dirclr",           0x0442,  1,     -1,   0x00, "data direction clear register"},
+  {"portc.dirtgl",           0x0443,  1,     -1,   0x00, "data direction toggle register"},
+  {"portc.out",              0x0444,  1,     -1,   0x00, "I/O port output register"},
+  {"portc.outset",           0x0445,  1,     -1,   0x00, "I/O port output set register"},
+  {"portc.outclr",           0x0446,  1,     -1,   0x00, "I/O port output clear register"},
+  {"portc.outtgl",           0x0447,  1,     -1,   0x00, "I/O port output toggle register"},
+  {"portc.in",               0x0448,  1,     -1,   0x00, "I/O port input register"},
+  {"portc.intflags",         0x0449,  1,     -1,   0x00, "interrupt flags register"},
+  {"portc.portctrl",         0x044a,  1,     -1,   0x00, "port control register"},
+  {"portc.pinconfig",        0x044b,  1,     -1,   0x00, "pin control config register"},
+  {"portc.pinctrlupd",       0x044c,  1,     -1,   0x00, "pin control update register"},
+  {"portc.pinctrlset",       0x044d,  1,     -1,   0x00, "pin control set register"},
+  {"portc.pinctrlclr",       0x044e,  1,     -1,   0x00, "pin control clear register"},
+  {"portc.pin0ctrl",         0x0450,  1,     -1,   0x00, "pin 0 control register"},
+  {"portc.pin1ctrl",         0x0451,  1,     -1,   0x00, "pin 1 control register"},
+  {"portc.pin2ctrl",         0x0452,  1,     -1,   0x00, "pin 2 control register"},
+  {"portc.pin3ctrl",         0x0453,  1,     -1,   0x00, "pin 3 control register"},
+  {"portc.pin4ctrl",         0x0454,  1,     -1,   0x00, "pin 4 control register"},
+  {"portc.pin5ctrl",         0x0455,  1,     -1,   0x00, "pin 5 control register"},
+  {"portc.pin6ctrl",         0x0456,  1,     -1,   0x00, "pin 6 control register"},
+  {"portc.pin7ctrl",         0x0457,  1,     -1,   0x00, "pin 7 control register"},
+  {"portc.evgenctrla",       0x0458,  1,     -1,   0x00, "event generation control A register"},
+  {"portd.dir",              0x0460,  1,     -1,   0x00, "data direction register"},
+  {"portd.dirset",           0x0461,  1,     -1,   0x00, "data direction set register"},
+  {"portd.dirclr",           0x0462,  1,     -1,   0x00, "data direction clear register"},
+  {"portd.dirtgl",           0x0463,  1,     -1,   0x00, "data direction toggle register"},
+  {"portd.out",              0x0464,  1,     -1,   0x00, "I/O port output register"},
+  {"portd.outset",           0x0465,  1,     -1,   0x00, "I/O port output set register"},
+  {"portd.outclr",           0x0466,  1,     -1,   0x00, "I/O port output clear register"},
+  {"portd.outtgl",           0x0467,  1,     -1,   0x00, "I/O port output toggle register"},
+  {"portd.in",               0x0468,  1,     -1,   0x00, "I/O port input register"},
+  {"portd.intflags",         0x0469,  1,     -1,   0x00, "interrupt flags register"},
+  {"portd.portctrl",         0x046a,  1,     -1,   0x00, "port control register"},
+  {"portd.pinconfig",        0x046b,  1,     -1,   0x00, "pin control config register"},
+  {"portd.pinctrlupd",       0x046c,  1,     -1,   0x00, "pin control update register"},
+  {"portd.pinctrlset",       0x046d,  1,     -1,   0x00, "pin control set register"},
+  {"portd.pinctrlclr",       0x046e,  1,     -1,   0x00, "pin control clear register"},
+  {"portd.pin0ctrl",         0x0470,  1,     -1,   0x00, "pin 0 control register"},
+  {"portd.pin1ctrl",         0x0471,  1,     -1,   0x00, "pin 1 control register"},
+  {"portd.pin2ctrl",         0x0472,  1,     -1,   0x00, "pin 2 control register"},
+  {"portd.pin3ctrl",         0x0473,  1,     -1,   0x00, "pin 3 control register"},
+  {"portd.pin4ctrl",         0x0474,  1,     -1,   0x00, "pin 4 control register"},
+  {"portd.pin5ctrl",         0x0475,  1,     -1,   0x00, "pin 5 control register"},
+  {"portd.pin6ctrl",         0x0476,  1,     -1,   0x00, "pin 6 control register"},
+  {"portd.pin7ctrl",         0x0477,  1,     -1,   0x00, "pin 7 control register"},
+  {"portd.evgenctrla",       0x0478,  1,     -1,   0x00, "event generation control A register"},
+  {"portf.dir",              0x04a0,  1,     -1,   0x00, "data direction register"},
+  {"portf.dirset",           0x04a1,  1,     -1,   0x00, "data direction set register"},
+  {"portf.dirclr",           0x04a2,  1,     -1,   0x00, "data direction clear register"},
+  {"portf.dirtgl",           0x04a3,  1,     -1,   0x00, "data direction toggle register"},
+  {"portf.out",              0x04a4,  1,     -1,   0x00, "I/O port output register"},
+  {"portf.outset",           0x04a5,  1,     -1,   0x00, "I/O port output set register"},
+  {"portf.outclr",           0x04a6,  1,     -1,   0x00, "I/O port output clear register"},
+  {"portf.outtgl",           0x04a7,  1,     -1,   0x00, "I/O port output toggle register"},
+  {"portf.in",               0x04a8,  1,     -1,   0x00, "I/O port input register"},
+  {"portf.intflags",         0x04a9,  1,     -1,   0x00, "interrupt flags register"},
+  {"portf.portctrl",         0x04aa,  1,     -1,   0x00, "port control register"},
+  {"portf.pinconfig",        0x04ab,  1,     -1,   0x00, "pin control config register"},
+  {"portf.pinctrlupd",       0x04ac,  1,     -1,   0x00, "pin control update register"},
+  {"portf.pinctrlset",       0x04ad,  1,     -1,   0x00, "pin control set register"},
+  {"portf.pinctrlclr",       0x04ae,  1,     -1,   0x00, "pin control clear register"},
+  {"portf.pin0ctrl",         0x04b0,  1,     -1,   0x00, "pin 0 control register"},
+  {"portf.pin1ctrl",         0x04b1,  1,     -1,   0x00, "pin 1 control register"},
+  {"portf.pin2ctrl",         0x04b2,  1,     -1,   0x00, "pin 2 control register"},
+  {"portf.pin3ctrl",         0x04b3,  1,     -1,   0x00, "pin 3 control register"},
+  {"portf.pin4ctrl",         0x04b4,  1,     -1,   0x00, "pin 4 control register"},
+  {"portf.pin5ctrl",         0x04b5,  1,     -1,   0x00, "pin 5 control register"},
+  {"portf.pin6ctrl",         0x04b6,  1,     -1,   0x00, "pin 6 control register"},
+  {"portf.pin7ctrl",         0x04b7,  1,     -1,   0x00, "pin 7 control register"},
+  {"portf.evgenctrla",       0x04b8,  1,     -1,   0x00, "event generation control A register"},
+  {"portmux.evsysroutea",    0x05e0,  1,     -1,   0x00, "port multiplexer EVSYS register"},
+  {"portmux.cclroutea",      0x05e1,  1,     -1,   0x00, "CCL route A register"},
+  {"portmux.usartroutea",    0x05e2,  1,     -1,   0x00, "USART route A register"},
+  {"portmux.spiroutea",      0x05e5,  1,     -1,   0x00, "SPI route A register"},
+  {"portmux.twiroutea",      0x05e6,  1,     -1,   0x00, "TWI route A register"},
+  {"portmux.tceroutea",      0x05e7,  1,     -1,   0x00, "TCE route A register"},
+  {"portmux.tcbroutea",      0x05e8,  1,     -1,   0x00, "TCB route A register"},
+  {"portmux.acroutea",       0x05ea,  1,     -1,   0x00, "AC route A register"},
+  {"adc0.ctrla",             0x0600,  1,     -1,   0x00, "control register A"},
+  {"adc0.ctrlb",             0x0601,  1,     -1,   0x00, "control register B"},
+  {"adc0.ctrlc",             0x0602,  1,     -1,   0x00, "control register C"},
+  {"adc0.ctrld",             0x0603,  1,     -1,   0x00, "control register D"},
+  {"adc0.ctrle",             0x0604,  1,     -1,   0x00, "control register E"},
+  {"adc0.ctrlf",             0x0605,  1,     -1,   0x00, "control register F"},
+  {"adc0.intctrl",           0x0606,  1,     -1,   0x00, "interrupt control register"},
+  {"adc0.intflags",          0x0607,  1,     -1,   0x00, "interrupt flags register"},
+  {"adc0.status",            0x0608,  1,     -1,   0x00, "status register"},
+  {"adc0.dbgctrl",           0x0609,  1,     -1,   0x00, "debug control register"},
+  {"adc0.command",           0x060a,  1,     -1,   0x00, "command register"},
+  {"adc0.muxpos",            0x060b,  1,     -1,   0x00, "positive mux input register"},
+  {"adc0.result",            0x060c,  2,     -1, 0x0000, "result register (32 bits)"},
+  {"adc0.sample",            0x060e,  2,     -1, 0x0000, "sample register (16 bits)"},
+  {"adc0.winlt",             0x0610,  2,     -1,     -1, "window comparator low threshold register (16 bits)"},
+  {"adc0.winht",             0x0612,  2,     -1,     -1, "window comparator high threshold register (16 bits)"},
+  {"adc0.temp",              0x0614,  1,     -1,   0x00, "temporary data register"},
+  {"ac0.ctrla",              0x0680,  1,     -1,   0x00, "control register A"},
+  {"ac0.ctrlb",              0x0681,  1,     -1,   0x00, "control register B"},
+  {"ac0.muxctrl",            0x0682,  1,     -1,   0x00, "mux control A register"},
+  {"ac0.refscale",           0x0683,  1,     -1,   0xff, "reference scaling register"},
+  {"ac0.intctrl",            0x0684,  1,     -1,   0x00, "interrupt control register"},
+  {"ac0.intflags",           0x0685,  1,     -1,     -1, "interrupt flags register"},
+  {"ac0.status",             0x0686,  1,     -1,   0x00, "status register"},
+  {"usart0.ctrla",           0x0800,  1,     -1,   0x00, "control register A"},
+  {"usart0.ctrlb",           0x0801,  1,     -1,   0x00, "control register B"},
+  {"usart0.ctrlc",           0x0802,  1,     -1,   0x00, "control register C"},
+  {"usart0.ctrld",           0x0803,  1,     -1,   0x00, "control register D"},
+  {"usart0.ctrle",           0x0804,  1,     -1,   0x00, "control register E"},
+  {"usart0.ctrlf",           0x0805,  1,     -1,   0x00, "control register F"},
+  {"usart0.ctrlg",           0x0806,  1,     -1,   0x00, "control register G"},
+  {"usart0.command",         0x0807,  1,     -1,   0x00, "command register"},
+  {"usart0.evctrl",          0x0809,  1,     -1,   0x00, "event control register"},
+  {"usart0.baud",            0x080a,  2,     -1, 0x0000, "baud rate register (16 bits)"},
+  {"usart0.intctrl",         0x080c,  1,     -1,   0x00, "interrupt control register"},
+  {"usart0.intflags",        0x080d,  1,     -1,   0x01, "interrupt flags register"},
+  {"usart0.status",          0x080e,  1,     -1,   0x00, "status register"},
+  {"usart0.rxdatal",         0x0810,  1,     -1,   0x00, "receive data low byte"},
+  {"usart0.rxdatah",         0x0811,  1,     -1,   0x00, "receive data high byte"},
+  {"usart0.txdatal",         0x0812,  1,     -1,   0x00, "transmit data low byte"},
+  {"usart0.txdatah",         0x0813,  1,     -1,   0x00, "transmit data high byte"},
+  {"usart0.auxdata0",        0x0818,  1,     -1,   0x00, "auxiliary data 0 register"},
+  {"usart0.auxdata1",        0x0819,  1,     -1,   0x00, "auxiliary data 1 register"},
+  {"usart0.auxdata2",        0x081a,  1,     -1,   0x00, "auxiliary data 2 register"},
+  {"usart0.dbgctrl",         0x081f,  1,     -1,   0x00, "debug control register"},
+  {"twi0.ctrla",             0x0900,  1,     -1,   0x00, "control register A"},
+  {"twi0.dualctrl",          0x0901,  1,     -1,   0x00, "dual-mode control register"},
+  {"twi0.dbgctrl",           0x0902,  1,     -1,   0x00, "debug control register"},
+  {"twi0.mctrla",            0x0903,  1,     -1,   0x00, "host control A register"},
+  {"twi0.mctrlb",            0x0904,  1,     -1,   0x00, "host control B register"},
+  {"twi0.hstatus",           0x0905,  1,     -1,   0x00, "host status register"},
+  {"twi0.mbaud",             0x0906,  1,     -1,   0x00, "host baud rate register"},
+  {"twi0.haddr",             0x0907,  1,     -1,   0x00, "host address register"},
+  {"twi0.hdata",             0x0908,  1,     -1,   0x00, "host data register"},
+  {"twi0.sctrla",            0x0909,  1,     -1,   0x00, "client control A register"},
+  {"twi0.sctrlb",            0x090a,  1,     -1,   0x00, "client control B register"},
+  {"twi0.sstatus",           0x090b,  1,     -1,   0x00, "client status register"},
+  {"twi0.saddr",             0x090c,  1,     -1,   0x00, "client address register"},
+  {"twi0.sdata",             0x090d,  1,     -1,   0x00, "client data register"},
+  {"twi0.saddrmask",         0x090e,  1,     -1,   0x00, "client address mask register"},
+  {"spi0.ctrla",             0x0940,  1,     -1,   0x00, "control register A"},
+  {"spi0.ctrlb",             0x0941,  1,     -1,   0x00, "control register B"},
+  {"spi0.intctrl",           0x0942,  1,     -1,   0x00, "interrupt control register"},
+  {"spi0.intflags",          0x0943,  1,     -1,   0x00, "interrupt flags register"},
+  {"spi0.data",              0x0944,  1,     -1,     -1, "data register"},
+  {"tce0.ctrla",             0x0a00,  1,     -1,   0x00, "control register A"},
+  {"tce0.ctrlb",             0x0a01,  1,     -1,   0x00, "control register B"},
+  {"tce0.ctrlc",             0x0a02,  1,     -1,   0x00, "control register C"},
+  {"tce0.ctrleclr",          0x0a04,  1,     -1,   0x00, "control register E clear"},
+  {"tce0.ctrleset",          0x0a05,  1,     -1,   0x00, "control register E set"},
+  {"tce0.ctrlfclr",          0x0a06,  1,     -1,   0x00, "control register F clear"},
+  {"tce0.ctrlfset",          0x0a07,  1,     -1,   0x00, "control register F set"},
+  {"tce0.evgenctrl",         0x0a08,  1,     -1,   0x00, "event generation control register"},
+  {"tce0.evctrl",            0x0a09,  1,     -1,   0x00, "event control register"},
+  {"tce0.intctrl",           0x0a0a,  1,     -1,   0x00, "interrupt control register"},
+  {"tce0.intflags",          0x0a0b,  1,     -1,   0x00, "interrupt flags register"},
+  {"tce0.dbgctrl",           0x0a0e,  1,     -1,   0x00, "debug control register"},
+  {"tce0.temp",              0x0a0f,  1,     -1,   0x00, "temporary register for 16-bit access"},
+  {"tce0.cnt",               0x0a20,  2,     -1, 0x0000, "counter (16 bits)"},
+  {"tce0.per",               0x0a26,  2,     -1, 0x0000, "period register (16 bits)"},
+  {"tce0.cmp0",              0x0a28,  2,     -1, 0x0000, "compare 0 register (16 bits)"},
+  {"tce0.cmp1",              0x0a2a,  2,     -1, 0x0000, "compare 1 register (16 bits)"},
+  {"tce0.cmp2",              0x0a2c,  2,     -1, 0x0000, "compare 2 register (16 bits)"},
+  {"tce0.perbuf",            0x0a36,  2,     -1, 0x0000, "period buffer register (16 bits)"},
+  {"tce0.cmp0buf",           0x0a38,  2,     -1, 0x0000, "compare 0 buffer register (16 bits)"},
+  {"tce0.cmp1buf",           0x0a3a,  2,     -1, 0x0000, "compare 1 buffer register (16 bits)"},
+  {"tce0.cmp2buf",           0x0a3c,  2,     -1, 0x0000, "compare 2 buffer register (16 bits)"},
+  {"tcb0.ctrla",             0x0b00,  1,     -1,   0x00, "control register A"},
+  {"tcb0.ctrlb",             0x0b01,  1,     -1,   0x00, "control register B"},
+  {"tcb0.ctrlc",             0x0b02,  1,     -1,   0x00, "control register C"},
+  {"tcb0.evctrl",            0x0b04,  1,     -1,   0x00, "event control register"},
+  {"tcb0.intctrl",           0x0b05,  1,     -1,   0x00, "interrupt control register"},
+  {"tcb0.intflags",          0x0b06,  1,     -1,   0x00, "interrupt flags register"},
+  {"tcb0.status",            0x0b07,  1,     -1,   0x00, "status register"},
+  {"tcb0.dbgctrl",           0x0b08,  1,     -1,   0x00, "debug control register"},
+  {"tcb0.temp",              0x0b09,  1,     -1,     -1, "temporary register for 16-bit access"},
+  {"tcb0.cnt",               0x0b0a,  2,     -1, 0x0000, "counter (16 bits)"},
+  {"tcb0.ccmp",              0x0b0c,  2,     -1,     -1, "compare or capture register (16 bits)"},
+  {"tcb1.ctrla",             0x0b10,  1,     -1,   0x00, "control register A"},
+  {"tcb1.ctrlb",             0x0b11,  1,     -1,   0x00, "control register B"},
+  {"tcb1.ctrlc",             0x0b12,  1,     -1,   0x00, "control register C"},
+  {"tcb1.evctrl",            0x0b14,  1,     -1,   0x00, "event control register"},
+  {"tcb1.intctrl",           0x0b15,  1,     -1,   0x00, "interrupt control register"},
+  {"tcb1.intflags",          0x0b16,  1,     -1,   0x00, "interrupt flags register"},
+  {"tcb1.status",            0x0b17,  1,     -1,   0x00, "status register"},
+  {"tcb1.dbgctrl",           0x0b18,  1,     -1,   0x00, "debug control register"},
+  {"tcb1.temp",              0x0b19,  1,     -1,     -1, "temporary register for 16-bit access"},
+  {"tcb1.cnt",               0x0b1a,  2,     -1, 0x0000, "counter (16 bits)"},
+  {"tcb1.ccmp",              0x0b1c,  2,     -1,     -1, "compare or capture register (16 bits)"},
+  {"syscfg.revid",           0x0f01,  1,     -1,     -1, "revision ID register"},
+  {"syscfg.vddctrl",         0x0f07,  1,     -1,   0x01, "VDD range control register"},
   {"nvmctrl.ctrla",          0x1000,  1,     -1,   0x00, "control register A"},
   {"nvmctrl.ctrlb",          0x1001,  1,     -1,   0x30, "control register B"},
   {"nvmctrl.ctrlc",          0x1002,  1,     -1,   0x00, "control register C"},
@@ -59342,6 +60206,14 @@ const Port_bits ports_atmega64[7] = {
   { 'G', 0x044, 0x1f, 0x045, 0x1f, 0x043, 0x1f,},
 };
 
+// ATmegaS64M1
+const Port_bits ports_atmegas64m1[4] = {
+  { 'B',     4, 0xff,     5, 0xff,     3, 0xff,},
+  { 'C',     7, 0xff,     8, 0xff,     6, 0xff,},
+  { 'D',    10, 0xff,    11, 0xff,     9, 0xff,},
+  { 'E',    13, 0x07,    14, 0x07,    12, 0x07,},
+};
+
 /*
  * ATmega64RFR2 ATmega128RFA1 ATmega128RFR2 ATmega169PA ATmega256RFR2 ATmega644RFR2 ATmega1281
  * ATmega1284RFR2 ATmega2561 ATmega2564RFR2
@@ -59364,6 +60236,17 @@ const Port_bits ports_atmega103[6] = {
   { 'D', 0x011, 0xff, 0x012, 0xff, 0x010, 0xff,},
   { 'E', 0x002, 0xff, 0x003, 0xff, 0x001, 0xff,},
   { 'F',    -1,   -1,    -1,   -1, 0x000, 0xff,},
+};
+
+// ATmegaS128
+const Port_bits ports_atmegas128[7] = {
+  { 'A',    26, 0xff,    27, 0xff,    25, 0xff,},
+  { 'B',    23, 0xff,    24, 0xff,    22, 0xff,},
+  { 'C',    20, 0xff,    21, 0xff,    19, 0xff,},
+  { 'D',    17, 0xff,    18, 0xff,    16, 0xff,},
+  { 'E',     2, 0xff,     3, 0xff,     1, 0xff,},
+  { 'F',    65, 0xff,    66, 0xff,     0, 0xff,},
+  { 'G',    68, 0x1f,    69, 0x1f,    67, 0x1f,},
 };
 
 /*
@@ -59599,7 +60482,7 @@ const Port_bits ports_avr16du14[4] = {
   { 'F', 0x014, 0xc0, 0x015, 0xc0, 0x016, 0xc0,},
 };
 
-// AVR16EB14 AVR32EB14
+// AVR16EB14 AVR16LA14 AVR32EB14 AVR32LA14
 const Port_bits ports_avr16eb14[4] = {
   { 'A', 0x000, 0x03, 0x001, 0x03, 0x002, 0x03,},
   { 'C', 0x008, 0x0f, 0x009, 0x0f, 0x00a, 0x0f,},
@@ -59623,7 +60506,7 @@ const Port_bits ports_avr16du20[4] = {
   { 'F', 0x014, 0xc0, 0x015, 0xc0, 0x016, 0xc0,},
 };
 
-// AVR16EB20 AVR32EB20
+// AVR16EB20 AVR16LA20 AVR32EB20 AVR32LA20
 const Port_bits ports_avr16eb20[4] = {
   { 'A', 0x000, 0xff, 0x001, 0xff, 0x002, 0xff,},
   { 'C', 0x008, 0x0f, 0x009, 0x0f, 0x00a, 0x0f,},
@@ -59647,7 +60530,7 @@ const Port_bits ports_avr16du28[4] = {
   { 'F', 0x014, 0xc3, 0x015, 0xc3, 0x016, 0xc3,},
 };
 
-// AVR16EA28 AVR16EB28 AVR32EA28 AVR32EB28 AVR64EA28
+// AVR16EA28 AVR16EB28 AVR16LA28 AVR32EA28 AVR32EB28 AVR32LA28 AVR64EA28
 const Port_bits ports_avr16ea28[4] = {
   { 'A', 0x000, 0xff, 0x001, 0xff, 0x002, 0xff,},
   { 'C', 0x008, 0x0f, 0x009, 0x0f, 0x00a, 0x0f,},
@@ -59671,7 +60554,7 @@ const Port_bits ports_avr16du32[4] = {
   { 'F', 0x014, 0xff, 0x015, 0xff, 0x016, 0xff,},
 };
 
-// AVR16EA32 AVR16EB32 AVR32EA32 AVR32EB32 AVR64EA32
+// AVR16EA32 AVR16EB32 AVR16LA32 AVR32EA32 AVR32EB32 AVR32LA32 AVR64EA32
 const Port_bits ports_avr16ea32[4] = {
   { 'A', 0x000, 0xff, 0x001, 0xff, 0x002, 0xff,},
   { 'C', 0x008, 0x0f, 0x009, 0x0f, 0x00a, 0x0f,},
@@ -59723,23 +60606,23 @@ const Port_bits ports_avr64da64[7] = {
  * ATmega328P ATA6612C ATA6613C ATA6614Q LGT8F88P LGT8F168P LGT8F328P
  */
 const Uart_conf uarts_atmega8[1] = {
-  { 0, 0, PD0, PD1, PD4, PNA, PNA, PNA, PNA },
+  { 0, 0, PD0, PD1, PD4, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 // ATmega16M1 ATmega32C1 ATmega32M1 ATmega64C1 ATmega64M1
 const Uart_conf uarts_atmega16m1[1] = {
-  { 0, 0, PD4, PD3, PNA, PNA, PNA, PNA, PNA },
+  { 0, 0, PD4, PD3, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 // ATmega64HVE ATmega64HVE2
 const Uart_conf uarts_atmega64hve[1] = {
-  { 0, 0, PB1, PB3, PNA, PNA, PNA, PNA, PNA },
+  { 0, 0, PB1, PB3, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 // ATmega328PB
 const Uart_conf uarts_atmega328pb[2] = {
-  { 0, 0, PD0, PD1, PD4, PNA, PNA, PNA, PNA },
-  { 1, 0, PB4, PB3, PB5, PNA, PNA, PNA, PNA },
+  { 0, 0, PD0, PD1, PD4, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 1, 0, PB4, PB3, PB5, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 /*
@@ -59747,69 +60630,72 @@ const Uart_conf uarts_atmega328pb[2] = {
  * AT90SCR100H AT90S2313 AT90S2333 AT90S4414 AT90S4433 AT90S4434 AT90S8515 AT90S8535
  */
 const Uart_conf uarts_attiny2313[1] = {
-  { 0, 0, PD0, PD1, PNA, PNA, PNA, PNA, PNA },
+  { 0, 0, PD0, PD1, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 // ATtiny102 ATtiny104
 const Uart_conf uarts_attiny102[1] = {
-  { 0, 0, PB3, PB2, PB1, PNA, PNA, PNA, PNA },
+  { 0, 0, PB3, PB2, PB1, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 // ATtiny441 ATtiny841
 const Uart_conf uarts_attiny441[3] = {
-  { 0, 0, PA2, PA1, PA3, PNA, PNA, PNA, PNA },
-  { 0, 1, PB2, PA7, PA3, PNA, PNA, PNA, PNA },
-  { 1, 0, PA4, PA5, PA6, PNA, PNA, PNA, PNA },
+  { 0, 0, PA2, PA1, PA3, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 0, 1, PB2, PA7, PA3, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 1, 0, PA4, PA5, PA6, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 // AT90PWM2 AT90PWM2B AT90PWM3 AT90PWM3B AT90PWM216 AT90PWM316
 const Uart_conf uarts_at90pwm2[1] = {
-  { 0, 0, PD4, PD3, PD0, PNA, PNA, PNA, PNA },
+  { 0, 0, PD4, PD3, PD0, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
-// ATmega64 ATmega64A ATmega128 ATmega128A ATmega1281 ATmega2561 AT90CAN32 AT90CAN64 AT90CAN128
+/*
+ * ATmega64 ATmega64A ATmega128 ATmegaS128 ATmega128A ATmega1281 ATmega2561 AT90CAN32 AT90CAN64
+ * AT90CAN128
+ */
 const Uart_conf uarts_atmega64[2] = {
-  { 0, 0, PE0, PE1, PE2, PNA, PNA, PNA, PNA },
-  { 1, 0, PD2, PD3, PD5, PNA, PNA, PNA, PNA },
+  { 0, 0, PE0, PE1, PE2, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 1, 0, PD2, PD3, PD5, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 // ATmega32U6 AT90USB82 AT90USB162 AT90USB646 AT90USB647 AT90USB1286 AT90USB1287
 const Uart_conf uarts_atmega32u6[1] = {
-  { 0, 0, PD2, PD3, PNA, PNA, PNA, PNA, PNA },
+  { 0, 0, PD2, PD3, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 // ATxmega8E5 ATxmega16E5 ATxmega32E5
 const Uart_conf uarts_atxmega8e5[4] = {
-  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA }, // C0
-  { 0, 1, PC6, PC7, PC5, PNA, PNA, PNA, PNA }, // C0
-  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA }, // D0
-  { 2, 1, PD6, PD7, PD5, PNA, PNA, PNA, PNA }, // D0
+  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
+  { 0, 1, PC6, PC7, PC5, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
+  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
+  { 2, 1, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
 };
 
 // ATxmega64A3 ATxmega128A3 ATxmega192A3 ATxmega256A3
 const Uart_conf uarts_atxmega64a3[7] = {
-  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA }, // C0
-  { 1, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA }, // C1
-  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA }, // D0
-  { 3, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA }, // D1
-  { 4, 0, PE2, PE3, PE1, PNA, PNA, PNA, PNA }, // E0
-  { 5, 0, PE6, PE7, PE5, PNA, PNA, PNA, PNA }, // E1
-  { 6, 0, PF2, PF3, PF1, PNA, PNA, PNA, PNA }, // F0
+  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
+  { 1, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // C1
+  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
+  { 3, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // D1
+  { 4, 0, PE2, PE3, PE1, PNA, PNA, PNA, PNA, PNA, PNA }, // E0
+  { 5, 0, PE6, PE7, PE5, PNA, PNA, PNA, PNA, PNA, PNA }, // E1
+  { 6, 0, PF2, PF3, PF1, PNA, PNA, PNA, PNA, PNA, PNA }, // F0
 };
 
 // ATxmega64A3U ATxmega128A3U ATxmega192A3U ATxmega256A3U
 const Uart_conf uarts_atxmega64a3u[11] = {
-  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA }, // C0
-  { 0, 1, PC6, PC7, PC5, PNA, PNA, PNA, PNA }, // C0
-  { 1, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA }, // C1
-  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA }, // D0
-  { 2, 1, PD6, PD7, PD5, PNA, PNA, PNA, PNA }, // D0
-  { 3, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA }, // D1
-  { 4, 0, PE2, PE3, PE1, PNA, PNA, PNA, PNA }, // E0
-  { 4, 1, PE6, PE7, PE5, PNA, PNA, PNA, PNA }, // E0
-  { 5, 0, PE6, PE7, PE5, PNA, PNA, PNA, PNA }, // E1
-  { 6, 0, PF2, PF3, PF1, PNA, PNA, PNA, PNA }, // F0
-  { 6, 1, PF6, PF7, PF5, PNA, PNA, PNA, PNA }, // F0
+  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
+  { 0, 1, PC6, PC7, PC5, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
+  { 1, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // C1
+  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
+  { 2, 1, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
+  { 3, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // D1
+  { 4, 0, PE2, PE3, PE1, PNA, PNA, PNA, PNA, PNA, PNA }, // E0
+  { 4, 1, PE6, PE7, PE5, PNA, PNA, PNA, PNA, PNA, PNA }, // E0
+  { 5, 0, PE6, PE7, PE5, PNA, PNA, PNA, PNA, PNA, PNA }, // E1
+  { 6, 0, PF2, PF3, PF1, PNA, PNA, PNA, PNA, PNA, PNA }, // F0
+  { 6, 1, PF6, PF7, PF5, PNA, PNA, PNA, PNA, PNA, PNA }, // F0
 };
 
 /*
@@ -59818,69 +60704,69 @@ const Uart_conf uarts_atxmega64a3u[11] = {
  * ATtiny1616 ATtiny1617 ATtiny3216 ATtiny3217
  */
 const Uart_conf uarts_attiny204[2] = {
-  { 0, 0, PB3, PB2, PB1, PB0, PNA, PNA, PNA },
-  { 0, 1, PA2, PA1, PA3, PA4, PNA, PNA, PNA },
+  { 0, 0, PB3, PB2, PB1, PB0, PNA, PNA, PNA, PNA, PNA },
+  { 0, 1, PA2, PA1, PA3, PA4, PNA, PNA, PNA, PNA, PNA },
 };
 
 // ATtiny424 ATtiny824 ATtiny1624 ATtiny3224
 const Uart_conf uarts_attiny424[3] = {
-  { 0, 0, PB3, PB2, PB1, PB0, PNA, PNA, PNA },
-  { 0, 1, PA2, PA1, PA3, PA4, PNA, PNA, PNA },
-  { 1, 0, PA2, PA1, PA3, PA4, PNA, PNA, PNA },
+  { 0, 0, PB3, PB2, PB1, PB0, PNA, PNA, PNA, PNA, PNA },
+  { 0, 1, PA2, PA1, PA3, PA4, PNA, PNA, PNA, PNA, PNA },
+  { 1, 0, PA2, PA1, PA3, PA4, PNA, PNA, PNA, PNA, PNA },
 };
 
 // AVR16DD14 AVR32DD14 AVR64DD14
 const Uart_conf uarts_avr16dd14[5] = {
-  { 0, 0, PA1, PA0, PNA, PNA, PNA, PNA, PNA },
-  { 0, 3, PD5, PD4, PD6, PD7, PNA, PNA, PNA },
-  { 0, 4, PC2, PC1, PC3, PNA, PNA, PNA, PNA },
-  { 1, 0, PC1, PNA, PC2, PC3, PNA, PNA, PNA },
-  { 1, 2, PD7, PD6, PNA, PNA, PNA, PNA, PNA },
+  { 0, 0, PA1, PA0, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 0, 3, PD5, PD4, PD6, PD7, PNA, PNA, PNA, PNA, PNA },
+  { 0, 4, PC2, PC1, PC3, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 1, 0, PC1, PNA, PC2, PC3, PNA, PNA, PNA, PNA, PNA },
+  { 1, 2, PD7, PD6, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 // AVR16EA48 AVR32EA48 AVR64EA48
 const Uart_conf uarts_avr16ea48[10] = {
-  { 0, 0, PA1, PA0, PA2, PA3, PNA, PNA, PNA },
-  { 0, 1, PA5, PA4, PA6, PA7, PNA, PNA, PNA },
-  { 0, 2, PA3, PA2, PNA, PNA, PNA, PNA, PNA },
-  { 0, 3, PD5, PD4, PD6, PD7, PNA, PNA, PNA },
-  { 0, 4, PC2, PC1, PC3, PNA, PNA, PNA, PNA },
-  { 1, 0, PC1, PC0, PC2, PC3, PNA, PNA, PNA },
-  { 1, 1, PC5, PC4, PC6, PC7, PNA, PNA, PNA },
-  { 1, 2, PD7, PD6, PNA, PNA, PNA, PNA, PNA },
-  { 2, 0, PF1, PF0, PF2, PF3, PNA, PNA, PNA },
-  { 2, 1, PF5, PF4, PNA, PNA, PNA, PNA, PNA },
+  { 0, 0, PA1, PA0, PA2, PA3, PNA, PNA, PNA, PNA, PNA },
+  { 0, 1, PA5, PA4, PA6, PA7, PNA, PNA, PNA, PNA, PNA },
+  { 0, 2, PA3, PA2, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 0, 3, PD5, PD4, PD6, PD7, PNA, PNA, PNA, PNA, PNA },
+  { 0, 4, PC2, PC1, PC3, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 1, 0, PC1, PC0, PC2, PC3, PNA, PNA, PNA, PNA, PNA },
+  { 1, 1, PC5, PC4, PC6, PC7, PNA, PNA, PNA, PNA, PNA },
+  { 1, 2, PD7, PD6, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 2, 0, PF1, PF0, PF2, PF3, PNA, PNA, PNA, PNA, PNA },
+  { 2, 1, PF5, PF4, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 // ATtiny87 ATtiny167 ATA5505 ATA6616C ATA6617C ATA664251
 const Uart_conf uarts_attiny87[1] = {
-  { 0, 0, PA0, PA1, PNA, PNA, PNA, PNA, PNA },
+  { 0, 0, PA0, PA1, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 // ATtiny828 ATtiny828R
 const Uart_conf uarts_attiny828[1] = {
-  { 0, 0, PC2, PC3, PNA, PNA, PNA, PNA, PNA },
+  { 0, 0, PC2, PC3, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 // ATtiny1634 ATtiny1634R
 const Uart_conf uarts_attiny1634[2] = {
-  { 0, 0, PA7, PB0, PNA, PNA, PNA, PNA, PNA },
-  { 1, 0, PB1, PB2, PNA, PNA, PNA, PNA, PNA },
+  { 0, 0, PA7, PB0, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 1, 0, PB1, PB2, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 // ATmega8U2 ATmega16U2 ATmega32U2
 const Uart_conf uarts_atmega8u2[1] = {
-  { 0, 0, PD2, PD3, PD5, PNA, PNA, PD6, PD7 },
+  { 0, 0, PD2, PD3, PD5, PNA, PNA, PD6, PD7, PNA, PNA },
 };
 
 // ATmega16 ATmega16A ATmega32 ATmega32A ATmega644
 const Uart_conf uarts_atmega16[1] = {
-  { 0, 0, PD0, PD1, PB0, PNA, PNA, PNA, PNA },
+  { 0, 0, PD0, PD1, PB0, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 // ATmega16U4 ATmega32U4
 const Uart_conf uarts_atmega16u4[1] = {
-  { 0, 0, PD2, PD3, PD5, PNA, PNA, PB7, PD5 },
+  { 0, 0, PD2, PD3, PD5, PNA, PNA, PB7, PD5, PNA, PNA },
 };
 
 /*
@@ -59888,8 +60774,8 @@ const Uart_conf uarts_atmega16u4[1] = {
  * ATmega2564RFR2
  */
 const Uart_conf uarts_atmega64rfr2[2] = {
-  { 0, 0, PE0, PE1, PNA, PNA, PNA, PNA, PNA },
-  { 1, 0, PD2, PD3, PNA, PNA, PNA, PNA, PNA },
+  { 0, 0, PE0, PE1, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 1, 0, PD2, PD3, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 /*
@@ -59899,13 +60785,13 @@ const Uart_conf uarts_atmega64rfr2[2] = {
  * ATmega6490A ATmega6490P
  */
 const Uart_conf uarts_atmega103[1] = {
-  { 0, 0, PE0, PE1, PNA, PNA, PNA, PNA, PNA },
+  { 0, 0, PE0, PE1, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 // ATmega161 ATmega162
 const Uart_conf uarts_atmega161[2] = {
-  { 0, 0, PD0, PD1, PNA, PNA, PNA, PNA, PNA },
-  { 1, 0, PB2, PB3, PNA, PNA, PNA, PNA, PNA },
+  { 0, 0, PD0, PD1, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 1, 0, PB2, PB3, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 /*
@@ -59913,8 +60799,8 @@ const Uart_conf uarts_atmega161[2] = {
  * ATmega644PA ATmega1284 ATmega1284P
  */
 const Uart_conf uarts_atmega164a[2] = {
-  { 0, 0, PD0, PD1, PB0, PNA, PNA, PNA, PNA },
-  { 1, 0, PD2, PD3, PD4, PNA, PNA, PNA, PNA },
+  { 0, 0, PD0, PD1, PB0, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 1, 0, PD2, PD3, PD4, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 /*
@@ -59922,59 +60808,59 @@ const Uart_conf uarts_atmega164a[2] = {
  * ATmega649A ATmega649P
  */
 const Uart_conf uarts_atmega169a[1] = {
-  { 0, 0, PE0, PE1, PE2, PNA, PE4, PNA, PNA },
+  { 0, 0, PE0, PE1, PE2, PNA, PE4, PNA, PNA, PNA, PNA },
 };
 
 // ATmega324PB
 const Uart_conf uarts_atmega324pb[3] = {
-  { 0, 0, PD0, PD1, PB0, PNA, PNA, PNA, PNA },
-  { 1, 0, PD2, PD3, PD4, PNA, PNA, PNA, PNA },
-  { 2, 0, PE2, PE3, PD7, PNA, PNA, PNA, PNA },
+  { 0, 0, PD0, PD1, PB0, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 1, 0, PD2, PD3, PD4, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 2, 0, PE2, PE3, PD7, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 // ATmega640 ATmega1280 ATmega2560
 const Uart_conf uarts_atmega640[4] = {
-  { 0, 0, PE0, PE1, PE2, PNA, PNA, PNA, PNA },
-  { 1, 0, PD2, PD3, PD5, PNA, PNA, PNA, PNA },
-  { 2, 0, PH0, PH1, PH2, PNA, PNA, PNA, PNA },
-  { 3, 0, PJ0, PJ1, PJ2, PNA, PNA, PNA, PNA },
+  { 0, 0, PE0, PE1, PE2, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 1, 0, PD2, PD3, PD5, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 2, 0, PH0, PH1, PH2, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 3, 0, PJ0, PJ1, PJ2, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 // ATxmega16A4 ATxmega32A4
 const Uart_conf uarts_atxmega16a4[7] = {
-  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA }, // C0
-  { 0, 1, PD6, PD7, PD5, PNA, PNA, PNA, PNA }, // C0
-  { 1, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA }, // C1
-  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA }, // D0
-  { 2, 1, PD6, PD7, PD5, PNA, PNA, PNA, PNA }, // D0
-  { 3, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA }, // D1
-  { 4, 0, PE2, PE3, PE1, PNA, PNA, PNA, PNA }, // E0
+  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
+  { 0, 1, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
+  { 1, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // C1
+  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
+  { 2, 1, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
+  { 3, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // D1
+  { 4, 0, PE2, PE3, PE1, PNA, PNA, PNA, PNA, PNA, PNA }, // E0
 };
 
 // ATxmega16A4U ATxmega32A4U ATxmega64A4U ATxmega128A4U
 const Uart_conf uarts_atxmega16a4u[7] = {
-  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA }, // C0
-  { 0, 1, PC6, PC7, PC5, PNA, PNA, PNA, PNA }, // C0
-  { 1, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA }, // C1
-  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA }, // D0
-  { 2, 1, PD6, PD7, PD5, PNA, PNA, PNA, PNA }, // D0
-  { 3, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA }, // D1
-  { 4, 0, PE2, PE3, PE1, PNA, PNA, PNA, PNA }, // E0
+  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
+  { 0, 1, PC6, PC7, PC5, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
+  { 1, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // C1
+  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
+  { 2, 1, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
+  { 3, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // D1
+  { 4, 0, PE2, PE3, PE1, PNA, PNA, PNA, PNA, PNA, PNA }, // E0
 };
 
 // ATxmega16C4 ATxmega32C4
 const Uart_conf uarts_atxmega16c4[4] = {
-  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA }, // C0
-  { 0, 1, PC6, PC7, PC5, PNA, PNA, PNA, PNA }, // C0
-  { 1, 0, PC6, PC7, PC5, PNA, PNA, PNA, PNA }, // C1
-  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA }, // D0
+  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
+  { 0, 1, PC6, PC7, PC5, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
+  { 1, 0, PC6, PC7, PC5, PNA, PNA, PNA, PNA, PNA, PNA }, // C1
+  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
 };
 
 // ATxmega16D4 ATxmega32D4 ATxmega64D4 ATxmega128D4
 const Uart_conf uarts_atxmega16d4[3] = {
-  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA }, // C0
-  { 0, 1, PC6, PC7, PC5, PNA, PNA, PNA, PNA }, // C0
-  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA }, // D0
+  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
+  { 0, 1, PC6, PC7, PC5, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
+  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
 };
 
 /*
@@ -59982,229 +60868,245 @@ const Uart_conf uarts_atxmega16d4[3] = {
  * ATxmega192D3 ATxmega256C3 ATxmega256D3 ATxmega384C3 ATxmega384D3
  */
 const Uart_conf uarts_atxmega32c3[4] = {
-  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA }, // C0
-  { 0, 1, PC6, PC7, PC5, PNA, PNA, PNA, PNA }, // C0
-  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA }, // D0
-  { 4, 0, PE2, PE3, PE1, PNA, PNA, PNA, PNA }, // E0
+  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
+  { 0, 1, PC6, PC7, PC5, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
+  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
+  { 4, 0, PE2, PE3, PE1, PNA, PNA, PNA, PNA, PNA, PNA }, // E0
 };
 
 // ATxmega64A1 ATxmega128A1 ATxmega128A1revD
 const Uart_conf uarts_atxmega64a1[8] = {
-  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA }, // C0
-  { 1, 0, PC6, PC7, PC5, PNA, PNA, PNA, PNA }, // C1
-  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA }, // D0
-  { 3, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA }, // D1
-  { 4, 0, PE2, PE3, PE1, PNA, PNA, PNA, PNA }, // E0
-  { 5, 0, PE6, PE7, PE5, PNA, PNA, PNA, PNA }, // E1
-  { 6, 0, PF2, PF3, PF1, PNA, PNA, PNA, PNA }, // F0
-  { 7, 0, PF6, PF7, PF5, PNA, PNA, PNA, PNA }, // F1
+  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
+  { 1, 0, PC6, PC7, PC5, PNA, PNA, PNA, PNA, PNA, PNA }, // C1
+  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
+  { 3, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // D1
+  { 4, 0, PE2, PE3, PE1, PNA, PNA, PNA, PNA, PNA, PNA }, // E0
+  { 5, 0, PE6, PE7, PE5, PNA, PNA, PNA, PNA, PNA, PNA }, // E1
+  { 6, 0, PF2, PF3, PF1, PNA, PNA, PNA, PNA, PNA, PNA }, // F0
+  { 7, 0, PF6, PF7, PF5, PNA, PNA, PNA, PNA, PNA, PNA }, // F1
 };
 
 // ATxmega64A1U ATxmega128A1U
 const Uart_conf uarts_atxmega64a1u[9] = {
-  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA }, // C0
-  { 0, 1, PC6, PC7, PC5, PNA, PNA, PNA, PNA }, // C0
-  { 1, 0, PC6, PC7, PC5, PNA, PNA, PNA, PNA }, // C1
-  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA }, // D0
-  { 3, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA }, // D1
-  { 4, 0, PE2, PE3, PE1, PNA, PNA, PNA, PNA }, // E0
-  { 5, 0, PE6, PE7, PE5, PNA, PNA, PNA, PNA }, // E1
-  { 6, 0, PF2, PF3, PF1, PNA, PNA, PNA, PNA }, // F0
-  { 7, 0, PF6, PF7, PF5, PNA, PNA, PNA, PNA }, // F1
+  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
+  { 0, 1, PC6, PC7, PC5, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
+  { 1, 0, PC6, PC7, PC5, PNA, PNA, PNA, PNA, PNA, PNA }, // C1
+  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
+  { 3, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // D1
+  { 4, 0, PE2, PE3, PE1, PNA, PNA, PNA, PNA, PNA, PNA }, // E0
+  { 5, 0, PE6, PE7, PE5, PNA, PNA, PNA, PNA, PNA, PNA }, // E1
+  { 6, 0, PF2, PF3, PF1, PNA, PNA, PNA, PNA, PNA, PNA }, // F0
+  { 7, 0, PF6, PF7, PF5, PNA, PNA, PNA, PNA, PNA, PNA }, // F1
 };
 
 // ATxmega64B1 ATxmega128B1
 const Uart_conf uarts_atxmega64b1[4] = {
-  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA }, // C0
-  { 0, 1, PC6, PC7, PC5, PNA, PNA, PNA, PNA }, // C0
-  { 4, 0, PE2, PE3, PE1, PNA, PNA, PNA, PNA }, // E0
-  { 4, 1, PE6, PE7, PE5, PNA, PNA, PNA, PNA }, // E0
+  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
+  { 0, 1, PC6, PC7, PC5, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
+  { 4, 0, PE2, PE3, PE1, PNA, PNA, PNA, PNA, PNA, PNA }, // E0
+  { 4, 1, PE6, PE7, PE5, PNA, PNA, PNA, PNA, PNA, PNA }, // E0
 };
 
 // ATxmega64B3 ATxmega128B3
 const Uart_conf uarts_atxmega64b3[2] = {
-  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA }, // C0
-  { 0, 1, PC6, PC7, PC5, PNA, PNA, PNA, PNA }, // C0
+  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
+  { 0, 1, PC6, PC7, PC5, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
 };
 
 // ATxmega256A3B
 const Uart_conf uarts_atxmega256a3b[6] = {
-  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA }, // C0
-  { 1, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA }, // C1
-  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA }, // D0
-  { 3, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA }, // D1
-  { 4, 0, PE2, PE3, PE1, PNA, PNA, PNA, PNA }, // E0
-  { 6, 0, PF2, PF3, PF1, PNA, PNA, PNA, PNA }, // F0
+  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
+  { 1, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // C1
+  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
+  { 3, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // D1
+  { 4, 0, PE2, PE3, PE1, PNA, PNA, PNA, PNA, PNA, PNA }, // E0
+  { 6, 0, PF2, PF3, PF1, PNA, PNA, PNA, PNA, PNA, PNA }, // F0
 };
 
 // ATxmega256A3BU
 const Uart_conf uarts_atxmega256a3bu[8] = {
-  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA }, // C0
-  { 0, 1, PC6, PC7, PC5, PNA, PNA, PNA, PNA }, // C0
-  { 1, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA }, // C1
-  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA }, // D0
-  { 2, 1, PD6, PD7, PD5, PNA, PNA, PNA, PNA }, // D0
-  { 3, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA }, // D1
-  { 4, 0, PE2, PE3, PE1, PNA, PNA, PNA, PNA }, // E0
-  { 6, 0, PF2, PF3, PF1, PNA, PNA, PNA, PNA }, // F0
+  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
+  { 0, 1, PC6, PC7, PC5, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
+  { 1, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // C1
+  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
+  { 2, 1, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
+  { 3, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // D1
+  { 4, 0, PE2, PE3, PE1, PNA, PNA, PNA, PNA, PNA, PNA }, // E0
+  { 6, 0, PF2, PF3, PF1, PNA, PNA, PNA, PNA, PNA, PNA }, // F0
 };
 
 // ATtiny202 ATtiny212 ATtiny402 ATtiny412
 const Uart_conf uarts_attiny202[2] = {
-  { 0, 0, PA7, PA6, PA3, PA0, PNA, PNA, PNA },
-  { 0, 1, PA2, PA1, PNA, PNA, PNA, PNA, PNA },
+  { 0, 0, PA7, PA6, PA3, PA0, PNA, PNA, PNA, PNA, PNA },
+  { 0, 1, PA2, PA1, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 // ATtiny426 ATtiny427 ATtiny826 ATtiny827 ATtiny1626 ATtiny1627 ATtiny3226 ATtiny3227
 const Uart_conf uarts_attiny426[4] = {
-  { 0, 0, PB3, PB2, PB1, PB0, PNA, PNA, PNA },
-  { 0, 1, PA2, PA1, PA3, PA4, PNA, PNA, PNA },
-  { 1, 0, PA2, PA1, PA3, PA4, PNA, PNA, PNA },
-  { 1, 1, PC1, PC2, PC0, PC3, PNA, PNA, PNA },
+  { 0, 0, PB3, PB2, PB1, PB0, PNA, PNA, PNA, PNA, PNA },
+  { 0, 1, PA2, PA1, PA3, PA4, PNA, PNA, PNA, PNA, PNA },
+  { 1, 0, PA2, PA1, PA3, PA4, PNA, PNA, PNA, PNA, PNA },
+  { 1, 1, PC1, PC2, PC0, PC3, PNA, PNA, PNA, PNA, PNA },
 };
 
 // ATmega808 ATmega1608 ATmega3208 ATmega4808
 const Uart_conf uarts_atmega808[5] = {
-  { 0, 0, PA1, PA0, PA2, PA3, PNA, PNA, PNA },
-  { 0, 1, PA5, PA4, PA6, PA7, PNA, PNA, PNA },
-  { 1, 0, PC1, PC0, PC2, PC3, PNA, PNA, PNA },
-  { 2, 0, PF1, PF0, PF2, PF3, PNA, PNA, PNA },
-  { 2, 1, PF5, PF4, PF6, PNA, PNA, PNA, PNA },
+  { 0, 0, PA1, PA0, PA2, PA3, PNA, PNA, PNA, PNA, PNA },
+  { 0, 1, PA5, PA4, PA6, PA7, PNA, PNA, PNA, PNA, PNA },
+  { 1, 0, PC1, PC0, PC2, PC3, PNA, PNA, PNA, PNA, PNA },
+  { 2, 0, PF1, PF0, PF2, PF3, PNA, PNA, PNA, PNA, PNA },
+  { 2, 1, PF5, PF4, PF6, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 // ATmega809 ATmega1609 ATmega3209 ATmega4809
 const Uart_conf uarts_atmega809[8] = {
-  { 0, 0, PA1, PA0, PA2, PA3, PNA, PNA, PNA },
-  { 0, 1, PA5, PA4, PA6, PA7, PNA, PNA, PNA },
-  { 1, 0, PC1, PC0, PC2, PC3, PNA, PNA, PNA },
-  { 1, 1, PC5, PC4, PC6, PC7, PNA, PNA, PNA },
-  { 2, 0, PF1, PF0, PF2, PF3, PNA, PNA, PNA },
-  { 2, 1, PF5, PF4, PF6, PNA, PNA, PNA, PNA },
-  { 3, 0, PB1, PB0, PB2, PB3, PNA, PNA, PNA },
-  { 3, 1, PB5, PB4, PNA, PNA, PNA, PNA, PNA },
+  { 0, 0, PA1, PA0, PA2, PA3, PNA, PNA, PNA, PNA, PNA },
+  { 0, 1, PA5, PA4, PA6, PA7, PNA, PNA, PNA, PNA, PNA },
+  { 1, 0, PC1, PC0, PC2, PC3, PNA, PNA, PNA, PNA, PNA },
+  { 1, 1, PC5, PC4, PC6, PC7, PNA, PNA, PNA, PNA, PNA },
+  { 2, 0, PF1, PF0, PF2, PF3, PNA, PNA, PNA, PNA, PNA },
+  { 2, 1, PF5, PF4, PF6, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 3, 0, PB1, PB0, PB2, PB3, PNA, PNA, PNA, PNA, PNA },
+  { 3, 1, PB5, PB4, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 // AVR16DU14 AVR32DU14
 const Uart_conf uarts_avr16du14[3] = {
-  { 0, 0, PA1, PA0, PNA, PNA, PNA, PNA, PNA },
-  { 0, 3, PD5, PD4, PD6, PD7, PNA, PNA, PNA },
+  { 0, 0, PA1, PA0, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 0, 3, PD5, PD4, PD6, PD7, PNA, PNA, PNA, PNA, PNA },
 };
 
 // AVR16EB14 AVR32EB14
 const Uart_conf uarts_avr16eb14[4] = {
-  { 0, 0, PA1, PA0, PNA, PNA, PNA, PNA, PNA },
-  { 0, 3, PD5, PD4, PD6, PD7, PNA, PNA, PNA },
-  { 0, 4, PC2, PC1, PC3, PNA, PNA, PNA, PNA },
-  { 0, 6, PF6, PF7, PNA, PNA, PNA, PNA, PNA },
+  { 0, 0, PA1, PA0, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 0, 3, PD5, PD4, PD6, PD7, PNA, PNA, PNA, PNA, PNA },
+  { 0, 4, PC2, PC1, PC3, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 0, 6, PF6, PF7, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
+};
+
+// AVR16LA14 AVR32LA14
+const Uart_conf uarts_avr16la14[3] = {
+  { 0, 0, PA1, PA0, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 0, 3, PD5, PD4, PNA, PNA, PNA, PNA, PNA, PD6, PD7 },
+  { 0, 4, PC2, PC1, PNA, PNA, PNA, PNA, PNA, PC3, PNA },
 };
 
 // AVR16DD20 AVR32DD20 AVR32SD20 AVR64DD20
 const Uart_conf uarts_avr16dd20[7] = {
-  { 0, 0, PA1, PA0, PA2, PA3, PNA, PNA, PNA },
-  { 0, 1, PA5, PA4, PA6, PA7, PNA, PNA, PNA },
-  { 0, 2, PA3, PA2, PNA, PNA, PNA, PNA, PNA },
-  { 0, 3, PD5, PD4, PD6, PD7, PNA, PNA, PNA },
-  { 0, 4, PC2, PC1, PC3, PNA, PNA, PNA, PNA },
-  { 1, 0, PC1, PNA, PC2, PC3, PNA, PNA, PNA },
-  { 1, 2, PD7, PD6, PNA, PNA, PNA, PNA, PNA },
+  { 0, 0, PA1, PA0, PA2, PA3, PNA, PNA, PNA, PNA, PNA },
+  { 0, 1, PA5, PA4, PA6, PA7, PNA, PNA, PNA, PNA, PNA },
+  { 0, 2, PA3, PA2, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 0, 3, PD5, PD4, PD6, PD7, PNA, PNA, PNA, PNA, PNA },
+  { 0, 4, PC2, PC1, PC3, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 1, 0, PC1, PNA, PC2, PC3, PNA, PNA, PNA, PNA, PNA },
+  { 1, 2, PD7, PD6, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 // AVR16DU20 AVR16DU28 AVR16DU32 AVR32DU20 AVR32DU28 AVR32DU32 AVR64DU28 AVR64DU32
 const Uart_conf uarts_avr16du20[5] = {
-  { 0, 0, PA1, PA0, PA2, PA3, PNA, PNA, PNA },
-  { 0, 1, PA5, PA4, PA6, PA7, PNA, PNA, PNA },
-  { 0, 2, PA3, PA2, PNA, PNA, PNA, PNA, PNA },
-  { 0, 3, PD5, PD4, PD6, PD7, PNA, PNA, PNA },
+  { 0, 0, PA1, PA0, PA2, PA3, PNA, PNA, PNA, PNA, PNA },
+  { 0, 1, PA5, PA4, PA6, PA7, PNA, PNA, PNA, PNA, PNA },
+  { 0, 2, PA3, PA2, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 0, 3, PD5, PD4, PD6, PD7, PNA, PNA, PNA, PNA, PNA },
 };
 
 // AVR16EB20 AVR16EB28 AVR16EB32 AVR32EB20 AVR32EB28 AVR32EB32
 const Uart_conf uarts_avr16eb20[6] = {
-  { 0, 0, PA1, PA0, PA2, PA3, PNA, PNA, PNA },
-  { 0, 1, PA5, PA4, PA6, PA7, PNA, PNA, PNA },
-  { 0, 2, PA3, PA2, PNA, PNA, PNA, PNA, PNA },
-  { 0, 3, PD5, PD4, PD6, PD7, PNA, PNA, PNA },
-  { 0, 4, PC2, PC1, PC3, PNA, PNA, PNA, PNA },
-  { 0, 6, PF6, PF7, PNA, PNA, PNA, PNA, PNA },
+  { 0, 0, PA1, PA0, PA2, PA3, PNA, PNA, PNA, PNA, PNA },
+  { 0, 1, PA5, PA4, PA6, PA7, PNA, PNA, PNA, PNA, PNA },
+  { 0, 2, PA3, PA2, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 0, 3, PD5, PD4, PD6, PD7, PNA, PNA, PNA, PNA, PNA },
+  { 0, 4, PC2, PC1, PC3, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 0, 6, PF6, PF7, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
+};
+
+// AVR16LA20 AVR16LA28 AVR16LA32 AVR32LA20 AVR32LA28 AVR32LA32
+const Uart_conf uarts_avr16la20[5] = {
+  { 0, 0, PA1, PA0, PNA, PNA, PNA, PNA, PNA, PA2, PA3 },
+  { 0, 1, PA5, PA4, PNA, PNA, PNA, PNA, PNA, PA6, PA7 },
+  { 0, 2, PA3, PA2, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 0, 3, PD5, PD4, PNA, PNA, PNA, PNA, PNA, PD6, PD7 },
+  { 0, 4, PC2, PC1, PNA, PNA, PNA, PNA, PNA, PC3, PNA },
 };
 
 // AVR16DD28 AVR16DD32 AVR32DD28 AVR32DD32 AVR64DD28 AVR64DD32
 const Uart_conf uarts_avr16dd28[7] = {
-  { 0, 0, PA1, PA0, PA2, PA3, PNA, PNA, PNA },
-  { 0, 1, PA5, PA4, PA6, PA7, PNA, PNA, PNA },
-  { 0, 2, PA3, PA2, PNA, PNA, PNA, PNA, PNA },
-  { 0, 3, PD5, PD4, PD6, PD7, PNA, PNA, PNA },
-  { 0, 4, PC2, PC1, PC3, PNA, PNA, PNA, PNA },
-  { 1, 0, PC1, PC0, PC2, PC3, PNA, PNA, PNA },
-  { 1, 2, PD7, PD6, PNA, PNA, PNA, PNA, PNA },
+  { 0, 0, PA1, PA0, PA2, PA3, PNA, PNA, PNA, PNA, PNA },
+  { 0, 1, PA5, PA4, PA6, PA7, PNA, PNA, PNA, PNA, PNA },
+  { 0, 2, PA3, PA2, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 0, 3, PD5, PD4, PD6, PD7, PNA, PNA, PNA, PNA, PNA },
+  { 0, 4, PC2, PC1, PC3, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 1, 0, PC1, PC0, PC2, PC3, PNA, PNA, PNA, PNA, PNA },
+  { 1, 2, PD7, PD6, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 // AVR16EA28 AVR32EA28 AVR32SD28 AVR64EA28
 const Uart_conf uarts_avr16ea28[8] = {
-  { 0, 0, PA1, PA0, PA2, PA3, PNA, PNA, PNA },
-  { 0, 1, PA5, PA4, PA6, PA7, PNA, PNA, PNA },
-  { 0, 2, PA3, PA2, PNA, PNA, PNA, PNA, PNA },
-  { 0, 3, PD5, PD4, PD6, PD7, PNA, PNA, PNA },
-  { 0, 4, PC2, PC1, PC3, PNA, PNA, PNA, PNA },
-  { 1, 0, PC1, PC0, PC2, PC3, PNA, PNA, PNA },
-  { 1, 2, PD7, PD6, PNA, PNA, PNA, PNA, PNA },
-  { 2, 0, PF1, PF0, PNA, PNA, PNA, PNA, PNA },
+  { 0, 0, PA1, PA0, PA2, PA3, PNA, PNA, PNA, PNA, PNA },
+  { 0, 1, PA5, PA4, PA6, PA7, PNA, PNA, PNA, PNA, PNA },
+  { 0, 2, PA3, PA2, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 0, 3, PD5, PD4, PD6, PD7, PNA, PNA, PNA, PNA, PNA },
+  { 0, 4, PC2, PC1, PC3, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 1, 0, PC1, PC0, PC2, PC3, PNA, PNA, PNA, PNA, PNA },
+  { 1, 2, PD7, PD6, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 2, 0, PF1, PF0, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 // AVR16EA32 AVR32EA32 AVR32SD32 AVR64EA32
 const Uart_conf uarts_avr16ea32[9] = {
-  { 0, 0, PA1, PA0, PA2, PA3, PNA, PNA, PNA },
-  { 0, 1, PA5, PA4, PA6, PA7, PNA, PNA, PNA },
-  { 0, 2, PA3, PA2, PNA, PNA, PNA, PNA, PNA },
-  { 0, 3, PD5, PD4, PD6, PD7, PNA, PNA, PNA },
-  { 0, 4, PC2, PC1, PC3, PNA, PNA, PNA, PNA },
-  { 1, 0, PC1, PC0, PC2, PC3, PNA, PNA, PNA },
-  { 1, 2, PD7, PD6, PNA, PNA, PNA, PNA, PNA },
-  { 2, 0, PF1, PF0, PF2, PF3, PNA, PNA, PNA },
-  { 2, 1, PF5, PF4, PNA, PNA, PNA, PNA, PNA },
+  { 0, 0, PA1, PA0, PA2, PA3, PNA, PNA, PNA, PNA, PNA },
+  { 0, 1, PA5, PA4, PA6, PA7, PNA, PNA, PNA, PNA, PNA },
+  { 0, 2, PA3, PA2, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 0, 3, PD5, PD4, PD6, PD7, PNA, PNA, PNA, PNA, PNA },
+  { 0, 4, PC2, PC1, PC3, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 1, 0, PC1, PC0, PC2, PC3, PNA, PNA, PNA, PNA, PNA },
+  { 1, 2, PD7, PD6, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 2, 0, PF1, PF0, PF2, PF3, PNA, PNA, PNA, PNA, PNA },
+  { 2, 1, PF5, PF4, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 // AVR32DA28 AVR32DA28S AVR32DB28 AVR64DA28 AVR64DA28S AVR64DB28 AVR128DA28 AVR128DA28S AVR128DB28
 const Uart_conf uarts_avr32da28[4] = {
-  { 0, 0, PA1, PA0, PA2, PA3, PNA, PNA, PNA },
-  { 0, 1, PA5, PA4, PA6, PA7, PNA, PNA, PNA },
-  { 1, 0, PC1, PC0, PC2, PC3, PNA, PNA, PNA },
-  { 2, 0, PF1, PF0, PNA, PNA, PNA, PNA, PNA },
+  { 0, 0, PA1, PA0, PA2, PA3, PNA, PNA, PNA, PNA, PNA },
+  { 0, 1, PA5, PA4, PA6, PA7, PNA, PNA, PNA, PNA, PNA },
+  { 1, 0, PC1, PC0, PC2, PC3, PNA, PNA, PNA, PNA, PNA },
+  { 2, 0, PF1, PF0, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 // AVR32DA32 AVR32DA32S AVR32DB32 AVR64DA32 AVR64DA32S AVR64DB32 AVR128DA32 AVR128DA32S AVR128DB32
 const Uart_conf uarts_avr32da32[5] = {
-  { 0, 0, PA1, PA0, PA2, PA3, PNA, PNA, PNA },
-  { 0, 1, PA5, PA4, PA6, PA7, PNA, PNA, PNA },
-  { 1, 0, PC1, PC0, PC2, PC3, PNA, PNA, PNA },
-  { 2, 0, PF1, PF0, PF2, PF3, PNA, PNA, PNA },
-  { 2, 1, PF5, PF4, PNA, PNA, PNA, PNA, PNA },
+  { 0, 0, PA1, PA0, PA2, PA3, PNA, PNA, PNA, PNA, PNA },
+  { 0, 1, PA5, PA4, PA6, PA7, PNA, PNA, PNA, PNA, PNA },
+  { 1, 0, PC1, PC0, PC2, PC3, PNA, PNA, PNA, PNA, PNA },
+  { 2, 0, PF1, PF0, PF2, PF3, PNA, PNA, PNA, PNA, PNA },
+  { 2, 1, PF5, PF4, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
 // AVR32DA48 AVR32DA48S AVR32DB48 AVR64DA48 AVR64DA48S AVR64DB48 AVR128DA48 AVR128DA48S AVR128DB48
 const Uart_conf uarts_avr32da48[9] = {
-  { 0, 0, PA1, PA0, PA2, PA3, PNA, PNA, PNA },
-  { 0, 1, PA5, PA4, PA6, PA7, PNA, PNA, PNA },
-  { 1, 0, PC1, PC0, PC2, PC3, PNA, PNA, PNA },
-  { 1, 1, PC5, PC4, PC6, PC7, PNA, PNA, PNA },
-  { 2, 0, PF1, PF0, PF2, PF3, PNA, PNA, PNA },
-  { 2, 1, PF5, PF4, PNA, PNA, PNA, PNA, PNA },
-  { 3, 0, PB1, PB0, PB2, PB3, PNA, PNA, PNA },
-  { 3, 1, PB5, PB4, PNA, PNA, PNA, PNA, PNA },
-  { 4, 0, PE1, PE0, PE2, PE3, PNA, PNA, PNA },
+  { 0, 0, PA1, PA0, PA2, PA3, PNA, PNA, PNA, PNA, PNA },
+  { 0, 1, PA5, PA4, PA6, PA7, PNA, PNA, PNA, PNA, PNA },
+  { 1, 0, PC1, PC0, PC2, PC3, PNA, PNA, PNA, PNA, PNA },
+  { 1, 1, PC5, PC4, PC6, PC7, PNA, PNA, PNA, PNA, PNA },
+  { 2, 0, PF1, PF0, PF2, PF3, PNA, PNA, PNA, PNA, PNA },
+  { 2, 1, PF5, PF4, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 3, 0, PB1, PB0, PB2, PB3, PNA, PNA, PNA, PNA, PNA },
+  { 3, 1, PB5, PB4, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 4, 0, PE1, PE0, PE2, PE3, PNA, PNA, PNA, PNA, PNA },
 };
 
 // AVR64DA64 AVR64DA64S AVR64DB64 AVR128DA64 AVR128DA64S AVR128DB64
 const Uart_conf uarts_avr64da64[12] = {
-  { 0, 0, PA1, PA0, PA2, PA3, PNA, PNA, PNA },
-  { 0, 1, PA5, PA4, PA6, PA7, PNA, PNA, PNA },
-  { 1, 0, PC1, PC0, PC2, PC3, PNA, PNA, PNA },
-  { 1, 1, PC5, PC4, PC6, PC7, PNA, PNA, PNA },
-  { 2, 0, PF1, PF0, PF2, PF3, PNA, PNA, PNA },
-  { 2, 1, PF5, PF4, PNA, PNA, PNA, PNA, PNA },
-  { 3, 0, PB1, PB0, PB2, PB3, PNA, PNA, PNA },
-  { 3, 1, PB5, PB4, PB6, PB7, PNA, PNA, PNA },
-  { 4, 0, PE1, PE0, PE2, PE3, PNA, PNA, PNA },
-  { 4, 1, PE5, PE4, PE6, PE7, PNA, PNA, PNA },
-  { 5, 0, PG1, PG0, PG2, PG3, PNA, PNA, PNA },
-  { 5, 1, PG5, PG4, PG6, PG7, PNA, PNA, PNA },
+  { 0, 0, PA1, PA0, PA2, PA3, PNA, PNA, PNA, PNA, PNA },
+  { 0, 1, PA5, PA4, PA6, PA7, PNA, PNA, PNA, PNA, PNA },
+  { 1, 0, PC1, PC0, PC2, PC3, PNA, PNA, PNA, PNA, PNA },
+  { 1, 1, PC5, PC4, PC6, PC7, PNA, PNA, PNA, PNA, PNA },
+  { 2, 0, PF1, PF0, PF2, PF3, PNA, PNA, PNA, PNA, PNA },
+  { 2, 1, PF5, PF4, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
+  { 3, 0, PB1, PB0, PB2, PB3, PNA, PNA, PNA, PNA, PNA },
+  { 3, 1, PB5, PB4, PB6, PB7, PNA, PNA, PNA, PNA, PNA },
+  { 4, 0, PE1, PE0, PE2, PE3, PNA, PNA, PNA, PNA, PNA },
+  { 4, 1, PE5, PE4, PE6, PE7, PNA, PNA, PNA, PNA, PNA },
+  { 5, 0, PG1, PG0, PG2, PG3, PNA, PNA, PNA, PNA, PNA },
+  { 5, 1, PG5, PG4, PG6, PG7, PNA, PNA, PNA, PNA, PNA },
 };
