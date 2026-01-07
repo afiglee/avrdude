@@ -8,7 +8,7 @@
  * Published under GNU General Public License, version 3 (GPL-3.0)
  * Meta-author Stefan Rueger <stefan.rueger@urclocks.com>
  *
- * v 1.44
+ * v 1.45
  * 07.01.2026
  *
  */
@@ -680,11 +680,11 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   /*ATmega64C1*/       122, rgftab_atmega64c1,      1,          UART_LIN,  1, uarts_atmega16m1, // Register file, UART
   /*ATmega64C1*/         4, ports_atmega16m1, WDT_CLASSIC4}, // Ports, WDT
 
-  //ATmegaS64M1                                                  atdf // Sources
+  //ATmegaS64M1                                 atdf, from ATmega64M1 // Sources
   {"ATmegaS64M1",      412,  F_AVR8, {0x1E, 0x96, 0x84}, // ID
   /*ATmegaS64M1*/        0, 0x10000, 0x100,  4, 0x0400,       0, 0x0800,  8, 0x0100, 0x1000, // Mem
   /*ATmegaS64M1*/        3,  1,  31, vtab_atmega64m1,      17, cfgtab_atmega64c1, // ISRs, Config
-  /*ATmegaS64M1*/      136, rgftab_atmegas64m1,     1,          UART_LIN, -1, NULL, // Register file, UART
+  /*ATmegaS64M1*/      136, rgftab_atmegas64m1,     1,          UART_LIN,  1, uarts_atmega16m1, // Register file, UART
   /*ATmegaS64M1*/        4, ports_atmega16m1, WDT_CLASSIC4}, // Ports, WDT
 
   //ATmega64M1                          atdf, avr-gcc 12.2.0, avrdude // Sources
@@ -60584,7 +60584,7 @@ const Uart_conf uarts_atmega8[1] = {
   { 0, 0, PD0, PD1, PD4, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
-// ATmega16M1 ATmega32C1 ATmega32M1 ATmega64C1 ATmega64M1
+// ATmega16M1 ATmega32C1 ATmega32M1 ATmega64C1 ATmegaS64M1 ATmega64M1
 const Uart_conf uarts_atmega16m1[1] = {
   { 0, 0, PD4, PD3, PNA, PNA, PNA, PNA, PNA, PNA, PNA },
 };
