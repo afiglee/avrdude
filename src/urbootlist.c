@@ -9,8 +9,8 @@
  * Published under GNU General Public License, version 3 (GPL-3.0)
  * Meta-author Stefan Rueger <stefan.rueger@urclocks.com>
  *
- * v 1.22
- * 26.05.2025
+ * v 1.3
+ * 09.01.2026
  *
  */
 
@@ -25,7 +25,7 @@
 #include "urbootlist.h"
 #include "urclock_private.h"
 
-static const char *mcus[166] = {
+static const char *mcus[168] = {
   "m169", "m169a", "m169p", "m169pa", "m329", "m329a", "m329p", "m329pa",
   "m3290", "m3290a", "m3290p", "m3290pa", "m649", "m649a", "m649p", "m6490",
   "m6490a", "m6490p", "m48", "m48a", "m48p", "m48pa", "m48pb", "m88",
@@ -46,7 +46,7 @@ static const char *mcus[166] = {
   "t461", "t461a", "t841", "t861", "t861a", "c32", "c64", "c128",
   "pwm1", "pwm2", "pwm2b", "pwm3", "pwm3b", "pwm81", "pwm161", "pwm216",
   "pwm316", "usb82", "usb162", "usb646", "usb647", "usb1286", "usb1287", "a5505",
-  "a6612c", "a6613c", "a6614q", "a6616c", "a6617c", "a664251",
+  "a6612c", "a6613c", "a6614q", "a6616c", "a6617c", "a664251", "ms64m1", "ms128",
 };
 
 static const char *iotypes[31] = {
@@ -135623,7 +135623,10 @@ static const uint64_t ur_m64_swio15_dual_ee_ce_hw[] = {
   0x75d6717d453c9c17,
 };
 
-// m64c1_autobaud_uart0_noled_pr     m64m1_autobaud_uart0_noled        m64m1_autobaud_uart0_noled_pr
+/*
+ * m64c1_autobaud_uart0_noled_pr     m64m1_autobaud_uart0_noled        m64m1_autobaud_uart0_noled_pr
+ * ms64m1_autobaud_uart0_noled       ms64m1_autobaud_uart0_noled_pr
+ */
 static const uint64_t ur_m64c1_autobaud_uart0_noled[] = {
   0x58dddddddd66ef3a, 0xbbbbbbba58f53f17, 0x0e827939bfafdf4b, 0xc83af1ae6d6eeeb6, 0x04f8c9dd05e82662,
   0x4a5f7fbf3acf9eb3, 0x140881526ff869f0, 0xa53ebf68c7017435, 0xef96487b5452257e, 0x4389206693d47e78,
@@ -135632,7 +135635,7 @@ static const uint64_t ur_m64c1_autobaud_uart0_noled[] = {
   0x5b387138cb25c33d, 0x792bf734332c3a4a, 0x000038881249d1ba,
 };
 
-// m64m1_autobaud_uart0_noled_pr_u4
+// m64m1_autobaud_uart0_noled_pr_u4  ms64m1_autobaud_uart0_noled_pr_u4
 static const uint64_t ur_m64c1_autobaud_uart0_noled_pr_u4[] = {
   0x1bbbbbbb44863f3e, 0x7777774b1ea6c46b, 0xf0b1ae5ecdad8037, 0x9db6c66efdddd9ee, 0x9f193bb64560e3be,
   0xea3fd3d5f3fb7e60, 0x0220549bfe1a7c12, 0x4fafda31c05d0d45, 0xe5843ed514895fa9, 0xe2481a0bf51fa03b,
@@ -135644,7 +135647,8 @@ static const uint64_t ur_m64c1_autobaud_uart0_noled_pr_u4[] = {
 
 /*
  * m64c1_autobaud_uart0_noled_pr_ee_u4 m64m1_autobaud_uart0_noled_pr_ee
- * m64m1_autobaud_uart0_noled_pr_ee_u4
+ * m64m1_autobaud_uart0_noled_pr_ee_u4 ms64m1_autobaud_uart0_noled_pr_ee
+ * ms64m1_autobaud_uart0_noled_pr_ee_u4
  */
 static const uint64_t ur_m64c1_autobaud_uart0_noled_pr_ee[] = {
   0xc6eeeeeed121be4a, 0xddddddd2c1e09bba, 0xfd295b41217ebd7d, 0x70cde9f0ba99ba5e, 0x9dd29475be9abe1a,
@@ -135658,7 +135662,8 @@ static const uint64_t ur_m64c1_autobaud_uart0_noled_pr_ee[] = {
 
 /*
  * m64c1_autobaud_uart0_noled_pr_ce_u4 m64m1_autobaud_uart0_noled_pr_ce
- * m64m1_autobaud_uart0_noled_pr_ce_u4
+ * m64m1_autobaud_uart0_noled_pr_ce_u4 ms64m1_autobaud_uart0_noled_pr_ce
+ * ms64m1_autobaud_uart0_noled_pr_ce_u4
  */
 static const uint64_t ur_m64c1_autobaud_uart0_noled_pr_ce[] = {
   0x8ddddddda2435562, 0xddddddd2c4192d15, 0x97b5378ef6dee2fd, 0x18adb21e3f7774c9, 0x9f193ba645a70416,
@@ -135671,7 +135676,8 @@ static const uint64_t ur_m64c1_autobaud_uart0_noled_pr_ce[] = {
 
 /*
  * m64c1_autobaud_uart0_noled_pr_ee_ce_u4 m64m1_autobaud_uart0_noled_pr_ee_ce
- * m64m1_autobaud_uart0_noled_pr_ee_ce_u4
+ * m64m1_autobaud_uart0_noled_pr_ee_ce_u4 ms64m1_autobaud_uart0_noled_pr_ee_ce
+ * ms64m1_autobaud_uart0_noled_pr_ee_ce_u4
  */
 static const uint64_t ur_m64c1_autobaud_uart0_noled_pr_ee_ce[] = {
   0x1bbbbbbb44863d5b, 0xeeeeee961721d3ab, 0x82791fa634f519ee, 0x1c6a2a44b11ddc76, 0xeeb3e75b3755a837,
@@ -135683,7 +135689,7 @@ static const uint64_t ur_m64c1_autobaud_uart0_noled_pr_ee_ce[] = {
   0xe19e985f1a3d17f8, 0x1d252d9c389c6592, 0x00653c95fb9a1996, 0x000000002089e7e1,
 };
 
-// m64m1_autobaud_uart0_noled_ee_hw
+// m64m1_autobaud_uart0_noled_ee_hw  ms64m1_autobaud_uart0_noled_ee_hw
 static const uint64_t ur_m64c1_autobaud_uart0_noled_ee_hw[] = {
   0x377777768a345562, 0xeeeeee960f04ddd6, 0xe94ada090bf5ebee, 0x866f4f85d4cdd2f7, 0xc9dd322d3b6c30d3,
   0xbfcac59fd9d304f8, 0x40a937fc34f8252b, 0x5fb46380ba1a8a04, 0xe71daa2912bf529f, 0x63ea3cae449aad68,
@@ -135695,7 +135701,8 @@ static const uint64_t ur_m64c1_autobaud_uart0_noled_ee_hw[] = {
 
 /*
  * m64c1_autobaud_uart0_noled_ee_ce_u4_hw m64m1_autobaud_uart0_noled_ee_ce_hw
- * m64m1_autobaud_uart0_noled_ee_ce_u4_hw
+ * m64m1_autobaud_uart0_noled_ee_ce_u4_hw ms64m1_autobaud_uart0_noled_ee_ce_hw
+ * ms64m1_autobaud_uart0_noled_ee_ce_u4_hw
  */
 static const uint64_t ur_m64c1_autobaud_uart0_noled_ee_ce_hw[] = {
   0x6eeeeeed1468b044, 0xbbbbba585c874eac, 0x09e47e98d3d467bb, 0x71a8a912c47771da, 0x3bbb293ef6c5e0dc,
@@ -135707,7 +135714,10 @@ static const uint64_t ur_m64c1_autobaud_uart0_noled_ee_ce_hw[] = {
   0xd252d9c389c6592e, 0xd453c95fb9a19961, 0x000000000952207d,
 };
 
-// m64c1_autobaud_uart0_lednop_pr    m64m1_autobaud_uart0_lednop       m64m1_autobaud_uart0_lednop_pr
+/*
+ * m64c1_autobaud_uart0_lednop_pr    m64m1_autobaud_uart0_lednop       m64m1_autobaud_uart0_lednop_pr
+ * ms64m1_autobaud_uart0_lednop      ms64m1_autobaud_uart0_lednop_pr
+ */
 static const uint64_t ur_m64c1_autobaud_uart0_lednop[] = {
   0x58dddddddd66ef3a, 0xbbbbbbba58f53e6f, 0x6c1d05bc1f56df4b, 0x8b20ebc6becfdddd, 0xcc13e3277417a099,
   0xc12eebfdf9d67e3d, 0xd450220549bfe1a7, 0xfa94fafda31c05d0, 0xe3be5921ed514895, 0x490e24819a4f51c9,
@@ -135716,7 +135726,7 @@ static const uint64_t ur_m64c1_autobaud_uart0_lednop[] = {
   0xb670e271964b867a, 0xf257ee6866587494, 0x000071102493a374,
 };
 
-// m64m1_autobaud_uart0_lednop_pr_u4
+// m64m1_autobaud_uart0_lednop_pr_u4 ms64m1_autobaud_uart0_lednop_pr_u4
 static const uint64_t ur_m64c1_autobaud_uart0_lednop_pr_u4[] = {
   0x8ddddddda24328ae, 0xbbbbbba58f532675, 0xe16c446bf07df1fb, 0x4b88dbd9fbbbb3dd, 0xe32774d2c7153624,
   0xd7fa7abe7e3dcc13, 0x440a937fc34f825d, 0xf5fb46380ba1a8a0, 0xb087daa2912bf529, 0x4903417ea3dac77c,
@@ -135728,7 +135738,8 @@ static const uint64_t ur_m64c1_autobaud_uart0_lednop_pr_u4[] = {
 
 /*
  * m64c1_autobaud_uart0_lednop_pr_ee_u4 m64m1_autobaud_uart0_lednop_pr_ee
- * m64m1_autobaud_uart0_lednop_pr_ee_u4
+ * m64m1_autobaud_uart0_lednop_pr_ee_u4 ms64m1_autobaud_uart0_lednop_pr_ee
+ * ms64m1_autobaud_uart0_lednop_pr_ee_u4
  */
 static const uint64_t ur_m64c1_autobaud_uart0_lednop_pr_ee[] = {
   0xc6eeeeeed121af43, 0xddddddd2c1e0b4ba, 0xfa537656da9ed45d, 0xb42f0ae1753374bd, 0x9dd69df6bc8ecaa0,
@@ -135742,7 +135753,8 @@ static const uint64_t ur_m64c1_autobaud_uart0_lednop_pr_ee[] = {
 
 /*
  * m64c1_autobaud_uart0_lednop_pr_ce_u4 m64m1_autobaud_uart0_lednop_pr_ce
- * m64m1_autobaud_uart0_lednop_pr_ce_u4
+ * m64m1_autobaud_uart0_lednop_pr_ce_u4 ms64m1_autobaud_uart0_lednop_pr_ce
+ * ms64m1_autobaud_uart0_lednop_pr_ce_u4
  */
 static const uint64_t ur_m64c1_autobaud_uart0_lednop_pr_ce[] = {
   0x8ddddddda2431202, 0xddddddd2c4191b15, 0xcbdad0a6cb8ec33d, 0x28dd83305fbbba64, 0x3e3277599b6268a8,
@@ -135755,7 +135767,8 @@ static const uint64_t ur_m64c1_autobaud_uart0_lednop_pr_ce[] = {
 
 /*
  * m64c1_autobaud_uart0_lednop_pr_ee_ce_u4 m64m1_autobaud_uart0_lednop_pr_ee_ce
- * m64m1_autobaud_uart0_lednop_pr_ee_ce_u4
+ * m64m1_autobaud_uart0_lednop_pr_ee_ce_u4 ms64m1_autobaud_uart0_lednop_pr_ee_ce
+ * ms64m1_autobaud_uart0_lednop_pr_ee_ce_u4
  */
 static const uint64_t ur_m64c1_autobaud_uart0_lednop_pr_ee_ce[] = {
   0x1bbbbbbb4486cc7f, 0xeeeeee961720246b, 0x8274ef234177276e, 0x7048fa44b11ddc76, 0xea7dd57bb251f477,
@@ -135767,7 +135780,7 @@ static const uint64_t ur_m64c1_autobaud_uart0_lednop_pr_ee_ce[] = {
   0xf8d1e8bfc0fdfb0c, 0xe1c4e32c970cf4c2, 0xafdcd0ccb0e9296c, 0x01044b88380329e4,
 };
 
-// m64m1_autobaud_uart0_lednop_ee_hw
+// m64m1_autobaud_uart0_lednop_ee_hw ms64m1_autobaud_uart0_lednop_ee_hw
 static const uint64_t ur_m64c1_autobaud_uart0_lednop_ee_hw[] = {
   0x377777768a341202, 0xeeeeee960f05a5d6, 0xd29bb2b6d4f6a2ee, 0xa178570ba99ba5ef, 0xc9dd666d8b505505,
   0xffcac59f1ad304f8, 0x40a937fc34f825a6, 0x5fb46380ba1a8a04, 0xe71daa2912bf529f, 0x63ea3cacca9aad68,
@@ -135779,7 +135792,8 @@ static const uint64_t ur_m64c1_autobaud_uart0_lednop_ee_hw[] = {
 
 /*
  * m64c1_autobaud_uart0_lednop_ee_ce_u4_hw m64m1_autobaud_uart0_lednop_ee_ce_hw
- * m64m1_autobaud_uart0_lednop_ee_ce_u4_hw
+ * m64m1_autobaud_uart0_lednop_ee_ce_u4_hw ms64m1_autobaud_uart0_lednop_ee_ce_hw
+ * ms64m1_autobaud_uart0_lednop_ee_ce_u4_hw
  */
 static const uint64_t ur_m64c1_autobaud_uart0_lednop_ee_ce_hw[] = {
   0xddddddda28d01107, 0x777774b0b9012358, 0x13a7791a0bb93b77, 0x8247d22588eee3b4, 0x77539157eefda3bb,
@@ -135793,7 +135807,8 @@ static const uint64_t ur_m64c1_autobaud_uart0_lednop_ee_ce_hw[] = {
 
 /*
  * m64c1_autobaud_uart0_dual_pr      m64c1_autobaud_uart0_dual_pr_u4   m64m1_autobaud_uart0_dual
- * m64m1_autobaud_uart0_dual_pr      m64m1_autobaud_uart0_dual_pr_u4
+ * m64m1_autobaud_uart0_dual_pr      m64m1_autobaud_uart0_dual_pr_u4   ms64m1_autobaud_uart0_dual
+ * ms64m1_autobaud_uart0_dual_pr     ms64m1_autobaud_uart0_dual_pr_u4
  */
 static const uint64_t ur_m64c1_autobaud_uart0_dual[] = {
   0x6eeeeeed121a559b, 0x777775fb02f57dab, 0x94ed00ab13a9cb77, 0x933ed14edddd23fc, 0x7b9385f1ff3ef336,
@@ -135806,7 +135821,7 @@ static const uint64_t ur_m64c1_autobaud_uart0_dual[] = {
   0x9c6592e19e985f1a, 0x9a19961d252d9c38, 0x05405600653c95fb, 0x0000000000000017,
 };
 
-// m64m1_autobaud_uart0_dual_pr_ee
+// m64m1_autobaud_uart0_dual_pr_ee   ms64m1_autobaud_uart0_dual_pr_ee
 static const uint64_t ur_m64c1_autobaud_uart0_dual_pr_ee[] = {
   0xdbbbbbba1eb432db, 0xbbbbbafdb17a6bea, 0xd900dce2c5a843bb, 0xc4abde9f25dd7ac3, 0x3822ac1f8675b375,
   0x5927304f8c966772, 0x4884ec14c85e4aa4, 0xe20614306acf167a, 0x293f328094ee9f12, 0x7b5bd856f9c2004c,
@@ -135819,7 +135834,7 @@ static const uint64_t ur_m64c1_autobaud_uart0_dual_pr_ee[] = {
   0x40800ca792bf7343, 0x00000000000052a4,
 };
 
-// m64m1_autobaud_uart0_dual_pr_ee_u4
+// m64m1_autobaud_uart0_dual_pr_ee_u4 ms64m1_autobaud_uart0_dual_pr_ee_u4
 static const uint64_t ur_m64c1_autobaud_uart0_dual_pr_ee_u4[] = {
   0xadbbbbbbb4486f97, 0xbbbbbbafdb17a8fe, 0x00aad0eb843dae3b, 0x44febb7a7c9774dd, 0x93c119d7b853a4d7,
   0x20ebe9827c64e4eb, 0xd2442760a642f255, 0x971030a1835678b3, 0xd5bff99404a774f8, 0x8e9b7b09db385adc,
@@ -135834,7 +135849,8 @@ static const uint64_t ur_m64c1_autobaud_uart0_dual_pr_ee_u4[] = {
 
 /*
  * m64c1_autobaud_uart0_dual_pr_ce_u4 m64m1_autobaud_uart0_dual_pr_ce
- * m64m1_autobaud_uart0_dual_pr_ce_u4
+ * m64m1_autobaud_uart0_dual_pr_ce_u4 ms64m1_autobaud_uart0_dual_pr_ce
+ * ms64m1_autobaud_uart0_dual_pr_ce_u4
  */
 static const uint64_t ur_m64c1_autobaud_uart0_dual_pr_ce[] = {
   0x6ddddddda243359b, 0xddddddd7ec4856b5, 0xbd61d7cfb499a16d, 0x540355f1ab777605, 0x33b90f0cc2987cd7,
@@ -135848,7 +135864,7 @@ static const uint64_t ur_m64c1_autobaud_uart0_dual_pr_ce[] = {
   0x610b00653c95fb9a, 0x00000000000015af,
 };
 
-// m64m1_autobaud_uart0_dual_pr_ee_ce
+// m64m1_autobaud_uart0_dual_pr_ee_ce ms64m1_autobaud_uart0_dual_pr_ee_ce
 static const uint64_t ur_m64c1_autobaud_uart0_dual_pr_ee_ce[] = {
   0x56dddddddd436f02, 0xddddddd7ec0bed07, 0x9f03e421aafd9b4d, 0x4f26bc33323bbb29, 0xe1f35ef262cd8ce3,
   0x7ae609f19276ae4f, 0x213b05321792a904, 0x81850c1ab3c59e92, 0x3fcca0253ba7c4b8, 0x86d833e1c3ace664,
@@ -135861,7 +135877,7 @@ static const uint64_t ur_m64c1_autobaud_uart0_dual_pr_ee_ce[] = {
   0x88863600ca792bf7, 0x0000000000000001,
 };
 
-// m64m1_autobaud_uart0_dual_pr_ee_ce_u4
+// m64m1_autobaud_uart0_dual_pr_ee_ce_u4 ms64m1_autobaud_uart0_dual_pr_ee_ce_u4
 static const uint64_t ur_m64c1_autobaud_uart0_dual_pr_ee_ce_u4[] = {
   0x77777768a87fb202, 0x77775fb2d199bd5b, 0x6d07e6cdede4f777, 0x3e68af5b77aee8be, 0x31eece0e557bebd8,
   0x13e325395cbfadd2, 0x14c85e4aa458f5cc, 0x306acf167a4884ec, 0x6024ee9f12e20614, 0xa838341e6044fe65,
@@ -135875,7 +135891,7 @@ static const uint64_t ur_m64c1_autobaud_uart0_dual_pr_ee_ce_u4[] = {
   0x0003f56f97e1d559,
 };
 
-// m64m1_autobaud_uart0_dual_ee_hw
+// m64m1_autobaud_uart0_dual_ee_hw   ms64m1_autobaud_uart0_dual_ee_hw
 static const uint64_t ur_m64c1_autobaud_uart0_dual_ee_hw[] = {
   0xb77777768a34359b, 0x777775fb62f4d7d5, 0xb201b9c58b508777, 0x8957bd3e4bbaf587, 0x43c330a6b5d766eb,
   0x8b24e609f192ccee, 0x49109d82990bc954, 0x5c40c2860d59e2cf, 0x8527e657419dd3e2, 0x8f6b7b0adf384009,
@@ -135890,7 +135906,8 @@ static const uint64_t ur_m64c1_autobaud_uart0_dual_ee_hw[] = {
 
 /*
  * m64c1_autobaud_uart0_dual_ee_ce_u4_hw m64m1_autobaud_uart0_dual_ee_ce_hw
- * m64m1_autobaud_uart0_dual_ee_ce_u4_hw
+ * m64m1_autobaud_uart0_dual_ee_ce_u4_hw ms64m1_autobaud_uart0_dual_ee_ce_hw
+ * ms64m1_autobaud_uart0_dual_ee_ce_u4_hw
  */
 static const uint64_t ur_m64c1_autobaud_uart0_dual_ee_ce_hw[] = {
   0xddddddda28d19231, 0xddddd7ecb4666f56, 0x9b41f9b37b793ddd, 0x0f9a2bd6ddebba2f, 0x334eb76b555efaf6,
@@ -135904,7 +135921,10 @@ static const uint64_t ur_m64c1_autobaud_uart0_dual_ee_ce_hw[] = {
   0x7ec3347db0e3f8cb, 0x3d30be347a2ff03f, 0x4a5b387138cb25c3, 0x8a792bf734332c3a, 0x000000084d30ee42,
 };
 
-// m64c1_lin_uart0_noled_pr          m64m1_lin_uart0_noled             m64m1_lin_uart0_noled_pr
+/*
+ * m64c1_lin_uart0_noled_pr          m64m1_lin_uart0_noled             m64m1_lin_uart0_noled_pr
+ * ms64m1_lin_uart0_noled            ms64m1_lin_uart0_noled_pr
+ */
 static const uint64_t ur_m64c1_lin_uart0_noled[] = {
   0xec49ddbbbacdfebe, 0xddddd2c39c9e4ac6, 0x9cdf839a0ef1fddd, 0xa17b7edbbbb49fd4, 0x64eef8fc28b89215,
   0x3fdf9d67e719827c, 0x72349e391a7c125f, 0xbe5843ed5148a9f8, 0x0e2481a0bf51fa03, 0x8b016594cf7dad49,
@@ -135913,7 +135933,7 @@ static const uint64_t ur_m64c1_lin_uart0_noled[] = {
   0x494b670e271964b8, 0x374f257ee6866587, 0x000000007c87393a,
 };
 
-// m64m1_lin_uart0_noled_pr_u4
+// m64m1_lin_uart0_noled_pr_u4       ms64m1_lin_uart0_noled_pr_u4
 static const uint64_t ur_m64c1_lin_uart0_noled_pr_u4[] = {
   0xc49ddbbb44862a9c, 0xdddd2c39c9e4ac6e, 0xcdf839a0ef1fdddd, 0x17b7edbbbb49fd49, 0x3bb0cc8f97134b5a,
   0xe9eaf9f9c6609f19, 0x1a4f1c8d3e092f9f, 0x2c21f6a8a454fc39, 0x1240d05fa8fd01df, 0x80b2ca67bed6a487,
@@ -135923,7 +135943,10 @@ static const uint64_t ur_m64c1_lin_uart0_noled_pr_u4[] = {
   0x000000001f276cc5,
 };
 
-// m64c1_lin_uart0_noled_pr_ee_u4    m64m1_lin_uart0_noled_pr_ee       m64m1_lin_uart0_noled_pr_ee_u4
+/*
+ * m64c1_lin_uart0_noled_pr_ee_u4    m64m1_lin_uart0_noled_pr_ee       m64m1_lin_uart0_noled_pr_ee_u4
+ * ms64m1_lin_uart0_noled_pr_ee      ms64m1_lin_uart0_noled_pr_ee_u4
+ */
 static const uint64_t ur_m64c1_lin_uart0_noled_pr_ee[] = {
   0x624eeddda243280b, 0x77774b0f20485637, 0x2c9b53267a0cf777, 0x2a1ece244eef07a1, 0x7273d6a0ad38d841,
   0xabe7d82cc13e3277, 0x78e469f048e1ffa7, 0xe3b54522a7e1c8d2, 0x7d4795c89355ad1c, 0x15f75ea3e0d9834c,
@@ -135933,7 +135956,7 @@ static const uint64_t ur_m64c1_lin_uart0_noled_pr_ee[] = {
   0xa2ff03f7ec3347db, 0x8cb25c33d30be347, 0x4332c3a4a5b38713, 0xf792600ca792bf73, 0x000000000000013a,
 };
 
-// m64m1_lin_uart0_noled_pr_ce
+// m64m1_lin_uart0_noled_pr_ce       ms64m1_lin_uart0_noled_pr_ce
 static const uint64_t ur_m64c1_lin_uart0_noled_pr_ce[] = {
   0xdd893bb77759bb37, 0xddddd2c569f48b58, 0x41b4d3277e68cddd, 0x6c311e3ef26eeeea, 0x09f193bb63d9085e,
   0x2dbffefceb3e63e6, 0x9f872349e391a7c1, 0xf7d8febd06d5148a, 0xfe7487fcf370ee76, 0xcf72cbac67339d61,
@@ -135942,7 +135965,7 @@ static const uint64_t ur_m64c1_lin_uart0_noled_pr_ce[] = {
   0x38cb25c33d30ae4f, 0x34332c3a4a5b3871, 0xdd4029d1ba792bf7, 0x0000000000000002,
 };
 
-// m64m1_lin_uart0_noled_pr_ce_u4
+// m64m1_lin_uart0_noled_pr_ce_u4    ms64m1_lin_uart0_noled_pr_ce_u4
 static const uint64_t ur_m64c1_lin_uart0_noled_pr_ce_u4[] = {
   0x624eeddda2432f02, 0xeeee963d4ec7d637, 0x7cc4b8d69b856eee, 0xc9e3bf4bbbbaa670, 0x3277638c0b376cce,
   0xffa7abe7fe74c13e, 0xc8d278e469f048a2, 0x5fac43b54522a7e1, 0x670f3c79b9dc7b8c, 0xd47c25f886c2445d,
@@ -135952,7 +135975,10 @@ static const uint64_t ur_m64c1_lin_uart0_noled_pr_ce_u4[] = {
   0x5c33d30be347a2ff, 0xc3a4a5b387138cb2, 0x800ca792bf734332, 0x000000000375f754,
 };
 
-// m64c1_lin_uart0_noled_pr_ee_ce_u4 m64m1_lin_uart0_noled_pr_ee_ce    m64m1_lin_uart0_noled_pr_ee_ce_u4
+/*
+ * m64c1_lin_uart0_noled_pr_ee_ce_u4 m64m1_lin_uart0_noled_pr_ee_ce    m64m1_lin_uart0_noled_pr_ee_ce_u4
+ * ms64m1_lin_uart0_noled_pr_ee_ce   ms64m1_lin_uart0_noled_pr_ee_ce_u4
+ */
 static const uint64_t ur_m64c1_lin_uart0_noled_pr_ee_ce[] = {
   0xc49ddbbb448624d6, 0x7774b010b9a5ac6e, 0x646829b1bc977777, 0x3f62fef26e9716a7, 0xb5d768ed3ee99fd3,
   0xf3e337304f8c9ddf, 0x7234f82416bfd3d5, 0xdaa29153f0e4693c, 0xdcee39462fd51fce, 0x4361222eb3879e3c,
@@ -135963,7 +135989,7 @@ static const uint64_t ur_m64c1_lin_uart0_noled_pr_ee_ce[] = {
   0x1d252d9c389c6592, 0x00653c95fb9a1996, 0x0000000009f820ae,
 };
 
-// m64m1_lin_uart0_noled_ee_hw
+// m64m1_lin_uart0_noled_ee_hw       ms64m1_lin_uart0_noled_ee_hw
 static const uint64_t ur_m64c1_lin_uart0_noled_ee_hw[] = {
   0x893bb7768a342f02, 0xdddd2c3c812158dd, 0xb26d4c99e833dddd, 0xa87b38913bbc1e84, 0xbb1c605eb3336104,
   0x958b3ec16609f193, 0xd278e469f048e1ff, 0x1ce3b54522a7e1c8, 0x4c7d4795c89355ad, 0xdf15f75ea3e0d983,
@@ -135973,7 +135999,10 @@ static const uint64_t ur_m64c1_lin_uart0_noled_ee_hw[] = {
   0xc6592e19e985f1a3, 0xa19961d252d9c389, 0x6f918ff453c95fb9, 0x0000000000000001,
 };
 
-// m64c1_lin_uart0_noled_ee_ce_u4_hw m64m1_lin_uart0_noled_ee_ce_hw    m64m1_lin_uart0_noled_ee_ce_u4_hw
+/*
+ * m64c1_lin_uart0_noled_ee_ce_u4_hw m64m1_lin_uart0_noled_ee_ce_hw    m64m1_lin_uart0_noled_ee_ce_u4_hw
+ * ms64m1_lin_uart0_noled_ee_ce_hw   ms64m1_lin_uart0_noled_ee_ce_u4_hw
+ */
 static const uint64_t ur_m64c1_lin_uart0_noled_ee_ce_hw[] = {
   0xc49ddbbb451a3032, 0x7774b010b9a5ac6e, 0x646829b1bc977777, 0x3f62fef26e9716a7, 0xeb6239da9ca99fd3,
   0xac59f19b9827c64e, 0x93c7234f82416bfc, 0xfcedaa29153f0e46, 0xcf21cee39462fd51, 0x5f886c2445d670f3,
@@ -135984,7 +136013,10 @@ static const uint64_t ur_m64c1_lin_uart0_noled_ee_ce_hw[] = {
   0x66e8a792bf734332, 0x00000000000a0235,
 };
 
-// m64c1_lin_uart0_lednop_pr         m64m1_lin_uart0_lednop            m64m1_lin_uart0_lednop_pr
+/*
+ * m64c1_lin_uart0_lednop_pr         m64m1_lin_uart0_lednop            m64m1_lin_uart0_lednop_pr
+ * ms64m1_lin_uart0_lednop           ms64m1_lin_uart0_lednop_pr
+ */
 static const uint64_t ur_m64c1_lin_uart0_lednop[] = {
   0x7624eedddd66ef3a, 0xddddd2c39cbc5d63, 0x23c9cdfd7efa5ddd, 0xaf1ae6d6eeed27f5, 0x8c9dd05e82662c83,
   0xf7fbf3acf9eb304f, 0x1c8d278e469f04a5, 0xef9610fb54522a7e, 0x438920682fd47b58, 0xc580b2ca6f920fd2,
@@ -135993,7 +136025,7 @@ static const uint64_t ur_m64c1_lin_uart0_lednop[] = {
   0x0e271964b867a615, 0x7ee6866587494b67, 0x00f902493a374f25,
 };
 
-// m64m1_lin_uart0_lednop_pr_u4
+// m64m1_lin_uart0_lednop_pr_u4      ms64m1_lin_uart0_lednop_pr_u4
 static const uint64_t ur_m64c1_lin_uart0_lednop_pr_u4[] = {
   0xc49ddbbb4486ff41, 0xbbba5873978bac6e, 0x7939bfafdf4bbbbb, 0xe35cdadddda4fea4, 0x4eed0bfa79898975,
   0xfa7abe7cf59827c6, 0x8d278e469f04a5f7, 0x9610fb54522a7e1c, 0x8920682fd47b58ef, 0x80b2ca6f920fd243,
@@ -136003,7 +136035,10 @@ static const uint64_t ur_m64c1_lin_uart0_lednop_pr_u4[] = {
   0x003e4fecb400ca79,
 };
 
-// m64c1_lin_uart0_lednop_pr_ee_u4   m64m1_lin_uart0_lednop_pr_ee      m64m1_lin_uart0_lednop_pr_ee_u4
+/*
+ * m64c1_lin_uart0_lednop_pr_ee_u4   m64m1_lin_uart0_lednop_pr_ee      m64m1_lin_uart0_lednop_pr_ee_u4
+ * ms64m1_lin_uart0_lednop_pr_ee     ms64m1_lin_uart0_lednop_pr_ee_u4
+ */
 static const uint64_t ur_m64c1_lin_uart0_lednop_pr_ee[] = {
   0xb12776eed1218375, 0xbbbba58790642b1b, 0x212164e00d3f7bbb, 0xdc2fd9c489dde0f4, 0xb02c055916c58bca,
   0xd5f3f95a609f193b, 0x3c7234f82450ffd3, 0x71daa29153f0e469, 0x3ea3cacca9aad68e, 0x1587bf51f06cc1a6,
@@ -136013,7 +136048,10 @@ static const uint64_t ur_m64c1_lin_uart0_lednop_pr_ee[] = {
   0xfbf619a3ed871fc6, 0x19e985f1a3d17f81, 0xd252d9c389c6592e, 0x0653c95fb9a19961, 0x000000009d70d4e0,
 };
 
-// m64c1_lin_uart0_lednop_pr_ce_u4   m64m1_lin_uart0_lednop_pr_ce      m64m1_lin_uart0_lednop_pr_ce_u4
+/*
+ * m64c1_lin_uart0_lednop_pr_ce_u4   m64m1_lin_uart0_lednop_pr_ce      m64m1_lin_uart0_lednop_pr_ce_u4
+ * ms64m1_lin_uart0_lednop_pr_ce     ms64m1_lin_uart0_lednop_pr_ce_u4
+ */
 static const uint64_t ur_m64c1_lin_uart0_lednop_pr_ce[] = {
   0xc49ddbbb4486fc3b, 0xdddd2c7a9bd3ac6e, 0xec7e62ebf504dddd, 0x20a6f6deeeea99c1, 0x64eedc1374d2ca71,
   0xff4f57cf9c39827c, 0x91a4f1c8d3e09256, 0xbf58876a8a454fc3, 0xce1e78f373b80d18, 0xa8f84bf10d8488ba,
@@ -136025,7 +136063,8 @@ static const uint64_t ur_m64c1_lin_uart0_lednop_pr_ce[] = {
 
 /*
  * m64c1_lin_uart0_lednop_pr_ee_ce_u4 m64m1_lin_uart0_lednop_pr_ee_ce
- * m64m1_lin_uart0_lednop_pr_ee_ce_u4
+ * m64m1_lin_uart0_lednop_pr_ee_ce_u4 ms64m1_lin_uart0_lednop_pr_ee_ce
+ * ms64m1_lin_uart0_lednop_pr_ee_ce_u4
  */
 static const uint64_t ur_m64c1_lin_uart0_lednop_pr_ee_ce[] = {
   0xc49ddbbb4486a4d6, 0x7774b010b989ac6e, 0xd2d91c5fb2ef7777, 0x34c5fde4dd2e2d4c, 0x3b3ecc8957ac1f22,
@@ -136037,7 +136076,7 @@ static const uint64_t ur_m64c1_lin_uart0_lednop_pr_ee_ce[] = {
   0x387138cb25c33d30, 0x2bf734332c3a4a5b, 0x0013f0f54800ca79,
 };
 
-// m64m1_lin_uart0_lednop_ee_hw
+// m64m1_lin_uart0_lednop_ee_hw      ms64m1_lin_uart0_lednop_ee_hw
 static const uint64_t ur_m64c1_lin_uart0_lednop_ee_hw[] = {
   0x12776eed1468fc3b, 0xbbba58790642b1bb, 0x12164e00d3f7bbbb, 0xc2fd9c489dde0f42, 0x76e09bad29d8bcad,
   0x2b167f2b4c13e327, 0xa4f1c8d3e09143ff, 0x39c76a8a454fc391, 0x98fa8f2b32a6ab5a, 0x7c561efd47c1b306,
@@ -136049,7 +136088,8 @@ static const uint64_t ur_m64c1_lin_uart0_lednop_ee_hw[] = {
 
 /*
  * m64c1_lin_uart0_lednop_ee_ce_u4_hw m64m1_lin_uart0_lednop_ee_ce_hw
- * m64m1_lin_uart0_lednop_ee_ce_u4_hw
+ * m64m1_lin_uart0_lednop_ee_ce_u4_hw ms64m1_lin_uart0_lednop_ee_ce_hw
+ * ms64m1_lin_uart0_lednop_ee_ce_u4_hw
  */
 static const uint64_t ur_m64c1_lin_uart0_lednop_ee_ce_hw[] = {
   0x624eeddda28d0a20, 0xbbba58085cc4d637, 0x696c8e2fd977bbbb, 0x1a62fef26e9716a6, 0xe8f62d5b1a960f91,
@@ -136063,7 +136103,8 @@ static const uint64_t ur_m64c1_lin_uart0_lednop_ee_ce_hw[] = {
 
 /*
  * m64c1_lin_uart0_dual_pr           m64c1_lin_uart0_dual_pr_u4        m64m1_lin_uart0_dual
- * m64m1_lin_uart0_dual_pr           m64m1_lin_uart0_dual_pr_u4
+ * m64m1_lin_uart0_dual_pr           m64m1_lin_uart0_dual_pr_u4        ms64m1_lin_uart0_dual
+ * ms64m1_lin_uart0_dual_pr          ms64m1_lin_uart0_dual_pr_u4
  */
 static const uint64_t ur_m64c1_lin_uart0_dual[] = {
   0x89327bbb4486d0e3, 0x775fb6db69dab6ef, 0x506e123a3db77777, 0x0544edddd1a6d14a, 0x9571b41087912828,
@@ -136076,7 +136117,10 @@ static const uint64_t ur_m64c1_lin_uart0_dual[] = {
   0xdcd0ccb0e9296ce1, 0xa49eb2d00329e4af,
 };
 
-// m64c1_lin_uart0_dual_pr_ee_u4     m64m1_lin_uart0_dual_pr_ee        m64m1_lin_uart0_dual_pr_ee_u4
+/*
+ * m64c1_lin_uart0_dual_pr_ee_u4     m64m1_lin_uart0_dual_pr_ee        m64m1_lin_uart0_dual_pr_ee_u4
+ * ms64m1_lin_uart0_dual_pr_ee       ms64m1_lin_uart0_dual_pr_ee_u4
+ */
 static const uint64_t ur_m64c1_lin_uart0_dual_pr_ee[] = {
   0xc4993ddda2431f02, 0xbbafdb0a75bd5b77, 0xbb17d95a89fbbbbb, 0xaa86d1776c4bb2df, 0xb364d985147ee716,
   0x304f8c9b83725188, 0xec14c85e4aa447dd, 0x14306acf167a4884, 0x328094ee9f12e206, 0x61bb4704db9a76ff,
@@ -136089,7 +136133,10 @@ static const uint64_t ur_m64c1_lin_uart0_dual_pr_ee[] = {
   0x005642cc0194f257,
 };
 
-// m64c1_lin_uart0_dual_pr_ce_u4     m64m1_lin_uart0_dual_pr_ce        m64m1_lin_uart0_dual_pr_ce_u4
+/*
+ * m64c1_lin_uart0_dual_pr_ce_u4     m64m1_lin_uart0_dual_pr_ce        m64m1_lin_uart0_dual_pr_ce_u4
+ * ms64m1_lin_uart0_dual_pr_ce       ms64m1_lin_uart0_dual_pr_ce_u4
+ */
 static const uint64_t ur_m64c1_lin_uart0_dual_pr_ce[] = {
   0x89327bbb448618be, 0xeebf605e9f7ab6ef, 0xc10d056d17eeeeee, 0xf738b77760dd8967, 0xaf67049aef05bf79,
   0x30bcc13e32792dcb, 0x2213b05321792a90, 0x881850c1ab3c59e9, 0x1ffcca0253ba7c4b, 0xeafd850f9c3a7e6b,
@@ -136102,7 +136149,7 @@ static const uint64_t ur_m64c1_lin_uart0_dual_pr_ce[] = {
   0x00000000001a49b5,
 };
 
-// m64m1_lin_uart0_dual_pr_ee_ce
+// m64m1_lin_uart0_dual_pr_ee_ce     ms64m1_lin_uart0_dual_pr_ee_ce
 static const uint64_t ur_m64c1_lin_uart0_dual_pr_ee_ce[] = {
   0x24c9eeeea0a1a5fb, 0xbafdb6decdeadbbe, 0x89f9f7ae17bbbbbb, 0xd048e3bad8bed776, 0xd6c10ab30f9085d6,
   0x827c6494ab94b235, 0xc14c85e4aa46f3e9, 0x4306acf167a4884e, 0x28094ee9f12e2061, 0x014870fd798d6ff3,
@@ -136115,7 +136162,7 @@ static const uint64_t ur_m64c1_lin_uart0_dual_pr_ee_ce[] = {
   0x653c95fb9a19961d, 0x000000040027d700,
 };
 
-// m64m1_lin_uart0_dual_pr_ee_ce_u4
+// m64m1_lin_uart0_dual_pr_ee_ce_u4  ms64m1_lin_uart0_dual_pr_ee_ce_u4
 static const uint64_t ur_m64c1_lin_uart0_dual_pr_ee_ce_u4[] = {
   0x4c9eeed150ff880b, 0xafdac7e44eadbbe2, 0x36a3fb609bbbbbbb, 0x4bb13ba930b13859, 0xe439a757d71f9ddb,
   0xe3247b5c849fe9ac, 0x642f25523cf5cc13, 0x35678b3d2442760a, 0x12774f8971030a18, 0xe704a89ae47f32b0,
@@ -136128,7 +136175,7 @@ static const uint64_t ur_m64c1_lin_uart0_dual_pr_ee_ce_u4[] = {
   0xdfb0cd1f6c38fe32, 0xcf4c2f8d1e8bfc0f, 0x9296ce1c4e32c970, 0xac9e4afdcd0ccb0e, 0x0000000800e3346a,
 };
 
-// m64m1_lin_uart0_dual_ee_hw
+// m64m1_lin_uart0_dual_ee_hw        ms64m1_lin_uart0_dual_ee_hw
 static const uint64_t ur_m64c1_lin_uart0_dual_ee_hw[] = {
   0x24c9eeed146818be, 0xdd7ed853adeadbbe, 0xd8becad44fdddddd, 0x54368bbb625d96fd, 0x6705af04a3f738b5,
   0x74c13e326e0dcbaf, 0x13b05321792a911f, 0x1850c1ab3c59e922, 0xfccae833ba7c4b88, 0xbd86ed1c136e69db,
@@ -136141,7 +136188,10 @@ static const uint64_t ur_m64c1_lin_uart0_dual_ee_hw[] = {
   0x0000000000000001,
 };
 
-// m64c1_lin_uart0_dual_ee_ce_u4_hw  m64m1_lin_uart0_dual_ee_ce_hw     m64m1_lin_uart0_dual_ee_ce_u4_hw
+/*
+ * m64c1_lin_uart0_dual_ee_ce_u4_hw  m64m1_lin_uart0_dual_ee_ce_hw     m64m1_lin_uart0_dual_ee_ce_u4_hw
+ * ms64m1_lin_uart0_dual_ee_ce_hw    ms64m1_lin_uart0_dual_ee_ce_u4_hw
+ */
 static const uint64_t ur_m64c1_lin_uart0_dual_ee_ce_hw[] = {
   0x264f7768a3475164, 0xd7ed63f22756ddf1, 0x9b51fdb04ddddddd, 0xa5d89dd498589c2c, 0xfedaf3abeb8fceed,
   0x609f1923dae4674d, 0xb05321792a91e7ae, 0x50c1ab3c59e92213, 0xcae833ba7c4b8818, 0x066f9c12a26b91fc,
@@ -136154,7 +136204,10 @@ static const uint64_t ur_m64c1_lin_uart0_dual_ee_ce_hw[] = {
   0x2e19e985f1a3d17f, 0x61d252d9c389c659, 0x4f9453c95fb9a199, 0x0000000000075d43,
 };
 
-// m64c1_swio10_noled_pr             m64m1_swio10_noled                m64m1_swio10_noled_pr
+/*
+ * m64c1_swio10_noled_pr             m64m1_swio10_noled                m64m1_swio10_noled_pr
+ * ms64m1_swio10_noled               ms64m1_swio10_noled_pr
+ */
 static const uint64_t ur_m64c1_swio10_noled[] = {
   0x441bbbbbbacdfc4f, 0x1ddcb4b10adbbeb0, 0xdac4776e27524192, 0x80f06612226f897e, 0x8f4138fd68917748,
   0x7304f8c9dd85eb47, 0x524644ff7e759f0f, 0x310fea3bde77cb13, 0xdd34e3916921c490, 0xdba046b3ce62c05b,
@@ -136163,7 +136216,7 @@ static const uint64_t ur_m64c1_swio10_noled[] = {
   0x271964b867a615c9, 0xe6866587494b670e, 0xe400e53a374f257e, 0x0000000000000003,
 };
 
-// m64m1_swio10_noled_pr_u4
+// m64m1_swio10_noled_pr_u4          ms64m1_swio10_noled_pr_u4
 static const uint64_t ur_m64c1_swio10_noled_pr_u4[] = {
   0xa4dddddda24328ae, 0xad72d2c42b133ac6, 0xdf1fba6837132219, 0x88f211c6c446bf07, 0x912e236f67eeea48,
   0x4f8c9dd34b1c54d8, 0xf75fe9eaf9f8f730, 0xbd479b8ef9611648, 0x8ca9c6921c490327, 0xbd1dac731602cb29,
@@ -136173,7 +136226,10 @@ static const uint64_t ur_m64c1_swio10_noled_pr_u4[] = {
   0xcd0ccb0e9296ce1c, 0x93da6b00329e4afd, 0x000000000000000f,
 };
 
-// m64c1_swio10_noled_pr_ee_u4       m64m1_swio10_noled_pr_ee          m64m1_swio10_noled_pr_ee_u4
+/*
+ * m64c1_swio10_noled_pr_ee_u4       m64m1_swio10_noled_pr_ee          m64m1_swio10_noled_pr_ee_u4
+ * ms64m1_swio10_noled_pr_ee         ms64m1_swio10_noled_pr_ee_u4
+ */
 static const uint64_t ur_m64c1_swio10_noled_pr_ee[] = {
   0x426eeeeed121af43, 0x6d5cb4b1ea6d2eb1, 0xa7b5177499f1ff12, 0x08f229835cdd95b6, 0x9541685e14452225,
   0x9f193bad3bed791d, 0xa6ffd3d5f3e35a60, 0xb387355ad1c7b923, 0xd47c1b3067afa8f2, 0x34eb422877c565d7,
@@ -136184,7 +136240,10 @@ static const uint64_t ur_m64c1_swio10_noled_pr_ee[] = {
   0x00000275c9f84019,
 };
 
-// m64c1_swio10_noled_pr_ce_u4       m64m1_swio10_noled_pr_ce          m64m1_swio10_noled_pr_ce_u4
+/*
+ * m64c1_swio10_noled_pr_ce_u4       m64m1_swio10_noled_pr_ce          m64m1_swio10_noled_pr_ce_u4
+ * ms64m1_swio10_noled_pr_ce         ms64m1_swio10_noled_pr_ce_u4
+ */
 static const uint64_t ur_m64c1_swio10_noled_pr_ce[] = {
   0x07dddddda2431202, 0x1cb96960418d8ac7, 0xc7619eed69b3fd7a, 0x7f12368915685365, 0x2a0a3760cc17eef0,
   0x304f8c9dd666d89a, 0x9160bfe9eaf9f95d, 0xe6e76a7a317ebd44, 0xe21b0911759c3cf1, 0xe1ef0f96bf51f097,
@@ -136195,7 +136254,10 @@ static const uint64_t ur_m64c1_swio10_noled_pr_ce[] = {
   0x000000000000000d,
 };
 
-// m64c1_swio10_noled_pr_ee_ce_u4    m64m1_swio10_noled_pr_ee_ce       m64m1_swio10_noled_pr_ee_ce_u4
+/*
+ * m64c1_swio10_noled_pr_ee_ce_u4    m64m1_swio10_noled_pr_ee_ce       m64m1_swio10_noled_pr_ee_ce_u4
+ * ms64m1_swio10_noled_pr_ee_ce      ms64m1_swio10_noled_pr_ee_ce_u4
+ */
 static const uint64_t ur_m64c1_swio10_noled_pr_ee_ce[] = {
   0xa7bbbbbb4486cc7f, 0x6ee5a5861c123586, 0x177276e9b185401b, 0x3b1ec454df4ef234, 0xa3bb8247c613c4b5,
   0x327753eeabdd928f, 0xff4f57cfb5dcc13e, 0x918bf5472ba48bfc, 0x8bace1e78f373b7f, 0xe5fa8f84bf10d848,
@@ -136206,7 +136268,7 @@ static const uint64_t ur_m64c1_swio10_noled_pr_ee_ce[] = {
   0xa3d17f81fbf619a3, 0x89c6592e19e985f1, 0xb9a19961d252d9c3, 0x9f9710700653c95f,
 };
 
-// m64m1_swio10_noled_ee_hw
+// m64m1_swio10_noled_ee_hw          ms64m1_swio10_noled_ee_hw
 static const uint64_t ur_m64c1_swio10_noled_ee_hw[] = {
   0x137777768a341202, 0x6ae5a58f5369758a, 0x3da8bba4cf8ff893, 0x47914c1ae6ecadb5, 0xaa0b42f0a2291128,
   0x09f193baccdb16a0, 0x474dff958b3e35a6, 0xe5670e6ab5a38f72, 0xafa8f83660cf5f51, 0x1669d68450ef8acb,
@@ -136216,7 +136278,10 @@ static const uint64_t ur_m64c1_swio10_noled_ee_hw[] = {
   0xd8668fb61c7f197e, 0xa617c68f45fe07ef, 0x4b670e271964b867, 0x4f257ee686658749, 0x00000005bf180051,
 };
 
-// m64c1_swio10_noled_ee_ce_u4_hw    m64m1_swio10_noled_ee_ce_hw       m64m1_swio10_noled_ee_ce_u4_hw
+/*
+ * m64c1_swio10_noled_ee_ce_u4_hw    m64m1_swio10_noled_ee_ce_hw       m64m1_swio10_noled_ee_ce_u4_hw
+ * ms64m1_swio10_noled_ee_ce_hw      ms64m1_swio10_noled_ee_ce_u4_hw
+ */
 static const uint64_t ur_m64c1_swio10_noled_ee_ce_hw[] = {
   0x3dddddda28d01107, 0x772d2c30e091ac35, 0xbb93b74d8c2a00db, 0xd8f622a6fa7791a0, 0x1ddc123e309e25a9,
   0xf193ba9c8abf77ed, 0xfcff2b167daee609, 0x7f918bf5472ba48b, 0x911759c3cf3c873b, 0xbaa3f51f097e21b0,
@@ -136227,7 +136292,10 @@ static const uint64_t ur_m64c1_swio10_noled_ee_ce_hw[] = {
   0xc4e32c970cf4c2f8, 0xdcd0ccb0e9296ce1, 0x0280845daa29e4af,
 };
 
-// m64c1_swio10_lednop_pr            m64m1_swio10_lednop               m64m1_swio10_lednop_pr
+/*
+ * m64c1_swio10_lednop_pr            m64m1_swio10_lednop               m64m1_swio10_lednop_pr
+ * ms64m1_swio10_lednop              ms64m1_swio10_lednop_pr
+ */
 static const uint64_t ur_m64c1_swio10_lednop[] = {
   0x088377777759bb37, 0x43bb9696215922d6, 0x7e68cdd1b42ca832, 0x9101e0cc2444d327, 0x085e6c311e3ef26e,
   0x63e609f193bb63d9, 0x4d491dbffefceb3e, 0x40c43fa8f109df2c, 0x6f74da52d7a48712, 0xe76b868c9a398b01,
@@ -136236,7 +136304,7 @@ static const uint64_t ur_m64c1_swio10_lednop[] = {
   0xe32c970cf4c2b93f, 0xd0ccb0e9296ce1c4, 0x9000a746e9e4afdc, 0x000000000000000f,
 };
 
-// m64m1_swio10_lednop_pr_u4
+// m64m1_swio10_lednop_pr_u4         ms64m1_swio10_lednop_pr_u4
 static const uint64_t ur_m64c1_swio10_lednop_pr_u4[] = {
   0x526eeeeed121ad4e, 0x6b5cb4b10ad00563, 0xfa0bf770f8da4886, 0x111e4238c99b11e6, 0x233cc6a197bddd49,
   0x827c64ee989b82b4, 0x887bff4f57cfc069, 0x7bd479c4ef961164, 0x318f3d6921c49032, 0xe44707ce62c05965,
@@ -136246,7 +136314,10 @@ static const uint64_t ur_m64c1_swio10_lednop_pr_u4[] = {
   0x961d252d9c389c65, 0x9b00653c95fb9a19, 0x00000000003e4dd5,
 };
 
-// m64c1_swio10_lednop_pr_ee_u4      m64m1_swio10_lednop_pr_ee         m64m1_swio10_lednop_pr_ee_u4
+/*
+ * m64c1_swio10_lednop_pr_ee_u4      m64m1_swio10_lednop_pr_ee         m64m1_swio10_lednop_pr_ee_u4
+ * ms64m1_swio10_lednop_pr_ee        ms64m1_swio10_lednop_pr_ee_u4
+ */
 static const uint64_t ur_m64c1_swio10_lednop_pr_ee[] = {
   0x426eeeeed121b032, 0x6d5cb4b1ea6f5eb1, 0x27a47f746db11f12, 0x08f229835da59bbb, 0x72b2210208452225,
   0x4f8c9dd6c473ba72, 0x1cbfd3d5f3fd5f30, 0xb287355ad1c7b923, 0xd47c1b3067afa8f2, 0x34eb422877c56c17,
@@ -136257,7 +136328,10 @@ static const uint64_t ur_m64c1_swio10_lednop_pr_ee[] = {
   0x75fbe080194f257e, 0x0000000000000002,
 };
 
-// m64c1_swio10_lednop_pr_ce_u4      m64m1_swio10_lednop_pr_ce         m64m1_swio10_lednop_pr_ce_u4
+/*
+ * m64c1_swio10_lednop_pr_ce_u4      m64m1_swio10_lednop_pr_ce         m64m1_swio10_lednop_pr_ce_u4
+ * ms64m1_swio10_lednop_pr_ce        ms64m1_swio10_lednop_pr_ce_u4
+ */
 static const uint64_t ur_m64c1_swio10_lednop_pr_ce[] = {
   0x83eeeeeed12198e2, 0x1cb9696041b17d63, 0xc7685eef1fa13d7a, 0x1fc48da24536168c, 0xc6759a59fbc77bbc,
   0xcc13e32774a70f65, 0x2472b7fa7abe7f4d, 0x79b9dcae8c5faf51, 0xf886c2445d670f3c, 0xb8767ceb3fd47c25,
@@ -136268,7 +136342,10 @@ static const uint64_t ur_m64c1_swio10_lednop_pr_ce[] = {
   0x00000000006eb983,
 };
 
-// m64c1_swio10_lednop_pr_ee_ce_u4   m64m1_swio10_lednop_pr_ee_ce      m64m1_swio10_lednop_pr_ee_ce_u4
+/*
+ * m64c1_swio10_lednop_pr_ee_ce_u4   m64m1_swio10_lednop_pr_ee_ce      m64m1_swio10_lednop_pr_ee_ce_u4
+ * ms64m1_swio10_lednop_pr_ee_ce     ms64m1_swio10_lednop_pr_ee_ce_u4
+ */
 static const uint64_t ur_m64c1_swio10_lednop_pr_ee_ce[] = {
   0xa9eeeeeed1219f68, 0xdbb9696187119d61, 0x23b02f7419ad1006, 0x9d8f622a6c48f4eb, 0x8c8c4efa6309e25a,
   0xe32774abd13ec305, 0xfffa7abe7c524c13, 0xbf18bf5472ba48d6, 0x11759c3cf1e6e775, 0x6eff51f097e21b09,
@@ -136279,7 +136356,7 @@ static const uint64_t ur_m64c1_swio10_lednop_pr_ee_ce[] = {
   0xe07efd8668fb61c7, 0x4b867a617c68f45f, 0x587494b670e27196, 0x400194f257ee6866, 0x000000000009f86e,
 };
 
-// m64m1_swio10_lednop_ee_hw
+// m64m1_swio10_lednop_ee_hw         ms64m1_swio10_lednop_ee_hw
 static const uint64_t ur_m64c1_swio10_lednop_ee_hw[] = {
   0x09bbbbbb451a18e2, 0xb572d2c7a9bd7ac5, 0x9e91fdd1b6c47c49, 0x23c8a60d76966eec, 0x5ac8840821148894,
   0x827c64ee94e1eda7, 0x231cbfcac59feaf9, 0xf2b287355ad1c7b9, 0x17d47c1b3067afa8, 0x8b34eb422877c56c,
@@ -136289,7 +136366,10 @@ static const uint64_t ur_m64c1_swio10_lednop_ee_hw[] = {
   0xdb0e3f8cbf313ffb, 0x47a2ff03f7ec3347, 0x138cb25c33d30be3, 0x734332c3a4a5b387, 0x02df19e4e8a792bf,
 };
 
-// m64c1_swio10_lednop_ee_ce_u4_hw   m64m1_swio10_lednop_ee_ce_hw      m64m1_swio10_lednop_ee_ce_u4_hw
+/*
+ * m64c1_swio10_lednop_ee_ce_u4_hw   m64m1_swio10_lednop_ee_ce_hw      m64m1_swio10_lednop_ee_ce_u4_hw
+ * ms64m1_swio10_lednop_ee_ce_hw     ms64m1_swio10_lednop_ee_ce_u4_hw
+ */
 static const uint64_t ur_m64c1_swio10_lednop_ee_ce_hw[] = {
   0x9eeeeeed14687f3e, 0xbb9696187119d61a, 0x3b02f7419ad1006d, 0xd8f622a6c48f4eb2, 0xc8c4efa6309e25a9,
   0xf193bb1aa8bf5d6c, 0x6fff958b3e292609, 0x5bf18bf5472ba48d, 0x222eb3879e790e77, 0x6ddfea3e12fc4361,
@@ -136302,7 +136382,8 @@ static const uint64_t ur_m64c1_swio10_lednop_ee_ce_hw[] = {
 
 /*
  * m64c1_swio10_dual_pr              m64c1_swio10_dual_pr_u4           m64m1_swio10_dual
- * m64m1_swio10_dual_pr              m64m1_swio10_dual_pr_u4
+ * m64m1_swio10_dual_pr              m64m1_swio10_dual_pr_u4           ms64m1_swio10_dual
+ * ms64m1_swio10_dual_pr             ms64m1_swio10_dual_pr_u4
  */
 static const uint64_t ur_m64c1_swio10_dual[] = {
   0x17777776890d365a, 0xcdad7ec35f656acd, 0xb1ab7638f916967e, 0x912b7f4d5f1da0dd, 0xbd84339cf5b75a2d,
@@ -136315,7 +136396,7 @@ static const uint64_t ur_m64c1_swio10_dual[] = {
   0xcf4c2f8d1e8bfc0f, 0x9296ce1c4e32c970, 0x329e4afdcd0ccb0e, 0x0000000524d79f00,
 };
 
-// m64m1_swio10_dual_pr_ee
+// m64m1_swio10_dual_pr_ee           ms64m1_swio10_dual_pr_ee
 static const uint64_t ur_m64c1_swio10_dual_pr_ee[] = {
   0xd96eeeee87ad0c86, 0xe36b5fb02faefd59, 0xe83eddfb4768c8c4, 0x4a83602935d00d8b, 0xde4ca2ff4a34dd91,
   0xdcbbb1bb26d398a4, 0xa90e9d4c13e32792, 0x9e92213b05321792, 0xc4b881850c1ab3c5, 0xe6b1ffcca0253ba7,
@@ -136328,7 +136409,7 @@ static const uint64_t ur_m64c1_swio10_dual_pr_ee[] = {
   0xafdcd0ccb0e9296c, 0x000ac83a280329e4,
 };
 
-// m64m1_swio10_dual_pr_ee_u4
+// m64m1_swio10_dual_pr_ee_u4        ms64m1_swio10_dual_pr_ee_u4
 static const uint64_t ur_m64c1_swio10_dual_pr_ee_u4[] = {
   0x06edddddda2432db, 0x366d6bf605fbf7ab, 0x56f77ba3dac32338, 0x37333e9cecb6c5e3, 0x3a0b201a2ff4a34c,
   0x9fa7723822ac70b3, 0x5e4aa43a75304f8c, 0xcf167a4884ec14c8, 0xee9f12e20614306a, 0x0eaf9a87ff328094,
@@ -136341,7 +136422,10 @@ static const uint64_t ur_m64c1_swio10_dual_pr_ee_u4[] = {
   0xa00653c95fb9a199, 0x000000000002b240,
 };
 
-// m64c1_swio10_dual_pr_ce_u4        m64m1_swio10_dual_pr_ce           m64m1_swio10_dual_pr_ce_u4
+/*
+ * m64c1_swio10_dual_pr_ce_u4        m64m1_swio10_dual_pr_ce           m64m1_swio10_dual_pr_ce_u4
+ * ms64m1_swio10_dual_pr_ce          ms64m1_swio10_dual_pr_ce_u4
+ */
 static const uint64_t ur_m64c1_swio10_dual_pr_ce[] = {
   0xb13bbbbbb4486f97, 0xecdad7ec36d47f56, 0x7b5c775b13b21232, 0x4c8f913755a1d708, 0xa749ae89fd77bb62,
   0xc923f7278233af70, 0x85e4aa41d7d304f8, 0xacf167a4884ec14c, 0x4ee9f12e20614306, 0x1c06b4c4ebf32809,
@@ -136354,7 +136438,7 @@ static const uint64_t ur_m64c1_swio10_dual_pr_ce[] = {
   0xf257ee6866587494, 0x000001a498c40194,
 };
 
-// m64m1_swio10_dual_pr_ee_ce
+// m64m1_swio10_dual_pr_ee_ce        ms64m1_swio10_dual_pr_ee_ce
 static const uint64_t ur_m64c1_swio10_dual_pr_ee_ce[] = {
   0xbed6eeeeeea1a5fb, 0xa71b5afd86b8fcd5, 0xfb99bddb178d4029, 0x388a7272b4107c89, 0x25f5ebbf1d989fb5,
   0xe52c8d7551895658, 0x9196d2609f192646, 0xe92213b05321792a, 0x4b881850c1ab3c59, 0x66bbfcca0253ba7c,
@@ -136367,7 +136451,7 @@ static const uint64_t ur_m64c1_swio10_dual_pr_ee_ce[] = {
   0x194f257ee6866587, 0x000000001304e700,
 };
 
-// m64m1_swio10_dual_pr_ee_ce_u4
+// m64m1_swio10_dual_pr_ee_ce_u4     ms64m1_swio10_dual_pr_ee_ce_u4
 static const uint64_t ur_m64c1_swio10_dual_pr_ee_ce_u4[] = {
   0x6eeeeed150ffac4f, 0x6b5fb40057bd58b1, 0xc776abc75f654e23, 0x6b3ef3373684dea8, 0xbb413620d96267c7,
   0x5c7f9af41a9c86b8, 0xc13e325eb5ca69d5, 0xc14c85e4aa46b82c, 0x4306acf167a4884e, 0x56024ee9f12e2061,
@@ -136381,7 +136465,7 @@ static const uint64_t ur_m64c1_swio10_dual_pr_ee_ce_u4[] = {
   0x76b5564f257ee686, 0x00000000000800d1,
 };
 
-// m64m1_swio10_dual_ee_hw
+// m64m1_swio10_dual_ee_hw           ms64m1_swio10_dual_ee_hw
 static const uint64_t ur_m64c1_swio10_dual_ee_hw[] = {
   0xd96eeeeed1468f97, 0xe36b5fb02faefd59, 0xe83eddfb4768c8c4, 0x4a83602935d00d8b, 0xde4ca2ff4a34dd91,
   0xc96e4f04675aa744, 0xc954874ea609f193, 0xe2cf49109d82990b, 0xd3e25c40c2860d59, 0xd3f358ffe657419d,
@@ -136394,7 +136478,10 @@ static const uint64_t ur_m64c1_swio10_dual_ee_hw[] = {
   0x9453c95fb9a19961, 0x000000000aed522c,
 };
 
-// m64c1_swio10_dual_ee_ce_u4_hw     m64m1_swio10_dual_ee_ce_hw        m64m1_swio10_dual_ee_ce_u4_hw
+/*
+ * m64c1_swio10_dual_ee_ce_u4_hw     m64m1_swio10_dual_ee_ce_hw        m64m1_swio10_dual_ee_ce_u4_hw
+ * ms64m1_swio10_dual_ee_ce_hw       ms64m1_swio10_dual_ee_ce_u4_hw
+ */
 static const uint64_t ur_m64c1_swio10_dual_ee_ce_hw[] = {
   0x2dddddda28d0d8be, 0x6d6bf6800af7ab16, 0x18eed578ebeca9c4, 0xed67de66e6d09bd5, 0x176826c41b2c4cf8,
   0xe75a41b4beb390d7, 0xb82cc13e325eb5c9, 0x884ec14c85e4aa46, 0x20614306acf167a4, 0x1bf32ba0cee9f12e,
@@ -136410,7 +136497,8 @@ static const uint64_t ur_m64c1_swio10_dual_ee_ce_hw[] = {
 /*
  * m64c1_swio11_noled_pr             m64c1_swio12_noled                m64c1_swio12_noled_pr
  * m64m1_swio11_noled                m64m1_swio11_noled_pr             m64m1_swio12_noled
- * m64m1_swio12_noled_pr
+ * m64m1_swio12_noled_pr             ms64m1_swio11_noled               ms64m1_swio11_noled_pr
+ * ms64m1_swio12_noled               ms64m1_swio12_noled_pr
  */
 static const uint64_t ur_m64c1_swio11_noled[] = {
   0x13c1dddddd66ef3a, 0xee5a58856e6f586c, 0xe97752267ba0c90e, 0x783309a93783eadb, 0x641d78d7d9fbad82,
@@ -136420,7 +136508,10 @@ static const uint64_t ur_m64c1_swio11_noled[] = {
   0xc6592e19e985727e, 0xa19961d252d9c389, 0x40924e8dd3c95fb9, 0x000000000000003e,
 };
 
-// m64c1_swio12_noled_pr_u4          m64m1_swio11_noled_pr_u4          m64m1_swio12_noled_pr_u4
+/*
+ * m64c1_swio12_noled_pr_u4          m64m1_swio11_noled_pr_u4          m64m1_swio12_noled_pr_u4
+ * ms64m1_swio11_noled_pr_u4         ms64m1_swio12_noled_pr_u4
+ */
 static const uint64_t ur_m64c1_swio11_noled_pr_u4[] = {
   0xa226eeeed121bf82, 0xb9696215b6dd627b, 0x98eea1c489910cd6, 0x1e42e27d2f1f327b, 0xba87003c9bb3dd11,
   0x7c64eeae31238541, 0xdfff4f57cf98f982, 0xd47050ef96dee48e, 0x7b402921c490326b, 0xa3114e62c0596530,
@@ -136433,7 +136524,8 @@ static const uint64_t ur_m64c1_swio11_noled_pr_u4[] = {
 /*
  * m64c1_swio11_noled_pr_ee_u4       m64c1_swio12_noled_pr_ee          m64c1_swio12_noled_pr_ee_u4
  * m64m1_swio11_noled_pr_ee          m64m1_swio11_noled_pr_ee_u4       m64m1_swio12_noled_pr_ee
- * m64m1_swio12_noled_pr_ee_u4
+ * m64m1_swio12_noled_pr_ee_u4       ms64m1_swio11_noled_pr_ee         ms64m1_swio11_noled_pr_ee_u4
+ * ms64m1_swio12_noled_pr_ee         ms64m1_swio12_noled_pr_ee_u4
  */
 static const uint64_t ur_m64c1_swio11_noled_pr_ee[] = {
   0x6f26eeeed121b705, 0xae5a58f531a7582f, 0xdb23bbb6dd7f8936, 0x7914ce3e7ec19e3b, 0x081eb9204522217b,
@@ -136448,7 +136540,8 @@ static const uint64_t ur_m64c1_swio11_noled_pr_ee[] = {
 /*
  * m64c1_swio11_noled_pr_ce_u4       m64c1_swio12_noled_pr_ce          m64c1_swio12_noled_pr_ce_u4
  * m64m1_swio11_noled_pr_ce          m64m1_swio11_noled_pr_ce_u4       m64m1_swio12_noled_pr_ce
- * m64m1_swio12_noled_pr_ce_u4
+ * m64m1_swio12_noled_pr_ce_u4       ms64m1_swio11_noled_pr_ce         ms64m1_swio11_noled_pr_ce_u4
+ * ms64m1_swio12_noled_pr_ce         ms64m1_swio12_noled_pr_ce_u4
  */
 static const uint64_t ur_m64c1_swio11_noled_pr_ce[] = {
   0xf89ddddda2432493, 0xb96960418add60c9, 0x5a5ee8d7793d7a1c, 0x891b4d9e8261550f, 0xed1fbc5f63f74c9f,
@@ -136463,7 +136556,8 @@ static const uint64_t ur_m64c1_swio11_noled_pr_ce[] = {
 /*
  * m64c1_swio11_noled_pr_ee_ce_u4    m64c1_swio12_noled_pr_ee_ce       m64c1_swio12_noled_pr_ee_ce_u4
  * m64m1_swio11_noled_pr_ee_ce       m64m1_swio11_noled_pr_ee_ce_u4    m64m1_swio12_noled_pr_ee_ce
- * m64m1_swio12_noled_pr_ee_ce_u4
+ * m64m1_swio12_noled_pr_ee_ce_u4    ms64m1_swio11_noled_pr_ee_ce      ms64m1_swio11_noled_pr_ee_ce_u4
+ * ms64m1_swio12_noled_pr_ee_ce      ms64m1_swio12_noled_pr_ee_ce_u4
  */
 static const uint64_t ur_m64c1_swio11_noled_pr_ee_ce[] = {
   0xd8fddddda243304a, 0xb969618720dd631d, 0xa64774ad921006db, 0x63d88e152ef92841, 0x9c8ccd28c2789c77,
@@ -136475,7 +136569,10 @@ static const uint64_t ur_m64c1_swio11_noled_pr_ee_ce[] = {
   0xd17f81fbf619a3ed, 0xc6592e19e985f1a3, 0xa19961d252d9c389, 0xc98be00653c95fb9, 0x000000000000004f,
 };
 
-// m64c1_swio12_noled_ee_hw          m64m1_swio11_noled_ee_hw          m64m1_swio12_noled_ee_hw
+/*
+ * m64c1_swio12_noled_ee_hw          m64m1_swio11_noled_ee_hw          m64m1_swio12_noled_ee_hw
+ * ms64m1_swio11_noled_ee_hw         ms64m1_swio12_noled_ee_hw
+ */
 static const uint64_t ur_m64c1_swio11_noled_ee_hw[] = {
   0x793777768a342493, 0x72d2c7a98d3ac17b, 0xd91dddb6ebfc49b5, 0xc8a671f3f60cf1de, 0x40f5c90229110bdb,
   0xf8c9dd0dc82b4ed0, 0xb3bfcac59f383304, 0xb2eb355ad198f923, 0xd47c1b307d47a8f2, 0x34eb422877c5652f,
@@ -136488,7 +136585,8 @@ static const uint64_t ur_m64c1_swio11_noled_ee_hw[] = {
 /*
  * m64c1_swio11_noled_ee_ce_u4_hw    m64c1_swio12_noled_ee_ce_hw       m64c1_swio12_noled_ee_ce_u4_hw
  * m64m1_swio11_noled_ee_ce_hw       m64m1_swio11_noled_ee_ce_u4_hw    m64m1_swio12_noled_ee_ce_hw
- * m64m1_swio12_noled_ee_ce_u4_hw
+ * m64m1_swio12_noled_ee_ce_u4_hw    ms64m1_swio11_noled_ee_ce_hw      ms64m1_swio11_noled_ee_ce_u4_hw
+ * ms64m1_swio12_noled_ee_ce_hw      ms64m1_swio12_noled_ee_ce_u4_hw
  */
 static const uint64_t ur_m64c1_swio11_noled_ee_ce_hw[] = {
   0xc7eeeeed146807e1, 0xcb4b0c3906eb18ee, 0x323ba56c908036dd, 0x1ec470a977c9420d, 0xe466694613c4e3bb,
@@ -136500,7 +136598,10 @@ static const uint64_t ur_m64c1_swio11_noled_ee_ce_hw[] = {
   0xe32c970cf4c2f8d1, 0xd0ccb0e9296ce1c4, 0x4044e4aa29e4afdc, 0x0000000000000001,
 };
 
-// m64c1_swio12_lednop               m64m1_swio11_lednop               m64m1_swio12_lednop
+/*
+ * m64c1_swio12_lednop               m64m1_swio11_lednop               m64m1_swio12_lednop
+ * ms64m1_swio11_lednop              ms64m1_swio12_lednop
+ */
 static const uint64_t ur_m64c1_swio11_lednop[] = {
   0x13c1dddddd66ef3a, 0xeee5a5885619586c, 0xda87bbe17a0a0c90, 0xe0cc26a475f5a789, 0xc8401b6d22eeb609,
   0xcc13e3277417a09a, 0x491913fdf9d67c3d, 0xebffa8ebe1df2dd0, 0xe9b6fcbea4871240, 0x96ba3b86731602de,
@@ -136512,7 +136613,8 @@ static const uint64_t ur_m64c1_swio11_lednop[] = {
 /*
  * m64c1_swio11_lednop_pr_u4         m64c1_swio12_lednop_pr            m64c1_swio12_lednop_pr_u4
  * m64m1_swio11_lednop_pr            m64m1_swio11_lednop_pr_u4         m64m1_swio12_lednop_pr
- * m64m1_swio12_lednop_pr_u4
+ * m64m1_swio12_lednop_pr_u4         ms64m1_swio11_lednop_pr           ms64m1_swio11_lednop_pr_u4
+ * ms64m1_swio12_lednop_pr           ms64m1_swio12_lednop_pr_u4
  */
 static const uint64_t ur_m64c1_swio11_lednop_pr[] = {
   0x7444ddddda243762, 0xd72d2c42b171ac4f, 0xd8fddf5fe172219a, 0x4790b89db7e9522e, 0xb85fe3fc5eecf744,
@@ -136526,7 +136628,8 @@ static const uint64_t ur_m64c1_swio11_lednop_pr[] = {
 /*
  * m64c1_swio11_lednop_pr_ee_u4      m64c1_swio12_lednop_pr_ee         m64c1_swio12_lednop_pr_ee_u4
  * m64m1_swio11_lednop_pr_ee         m64m1_swio11_lednop_pr_ee_u4      m64m1_swio12_lednop_pr_ee
- * m64m1_swio12_lednop_pr_ee_u4
+ * m64m1_swio12_lednop_pr_ee_u4      ms64m1_swio11_lednop_pr_ee        ms64m1_swio11_lednop_pr_ee_u4
+ * ms64m1_swio12_lednop_pr_ee        ms64m1_swio12_lednop_pr_ee_u4
  */
 static const uint64_t ur_m64c1_swio11_lednop_pr_ee[] = {
   0xb79377776890c044, 0x572d2c7a9d05ac17, 0xf4d2eec01e97c49b, 0xde45338f8d33f6a6, 0xb45a8ac81148885e,
@@ -136541,7 +136644,8 @@ static const uint64_t ur_m64c1_swio11_lednop_pr_ee[] = {
 /*
  * m64c1_swio11_lednop_pr_ce_u4      m64c1_swio12_lednop_pr_ce         m64c1_swio12_lednop_pr_ce_u4
  * m64m1_swio11_lednop_pr_ce         m64m1_swio11_lednop_pr_ce_u4      m64m1_swio12_lednop_pr_ce
- * m64m1_swio12_lednop_pr_ce_u4
+ * m64m1_swio12_lednop_pr_ce_u4      ms64m1_swio11_lednop_pr_ce        ms64m1_swio11_lednop_pr_ce_u4
+ * ms64m1_swio12_lednop_pr_ce        ms64m1_swio12_lednop_pr_ce_u4
  */
 static const uint64_t ur_m64c1_swio11_lednop_pr_ce[] = {
   0xfc4eeeeed121be4a, 0x5cb4b020c6eeb064, 0x5ebeebaf2f7ebd0e, 0x12369b3cada090bf, 0xbe1a70cde9ee993f,
@@ -136556,7 +136660,8 @@ static const uint64_t ur_m64c1_swio11_lednop_pr_ce[] = {
 /*
  * m64c1_swio11_lednop_pr_ee_ce_u4   m64c1_swio12_lednop_pr_ee_ce      m64c1_swio12_lednop_pr_ee_ce_u4
  * m64m1_swio11_lednop_pr_ee_ce      m64m1_swio11_lednop_pr_ee_ce_u4   m64m1_swio12_lednop_pr_ee_ce
- * m64m1_swio12_lednop_pr_ee_ce_u4
+ * m64m1_swio12_lednop_pr_ee_ce_u4   ms64m1_swio11_lednop_pr_ee_ce     ms64m1_swio11_lednop_pr_ee_ce_u4
+ * ms64m1_swio12_lednop_pr_ee_ce     ms64m1_swio12_lednop_pr_ee_ce_u4
  */
 static const uint64_t ur_m64c1_swio11_lednop_pr_ee_ce[] = {
   0xd8fddddda2436812, 0xb969618711dd631d, 0xaccf7717a09006db, 0xc7b11c2a0dcbb68b, 0x2727189184f138ee,
@@ -136568,7 +136673,10 @@ static const uint64_t ur_m64c1_swio11_lednop_pr_ee_ce[] = {
   0x0fdfb0cd1f6c38fe, 0x70cf4c2f8d1e8bfc, 0x0e9296ce1c4e32c9, 0x00329e4afdcd0ccb, 0x00000000013f3ecf,
 };
 
-// m64c1_swio12_lednop_ee_hw         m64m1_swio11_lednop_ee_hw         m64m1_swio12_lednop_ee_hw
+/*
+ * m64c1_swio12_lednop_ee_hw         m64m1_swio11_lednop_ee_hw         m64m1_swio12_lednop_ee_hw
+ * ms64m1_swio11_lednop_ee_hw        ms64m1_swio12_lednop_ee_hw
+ */
 static const uint64_t ur_m64c1_swio11_lednop_ee_hw[] = {
   0xbc9bbbbb451a3e4a, 0xb96963d4e82d60bd, 0xa6977600f4be24da, 0xf2299c7c699fb537, 0xa2d456408a4442f6,
   0x7c64ee94a3adaaf9, 0x1adfe562cfa5a982, 0x5b059aad68cc7c91, 0xea3e0d983ea3d479, 0x9a75a1143be2b53d,
@@ -136582,7 +136690,8 @@ static const uint64_t ur_m64c1_swio11_lednop_ee_hw[] = {
 /*
  * m64c1_swio11_lednop_ee_ce_u4_hw   m64c1_swio12_lednop_ee_ce_hw      m64c1_swio12_lednop_ee_ce_u4_hw
  * m64m1_swio11_lednop_ee_ce_hw      m64m1_swio11_lednop_ee_ce_u4_hw   m64m1_swio12_lednop_ee_ce_hw
- * m64m1_swio12_lednop_ee_ce_u4_hw
+ * m64m1_swio12_lednop_ee_ce_u4_hw   ms64m1_swio11_lednop_ee_ce_hw     ms64m1_swio11_lednop_ee_ce_u4_hw
+ * ms64m1_swio12_lednop_ee_ce_hw     ms64m1_swio12_lednop_ee_ce_u4_hw
  */
 static const uint64_t ur_m64c1_swio11_lednop_ee_ce_hw[] = {
   0xc7eeeeed14683d5b, 0xcb4b0c388eeb18ee, 0x667bb8bd048036dd, 0x3d88e1506e5db45d, 0x3938c48c2789c776,
@@ -136598,7 +136707,9 @@ static const uint64_t ur_m64c1_swio11_lednop_ee_ce_hw[] = {
  * m64c1_swio11_dual_pr              m64c1_swio11_dual_pr_u4           m64c1_swio12_dual
  * m64c1_swio12_dual_pr              m64c1_swio12_dual_pr_u4           m64m1_swio11_dual
  * m64m1_swio11_dual_pr              m64m1_swio11_dual_pr_u4           m64m1_swio12_dual
- * m64m1_swio12_dual_pr              m64m1_swio12_dual_pr_u4
+ * m64m1_swio12_dual_pr              m64m1_swio12_dual_pr_u4           ms64m1_swio11_dual
+ * ms64m1_swio11_dual_pr             ms64m1_swio11_dual_pr_u4          ms64m1_swio12_dual
+ * ms64m1_swio12_dual_pr             ms64m1_swio12_dual_pr_u4
  */
 static const uint64_t ur_m64c1_swio11_dual[] = {
   0xb23bbbbb4486ff3e, 0x6b5fb0d7499ab11f, 0x3edd123c95a59fb3, 0x4ad9899c43d8dd6b, 0x65a93934edd23f64,
@@ -136611,7 +136722,10 @@ static const uint64_t ur_m64c1_swio11_dual[] = {
   0x4c2f8d1e8bfc0fdf, 0x96ce1c4e32c970cf, 0x9e4afdcd0ccb0e92, 0x00000524d32d0032,
 };
 
-// m64c1_swio12_dual_pr_ee           m64m1_swio11_dual_pr_ee           m64m1_swio12_dual_pr_ee
+/*
+ * m64c1_swio12_dual_pr_ee           m64m1_swio11_dual_pr_ee           m64m1_swio12_dual_pr_ee
+ * ms64m1_swio11_dual_pr_ee          ms64m1_swio12_dual_pr_ee
+ */
 static const uint64_t ur_m64c1_swio11_dual_pr_ee[] = {
   0xa56eeeeea0a1a5fb, 0x5afd817ecdeacf58, 0x5eeeca1ec646271b, 0x1b6c5dda27e7deb8, 0x0badfa51a6f58a54,
   0x646bad8215661f21, 0xe7d304f8c9e4b729, 0x109d82990bc9548d, 0x40c2860d59e2cf49, 0xffe650129dd3e25c,
@@ -136624,7 +136738,10 @@ static const uint64_t ur_m64c1_swio11_dual_pr_ee[] = {
   0x0194f257ee686658, 0x000000000ac89f5c,
 };
 
-// m64c1_swio12_dual_pr_ee_u4        m64m1_swio11_dual_pr_ee_u4        m64m1_swio12_dual_pr_ee_u4
+/*
+ * m64c1_swio12_dual_pr_ee_u4        m64m1_swio11_dual_pr_ee_u4        m64m1_swio12_dual_pr_ee_u4
+ * ms64m1_swio11_dual_pr_ee_u4       ms64m1_swio12_dual_pr_ee_u4
+ */
 static const uint64_t ur_m64c1_swio11_dual_pr_ee_u4[] = {
   0xa667bbbbb4486f97, 0x6d6bf605e3afab1b, 0xae3ba75805233836, 0x667d39eb6e7db3ed, 0xae89eeb7e94699ba,
   0x77278233af70a749, 0x548de7d304f8c9fa, 0xcf49109d82990bc9, 0xe25c40c2860d59e2, 0xf350ffe650129dd3,
@@ -136640,7 +136757,8 @@ static const uint64_t ur_m64c1_swio11_dual_pr_ee_u4[] = {
 /*
  * m64c1_swio11_dual_pr_ce_u4        m64c1_swio12_dual_pr_ce           m64c1_swio12_dual_pr_ce_u4
  * m64m1_swio11_dual_pr_ce           m64m1_swio11_dual_pr_ce_u4        m64m1_swio12_dual_pr_ce
- * m64m1_swio12_dual_pr_ce_u4
+ * m64m1_swio12_dual_pr_ce_u4        ms64m1_swio11_dual_pr_ce          ms64m1_swio11_dual_pr_ce_u4
+ * ms64m1_swio12_dual_pr_ce          ms64m1_swio12_dual_pr_ce_u4
  */
 static const uint64_t ur_m64c1_swio11_dual_pr_ce[] = {
   0x664777776890cf68, 0x6d6bf61b68075681, 0x5dfba829eb091976, 0x3e44a75cea2f2d5b, 0xb3bb0b27deec0b32,
@@ -136654,7 +136772,10 @@ static const uint64_t ur_m64c1_swio11_dual_pr_ce[] = {
   0xafdcd0ccb0e9296c, 0x00034917600329e4,
 };
 
-// m64c1_swio12_dual_pr_ee_ce        m64m1_swio11_dual_pr_ee_ce        m64m1_swio12_dual_pr_ee_ce
+/*
+ * m64c1_swio12_dual_pr_ee_ce        m64m1_swio11_dual_pr_ee_ce        m64m1_swio12_dual_pr_ee_ce
+ * ms64m1_swio11_dual_pr_ee_ce       ms64m1_swio12_dual_pr_ee_ce
+ */
 static const uint64_t ur_m64c1_swio11_dual_pr_ee_ce[] = {
   0x654e2dddddd432db, 0xe36b5fb0d719cd5b, 0x7eafbb9f6cf80534, 0xc453821e44b8585b, 0xf369b378ecc4eca9,
   0x91c11560f0cceb8f, 0x83d9e9827c64991b, 0x49109d82990bc954, 0x5c40c2860d59e2cf, 0x35dfe650129dd3e2,
@@ -136667,7 +136788,10 @@ static const uint64_t ur_m64c1_swio11_dual_pr_ee_ce[] = {
   0x3c95fb9a19961d25, 0x00000130454e0065,
 };
 
-// m64c1_swio12_dual_pr_ee_ce_u4     m64m1_swio11_dual_pr_ee_ce_u4     m64m1_swio12_dual_pr_ee_ce_u4
+/*
+ * m64c1_swio12_dual_pr_ee_ce_u4     m64m1_swio11_dual_pr_ee_ce_u4     m64m1_swio12_dual_pr_ee_ce_u4
+ * ms64m1_swio11_dual_pr_ee_ce_u4    ms64m1_swio12_dual_pr_ee_ce_u4
+ */
 static const uint64_t ur_m64c1_swio11_dual_pr_ee_ce_u4[] = {
   0xf6eeeed150ff72df, 0x5fb40157bd5baed9, 0x7547e8bf654e236b, 0xaffabd8261f68f0f, 0x49b106faed9f1da2,
   0x859b0cb4fe1bc9e4, 0xf8c97ad72dad541a, 0x321792a90cb37304, 0x1ab3c59e92213b05, 0x093ba7c4b881850c,
@@ -136681,7 +136805,10 @@ static const uint64_t ur_m64c1_swio11_dual_pr_ee_ce_u4[] = {
   0xab2792bf734332c3, 0x000000040025025a,
 };
 
-// m64c1_swio12_dual_ee_hw           m64m1_swio11_dual_ee_hw           m64m1_swio12_dual_ee_hw
+/*
+ * m64c1_swio12_dual_ee_hw           m64m1_swio11_dual_ee_hw           m64m1_swio12_dual_ee_hw
+ * ms64m1_swio11_dual_ee_hw          ms64m1_swio12_dual_ee_hw
+ */
 static const uint64_t ur_m64c1_swio11_dual_ee_hw[] = {
   0x14addddda28d0f68, 0x6b5fb02fd9bd59eb, 0x0bddd943d8c8c4e3, 0x836d8bbb44fcfbd7, 0x2175bf4a34deb14a,
   0xe4d1f53ad6ecc3e4, 0x91bcfa609f193c96, 0xe92213b05321792a, 0x4b881850c1ab3c59, 0x6b1ffccae833ba7c,
@@ -136697,7 +136824,8 @@ static const uint64_t ur_m64c1_swio11_dual_ee_hw[] = {
 /*
  * m64c1_swio11_dual_ee_ce_u4_hw     m64c1_swio12_dual_ee_ce_hw        m64c1_swio12_dual_ee_ce_u4_hw
  * m64m1_swio11_dual_ee_ce_hw        m64m1_swio11_dual_ee_ce_u4_hw     m64m1_swio12_dual_ee_ce_hw
- * m64m1_swio12_dual_ee_ce_u4_hw
+ * m64m1_swio12_dual_ee_ce_u4_hw     ms64m1_swio11_dual_ee_ce_hw       ms64m1_swio11_dual_ee_ce_u4_hw
+ * ms64m1_swio12_dual_ee_ce_hw       ms64m1_swio12_dual_ee_ce_u4_hw
  */
 static const uint64_t ur_m64c1_swio11_dual_ee_ce_hw[] = {
   0x3eddddda28d072df, 0x6bf6802af7ab75db, 0xeea8fd17eca9c46d, 0x55ff57b04c3ed1e1, 0x893620df5db3e3b4,
@@ -136712,7 +136840,10 @@ static const uint64_t ur_m64c1_swio11_dual_ee_ce_hw[] = {
   0x0000000000075d79,
 };
 
-// m64c1_swio13_noled_pr             m64m1_swio13_noled                m64m1_swio13_noled_pr
+/*
+ * m64c1_swio13_noled_pr             m64m1_swio13_noled                m64m1_swio13_noled_pr
+ * ms64m1_swio13_noled               ms64m1_swio13_noled_pr
+ */
 static const uint64_t ur_m64c1_swio13_noled[] = {
   0x02cb77777759bb37, 0x43bb9696215922d6, 0x7e68cdd1b42ca832, 0x0b23c19849eed327, 0x10bcd8623c7de4dd,
   0xc7cc13e32776c7b2, 0xa4923b7ffdf9d67c, 0x40f9ef51e213be5b, 0x6f74da52d7a48712, 0xe76b868c9a398b01,
@@ -136721,7 +136852,7 @@ static const uint64_t ur_m64c1_swio13_noled[] = {
   0x1964b867a615c9fb, 0x866587494b670e27, 0x80053a374f257ee6, 0x000000000000007c,
 };
 
-// m64m1_swio13_noled_pr_u4
+// m64m1_swio13_noled_pr_u4          ms64m1_swio13_noled_pr_u4
 static const uint64_t ur_m64c1_swio13_noled_pr_u4[] = {
   0x656eeeeed121b562, 0xad72d2c42b0dbac1, 0xec2fddc3e3692219, 0x44479048918ebf77, 0x2e0f8f2e3426e965,
   0xc13e32777e9c1b24, 0x9132bfd3d5f3efe4, 0x41ea3cbe3be5a0fc, 0x9a3de95490e2481f, 0x8851ef6731602cb2,
@@ -136731,7 +136862,10 @@ static const uint64_t ur_m64c1_swio13_noled_pr_u4[] = {
   0x866587494b670e27, 0xd4e2c0194f257ee6, 0x00000000000007c9,
 };
 
-// m64c1_swio13_noled_pr_ee_u4       m64m1_swio13_noled_pr_ee          m64m1_swio13_noled_pr_ee_u4
+/*
+ * m64c1_swio13_noled_pr_ee_u4       m64m1_swio13_noled_pr_ee          m64m1_swio13_noled_pr_ee_u4
+ * ms64m1_swio13_noled_pr_ee         ms64m1_swio13_noled_pr_ee_u4
+ */
 static const uint64_t ur_m64c1_swio13_noled_pr_ee[] = {
   0xc5eeeeeed1219541, 0xdab96963d4e85d63, 0x4f5a2ee8db623e24, 0x2de4531d7c33c5ef, 0x7545a0ab4114889e,
   0x7c64ee80a498b04e, 0x56ff4f57cf93a982, 0x652e6ab5a37f248c, 0x51f06cc184ff51e5, 0xd3ad08a1df15943f,
@@ -136742,7 +136876,10 @@ static const uint64_t ur_m64c1_swio13_noled_pr_ee[] = {
   0x0275f33140194f25,
 };
 
-// m64c1_swio13_noled_pr_ce_u4       m64m1_swio13_noled_pr_ce          m64m1_swio13_noled_pr_ce_u4
+/*
+ * m64c1_swio13_noled_pr_ce_u4       m64m1_swio13_noled_pr_ce          m64m1_swio13_noled_pr_ce_u4
+ * ms64m1_swio13_noled_pr_ce         ms64m1_swio13_noled_pr_ce_u4
+ */
 static const uint64_t ur_m64c1_swio13_noled_pr_ce[] = {
   0xefdddddda2431768, 0x3972d2c083033ac6, 0x7e8d3dde3f427af4, 0x7f891b479190243c, 0x947b433376d4f777,
   0x9827c64ee9ba3b46, 0x48e04ff4f57cfdba, 0xf373bcad18bf5912, 0xf10d8488bace1e78, 0xe1f9699bffa8f84b,
@@ -136753,7 +136890,10 @@ static const uint64_t ur_m64c1_swio13_noled_pr_ce[] = {
   0x0000000000006eb9,
 };
 
-// m64c1_swio13_noled_pr_ee_ce_u4    m64m1_swio13_noled_pr_ee_ce       m64m1_swio13_noled_pr_ee_ce_u4
+/*
+ * m64c1_swio13_noled_pr_ee_ce_u4    m64m1_swio13_noled_pr_ee_ce       m64m1_swio13_noled_pr_ee_ce_u4
+ * ms64m1_swio13_noled_pr_ee_ce      ms64m1_swio13_noled_pr_ee_ce_u4
+ */
 static const uint64_t ur_m64c1_swio13_noled_pr_ee_ce[] = {
   0xd3dddddda243173e, 0xb772d2c30e5c1ac3, 0x176c4ee8335a200d, 0x9d8f622484715835, 0xf2723b5c6309e25e,
   0x8c9ddcfb402d3913, 0x3fd3d5f3e87d304f, 0x0462fd51dba92388, 0x22eb3879e3cdcef1, 0xa77ea3e12fc43612,
@@ -136764,7 +136904,7 @@ static const uint64_t ur_m64c1_swio13_noled_pr_ee_ce[] = {
   0x8bfc0fdfb0cd1f6c, 0x32c970cf4c2f8d1e, 0x0ccb0e9296ce1c4e, 0x0f5400329e4afdcd, 0x000000000000013f,
 };
 
-// m64m1_swio13_noled_ee_hw
+// m64m1_swio13_noled_ee_hw          ms64m1_swio13_noled_ee_hw
 static const uint64_t ur_m64c1_swio13_noled_ee_hw[] = {
   0x2f7777768a341768, 0xd5cb4b1ea742eb1e, 0x7ad17746db11f126, 0x6f2298ebe19e2f7a, 0xaa2d055a08a444f1,
   0x27c64ee9ba3b5a3d, 0x18adfe562cf93a98, 0xcaca5cd56b46fe49, 0x7ea3e0d98309fea3, 0x59a75a1143be2b28,
@@ -136774,7 +136914,10 @@ static const uint64_t ur_m64c1_swio13_noled_ee_hw[] = {
   0x8fb61c7f197e627f, 0xc68f45fe07efd866, 0x0e271964b867a617, 0x7ee6866587494b67, 0x0005bfaacdd14f25,
 };
 
-// m64c1_swio13_noled_ee_ce_u4_hw    m64m1_swio13_noled_ee_ce_hw       m64m1_swio13_noled_ee_ce_u4_hw
+/*
+ * m64c1_swio13_noled_ee_ce_u4_hw    m64m1_swio13_noled_ee_ce_hw       m64m1_swio13_noled_ee_ce_u4_hw
+ * ms64m1_swio13_noled_ee_ce_hw      ms64m1_swio13_noled_ee_ce_u4_hw
+ */
 static const uint64_t ur_m64c1_swio13_noled_ee_ce_hw[] = {
   0x3dddddda28d0ac4f, 0x772d2c30e5c1ac3d, 0x76c4ee8335a200db, 0xd8f6224847158351, 0x2723b5c6309e25e9,
   0xf193ba5a875f68bf, 0x20ff2b167d0fa609, 0xc4118bf5476ea48e, 0x911759c3cf3c873b, 0xd507f51f097e21b0,
@@ -136785,7 +136928,7 @@ static const uint64_t ur_m64c1_swio13_noled_ee_ce_hw[] = {
   0x964b867a617c68f4, 0x66587494b670e271, 0x448b2514f257ee68, 0x0000000000000140,
 };
 
-// m64m1_swio13_lednop
+// m64m1_swio13_lednop               ms64m1_swio13_lednop
 static const uint64_t ur_m64c1_swio13_lednop[] = {
   0x02cb77777759bb37, 0x43bb9696215899d6, 0x3ef8fdd0e28e3832, 0x3c19849ee62235f8, 0x9b05c46decfdd0b2,
   0x7304f8c9ddb1ec86, 0x9247baff7e759f8f, 0x1f3dea3cdc77cb74, 0xf74c654e3490e248, 0x3b3de8ed6398b016,
@@ -136794,7 +136937,10 @@ static const uint64_t ur_m64c1_swio13_lednop[] = {
   0x670e271964b867a6, 0x257ee6866587494b, 0x00005492ff3a374f,
 };
 
-// m64c1_swio13_lednop_pr_u4         m64m1_swio13_lednop_pr            m64m1_swio13_lednop_pr_u4
+/*
+ * m64c1_swio13_lednop_pr_u4         m64m1_swio13_lednop_pr            m64m1_swio13_lednop_pr_u4
+ * ms64m1_swio13_lednop_pr           ms64m1_swio13_lednop_pr_u4
+ */
 static const uint64_t ur_m64c1_swio13_lednop_pr[] = {
   0xcadddddda2432aac, 0x5ae5a58856a87582, 0xeb53dd53038a4433, 0x4447904891b63367, 0x113817e635a6e965,
   0x609f193bbe451db2, 0x2263ffd3d5f3f52a, 0x41ea3e9477cb41f9, 0x340609f490e2481f, 0xbe238c8e62c05965,
@@ -136804,7 +136950,10 @@ static const uint64_t ur_m64c1_swio13_lednop_pr[] = {
   0xa4a5b387138cb25c, 0x0ca792bf734332c3, 0x00000003e4c4cd00,
 };
 
-// m64c1_swio13_lednop_pr_ee_u4      m64m1_swio13_lednop_pr_ee         m64m1_swio13_lednop_pr_ee_u4
+/*
+ * m64c1_swio13_lednop_pr_ee_u4      m64m1_swio13_lednop_pr_ee         m64m1_swio13_lednop_pr_ee_u4
+ * ms64m1_swio13_lednop_pr_ee        ms64m1_swio13_lednop_pr_ee_u4
+ */
 static const uint64_t ur_m64c1_swio13_lednop_pr_ee[] = {
   0xe2f777776890c582, 0x36ae5a58f53082b1, 0xf0ad5c7ba5c46789, 0x3c5bc8a63afa170c, 0x96a23f644d822911,
   0x04f8c9dd3b410e38, 0x2707fd3d5f3f43f3, 0x95a9e9aad68dfc92, 0x3d47c1b30613fd47, 0xb34eb422877c5781,
@@ -136815,7 +136964,10 @@ static const uint64_t ur_m64c1_swio13_lednop_pr_ee[] = {
   0xbfe6980329e4afdc, 0x000000000000004e,
 };
 
-// m64c1_swio13_lednop_pr_ce_u4      m64m1_swio13_lednop_pr_ce         m64m1_swio13_lednop_pr_ce_u4
+/*
+ * m64c1_swio13_lednop_pr_ce_u4      m64m1_swio13_lednop_pr_ce         m64m1_swio13_lednop_pr_ce_u4
+ * ms64m1_swio13_lednop_pr_ce        ms64m1_swio13_lednop_pr_ce_u4
+ */
 static const uint64_t ur_m64c1_swio13_lednop_pr_ce[] = {
   0x77eeeeeed121b768, 0x1cb96960418fdd63, 0x7ed05dd623e2fd7a, 0xff12368f20336401, 0x4ce2a16d2ec9eeee,
   0x304f8c9dd764af8c, 0x91df7fe9eaf9f8ad, 0xe6e776ea317eb224, 0xe21b0911759c3cf1, 0xe1facd90ff51f097,
@@ -136826,7 +136978,10 @@ static const uint64_t ur_m64c1_swio13_lednop_pr_ce[] = {
   0x0000001bae608800,
 };
 
-// m64c1_swio13_lednop_pr_ee_ce_u4   m64m1_swio13_lednop_pr_ee_ce      m64m1_swio13_lednop_pr_ee_ce_u4
+/*
+ * m64c1_swio13_lednop_pr_ee_ce_u4   m64m1_swio13_lednop_pr_ee_ce      m64m1_swio13_lednop_pr_ee_ce_u4
+ * ms64m1_swio13_lednop_pr_ee_ce     ms64m1_swio13_lednop_pr_ee_ce_u4
+ */
 static const uint64_t ur_m64c1_swio13_lednop_pr_ee_ce[] = {
   0xd3dddddda2431bc1, 0xb772d2c30e44eac3, 0x7f4376e9bb64200d, 0x9d8f622485c18e24, 0xe05991a66309e25e,
   0xc64ee8eba6bb62ee, 0x1fe9eaf9ffd79827, 0x02317ea8edd49180, 0x11759c3cf1e6e770, 0x593f51f097e21b09,
@@ -136837,7 +136992,7 @@ static const uint64_t ur_m64c1_swio13_lednop_pr_ee_ce[] = {
   0x7efd8668fb61c7f1, 0x867a617c68f45fe0, 0x7494b670e271964b, 0x0194f257ee686658, 0x0000000009f81358,
 };
 
-// m64m1_swio13_lednop_ee_hw
+// m64m1_swio13_lednop_ee_hw         ms64m1_swio13_lednop_ee_hw
 static const uint64_t ur_m64c1_swio13_lednop_ee_hw[] = {
   0x17bbbbbb451a3768, 0xb572d2c7a984158f, 0x856ae3dd2e233c49, 0xe2de4531d7d0b867, 0x7111fb226c114889,
   0x304f8c9dd764afb6, 0x244e0ff958b3f43f, 0x8f2b53d355ad1bf9, 0x027a8f83660c27fa, 0x91669d68450ef8af,
@@ -136848,7 +137003,10 @@ static const uint64_t ur_m64c1_swio13_lednop_ee_hw[] = {
   0x0000000000000000,
 };
 
-// m64c1_swio13_lednop_ee_ce_u4_hw   m64m1_swio13_lednop_ee_ce_hw      m64m1_swio13_lednop_ee_ce_u4_hw
+/*
+ * m64c1_swio13_lednop_ee_ce_u4_hw   m64m1_swio13_lednop_ee_ce_hw      m64m1_swio13_lednop_ee_ce_u4_hw
+ * ms64m1_swio13_lednop_ee_ce_hw     ms64m1_swio13_lednop_ee_ce_u4_hw
+ */
 static const uint64_t ur_m64c1_swio13_lednop_ee_ce_hw[] = {
   0x9eeeeeed14683375, 0xbb9696187227561e, 0xfa1bb74ddb21006d, 0xec7b11242e0c7123, 0x02cc8d33184f12f4,
   0x4f8c9dd2c55adb9d, 0x6007f958b3ffaf30, 0xdc008c5faa3b7524, 0x8488bace1e79e439, 0xd8523fa8f84bf10d,
@@ -136861,7 +137019,8 @@ static const uint64_t ur_m64c1_swio13_lednop_ee_ce_hw[] = {
 
 /*
  * m64c1_swio13_dual_pr              m64c1_swio13_dual_pr_u4           m64m1_swio13_dual
- * m64m1_swio13_dual_pr              m64m1_swio13_dual_pr_u4
+ * m64m1_swio13_dual_pr              m64m1_swio13_dual_pr_u4           ms64m1_swio13_dual
+ * ms64m1_swio13_dual_pr             ms64m1_swio13_dual_pr_u4
  */
 static const uint64_t ur_m64c1_swio13_dual[] = {
   0x4bbbbbbb4486dd9e, 0x66d6bf61ae73b563, 0xd2c5bb06d60b4b3f, 0xc895ba67f68eb14e, 0xe2e35043b0dba696,
@@ -136874,7 +137033,7 @@ static const uint64_t ur_m64c1_swio13_dual[] = {
   0x985f1a3d17f81fbf, 0x2d9c389c6592e19e, 0x3c95fb9a19961d25, 0x00000a49ad3e0065,
 };
 
-// m64m1_swio13_dual_pr_ee
+// m64m1_swio13_dual_pr_ee           ms64m1_swio13_dual_pr_ee
 static const uint64_t ur_m64c1_swio13_dual_pr_ee[] = {
   0x4eddddddd41432db, 0xe36b5fb02fc99ab3, 0xefb8dd498758c8c4, 0x29506d055710b157, 0x03e26eb5e9469b4e,
   0x4b723822ace3f99d, 0x2a9063d7304f8c9e, 0x59e92213b0532179, 0x7c4b881850c1ab3c, 0x7e6b1ffcca0253ba,
@@ -136887,7 +137046,7 @@ static const uint64_t ur_m64c1_swio13_dual_pr_ee[] = {
   0x3e00653c95fb9a19, 0x000000000000ac87,
 };
 
-// m64m1_swio13_dual_pr_ee_u4
+// m64m1_swio13_dual_pr_ee_u4        ms64m1_swio13_dual_pr_ee_u4
 static const uint64_t ur_m64c1_swio13_dual_pr_ee_u4[] = {
   0x53b777776890cf68, 0xd9b5afd817d17eac, 0x6d77eeabe6c48ce0, 0x7333e9cd3b4abcb1, 0xeceec2d5af4a34ca,
   0x3f4ee4d1f53ab416, 0xf25520c7ae609f19, 0x78b3d2442760a642, 0x74f8971030a18356, 0x757cd43ff99404a7,
@@ -136900,7 +137059,10 @@ static const uint64_t ur_m64c1_swio13_dual_pr_ee_u4[] = {
   0x29e4afdcd0ccb0e9, 0x0000000159176003,
 };
 
-// m64c1_swio13_dual_pr_ce_u4        m64m1_swio13_dual_pr_ce           m64m1_swio13_dual_pr_ce_u4
+/*
+ * m64c1_swio13_dual_pr_ce_u4        m64m1_swio13_dual_pr_ce           m64m1_swio13_dual_pr_ce_u4
+ * ms64m1_swio13_dual_pr_ce          ms64m1_swio13_dual_pr_ce_u4
+ */
 static const uint64_t ur_m64c1_swio13_dual_pr_ce[] = {
   0xcccf777776890c86, 0x5d9b5afd86da27ea, 0x56ecdee9da69c246, 0x991f2252aabdd6e3, 0x98b5c535ec5f7599,
   0x248fdcbbb1bb3227, 0x0bc95481544c13e3, 0x59e2cf49109d8299, 0x9dd3e25c40c2860d, 0x380d6989d7e65012,
@@ -136913,7 +137075,7 @@ static const uint64_t ur_m64c1_swio13_dual_pr_ce[] = {
   0x2bf734332c3a4a5b, 0x00003490c800ca79,
 };
 
-// m64m1_swio13_dual_pr_ee_ce
+// m64m1_swio13_dual_pr_ee_ce        ms64m1_swio13_dual_pr_ee_ce
 static const uint64_t ur_m64c1_swio13_dual_pr_ee_ce[] = {
   0x6499bbbbbba86f97, 0xa71b5afd86bdf5f5, 0xfbd7bdd2af2c4029, 0x388a716a69ef709a, 0x376099331d989499,
   0xdc9e08cea5914eb3, 0x48e3c9cc13e324c8, 0xf49109d82990bc95, 0x25c40c2860d59e2c, 0x335dfe650129dd3e,
@@ -136926,7 +137088,7 @@ static const uint64_t ur_m64c1_swio13_dual_pr_ee_ce[] = {
   0x3c95fb9a19961d25, 0x0000026080720065,
 };
 
-// m64m1_swio13_dual_pr_ee_ce_u4
+// m64m1_swio13_dual_pr_ee_ce_u4     ms64m1_swio13_dual_pr_ee_ce_u4
 static const uint64_t ur_m64c1_swio13_dual_pr_ee_ce_u4[] = {
   0xf7777768a87f2541, 0x6b5fb400b8bd593e, 0xc9ba805d6f654e23, 0x6b7efaf7c7f07db2, 0x6d3c6c41b4fb67c7,
   0x32d185369f28c5c8, 0x609f192f5ae5538c, 0xb05321792a917aa2, 0x50c1ab3c59e92213, 0x958093ba7c4b8818,
@@ -136940,7 +137102,7 @@ static const uint64_t ur_m64c1_swio13_dual_pr_ee_ce_u4[] = {
   0xb5564f257ee68665, 0x0000000004006d35,
 };
 
-// m64m1_swio13_dual_ee_hw
+// m64m1_swio13_dual_ee_hw           ms64m1_swio13_dual_ee_hw
 static const uint64_t ur_m64c1_swio13_dual_ee_hw[] = {
   0x34edddddda28d086, 0x4e36b5fb02fc99ab, 0x7efb8dd498758c8c, 0xe29506d055710b15, 0x283e26eb5e9469b4,
   0xc9e4b72eec6ecde6, 0x1792a9063d7304f8, 0xb3c59e92213b0532, 0x3ba7c4b881850c1a, 0xc3a7e6b1ffccae83,
@@ -136953,7 +137115,10 @@ static const uint64_t ur_m64c1_swio13_dual_ee_hw[] = {
   0x8a792bf734332c3a, 0x00000002bb44f4ea,
 };
 
-// m64c1_swio13_dual_ee_ce_u4_hw     m64m1_swio13_dual_ee_ce_hw        m64m1_swio13_dual_ee_ce_u4_hw
+/*
+ * m64c1_swio13_dual_ee_ce_u4_hw     m64m1_swio13_dual_ee_ce_hw        m64m1_swio13_dual_ee_ce_u4_hw
+ * ms64m1_swio13_dual_ee_ce_hw       ms64m1_swio13_dual_ee_ce_u4_hw
+ */
 static const uint64_t ur_m64c1_swio13_dual_ee_ce_hw[] = {
   0xbdddddda28d1bf5b, 0xdad7ed002e2f564f, 0xb26ea0175bd95388, 0xdadfbebdf1fc1f6c, 0x1b4f1b106d3ed9f1,
   0x9bd601d9016a3172, 0xf544c13e325eb5c9, 0x442760a642f25522, 0x1030a1835678b3d2, 0x0df995d06774f897,
@@ -136967,7 +137132,10 @@ static const uint64_t ur_m64c1_swio13_dual_ee_ce_hw[] = {
   0x0000000000000075,
 };
 
-// m64c1_swio14_noled_pr             m64m1_swio14_noled                m64m1_swio14_noled_pr
+/*
+ * m64c1_swio14_noled_pr             m64m1_swio14_noled                m64m1_swio14_noled_pr
+ * ms64m1_swio14_noled               ms64m1_swio14_noled_pr
+ */
 static const uint64_t ur_m64c1_swio14_noled[] = {
   0x220ddddddd66ef3a, 0x0eee5a58856e6f58, 0xdbe97752267ba0c9, 0x40783309a93783ea, 0x31641d78d7d9fba4,
   0xb9827c64ee82f413, 0x0923dd7fbf3acfc7, 0x1d7ff51d313be5ba, 0xf74c800f9490e248, 0x3b7488c9e398b016,
@@ -136976,7 +137144,7 @@ static const uint64_t ur_m64c1_swio14_noled[] = {
   0x38cb25c33d30ae4f, 0x34332c3a4a5b3871, 0xc81249d1ba792bf7, 0x0000000000000007,
 };
 
-// m64m1_swio14_noled_pr_u4
+// m64m1_swio14_noled_pr_u4          ms64m1_swio14_noled_pr_u4
 static const uint64_t ur_m64c1_swio14_noled_pr_u4[] = {
   0x526eeeeed121bf82, 0xd6b9696215b6dd63, 0x7b98eea1c489910c, 0x111e42e27d2f1f32, 0xa0dd43801e4ddd49,
   0xc13e3277571891c2, 0x476fffa7abe7cc7c, 0x35ea382877cb6f72, 0x983da01490e24819, 0x4c5188a731602cb2,
@@ -136986,7 +137154,10 @@ static const uint64_t ur_m64c1_swio14_noled_pr_u4[] = {
   0x34332c3a4a5b3871, 0x4d34f800ca792bf7, 0x000000000000003e,
 };
 
-// m64c1_swio14_noled_pr_ee_u4       m64m1_swio14_noled_pr_ee          m64m1_swio14_noled_pr_ee_u4
+/*
+ * m64c1_swio14_noled_pr_ee_u4       m64m1_swio14_noled_pr_ee          m64m1_swio14_noled_pr_ee_u4
+ * ms64m1_swio14_noled_pr_ee         ms64m1_swio14_noled_pr_ee_u4
+ */
 static const uint64_t ur_m64c1_swio14_noled_pr_ee[] = {
   0x426eeeeed121b705, 0x6d5cb4b1ea634eb1, 0x77b647776dbaff12, 0x08f2299c7cfd833c, 0x4c081eb920452225,
   0x4f8c9ddb0db2b92a, 0xd9dfe9eaf9f38330, 0x59759aad68cc7c91, 0xea3e0d983ea3d479, 0x9a75a1143be2b297,
@@ -136997,7 +137168,10 @@ static const uint64_t ur_m64c1_swio14_noled_pr_ee[] = {
   0x00009d77c9300653,
 };
 
-// m64c1_swio14_noled_pr_ce_u4       m64m1_swio14_noled_pr_ce          m64m1_swio14_noled_pr_ce_u4
+/*
+ * m64c1_swio14_noled_pr_ce_u4       m64m1_swio14_noled_pr_ce          m64m1_swio14_noled_pr_ce_u4
+ * ms64m1_swio14_noled_pr_ce         ms64m1_swio14_noled_pr_ce_u4
+ */
 static const uint64_t ur_m64c1_swio14_noled_pr_ce[] = {
   0x07dddddda2432493, 0x3972d2c08315bac7, 0x1eb4bdd1aef27af4, 0x7f12369b3d04c2aa, 0xf9da3f78bec7eef0,
   0x304f8c9dd0dc8288, 0x9153dfe9eaf9fdf7, 0xcdcef02462fd427c, 0xc4361222eb3879e3, 0xc3cc333e7ea3e12f,
@@ -137008,7 +137182,10 @@ static const uint64_t ur_m64c1_swio14_noled_pr_ce[] = {
   0x0000000000001bae,
 };
 
-// m64c1_swio14_noled_pr_ee_ce_u4    m64m1_swio14_noled_pr_ee_ce       m64m1_swio14_noled_pr_ee_ce_u4
+/*
+ * m64c1_swio14_noled_pr_ee_ce_u4    m64m1_swio14_noled_pr_ee_ce       m64m1_swio14_noled_pr_ee_ce_u4
+ * ms64m1_swio14_noled_pr_ee_ce      ms64m1_swio14_noled_pr_ee_ce_u4
+ */
 static const uint64_t ur_m64c1_swio14_noled_pr_ee_ce[] = {
   0x53dddddda243304a, 0xb772d2c30e41bac3, 0x834c8ee95b24200d, 0x4ec7b11c2a5df250, 0x3139199a5184f12d,
   0xc64eed8ba8fbd640, 0xbff4f57cfc009827, 0x6e317ea8f7dc91b5, 0x22eb3879e3cdceed, 0x0bfea3e12fc43612,
@@ -137019,7 +137196,7 @@ static const uint64_t ur_m64c1_swio14_noled_pr_ee_ce[] = {
   0xf45fe07efd8668fb, 0x71964b867a617c68, 0x6866587494b670e2, 0xf262f80194f257ee, 0x0000000000000013,
 };
 
-// m64m1_swio14_noled_ee_hw
+// m64m1_swio14_noled_ee_hw          ms64m1_swio14_noled_ee_hw
 static const uint64_t ur_m64c1_swio14_noled_ee_hw[] = {
   0x137777768a342493, 0x6ae5a58f531a758a, 0xbdb23bbb6dd7f893, 0x47914ce3e7ec19e3, 0xd040f5c902291128,
   0x04f8c9dd0dc82b4e, 0x23b3bfcac59f3833, 0xf2b2eb355ad198f9, 0x2fd47c1b307d47a8, 0x8b34eb422877c565,
@@ -137029,7 +137206,10 @@ static const uint64_t ur_m64c1_swio14_noled_ee_hw[] = {
   0x19a3ed871fc65f98, 0x85f1a3d17f81fbf6, 0xd9c389c6592e19e9, 0xc95fb9a19961d252, 0x0000016ff0bb5453,
 };
 
-// m64c1_swio14_noled_ee_ce_u4_hw    m64m1_swio14_noled_ee_ce_hw       m64m1_swio14_noled_ee_ce_u4_hw
+/*
+ * m64c1_swio14_noled_ee_ce_u4_hw    m64m1_swio14_noled_ee_ce_hw       m64m1_swio14_noled_ee_ce_u4_hw
+ * ms64m1_swio14_noled_ee_ce_hw      ms64m1_swio14_noled_ee_ce_u4_hw
+ */
 static const uint64_t ur_m64c1_swio14_noled_ee_ce_hw[] = {
   0x9eeeeeed146807e1, 0xbb969618720dd61a, 0x1a64774ad921006d, 0x763d88e152ef9284, 0x89c8ccd28c27896a,
   0x7c64ee843dfbd1d7, 0x6b7fe562cfc00982, 0xdadc62fd51efb923, 0x488bace1e79e439d, 0x8001fa8f84bf10d8,
@@ -137040,7 +137220,7 @@ static const uint64_t ur_m64c1_swio14_noled_ee_ce_hw[] = {
   0x38cb25c33d30be34, 0x34332c3a4a5b3871, 0x5011392a8a792bf7,
 };
 
-// m64m1_swio14_lednop
+// m64m1_swio14_lednop               ms64m1_swio14_lednop
 static const uint64_t ur_m64c1_swio14_lednop[] = {
   0x220ddddddd66ef3a, 0x90eee5a588561958, 0x89da87bbe17a0a0c, 0x01e0cc26a475f5a7, 0x9ac8401b6d22ee91,
   0x3dcc13e3277417a0, 0xd0491913fdf9d67c, 0x40ebffa8ebe1df2d, 0xdee9b6fcbea48712, 0x9d96ba3b86731602,
@@ -137049,7 +137229,10 @@ static const uint64_t ur_m64c1_swio14_lednop[] = {
   0x2d9c389c6592e19e, 0x3c95fb9a19961d25, 0x000000549f5ce8dd,
 };
 
-// m64c1_swio14_lednop_pr_u4         m64m1_swio14_lednop_pr            m64m1_swio14_lednop_pr_u4
+/*
+ * m64c1_swio14_lednop_pr_u4         m64m1_swio14_lednop_pr            m64m1_swio14_lednop_pr_u4
+ * ms64m1_swio14_lednop_pr           ms64m1_swio14_lednop_pr_u4
+ */
 static const uint64_t ur_m64c1_swio14_lednop_pr[] = {
   0x6a4dddddda243762, 0x9ad72d2c42b171ac, 0x2ed8fddf5fe17221, 0x444790b89db7e952, 0x11dc2ff1fe2f7752,
   0xc13e3277699a3341, 0x463dffa7abe7d7dc, 0x35ea3a0077cb6f72, 0x4cfe751490e24819, 0xc9118df398b01659,
@@ -137059,7 +137242,10 @@ static const uint64_t ur_m64c1_swio14_lednop_pr[] = {
   0x87494b670e271964, 0xc0194f257ee68665, 0x0000000007c9a566,
 };
 
-// m64c1_swio14_lednop_pr_ee_u4      m64m1_swio14_lednop_pr_ee         m64m1_swio14_lednop_pr_ee_u4
+/*
+ * m64c1_swio14_lednop_pr_ee_u4      m64m1_swio14_lednop_pr_ee         m64m1_swio14_lednop_pr_ee_u4
+ * ms64m1_swio14_lednop_pr_ee        ms64m1_swio14_lednop_pr_ee_u4
+ */
 static const uint64_t ur_m64c1_swio14_lednop_pr_ee[] = {
   0xa13777776890c044, 0x36ae5a58f53a0b58, 0x4de9a5dd803d2f89, 0x423c8a671f1a67ed, 0x21b45a8ac8114889,
   0x27c64eea0a4e52ec, 0x8d6ff4f57cfa5a98, 0xad82cd56b4663e48, 0xf51f06cc1f51ea3c, 0xcd3ad08a1df15a9e,
@@ -137070,7 +137256,10 @@ static const uint64_t ur_m64c1_swio14_lednop_pr_ee[] = {
   0x75c02b00329e4afd, 0x0000000000000002,
 };
 
-// m64c1_swio14_lednop_pr_ce_u4      m64m1_swio14_lednop_pr_ce         m64m1_swio14_lednop_pr_ce_u4
+/*
+ * m64c1_swio14_lednop_pr_ce_u4      m64m1_swio14_lednop_pr_ce         m64m1_swio14_lednop_pr_ce_u4
+ * ms64m1_swio14_lednop_pr_ce        ms64m1_swio14_lednop_pr_ce_u4
+ */
 static const uint64_t ur_m64c1_swio14_lednop_pr_ce[] = {
   0x83eeeeeed121be4a, 0x1cb96960418ddd63, 0x7ebd7dd75e5efd7a, 0xfe246d36795b4121, 0x357c34e19bd3dde0,
   0x609f193ba528eb7d, 0x232bbfd3d5f3fb3a, 0x9b9defb8c5fa84f9, 0x886c2445d670f3c7, 0x0ecdf4a8fd47c25f,
@@ -137081,7 +137270,10 @@ static const uint64_t ur_m64c1_swio14_lednop_pr_ce[] = {
   0x0000001baedf0400,
 };
 
-// m64c1_swio14_lednop_pr_ee_ce_u4   m64m1_swio14_lednop_pr_ee_ce      m64m1_swio14_lednop_pr_ee_ce_u4
+/*
+ * m64c1_swio14_lednop_pr_ee_ce_u4   m64m1_swio14_lednop_pr_ee_ce      m64m1_swio14_lednop_pr_ee_ce_u4
+ * ms64m1_swio14_lednop_pr_ee_ce     ms64m1_swio14_lednop_pr_ee_ce_u4
+ */
 static const uint64_t ur_m64c1_swio14_lednop_pr_ee_ce[] = {
   0x53dddddda2436812, 0xb772d2c30e23bac3, 0x17599eee2f41200d, 0x9d8f6238541b976d, 0xec4e4e312309e25a,
   0xe327777ec2c02935, 0xbff4f57cfe374c13, 0xee317ea8f7dc916b, 0x22eb3879e3cdceda, 0xc17ea3e12fc43612,
@@ -137092,7 +137284,7 @@ static const uint64_t ur_m64c1_swio14_lednop_pr_ee_ce[] = {
   0x81fbf619a3ed871f, 0x2e19e985f1a3d17f, 0x61d252d9c389c659, 0xe00653c95fb9a199, 0x000000000027e7d9,
 };
 
-// m64m1_swio14_lednop_ee_hw
+// m64m1_swio14_lednop_ee_hw         ms64m1_swio14_lednop_ee_hw
 static const uint64_t ur_m64c1_swio14_lednop_ee_hw[] = {
   0x09bbbbbb451a3e4a, 0xb572d2c7a9d05ac5, 0x6f4d2eec01e97c49, 0x11e45338f8d33f6a, 0xf9a2d456408a444a,
   0x827c64ee94a3adaa, 0x911adfe562cfa5a9, 0x795b059aad68cc7c, 0x3dea3e0d983ea3d4, 0x459a75a1143be2b5,
@@ -137102,7 +137294,10 @@ static const uint64_t ur_m64c1_swio14_lednop_ee_hw[] = {
   0x6c38fe32fcc4ffef, 0x1e8bfc0fdfb0cd1f, 0x4e32c970cf4c2f8d, 0xcd0ccb0e9296ce1c, 0x05bf34d6a29e4afd,
 };
 
-// m64c1_swio14_lednop_ee_ce_u4_hw   m64m1_swio14_lednop_ee_ce_hw      m64m1_swio14_lednop_ee_ce_u4_hw
+/*
+ * m64c1_swio14_lednop_ee_ce_u4_hw   m64m1_swio14_lednop_ee_ce_hw      m64m1_swio14_lednop_ee_ce_u4_hw
+ * ms64m1_swio14_lednop_ee_ce_hw     ms64m1_swio14_lednop_ee_ce_u4_hw
+ */
 static const uint64_t ur_m64c1_swio14_lednop_ee_ce_hw[] = {
   0x9eeeeeed14683d5b, 0xbb969618711dd61a, 0xbaccf7717a09006d, 0xec7b11c2a0dcbb68, 0x62727189184f12d4,
   0x9f193bacf9d6f6b5, 0x6bbff2b167f1ba60, 0xdaee317ea8f7dc91, 0x2445d670f3cf21ce, 0x7907fd47c25f886c,
@@ -137115,7 +137310,8 @@ static const uint64_t ur_m64c1_swio14_lednop_ee_ce_hw[] = {
 
 /*
  * m64c1_swio14_dual_pr              m64c1_swio14_dual_pr_u4           m64m1_swio14_dual
- * m64m1_swio14_dual_pr              m64m1_swio14_dual_pr_u4
+ * m64m1_swio14_dual_pr              m64m1_swio14_dual_pr_u4           ms64m1_swio14_dual
+ * ms64m1_swio14_dual_pr             ms64m1_swio14_dual_pr_u4
  */
 static const uint64_t ur_m64c1_swio14_dual[] = {
   0x8bbbbbbb4486ff3e, 0x66d6bf61ae933566, 0xd67dba24792b4b3f, 0xc895b3133887b1ba, 0x5ecb527269dbad16,
@@ -137128,7 +137324,7 @@ static const uint64_t ur_m64c1_swio14_dual[] = {
   0xe985f1a3d17f81fb, 0x52d9c389c6592e19, 0x53c95fb9a19961d2, 0x000000a49a65a006,
 };
 
-// m64m1_swio14_dual_pr_ee
+// m64m1_swio14_dual_pr_ee           ms64m1_swio14_dual_pr_ee
 static const uint64_t ur_m64c1_swio14_dual_pr_ee[] = {
   0x96eeeeeea0a1a5fb, 0x36b5fb02fd9bd59d, 0x70bddd943d8c8c4e, 0xa836d8bbb44fcfbd, 0x42175bf4a34dd914,
   0x52c8d75b042acc3e, 0x1bcfa609f193c96e, 0x92213b05321792a9, 0xb881850c1ab3c59e, 0xb1ffcca0253ba7c4,
@@ -137141,7 +137337,7 @@ static const uint64_t ur_m64c1_swio14_dual_pr_ee[] = {
   0x80329e4afdcd0ccb, 0x00000000015913eb,
 };
 
-// m64m1_swio14_dual_pr_ee_u4
+// m64m1_swio14_dual_pr_ee_u4        ms64m1_swio14_dual_pr_ee_u4
 static const uint64_t ur_m64c1_swio14_dual_pr_ee_u4[] = {
   0x0ddbbbbbb4486f97, 0x6cdad7ec0bc75f56, 0xdb5c774eb00a4670, 0xdcccfa73d6dcfb67, 0x935d13dd6fd28d30,
   0xf4ee4f04675ee14e, 0x92a91bcfa609f193, 0xc59e92213b053217, 0xa7c4b881850c1ab3, 0xabe6a1ffcca0253b,
@@ -137154,7 +137350,10 @@ static const uint64_t ur_m64c1_swio14_dual_pr_ee_u4[] = {
   0x653c95fb9a19961d, 0x000000002b263100,
 };
 
-// m64c1_swio14_dual_pr_ce_u4        m64m1_swio14_dual_pr_ce           m64m1_swio14_dual_pr_ce_u4
+/*
+ * m64c1_swio14_dual_pr_ce_u4        m64m1_swio14_dual_pr_ce           m64m1_swio14_dual_pr_ce_u4
+ * ms64m1_swio14_dual_pr_ce          ms64m1_swio14_dual_pr_ce_u4
+ */
 static const uint64_t ur_m64c1_swio14_dual_pr_ce[] = {
   0x627777776890cf68, 0xecdad7ec36d00ead, 0xb6bbf75053d61232, 0x647c894eb9d45e5a, 0xb76776164fbddb12,
   0xc923f7268fa9d5a0, 0x85e4aa44463304f8, 0xacf167a4884ec14c, 0x4ee9f12e20614306, 0x1c06b4c4ebf32809,
@@ -137167,7 +137366,7 @@ static const uint64_t ur_m64c1_swio14_dual_pr_ce[] = {
   0x95fb9a19961d252d, 0x00006922ec00653c,
 };
 
-// m64m1_swio14_dual_pr_ee_ce
+// m64m1_swio14_dual_pr_ee_ce        ms64m1_swio14_dual_pr_ee_ce
 static const uint64_t ur_m64c1_swio14_dual_pr_ee_ce[] = {
   0xb7daddddddd432db, 0x69c6d6bf61ae339a, 0xb6fd5f773ed9f00a, 0x5388a7043c8970b0, 0x1fe6d366f1d989fb,
   0x3723822ac1e199d7, 0xa907b3d304f8c932, 0x9e92213b05321792, 0xc4b881850c1ab3c5, 0x266bbfcca0253ba7,
@@ -137180,7 +137379,7 @@ static const uint64_t ur_m64c1_swio14_dual_pr_ee_ce[] = {
   0xa792bf734332c3a4, 0x0000002608a9c00c,
 };
 
-// m64m1_swio14_dual_pr_ee_ce_u4
+// m64m1_swio14_dual_pr_ee_ce_u4     ms64m1_swio14_dual_pr_ee_ce_u4
 static const uint64_t ur_m64c1_swio14_dual_pr_ee_ce_u4[] = {
   0x6eeeeed150ff72df, 0x6b5fb40157bd58b1, 0x0f7547e8bf654e23, 0xa2affabd8261f68f, 0xf224d88365899f1d,
   0x0d42cd865a7f0de4, 0x827c64bd6b96d6aa, 0x82990bc9548659b9, 0x860d59e2cf49109d, 0xac049dd3e25c40c2,
@@ -137194,7 +137393,7 @@ static const uint64_t ur_m64c1_swio14_dual_pr_ee_ce_u4[] = {
   0xd5593c95fb9a1996, 0x0000000020012812,
 };
 
-// m64m1_swio14_dual_ee_hw
+// m64m1_swio14_dual_ee_hw           ms64m1_swio14_dual_ee_hw
 static const uint64_t ur_m64c1_swio14_dual_ee_hw[] = {
   0xb2dddddda28d0f68, 0xc6d6bf605fb37ab3, 0xae17bbb287b19189, 0x9506db177689f9f7, 0xc842eb7e9469bb22,
   0x2dc9a3ea75add987, 0x552379f4c13e3279, 0xb3d2442760a642f2, 0xf8971030a1835678, 0xfcd63ff995d06774,
@@ -137207,7 +137406,10 @@ static const uint64_t ur_m64c1_swio14_dual_ee_hw[] = {
   0x792bf734332c3a4a, 0x0000015da5a41e8a,
 };
 
-// m64c1_swio14_dual_ee_ce_u4_hw     m64m1_swio14_dual_ee_ce_hw        m64m1_swio14_dual_ee_ce_u4_hw
+/*
+ * m64c1_swio14_dual_ee_ce_u4_hw     m64m1_swio14_dual_ee_ce_hw        m64m1_swio14_dual_ee_ce_u4_hw
+ * ms64m1_swio14_dual_ee_ce_hw       ms64m1_swio14_dual_ee_ce_u4_hw
+ */
 static const uint64_t ur_m64c1_swio14_dual_ee_ce_hw[] = {
   0x2dddddda28d072df, 0x6d6bf6802af7ab16, 0xe1eea8fd17eca9c4, 0xb455ff57b04c3ed1, 0x9e449b106cb133e3,
   0xeb97d6dac02fe1bc, 0x9b9827c64bd6b933, 0x09d82990bc954865, 0x0c2860d59e2cf491, 0x7e657419dd3e25c4,
@@ -137221,7 +137423,10 @@ static const uint64_t ur_m64c1_swio14_dual_ee_ce_hw[] = {
   0x0000000000003aeb,
 };
 
-// m64c1_swio15_noled_pr             m64m1_swio15_noled                m64m1_swio15_noled_pr
+/*
+ * m64c1_swio15_noled_pr             m64m1_swio15_noled                m64m1_swio15_noled_pr
+ * ms64m1_swio15_noled               ms64m1_swio15_noled_pr
+ */
 static const uint64_t ur_m64c1_swio15_noled[] = {
   0x1b0777777759bb37, 0x43bb9696215922d6, 0x7e68cdd1b42ca832, 0x6c13c19849eed327, 0x10bcd8623c7de4dd,
   0xc7cc13e32776c7b2, 0xa4923b7ffdf9d67c, 0x40f9ef51e213be5b, 0x6f74da52d7a48712, 0xe76b868c9a398b01,
@@ -137230,7 +137435,7 @@ static const uint64_t ur_m64c1_swio15_noled[] = {
   0x8cb25c33d30ae4fd, 0x4332c3a4a5b38713, 0x40029d1ba792bf73, 0x000000000000003e,
 };
 
-// m64m1_swio15_noled_pr_u4
+// m64m1_swio15_noled_pr_u4          ms64m1_swio15_noled_pr_u4
 static const uint64_t ur_m64c1_swio15_noled_pr_u4[] = {
   0xf76eeeeed121b562, 0xad72d2c42b0dbac4, 0xec2fddc3e3692219, 0x44479048918ebf77, 0x2e0f8f2e3426ecf7,
   0xc13e32777e9c1b24, 0x9132bfd3d5f3efe4, 0x41ea3cbe3be5a0fc, 0x9a3de95490e2481f, 0x8851ef6731602cb2,
@@ -137240,7 +137445,10 @@ static const uint64_t ur_m64c1_swio15_noled_pr_u4[] = {
   0x4332c3a4a5b38713, 0xea71600ca792bf73, 0x00000000000003e4,
 };
 
-// m64c1_swio15_noled_pr_ee_u4       m64m1_swio15_noled_pr_ee          m64m1_swio15_noled_pr_ee_u4
+/*
+ * m64c1_swio15_noled_pr_ee_u4       m64m1_swio15_noled_pr_ee          m64m1_swio15_noled_pr_ee_u4
+ * ms64m1_swio15_noled_pr_ee         ms64m1_swio15_noled_pr_ee_u4
+ */
 static const uint64_t ur_m64c1_swio15_noled_pr_ee[] = {
   0xbdeeeeeed1219541, 0xdab96963d4e85d60, 0x4f5a2ee8db623e24, 0xede4531d7c33c5ef, 0x7545a0ab41148885,
   0x7c64ee80a498b04e, 0x56ff4f57cf93a982, 0x652e6ab5a37f248c, 0x51f06cc184ff51e5, 0xd3ad08a1df15943f,
@@ -137251,7 +137459,10 @@ static const uint64_t ur_m64c1_swio15_noled_pr_ee[] = {
   0x013af998a00ca792,
 };
 
-// m64c1_swio15_noled_pr_ce_u4       m64m1_swio15_noled_pr_ce          m64m1_swio15_noled_pr_ce_u4
+/*
+ * m64c1_swio15_noled_pr_ce_u4       m64m1_swio15_noled_pr_ce          m64m1_swio15_noled_pr_ce_u4
+ * ms64m1_swio15_noled_pr_ce         ms64m1_swio15_noled_pr_ce_u4
+ */
 static const uint64_t ur_m64c1_swio15_noled_pr_ce[] = {
   0x93dddddda2431768, 0x3972d2c083033ac1, 0x7e8d3dde3f427af4, 0x9f891b479190243c, 0x947b433376d4f74c,
   0x9827c64ee9ba3b46, 0x48e04ff4f57cfdba, 0xf373bcad18bf5912, 0xf10d8488bace1e78, 0xe1f9699bffa8f84b,
@@ -137262,7 +137473,10 @@ static const uint64_t ur_m64c1_swio15_noled_pr_ce[] = {
   0x000000000000375c,
 };
 
-// m64c1_swio15_noled_pr_ee_ce_u4    m64m1_swio15_noled_pr_ee_ce       m64m1_swio15_noled_pr_ee_ce_u4
+/*
+ * m64c1_swio15_noled_pr_ee_ce_u4    m64m1_swio15_noled_pr_ee_ce       m64m1_swio15_noled_pr_ee_ce_u4
+ * ms64m1_swio15_noled_pr_ee_ce      ms64m1_swio15_noled_pr_ee_ce_u4
+ */
 static const uint64_t ur_m64c1_swio15_noled_pr_ee_ce[] = {
   0x3bdddddda243173e, 0xb772d2c30e5c1ac6, 0x176c4ee8335a200d, 0xdd8f622484715835, 0xf2723b5c6309e271,
   0x8c9ddcfb402d3913, 0x3fd3d5f3e87d304f, 0x0462fd51dba92388, 0x22eb3879e3cdcef1, 0xa77ea3e12fc43612,
@@ -137273,7 +137487,7 @@ static const uint64_t ur_m64c1_swio15_noled_pr_ee_ce[] = {
   0x45fe07efd8668fb6, 0x1964b867a617c68f, 0x866587494b670e27, 0x87aa00194f257ee6, 0x000000000000009f,
 };
 
-// m64m1_swio15_noled_ee_hw
+// m64m1_swio15_noled_ee_hw          ms64m1_swio15_noled_ee_hw
 static const uint64_t ur_m64c1_swio15_noled_ee_hw[] = {
   0xef7777768a341768, 0xd5cb4b1ea742eb05, 0x7ad17746db11f126, 0x6f2298ebe19e2f7a, 0xaa2d055a08a4442f,
   0x27c64ee9ba3b5a3d, 0x18adfe562cf93a98, 0xcaca5cd56b46fe49, 0x7ea3e0d98309fea3, 0x59a75a1143be2b28,
@@ -137283,7 +137497,10 @@ static const uint64_t ur_m64c1_swio15_noled_ee_hw[] = {
   0x47db0e3f8cbf313f, 0xe347a2ff03f7ec33, 0x87138cb25c33d30b, 0xbf734332c3a4a5b3, 0x0002dfd566e8a792,
 };
 
-// m64c1_swio15_noled_ee_ce_u4_hw    m64m1_swio15_noled_ee_ce_hw       m64m1_swio15_noled_ee_ce_u4_hw
+/*
+ * m64c1_swio15_noled_ee_ce_u4_hw    m64m1_swio15_noled_ee_ce_hw       m64m1_swio15_noled_ee_ce_u4_hw
+ * ms64m1_swio15_noled_ee_ce_hw      ms64m1_swio15_noled_ee_ce_u4_hw
+ */
 static const uint64_t ur_m64c1_swio15_noled_ee_ce_hw[] = {
   0xbdddddda28d0ac4f, 0x772d2c30e5c1ac63, 0x76c4ee8335a200db, 0xd8f6224847158351, 0x2723b5c6309e271d,
   0xf193ba5a875f68bf, 0x20ff2b167d0fa609, 0xc4118bf5476ea48e, 0x911759c3cf3c873b, 0xd507f51f097e21b0,
@@ -137294,7 +137511,7 @@ static const uint64_t ur_m64c1_swio15_noled_ee_ce_hw[] = {
   0xcb25c33d30be347a, 0x332c3a4a5b387138, 0x2245928a792bf734, 0x00000000000000a0,
 };
 
-// m64m1_swio15_lednop
+// m64m1_swio15_lednop               ms64m1_swio15_lednop
 static const uint64_t ur_m64c1_swio15_lednop[] = {
   0x1b0777777759bb37, 0x43bb9696215899d6, 0x3ef8fdd0e28e3832, 0x3c19849ee62235f8, 0x9b05c46decfdd6c1,
   0x7304f8c9ddb1ec86, 0x9247baff7e759f8f, 0x1f3dea3cdc77cb74, 0xf74c654e3490e248, 0x3b3de8ed6398b016,
@@ -137303,7 +137520,10 @@ static const uint64_t ur_m64c1_swio15_lednop[] = {
   0xd9c389c6592e19e9, 0xc95fb9a19961d252, 0x00001524bfce8dd3,
 };
 
-// m64c1_swio15_lednop_pr_u4         m64m1_swio15_lednop_pr            m64m1_swio15_lednop_pr_u4
+/*
+ * m64c1_swio15_lednop_pr_u4         m64m1_swio15_lednop_pr            m64m1_swio15_lednop_pr_u4
+ * ms64m1_swio15_lednop_pr           ms64m1_swio15_lednop_pr_u4
+ */
 static const uint64_t ur_m64c1_swio15_lednop_pr[] = {
   0xeedddddda2432aac, 0x5ae5a58856a87589, 0xeb53dd53038a4433, 0x4447904891b63367, 0x113817e635a6ecf7,
   0x609f193bbe451db2, 0x2263ffd3d5f3f52a, 0x41ea3e9477cb41f9, 0x340609f490e2481f, 0xbe238c8e62c05965,
@@ -137313,7 +137533,10 @@ static const uint64_t ur_m64c1_swio15_lednop_pr[] = {
   0xe9296ce1c4e32c97, 0x0329e4afdcd0ccb0, 0x00000000f9313340,
 };
 
-// m64c1_swio15_lednop_pr_ee_u4      m64m1_swio15_lednop_pr_ee         m64m1_swio15_lednop_pr_ee_u4
+/*
+ * m64c1_swio15_lednop_pr_ee_u4      m64m1_swio15_lednop_pr_ee         m64m1_swio15_lednop_pr_ee_u4
+ * ms64m1_swio15_lednop_pr_ee        ms64m1_swio15_lednop_pr_ee_u4
+ */
 static const uint64_t ur_m64c1_swio15_lednop_pr_ee[] = {
   0x5ef777776890c582, 0x36ae5a58f53082b0, 0xf0ad5c7ba5c46789, 0x0bdbc8a63afa170c, 0x96a23f644d822911,
   0x04f8c9dd3b410e38, 0x2707fd3d5f3f43f3, 0x95a9e9aad68dfc92, 0x3d47c1b30613fd47, 0xb34eb422877c5781,
@@ -137324,7 +137547,10 @@ static const uint64_t ur_m64c1_swio15_lednop_pr_ee[] = {
   0xaff9a600ca792bf7, 0x0000000000000013,
 };
 
-// m64c1_swio15_lednop_pr_ce_u4      m64m1_swio15_lednop_pr_ce         m64m1_swio15_lednop_pr_ce_u4
+/*
+ * m64c1_swio15_lednop_pr_ce_u4      m64m1_swio15_lednop_pr_ce         m64m1_swio15_lednop_pr_ce_u4
+ * ms64m1_swio15_lednop_pr_ce        ms64m1_swio15_lednop_pr_ce_u4
+ */
 static const uint64_t ur_m64c1_swio15_lednop_pr_ce[] = {
   0xc9eeeeeed121b768, 0x1cb96960418fdd60, 0x7ed05dd623e2fd7a, 0x3f12368f20336401, 0x4ce2a16d2ec9ee99,
   0x304f8c9dd764af8c, 0x91df7fe9eaf9f8ad, 0xe6e776ea317eb224, 0xe21b0911759c3cf1, 0xe1facd90ff51f097,
@@ -137335,7 +137561,10 @@ static const uint64_t ur_m64c1_swio15_lednop_pr_ce[] = {
   0x00000006eb982200,
 };
 
-// m64c1_swio15_lednop_pr_ee_ce_u4   m64m1_swio15_lednop_pr_ee_ce      m64m1_swio15_lednop_pr_ee_ce_u4
+/*
+ * m64c1_swio15_lednop_pr_ee_ce_u4   m64m1_swio15_lednop_pr_ee_ce      m64m1_swio15_lednop_pr_ee_ce_u4
+ * ms64m1_swio15_lednop_pr_ee_ce     ms64m1_swio15_lednop_pr_ee_ce_u4
+ */
 static const uint64_t ur_m64c1_swio15_lednop_pr_ee_ce[] = {
   0x3bdddddda2431bc1, 0xb772d2c30e44eac6, 0x7f4376e9bb64200d, 0xdd8f622485c18e24, 0xe05991a66309e271,
   0xc64ee8eba6bb62ee, 0x1fe9eaf9ffd79827, 0x02317ea8edd49180, 0x11759c3cf1e6e770, 0x593f51f097e21b09,
@@ -137346,7 +137575,7 @@ static const uint64_t ur_m64c1_swio15_lednop_pr_ee_ce[] = {
   0x1fbf619a3ed871fc, 0xe19e985f1a3d17f8, 0x1d252d9c389c6592, 0x00653c95fb9a1996, 0x00000000027e04d6,
 };
 
-// m64m1_swio15_lednop_ee_hw
+// m64m1_swio15_lednop_ee_hw         ms64m1_swio15_lednop_ee_hw
 static const uint64_t ur_m64c1_swio15_lednop_ee_hw[] = {
   0xf7bbbbbb451a3768, 0xb572d2c7a9841582, 0x856ae3dd2e233c49, 0x5ede4531d7d0b867, 0x7111fb226c114888,
   0x304f8c9dd764afb6, 0x244e0ff958b3f43f, 0x8f2b53d355ad1bf9, 0x027a8f83660c27fa, 0x91669d68450ef8af,
@@ -137356,7 +137585,10 @@ static const uint64_t ur_m64c1_swio15_lednop_ee_hw[] = {
   0xb0e3f8cbf313ffbc, 0x7a2ff03f7ec3347d, 0x38cb25c33d30be34, 0x34332c3a4a5b3871, 0x16ff412a8a792bf7,
 };
 
-// m64c1_swio15_lednop_ee_ce_u4_hw   m64m1_swio15_lednop_ee_ce_hw      m64m1_swio15_lednop_ee_ce_u4_hw
+/*
+ * m64c1_swio15_lednop_ee_ce_u4_hw   m64m1_swio15_lednop_ee_ce_hw      m64m1_swio15_lednop_ee_ce_u4_hw
+ * ms64m1_swio15_lednop_ee_ce_hw     ms64m1_swio15_lednop_ee_ce_u4_hw
+ */
 static const uint64_t ur_m64c1_swio15_lednop_ee_ce_hw[] = {
   0xdeeeeeed14683375, 0xbb96961872275631, 0xfa1bb74ddb21006d, 0xec7b11242e0c7123, 0x02cc8d33184f138e,
   0x4f8c9dd2c55adb9d, 0x6007f958b3ffaf30, 0xdc008c5faa3b7524, 0x8488bace1e79e439, 0xd8523fa8f84bf10d,
@@ -137369,7 +137601,8 @@ static const uint64_t ur_m64c1_swio15_lednop_ee_ce_hw[] = {
 
 /*
  * m64c1_swio15_dual_pr              m64c1_swio15_dual_pr_u4           m64m1_swio15_dual
- * m64m1_swio15_dual_pr              m64m1_swio15_dual_pr_u4
+ * m64m1_swio15_dual_pr              m64m1_swio15_dual_pr_u4           ms64m1_swio15_dual
+ * ms64m1_swio15_dual_pr             ms64m1_swio15_dual_pr_u4
  */
 static const uint64_t ur_m64c1_swio15_dual[] = {
   0x3fbbbbbb4486dd9e, 0x66d6bf61ae73b562, 0xd2c5bb06d60b4b3f, 0xc895ba67f68eb14e, 0xe2e35043b0dba47e,
@@ -137382,7 +137615,7 @@ static const uint64_t ur_m64c1_swio15_dual[] = {
   0xa617c68f45fe07ef, 0x4b670e271964b867, 0x4f257ee686658749, 0x000002926b4f8019,
 };
 
-// m64m1_swio15_dual_pr_ee
+// m64m1_swio15_dual_pr_ee           ms64m1_swio15_dual_pr_ee
 static const uint64_t ur_m64c1_swio15_dual_pr_ee[] = {
   0xd6ddddddd41432db, 0xe36b5fb02fc99ab3, 0xefb8dd498758c8c4, 0x29506d055710b157, 0x03e26eb5e9469bd6,
   0x4b723822ace3f99d, 0x2a9063d7304f8c9e, 0x59e92213b0532179, 0x7c4b881850c1ab3c, 0x7e6b1ffcca0253ba,
@@ -137395,7 +137628,7 @@ static const uint64_t ur_m64c1_swio15_dual_pr_ee[] = {
   0xcf80194f257ee686, 0x0000000000002b21,
 };
 
-// m64m1_swio15_dual_pr_ee_u4
+// m64m1_swio15_dual_pr_ee_u4        ms64m1_swio15_dual_pr_ee_u4
 static const uint64_t ur_m64c1_swio15_dual_pr_ee_u4[] = {
   0x6eb777776890cf68, 0xd9b5afd817d17eac, 0x6d77eeabe6c48ce0, 0xd333e9cd3b4abcb1, 0xeceec2d5af4a34cd,
   0x3f4ee4d1f53ab416, 0xf25520c7ae609f19, 0x78b3d2442760a642, 0x74f8971030a18356, 0x757cd43ff99404a7,
@@ -137408,7 +137641,10 @@ static const uint64_t ur_m64c1_swio15_dual_pr_ee_u4[] = {
   0xca792bf734332c3a, 0x000000005645d800,
 };
 
-// m64c1_swio15_dual_pr_ce_u4        m64m1_swio15_dual_pr_ce           m64m1_swio15_dual_pr_ce_u4
+/*
+ * m64c1_swio15_dual_pr_ce_u4        m64m1_swio15_dual_pr_ce           m64m1_swio15_dual_pr_ce_u4
+ * ms64m1_swio15_dual_pr_ce          ms64m1_swio15_dual_pr_ce_u4
+ */
 static const uint64_t ur_m64c1_swio15_dual_pr_ce[] = {
   0xd02f777776890c86, 0x5d9b5afd86da27ea, 0x56ecdee9da69c246, 0x991f2252aabdd6e3, 0x98b5c535ec5f7605,
   0x248fdcbbb1bb3227, 0x0bc95481544c13e3, 0x59e2cf49109d8299, 0x9dd3e25c40c2860d, 0x380d6989d7e65012,
@@ -137421,7 +137657,7 @@ static const uint64_t ur_m64c1_swio15_dual_pr_ce[] = {
   0x4afdcd0ccb0e9296, 0x00000d243200329e,
 };
 
-// m64m1_swio15_dual_pr_ee_ce
+// m64m1_swio15_dual_pr_ee_ce        ms64m1_swio15_dual_pr_ee_ce
 static const uint64_t ur_m64c1_swio15_dual_pr_ee_ce[] = {
   0x6d95bbbbbba86f97, 0xa71b5afd86bdf5f5, 0xfbd7bdd2af2c4029, 0x388a716a69ef709a, 0x376099331d989d95,
   0xdc9e08cea5914eb3, 0x48e3c9cc13e324c8, 0xf49109d82990bc95, 0x25c40c2860d59e2c, 0x335dfe650129dd3e,
@@ -137434,7 +137670,7 @@ static const uint64_t ur_m64c1_swio15_dual_pr_ee_ce[] = {
   0x4f257ee686658749, 0x00000098201c8019,
 };
 
-// m64m1_swio15_dual_pr_ee_ce_u4
+// m64m1_swio15_dual_pr_ee_ce_u4     ms64m1_swio15_dual_pr_ee_ce_u4
 static const uint64_t ur_m64c1_swio15_dual_pr_ee_ce_u4[] = {
   0xf7777768a87f2541, 0x6b5fb400b8bd5bae, 0xc9ba805d6f654e23, 0x6b7efaf7c7f07db2, 0x6d3c6c41bebb67c7,
   0x32d185369f28c5c8, 0x609f192f5ae5538c, 0xb05321792a917aa2, 0x50c1ab3c59e92213, 0x958093ba7c4b8818,
@@ -137448,7 +137684,7 @@ static const uint64_t ur_m64c1_swio15_dual_pr_ee_ce_u4[] = {
   0x6d5593c95fb9a199, 0x0000000001001b4d,
 };
 
-// m64m1_swio15_dual_ee_hw
+// m64m1_swio15_dual_ee_hw           ms64m1_swio15_dual_ee_hw
 static const uint64_t ur_m64c1_swio15_dual_ee_hw[] = {
   0x3d6dddddda28d086, 0x4e36b5fb02fc99ab, 0x7efb8dd498758c8c, 0x629506d055710b15, 0x283e26eb5e9469bd,
   0xc9e4b72eec6ecde6, 0x1792a9063d7304f8, 0xb3c59e92213b0532, 0x3ba7c4b881850c1a, 0xc3a7e6b1ffccae83,
@@ -137461,7 +137697,10 @@ static const uint64_t ur_m64c1_swio15_dual_ee_hw[] = {
   0xa29e4afdcd0ccb0e, 0x00000000aed13d3a,
 };
 
-// m64c1_swio15_dual_ee_ce_u4_hw     m64m1_swio15_dual_ee_ce_hw        m64m1_swio15_dual_ee_ce_u4_hw
+/*
+ * m64c1_swio15_dual_ee_ce_u4_hw     m64m1_swio15_dual_ee_ce_hw        m64m1_swio15_dual_ee_ce_u4_hw
+ * ms64m1_swio15_dual_ee_ce_hw       ms64m1_swio15_dual_ee_ce_u4_hw
+ */
 static const uint64_t ur_m64c1_swio15_dual_ee_ce_hw[] = {
   0xbdddddda28d1bf5b, 0xdad7ed002e2f56eb, 0xb26ea0175bd95388, 0xdadfbebdf1fc1f6c, 0x1b4f1b106faed9f1,
   0x9bd601d9016a3172, 0xf544c13e325eb5c9, 0x442760a642f25522, 0x1030a1835678b3d2, 0x0df995d06774f897,
@@ -141365,7 +141604,10 @@ static const uint64_t ur_m640_u2x12_uart3_dual_ee_ce_hw[] = {
   0xc4e32c970cf4c2f8, 0xdcd0ccb0e9296ce1, 0x03aeb4668a29e4af,
 };
 
-// m128_autobaud_uart0_noled_pr      m128a_autobaud_uart0_noled        m128a_autobaud_uart0_noled_pr
+/*
+ * m128_autobaud_uart0_noled_pr      m128a_autobaud_uart0_noled        m128a_autobaud_uart0_noled_pr
+ * ms128_autobaud_uart0_noled        ms128_autobaud_uart0_noled_pr
+ */
 static const uint64_t ur_m128_autobaud_uart0_noled[] = {
   0xc4b777777759bb37, 0xd7dddddd55e61183, 0xf9656eac1c5b5a68, 0x8250891783eeee8b, 0x057793bb0bd68f1e,
   0xe7f4a9827c602413, 0x75a81102053fc2a0, 0xa885d7c90ff80ba1, 0xb05a76849c12657e, 0x0667bd477b477cb6,
@@ -141374,7 +141616,7 @@ static const uint64_t ur_m128_autobaud_uart0_noled[] = {
   0x592e19e985727eea, 0x316fd252d9c389c6, 0xd3c9c17398b35e67, 0x000003888371f88d,
 };
 
-// m128a_autobaud_uart0_noled_pr_u4
+// m128a_autobaud_uart0_noled_pr_u4  ms128_autobaud_uart0_noled_pr_u4
 static const uint64_t ur_m128_autobaud_uart0_noled_pr_u4[] = {
   0x96eeeeeed121b562, 0xbdddddd55e612b48, 0x694224553376de8d, 0xe978ff07ddddd043, 0x793ba69638d93123,
   0x4a9827c602413057, 0x40881029ff85767f, 0x2ebe487fc05d0bad, 0xd3b424e0932bf544, 0xdfa8f5fcef9613e2,
@@ -141386,7 +141628,8 @@ static const uint64_t ur_m128_autobaud_uart0_noled_pr_u4[] = {
 
 /*
  * m128_autobaud_uart0_noled_pr_ee_u4 m128a_autobaud_uart0_noled_pr_ee
- * m128a_autobaud_uart0_noled_pr_ee_u4
+ * m128a_autobaud_uart0_noled_pr_ee_u4 ms128_autobaud_uart0_noled_pr_ee
+ * ms128_autobaud_uart0_noled_pr_ee_u4
  */
 static const uint64_t ur_m128_autobaud_uart0_noled_pr_ee[] = {
   0x96eeeeeed1219541, 0xbdddddd55db04d88, 0x45685365c7469ed0, 0x336a6877ab6ed68c, 0x75a77daa67b28fd8,
@@ -141400,7 +141643,8 @@ static const uint64_t ur_m128_autobaud_uart0_noled_pr_ee[] = {
 
 /*
  * m128_autobaud_uart0_noled_pr_ce_u4 m128a_autobaud_uart0_noled_pr_ce
- * m128a_autobaud_uart0_noled_pr_ce_u4
+ * m128a_autobaud_uart0_noled_pr_ce_u4 ms128_autobaud_uart0_noled_pr_ce
+ * ms128_autobaud_uart0_noled_pr_ce_u4
  */
 static const uint64_t ur_m128_autobaud_uart0_noled_pr_ce[] = {
   0x96eeeeeed121af43, 0xbdddddd55cf05048, 0x7f0a7a636f619eb4, 0xc5e6c02fdddd2f7c, 0xbc9dd764afbe9ce2,
@@ -141414,7 +141658,8 @@ static const uint64_t ur_m128_autobaud_uart0_noled_pr_ce[] = {
 
 /*
  * m128_autobaud_uart0_noled_pr_ee_ce_u4 m128a_autobaud_uart0_noled_pr_ee_ce
- * m128a_autobaud_uart0_noled_pr_ee_ce_u4
+ * m128a_autobaud_uart0_noled_pr_ee_ce_u4 ms128_autobaud_uart0_noled_pr_ee_ce
+ * ms128_autobaud_uart0_noled_pr_ee_ce_u4
  */
 static const uint64_t ur_m128_autobaud_uart0_noled_pr_ee_ce[] = {
   0x2ddddddda243704a, 0x7777775572209771, 0x7c94c4d0bdc9da64, 0x891ff5e5c7750406, 0x475d35c057768cc4,
@@ -141427,7 +141672,7 @@ static const uint64_t ur_m128_autobaud_uart0_noled_pr_ee_ce[] = {
   0x0008224a6b59a279,
 };
 
-// m128a_autobaud_uart0_noled_ee_hw
+// m128a_autobaud_uart0_noled_ee_hw  ms128_autobaud_uart0_noled_ee_hw
 static const uint64_t ur_m128_autobaud_uart0_noled_ee_hw[] = {
   0xb77777768a341202, 0xeeeeeeaaed826c44, 0x2b429b2e3a34f685, 0x9b5343bd5b76b462, 0x776c4d86d0147ec1,
   0x304f8c048260aef2, 0x20452fffac99fc09, 0xf921ff01742eb502, 0xd093824cafd510ba, 0x738cd56b47370b4e,
@@ -141440,7 +141685,8 @@ static const uint64_t ur_m128_autobaud_uart0_noled_ee_hw[] = {
 
 /*
  * m128_autobaud_uart0_noled_ee_ce_u4_hw m128a_autobaud_uart0_noled_ee_ce_hw
- * m128a_autobaud_uart0_noled_ee_ce_u4_hw
+ * m128a_autobaud_uart0_noled_ee_ce_u4_hw ms128_autobaud_uart0_noled_ee_ce_hw
+ * ms128_autobaud_uart0_noled_ee_ce_u4_hw
  */
 static const uint64_t ur_m128_autobaud_uart0_noled_ee_ce_hw[] = {
   0x6eeeeeed14683375, 0xbbbbbaab9104bb89, 0xe4a62685ee4ed323, 0x48ffaf2e3ba82033, 0xec6aa2fd75b46624,
@@ -141452,7 +141698,7 @@ static const uint64_t ur_m128_autobaud_uart0_noled_ee_ce_hw[] = {
   0xa2ff03f7ff05347d, 0x8cb25c33d30be347, 0xce62dfa4a5b38713, 0xe8a79382e73166bc, 0x0000000012a49a41,
 };
 
-// m128a_autobaud_uart0_lednop
+// m128a_autobaud_uart0_lednop       ms128_autobaud_uart0_lednop
 static const uint64_t ur_m128_autobaud_uart0_lednop[] = {
   0x25bbbbbbbacdc49f, 0x9eeeeeeaaf3085ee, 0xb2b67eefc3fa3349, 0x9d7d68c1f77745fc, 0x0aef2776a1a9bdc2,
   0xcfce3304f8c04826, 0xeb502204be7f8541, 0x510baf921ff01742, 0x60b4ed093824cafd, 0x199ef51daf8ef96d,
@@ -141461,7 +141707,10 @@ static const uint64_t ur_m128_autobaud_uart0_lednop[] = {
   0x296ce1c4e32c970c, 0xb9cc59af3398b7e9, 0x598a072c46e9e4e0, 0x0000000000000003,
 };
 
-// m128_autobaud_uart0_lednop_pr_u4  m128a_autobaud_uart0_lednop_pr    m128a_autobaud_uart0_lednop_pr_u4
+/*
+ * m128_autobaud_uart0_lednop_pr_u4  m128a_autobaud_uart0_lednop_pr    m128a_autobaud_uart0_lednop_pr_u4
+ * ms128_autobaud_uart0_lednop_pr    ms128_autobaud_uart0_lednop_pr_u4
+ */
 static const uint64_t ur_m128_autobaud_uart0_lednop_pr[] = {
   0x2ddddddda2432aac, 0xf7777755798475f1, 0xd2b4a12fcd2e3b50, 0x6dfa5e6fbbbba086, 0x793ba626e09208cf,
   0x4f9827c602413057, 0x81102403ff0aecf8, 0x5d7c90ff80ba175a, 0xa76849c12657ea88, 0xbf51d679df2c27c5,
@@ -141473,7 +141722,8 @@ static const uint64_t ur_m128_autobaud_uart0_lednop_pr[] = {
 
 /*
  * m128_autobaud_uart0_lednop_pr_ee_u4 m128a_autobaud_uart0_lednop_pr_ee
- * m128a_autobaud_uart0_lednop_pr_ee_u4
+ * m128a_autobaud_uart0_lednop_pr_ee_u4 ms128_autobaud_uart0_lednop_pr_ee
+ * ms128_autobaud_uart0_lednop_pr_ee_u4
  */
 static const uint64_t ur_m128_autobaud_uart0_lednop_pr_ee[] = {
   0x4b7777776890c582, 0x0dddddd55db0717c, 0x889b0b4663b41742, 0x3f764d0ef56ddad1, 0xeeb6239cb05390d3,
@@ -141487,7 +141737,8 @@ static const uint64_t ur_m128_autobaud_uart0_lednop_pr_ee[] = {
 
 /*
  * m128_autobaud_uart0_lednop_pr_ce_u4 m128a_autobaud_uart0_lednop_pr_ce
- * m128a_autobaud_uart0_lednop_pr_ce_u4
+ * m128a_autobaud_uart0_lednop_pr_ce_u4 ms128_autobaud_uart0_lednop_pr_ce
+ * ms128_autobaud_uart0_lednop_pr_ce_u4
  */
 static const uint64_t ur_m128_autobaud_uart0_lednop_pr_ce[] = {
   0x96eeeeeed121b032, 0xfbbbbbaab9e095b8, 0x7d04c2aa1ed0bd7a, 0x0cf17e3bdddd2f7c, 0x793bb61b65791499,
@@ -141501,7 +141752,8 @@ static const uint64_t ur_m128_autobaud_uart0_lednop_pr_ce[] = {
 
 /*
  * m128_autobaud_uart0_lednop_pr_ee_ce_u4 m128a_autobaud_uart0_lednop_pr_ee_ce
- * m128a_autobaud_uart0_lednop_pr_ee_ce_u4
+ * m128a_autobaud_uart0_lednop_pr_ee_ce_u4 ms128_autobaud_uart0_lednop_pr_ee_ce
+ * ms128_autobaud_uart0_lednop_pr_ee_ce_u4
  */
 static const uint64_t ur_m128_autobaud_uart0_lednop_pr_ee_ce[] = {
   0x2ddddddda243306a, 0xf777775572208371, 0x3977c9420d817acc, 0xcfe9faf2e3ba8203, 0xdad5779dad9bc9c8,
@@ -141514,7 +141766,7 @@ static const uint64_t ur_m128_autobaud_uart0_lednop_pr_ee_ce[] = {
   0x98beb344f2705ce6, 0x0000000000001044,
 };
 
-// m128a_autobaud_uart0_lednop_ee_hw
+// m128a_autobaud_uart0_lednop_ee_hw ms128_autobaud_uart0_lednop_ee_hw
 static const uint64_t ur_m128_autobaud_uart0_lednop_ee_hw[] = {
   0x5bbbbbbb451a18e2, 0x6eeeeeaaed838be2, 0x44d85a331da0ba10, 0xfbb26877ab6ed68c, 0x4ee86e415a768699,
   0xe609f180904c15de, 0x44094f7ff5933fbe, 0x5f243fe02e85d6a0, 0xda12704995faa217, 0xacf59aad68e6e169,
@@ -141527,7 +141779,8 @@ static const uint64_t ur_m128_autobaud_uart0_lednop_ee_hw[] = {
 
 /*
  * m128_autobaud_uart0_lednop_ee_ce_u4_hw m128a_autobaud_uart0_lednop_ee_ce_hw
- * m128a_autobaud_uart0_lednop_ee_ce_u4_hw
+ * m128a_autobaud_uart0_lednop_ee_ce_u4_hw ms128_autobaud_uart0_lednop_ee_ce_hw
+ * ms128_autobaud_uart0_lednop_ee_ce_u4_hw
  */
 static const uint64_t ur_m128_autobaud_uart0_lednop_ee_ce_hw[] = {
   0xb77777768a34304a, 0xdddddd55c8820dc4, 0xe5df25083605eb33, 0x3fa7ebcb8eea080c, 0xbbd7773b6abf2723,
@@ -141541,7 +141794,8 @@ static const uint64_t ur_m128_autobaud_uart0_lednop_ee_ce_hw[] = {
 
 /*
  * m128_autobaud_uart0_dual_pr       m128_autobaud_uart0_dual_pr_u4    m128a_autobaud_uart0_dual
- * m128a_autobaud_uart0_dual_pr      m128a_autobaud_uart0_dual_pr_u4
+ * m128a_autobaud_uart0_dual_pr      m128a_autobaud_uart0_dual_pr_u4   ms128_autobaud_uart0_dual
+ * ms128_autobaud_uart0_dual_pr      ms128_autobaud_uart0_dual_pr_u4
  */
 static const uint64_t ur_m128_autobaud_uart0_dual[] = {
   0x9bbbbbbb44860aac, 0xf777775e44136550, 0xd5f1da0dda58b7ae, 0xa8e7586dddde9d06, 0xeee3fa8c547c7865,
@@ -141555,7 +141809,7 @@ static const uint64_t ur_m128_autobaud_uart0_dual[] = {
   0x055e7d6689e4e0b9, 0x0000000000000017,
 };
 
-// m128a_autobaud_uart0_dual_pr_ee
+// m128a_autobaud_uart0_dual_pr_ee   ms128_autobaud_uart0_dual_pr_ee
 static const uint64_t ur_m128_autobaud_uart0_dual_pr_ee[] = {
   0x84dddddddd435202, 0x0eeeeeebc9516bbe, 0x89ae806c5f7dc6da, 0x32b40ce276eabe49, 0xc5f7615ef59587d9,
   0x120982bbc96c4ee5, 0x36a291dc7cc13e30, 0x27da45acfbaad432, 0x253ba7dcbe206143, 0xadf17986fccb0940,
@@ -141568,7 +141822,7 @@ static const uint64_t ur_m128_autobaud_uart0_dual_pr_ee[] = {
   0x3166bcce62dfa4a5, 0x5e3a2d9a279382e7, 0x0000000000000104,
 };
 
-// m128a_autobaud_uart0_dual_pr_ee_u4
+// m128a_autobaud_uart0_dual_pr_ee_u4 ms128_autobaud_uart0_dual_pr_ee_u4
 static const uint64_t ur_m128_autobaud_uart0_dual_pr_ee_u4[] = {
   0x77777768a87f3202, 0xbbbbaf2545aefa13, 0xba01b17df71b683b, 0xd03389dbaaf92626, 0x5795effade1f64ca,
   0x982bbc96c4ee3522, 0x291dc7cc13e30120, 0xa45acfbaad43236a, 0xba7dcbe20614327d, 0x2f30df9961298093,
@@ -141582,7 +141836,7 @@ static const uint64_t ur_m128_autobaud_uart0_dual_pr_ee_u4[] = {
   0x0000000a54894852,
 };
 
-// m128a_autobaud_uart0_dual_pr_ce
+// m128a_autobaud_uart0_dual_pr_ce   ms128_autobaud_uart0_dual_pr_ce
 static const uint64_t ur_m128_autobaud_uart0_dual_pr_ce[] = {
   0xdddddddd41435202, 0xeeeeebc856e8be84, 0x57a7dfdad0b6a6be, 0xf5a8d5bbba539a71, 0x72e2fbb2d07594a3,
   0x180904c15de4d897, 0x0c8da8a40592609f, 0x50c9f6916b3eeab5, 0x50094ee9f72f8818, 0xe13b7c5ed6ff32c2,
@@ -141595,7 +141849,7 @@ static const uint64_t ur_m128_autobaud_uart0_dual_pr_ce[] = {
   0xce62dfa4a5b38713, 0x9a279382e73166bc, 0x00000000ad7b4d05,
 };
 
-// m128a_autobaud_uart0_dual_pr_ce_u4
+// m128a_autobaud_uart0_dual_pr_ce_u4 ms128_autobaud_uart0_dual_pr_ce_u4
 static const uint64_t ur_m128_autobaud_uart0_dual_pr_ce_u4[] = {
   0x77777768a87fbb90, 0xeeeeebc9417bba13, 0x3eabfaef41f6b85e, 0xefa2fdddd1edf691, 0xec67d7fabb37421a,
   0x120982bbc9b0cee6, 0x36a2909c7cc13e30, 0x27da45acfbaad432, 0x093ba7dcbe206143, 0xd7e2e6b7f9961298,
@@ -141609,7 +141863,7 @@ static const uint64_t ur_m128_autobaud_uart0_dual_pr_ce_u4[] = {
   0x000000056bde7fe1,
 };
 
-// m128a_autobaud_uart0_dual_pr_ee_ce
+// m128a_autobaud_uart0_dual_pr_ee_ce ms128_autobaud_uart0_dual_pr_ee_ce
 static const uint64_t ur_m128_autobaud_uart0_dual_pr_ee_ce[] = {
   0xba13777777750c86, 0xe3feeeeeebc80cc9, 0xd957eecda01db04d, 0xcc8907c625056ef5, 0xee78233a96453a19,
   0xe30120982bbc9086, 0x191b5148e3c9cc13, 0xa193ed22d67dd56a, 0xa0129dd3ee5f1030, 0x8339717e8ffe6584,
@@ -141622,7 +141876,7 @@ static const uint64_t ur_m128_autobaud_uart0_dual_pr_ee_ce[] = {
   0xc970cf4c2b93f756, 0x8b7e9296ce1c4e32, 0x9e4e0b9cc59af339, 0x000001888371f668,
 };
 
-// m128a_autobaud_uart0_dual_pr_ee_ce_u4
+// m128a_autobaud_uart0_dual_pr_ee_ce_u4 ms128_autobaud_uart0_dual_pr_ee_ce_u4
 static const uint64_t ur_m128_autobaud_uart0_dual_pr_ee_ce_u4[] = {
   0xdddddda2a1fc746e, 0xeeeebc8103f8684d, 0xaf7683bacadada6e, 0x829cb7513eb8ae2f, 0x74845ef043c3b04b,
   0x935a77065aca9c1a, 0x79827c6024130577, 0xbaad43236a291f10, 0xe20614327da45acf, 0x9961298093ba7dcb,
@@ -141637,7 +141891,7 @@ static const uint64_t ur_m128_autobaud_uart0_dual_pr_ee_ce_u4[] = {
   0x000000000000007e,
 };
 
-// m128a_autobaud_uart0_dual_ee_hw
+// m128a_autobaud_uart0_dual_ee_hw   ms128_autobaud_uart0_dual_ee_hw
 static const uint64_t ur_m128_autobaud_uart0_dual_ee_hw[] = {
   0xbbbbbbb451a3b46e, 0xddddd792a2d77d09, 0x5d00d8befb8db41d, 0x6819c4edd57c9313, 0xbfd7da34eb0fb265,
   0x413057792d89dde6, 0xd4523b8f9827c602, 0xfb48b59f755a8646, 0x6774fb97c40c2864, 0xbe2f30df996129d0,
@@ -141652,7 +141906,8 @@ static const uint64_t ur_m128_autobaud_uart0_dual_ee_hw[] = {
 
 /*
  * m128_autobaud_uart0_dual_ee_ce_u4_hw m128a_autobaud_uart0_dual_ee_ce_hw
- * m128a_autobaud_uart0_dual_ee_ce_u4_hw
+ * m128a_autobaud_uart0_dual_ee_ce_u4_hw ms128_autobaud_uart0_dual_ee_ce_hw
+ * ms128_autobaud_uart0_dual_ee_ce_u4_hw
  */
 static const uint64_t ur_m128_autobaud_uart0_dual_ee_ce_hw[] = {
   0xddddddda28d0f2df, 0xeeeeebc8103f8684, 0xfaf7683bacadada6, 0xb829cb7513eb8ae2, 0x3ed0b68f043c3b04,
@@ -141667,7 +141922,7 @@ static const uint64_t ur_m128_autobaud_uart0_dual_ee_ce_hw[] = {
   0x89c6592e19e985f1, 0x5e67316fd252d9c3, 0xcd1453c9c17398b3, 0x00000000002134d8,
 };
 
-// m128a_autobaud_uart1_noled
+// m128a_autobaud_uart1_noled        ms128_autobaud_uart1_noled
 static const uint64_t ur_m128_autobaud_uart1_noled[] = {
   0x12dddddddd66ef3a, 0xb7bbbbbaabf0bbc9, 0x41b4de6f7e6edbd1, 0x68f4bc7cbdeeeeea, 0x260aef2777312435,
   0x839f0f7304f8c048, 0x440a9fda7e44ff0a, 0xfa43fe02e9087fa0, 0x8d9a318e15faa1b5, 0x51f9e3be5921e71e,
@@ -141676,7 +141931,10 @@ static const uint64_t ur_m128_autobaud_uart1_noled[] = {
   0x387138cb25c33d30, 0x166bcce62dfa4a5b, 0x500b11ba79382e73, 0x0000000000001acc,
 };
 
-// m128_autobaud_uart1_noled_pr_u4   m128a_autobaud_uart1_noled_pr     m128a_autobaud_uart1_noled_pr_u4
+/*
+ * m128_autobaud_uart1_noled_pr_u4   m128a_autobaud_uart1_noled_pr     m128a_autobaud_uart1_noled_pr_u4
+ * ms128_autobaud_uart1_noled_pr     ms128_autobaud_uart1_noled_pr_u4
+ */
 static const uint64_t ur_m128_autobaud_uart1_noled_pr[] = {
   0x2ddddddda2432f02, 0xf77777557e17db71, 0xfe978f993d05fb63, 0x1f0017bddddb89c3, 0xc9dde9c644add89f,
   0xdcc13e30120982bb, 0xfb4fc89ff85767c3, 0xc05d210ff4088153, 0x31c2bf5436bf487f, 0x77cb087ce3d1b346,
@@ -141688,7 +141946,8 @@ static const uint64_t ur_m128_autobaud_uart1_noled_pr[] = {
 
 /*
  * m128_autobaud_uart1_noled_pr_ee_u4 m128a_autobaud_uart1_noled_pr_ee
- * m128a_autobaud_uart1_noled_pr_ee_u4
+ * m128a_autobaud_uart1_noled_pr_ee_u4 ms128_autobaud_uart1_noled_pr_ee
+ * ms128_autobaud_uart1_noled_pr_ee_u4
  */
 static const uint64_t ur_m128_autobaud_uart1_noled_pr_ee[] = {
   0x5bbbbbbb448624d6, 0xeeeeeeaae2fe34e2, 0xcfd833c77a47f4d2, 0x74120c8dadde3e36, 0x55f33e83658aa2bd,
@@ -141702,7 +141961,8 @@ static const uint64_t ur_m128_autobaud_uart1_noled_pr_ee[] = {
 
 /*
  * m128_autobaud_uart1_noled_pr_ce_u4 m128a_autobaud_uart1_noled_pr_ce
- * m128a_autobaud_uart1_noled_pr_ce_u4
+ * m128a_autobaud_uart1_noled_pr_ce_u4 ms128_autobaud_uart1_noled_pr_ce
+ * ms128_autobaud_uart1_noled_pr_ce_u4
  */
 static const uint64_t ur_m128_autobaud_uart1_noled_pr_ce[] = {
   0x896eeeeeed121911, 0x8bbbbbbaabb60c33, 0x99e2f362c7ed91d6, 0xaa0a34c90ddddad0, 0xbbc9dd1ec5aa38c6,
@@ -141716,7 +141976,8 @@ static const uint64_t ur_m128_autobaud_uart1_noled_pr_ce[] = {
 
 /*
  * m128_autobaud_uart1_noled_pr_ee_ce_u4 m128a_autobaud_uart1_noled_pr_ee_ce
- * m128a_autobaud_uart1_noled_pr_ee_ce_u4
+ * m128a_autobaud_uart1_noled_pr_ee_ce_u4 ms128_autobaud_uart1_noled_pr_ee_ce
+ * ms128_autobaud_uart1_noled_pr_ee_ce_u4
  */
 static const uint64_t ur_m128_autobaud_uart1_noled_pr_ee_ce[] = {
   0x5bbbbbbb44861a4e, 0x6eeeeeaae16593a2, 0xd1989134ba52b5d9, 0x9582fdbc7ee9b0d2, 0x44fc3efb40f83758,
@@ -141729,7 +141990,7 @@ static const uint64_t ur_m128_autobaud_uart1_noled_pr_ee_ce[] = {
   0xce62cd799cc5bf49, 0x82265a5b344f2705, 0x0000000000000000,
 };
 
-// m128a_autobaud_uart1_noled_ee_hw
+// m128a_autobaud_uart1_noled_ee_hw  ms128_autobaud_uart1_noled_ee_hw
 static const uint64_t ur_m128_autobaud_uart1_noled_ee_hw[] = {
   0x5bbbbbbb451a3705, 0xeeeeeeaae2fe34e2, 0xcfd833c77a47f4d2, 0x74120c8dadde3e36, 0xeebd69c5bf6aa2bd,
   0x609f180904c15de4, 0xa7edd7ff5933f1ca, 0x2e9087fa0440a9fd, 0xe15faa1b5fa43fe0, 0xb4738e71e8d9a318,
@@ -141742,7 +142003,8 @@ static const uint64_t ur_m128_autobaud_uart1_noled_ee_hw[] = {
 
 /*
  * m128_autobaud_uart1_noled_ee_ce_u4_hw m128a_autobaud_uart1_noled_ee_ce_hw
- * m128a_autobaud_uart1_noled_ee_ce_u4_hw
+ * m128a_autobaud_uart1_noled_ee_ce_u4_hw ms128_autobaud_uart1_noled_ee_ce_hw
+ * ms128_autobaud_uart1_noled_ee_ce_u4_hw
  */
 static const uint64_t ur_m128_autobaud_uart1_noled_ee_ce_hw[] = {
   0xb77777768a345f41, 0xdddddd55c2cb2744, 0xa331226974a56bb2, 0x2b05fb78fdd361a5, 0xdddfb0b6a6b86eb1,
@@ -141755,7 +142017,7 @@ static const uint64_t ur_m128_autobaud_uart1_noled_ee_ce_hw[] = {
   0x00000012a46642f4,
 };
 
-// m128a_autobaud_uart1_lednop
+// m128a_autobaud_uart1_lednop       ms128_autobaud_uart1_lednop
 static const uint64_t ur_m128_autobaud_uart1_lednop[] = {
   0x44b777777759bb37, 0x006eeeeeaafc2f42, 0x48369a914dad1b7b, 0x6a0831d7f8bddddd, 0x20982bbc9dd85eb4,
   0x2a0e7e3dcc13e301, 0x81102a7f69feebfc, 0xd7e90ff80ba421fe, 0x7a3668c63857ea86, 0x7a8f82cef964879c,
@@ -141764,7 +142026,10 @@ static const uint64_t ur_m128_autobaud_uart1_lednop[] = {
   0x87138cb25c33d30a, 0x66bcce62dfa4a5b3, 0xe2f11ba79382e731, 0x00000000000d6628,
 };
 
-// m128_autobaud_uart1_lednop_pr_u4  m128a_autobaud_uart1_lednop_pr    m128a_autobaud_uart1_lednop_pr_u4
+/*
+ * m128_autobaud_uart1_lednop_pr_u4  m128a_autobaud_uart1_lednop_pr    m128a_autobaud_uart1_lednop_pr_u4
+ * ms128_autobaud_uart1_lednop_pr    ms128_autobaud_uart1_lednop_pr_u4
+ */
 static const uint64_t ur_m128_autobaud_uart1_lednop_pr[] = {
   0x5bbbbbbb4486fc3b, 0xeeeeeeaafc2e5c62, 0xf6dfa548bb8ef5e9, 0x7f8f1afbbbb71387, 0x277448b333761b81,
   0x9304f8c048260aef, 0xf69f32bff0aecfbf, 0x80ba421fe81102a7, 0x63857ea86d7e90ff, 0xef9610f9c7a3668c,
@@ -141776,7 +142041,8 @@ static const uint64_t ur_m128_autobaud_uart1_lednop_pr[] = {
 
 /*
  * m128_autobaud_uart1_lednop_pr_ee_u4 m128a_autobaud_uart1_lednop_pr_ee
- * m128a_autobaud_uart1_lednop_pr_ee_u4
+ * m128a_autobaud_uart1_lednop_pr_ee_u4 ms128_autobaud_uart1_lednop_pr_ee
+ * ms128_autobaud_uart1_lednop_pr_ee_u4
  */
 static const uint64_t ur_m128_autobaud_uart1_lednop_pr_ee[] = {
   0x5bbbbbbb4486a4d6, 0xeeeeeeaae2ff4162, 0xc699fb537bf4f4c4, 0xa56e0c8dadde3e36, 0xb293ed1dd8b91fa8,
@@ -141790,7 +142056,8 @@ static const uint64_t ur_m128_autobaud_uart1_lednop_pr_ee[] = {
 
 /*
  * m128_autobaud_uart1_lednop_pr_ce_u4 m128a_autobaud_uart1_lednop_pr_ce
- * m128a_autobaud_uart1_lednop_pr_ce_u4
+ * m128a_autobaud_uart1_lednop_pr_ce_u4 ms128_autobaud_uart1_lednop_pr_ce
+ * ms128_autobaud_uart1_lednop_pr_ce_u4
  */
 static const uint64_t ur_m128_autobaud_uart1_lednop_pr_ce[] = {
   0x5bbbbbbb4486b044, 0xeeeeeeaaed8342e2, 0xe19e2f7a7a697571, 0x91a0ac86eeed684c, 0xc9dd9c458ae0f5dd,
@@ -141804,7 +142071,8 @@ static const uint64_t ur_m128_autobaud_uart1_lednop_pr_ce[] = {
 
 /*
  * m128_autobaud_uart1_lednop_pr_ee_ce_u4 m128a_autobaud_uart1_lednop_pr_ee_ce
- * m128a_autobaud_uart1_lednop_pr_ee_ce_u4
+ * m128a_autobaud_uart1_lednop_pr_ee_ce_u4 ms128_autobaud_uart1_lednop_pr_ee_ce
+ * ms128_autobaud_uart1_lednop_pr_ee_ce_u4
  */
 static const uint64_t ur_m128_autobaud_uart1_lednop_pr_ee_ce[] = {
   0x2ddddddda24343ee, 0xb777775570b28171, 0x793919989d69db61, 0x74717ede3f74d869, 0xbddfb839d6825283,
@@ -141817,7 +142085,7 @@ static const uint64_t ur_m128_autobaud_uart1_lednop_pr_ee_ce[] = {
   0xcd799cc5bf494b67, 0xb90b344f2705ce62, 0x0000000000008225,
 };
 
-// m128a_autobaud_uart1_lednop_ee_hw
+// m128a_autobaud_uart1_lednop_ee_hw ms128_autobaud_uart1_lednop_ee_hw
 static const uint64_t ur_m128_autobaud_uart1_lednop_ee_hw[] = {
   0x2ddddddda28d0044, 0x77777755717fa0b1, 0x634cfda9bdfa7a62, 0x52b70646d6ef1f1b, 0xee80a499a7388fd4,
   0x609f180904c15de4, 0xa7e2b7ff5933e4ea, 0x2e9087fa0440a9fd, 0xe15faa1b5fa43fe0, 0xb4738e71e8d9a318,
@@ -141830,7 +142098,8 @@ static const uint64_t ur_m128_autobaud_uart1_lednop_ee_hw[] = {
 
 /*
  * m128_autobaud_uart1_lednop_ee_ce_u4_hw m128a_autobaud_uart1_lednop_ee_ce_hw
- * m128a_autobaud_uart1_lednop_ee_ce_u4_hw
+ * m128a_autobaud_uart1_lednop_ee_ce_u4_hw ms128_autobaud_uart1_lednop_ee_ce_hw
+ * ms128_autobaud_uart1_lednop_ee_ce_u4_hw
  */
 static const uint64_t ur_m128_autobaud_uart1_lednop_ee_ce_hw[] = {
   0xb77777768a346d3a, 0xdddddd55c2ca05c4, 0xe4e4666275a76d86, 0xd1c5fb78fdd361a5, 0x75d6eb8ed7794a0d,
@@ -141845,7 +142114,8 @@ static const uint64_t ur_m128_autobaud_uart1_lednop_ee_ce_hw[] = {
 
 /*
  * m128_autobaud_uart1_dual_pr       m128_autobaud_uart1_dual_pr_u4    m128a_autobaud_uart1_dual
- * m128a_autobaud_uart1_dual_pr      m128a_autobaud_uart1_dual_pr_u4
+ * m128a_autobaud_uart1_dual_pr      m128a_autobaud_uart1_dual_pr_u4   ms128_autobaud_uart1_dual
+ * ms128_autobaud_uart1_dual_pr      ms128_autobaud_uart1_dual_pr_u4
  */
 static const uint64_t ur_m128_autobaud_uart1_dual[] = {
   0x4ddddddda2431f02, 0x7bbbbbaf21b058a8, 0x8b51ce015b45faeb, 0x7a7dce2dddd8e393, 0x7390eb69b37e6b95,
@@ -141859,7 +142129,7 @@ static const uint64_t ur_m128_autobaud_uart1_dual[] = {
   0xd799cc5bf494b670, 0xe2b344f2705ce62c, 0x00000000000b82e8,
 };
 
-// m128a_autobaud_uart1_dual_pr_ee
+// m128a_autobaud_uart1_dual_pr_ee   ms128_autobaud_uart1_dual_pr_ee
 static const uint64_t ur_m128_autobaud_uart1_dual_pr_ee[] = {
   0x8a13777777750c86, 0xc7fdddddd791a2fb, 0x3561f64cb9db609b, 0x913dd9bb323bbf6a, 0xcf046752c8a74339,
   0x602413057792769d, 0x91b51482cc59827c, 0x193ed22d67dd56a1, 0x0129dd3ee5f1030a, 0x261b8bb3e7e6584a,
@@ -141872,7 +142142,7 @@ static const uint64_t ur_m128_autobaud_uart1_dual_pr_ee[] = {
   0xce1c4e32c970cf4c, 0xc59af3398b7e9296, 0x7b71f6689e4e0b9c, 0x0000000000000411,
 };
 
-// m128a_autobaud_uart1_dual_pr_ee_u4
+// m128a_autobaud_uart1_dual_pr_ee_u4 ms128_autobaud_uart1_dual_pr_ee_u4
 static const uint64_t ur_m128_autobaud_uart1_dual_pr_ee_u4[] = {
   0x77777768a87f2906, 0xddddd791a2fb8a13, 0xf64cb9db609bc7fd, 0xd9bb323bbf6a3561, 0xd6964ac02339913d,
   0x15de49da7733eb97, 0x0b316609f180904c, 0xb59f755a8646d452, 0xfb97c40c2864fb48, 0x9f3f32c253012774,
@@ -141886,7 +142156,7 @@ static const uint64_t ur_m128_autobaud_uart1_dual_pr_ee_u4[] = {
   0x79382e73166bcce6, 0x00052a494592aa92,
 };
 
-// m128a_autobaud_uart1_dual_pr_ce
+// m128a_autobaud_uart1_dual_pr_ce   ms128_autobaud_uart1_dual_pr_ce
 static const uint64_t ur_m128_autobaud_uart1_dual_pr_ce[] = {
   0x1377777775050c86, 0xfb777775e4c5e16a, 0xda51fad33ed26f70, 0xd9beef7ef7775d91, 0xcddcf04675c7f53a,
   0x27c602413057792c, 0x5a8646d452223198, 0x0c2864fb48b59f75, 0x612804a774fb97c4, 0xb670b5be2f5bff99,
@@ -141899,7 +142169,7 @@ static const uint64_t ur_m128_autobaud_uart1_dual_pr_ce[] = {
   0xc6592e19e985727e, 0x67316fd252d9c389, 0xcd13c9c17398b35e, 0x000000002b5ef086,
 };
 
-// m128a_autobaud_uart1_dual_pr_ce_u4
+// m128a_autobaud_uart1_dual_pr_ce_u4 ms128_autobaud_uart1_dual_pr_ce_u4
 static const uint64_t ur_m128_autobaud_uart1_dual_pr_ce_u4[] = {
   0xeeeeeed150fe72df, 0xbbbbaf254507d426, 0x6bbdd6f6fafb369b, 0x7016dddd57c10d08, 0xb54e3518e90669ef,
   0x04c15de4b627737f, 0x1485c87e609f1809, 0xd22d67dd56a191b5, 0xdd3ee5f1030a193e, 0x17986fccb094c049,
@@ -141915,7 +142185,8 @@ static const uint64_t ur_m128_autobaud_uart1_dual_pr_ce_u4[] = {
 
 /*
  * m128_autobaud_uart1_dual_pr_ee_ce_u4 m128a_autobaud_uart1_dual_pr_ee_ce
- * m128a_autobaud_uart1_dual_pr_ee_ce_u4
+ * m128a_autobaud_uart1_dual_pr_ee_ce_u4 ms128_autobaud_uart1_dual_pr_ee_ce
+ * ms128_autobaud_uart1_dual_pr_ee_ce_u4
  */
 static const uint64_t ur_m128_autobaud_uart1_dual_pr_ee_ce[] = {
   0xbbbbbb4543fad164, 0xbbbaf2591d65509b, 0xf0f8ffaa75add9bb, 0x3b2d5ba9ae4dbc10, 0xf9dc835d7cd7bc9a,
@@ -141931,7 +142202,7 @@ static const uint64_t ur_m128_autobaud_uart1_dual_pr_ee_ce[] = {
   0xab155524f2705ce6, 0x00000000000fd5b4,
 };
 
-// m128a_autobaud_uart1_dual_ee_hw
+// m128a_autobaud_uart1_dual_ee_hw   ms128_autobaud_uart1_dual_ee_hw
 static const uint64_t ur_m128_autobaud_uart1_dual_ee_hw[] = {
   0x6eeeeeed1468a0ae, 0xbbbbbaf2345f7142, 0x3ec9973b6c1378ff, 0xbb37664777ed46ac, 0xe62b37d2bc673227,
   0x0120982bbc93b4ee, 0x8da8a41662cc13e3, 0xc9f6916b3eeab50c, 0xa0cee9f72f881850, 0x30dc5d9f3f32c253,
@@ -141947,7 +142218,8 @@ static const uint64_t ur_m128_autobaud_uart1_dual_ee_hw[] = {
 
 /*
  * m128_autobaud_uart1_dual_ee_ce_u4_hw m128a_autobaud_uart1_dual_ee_ce_hw
- * m128a_autobaud_uart1_dual_ee_ce_u4_hw
+ * m128a_autobaud_uart1_dual_ee_ce_u4_hw ms128_autobaud_uart1_dual_ee_ce_hw
+ * ms128_autobaud_uart1_dual_ee_ce_u4_hw
  */
 static const uint64_t ur_m128_autobaud_uart1_dual_ee_ce_hw[] = {
   0xbbbbbbb451a1022f, 0xbbbbaf2591d65509, 0x0f0f8ffaa75add9b, 0xa3b2d5ba9ae4dbc1, 0x46e54e35d7cd7bc9,
@@ -141962,7 +142234,10 @@ static const uint64_t ur_m128_autobaud_uart1_dual_ee_ce_hw[] = {
   0x5fe07effe0a68fb1, 0x964b867a617c68f4, 0xcc5bf494b670e271, 0x14f2705ce62cd799, 0x00000109a66b1c4d,
 };
 
-// m128_u1x8_uart0_noled_pr          m128a_u1x8_uart0_noled            m128a_u1x8_uart0_noled_pr
+/*
+ * m128_u1x8_uart0_noled_pr          m128a_u1x8_uart0_noled            m128a_u1x8_uart0_noled_pr
+ * ms128_u1x8_uart0_noled            ms128_u1x8_uart0_noled_pr
+ */
 static const uint64_t ur_m128_u1x8_uart0_noled[] = {
   0xb777775ddacdfc4f, 0xbbbbbaabb9cb83c4, 0x369fb471e97bdf17, 0xeef439bbbb49f0b2, 0x9ddf1f8517124367,
   0xcc13e30120982bbc, 0xb02c8bfe15073e98, 0xe77cb09f169da2ed, 0x243892063efd47af, 0x98b016594c37d67d,
@@ -141971,7 +142246,7 @@ static const uint64_t ur_m128_u1x8_uart0_noled[] = {
   0x138cb25c33d30ae4, 0xbcce62dfa4a5b387, 0xf11ba79382e73166, 0x0000000000f901e5,
 };
 
-// m128a_u1x8_uart0_noled_pr_u4
+// m128a_u1x8_uart0_noled_pr_u4      ms128_u1x8_uart0_noled_pr_u4
 static const uint64_t ur_m128_u1x8_uart0_noled_pr_u4[] = {
   0x777775dd4486ff41, 0xbbbbaabb9cb83c4b, 0x69fb471e97bdf17b, 0xef439bbbb49f0b23, 0x75a59a52e2b8f67e,
   0x04f8c048260aef27, 0x05917ff0aecfa633, 0xef9613e2d3b45db6, 0x871240c7dfa8f5fc, 0x1602cb2986facfa4,
@@ -141981,7 +142256,10 @@ static const uint64_t ur_m128_u1x8_uart0_noled_pr_u4[] = {
   0xd9a279382e73166b, 0x000000003e4d590b,
 };
 
-// m128_u1x8_uart0_noled_pr_ee_u4    m128a_u1x8_uart0_noled_pr_ee      m128a_u1x8_uart0_noled_pr_ee_u4
+/*
+ * m128_u1x8_uart0_noled_pr_ee_u4    m128a_u1x8_uart0_noled_pr_ee      m128a_u1x8_uart0_noled_pr_ee_u4
+ * ms128_u1x8_uart0_noled_pr_ee      ms128_u1x8_uart0_noled_pr_ee_u4
+ */
 static const uint64_t ur_m128_u1x8_uart0_noled_pr_ee[] = {
   0xdddddd7751218375, 0x777775577906a712, 0xc2fa8635f504d643, 0xdb7b38913bbc1d22, 0x645a7505b0d853d3,
   0x7c602413057793ba, 0x52bff0aecfa56982, 0xd1cdc2d3b45db605, 0x31f3d4795ce3355a, 0xddf15a01ea3e0d98,
@@ -141992,7 +142270,10 @@ static const uint64_t ur_m128_u1x8_uart0_noled_pr_ee[] = {
   0x000000000000013a,
 };
 
-// m128_u1x8_uart0_noled_pr_ce_u4    m128a_u1x8_uart0_noled_pr_ce      m128a_u1x8_uart0_noled_pr_ce_u4
+/*
+ * m128_u1x8_uart0_noled_pr_ce_u4    m128a_u1x8_uart0_noled_pr_ce      m128a_u1x8_uart0_noled_pr_ce_u4
+ * ms128_u1x8_uart0_noled_pr_ce      ms128_u1x8_uart0_noled_pr_ce_u4
+ */
 static const uint64_t ur_m128_u1x8_uart0_noled_pr_ce[] = {
   0xbbbbbaeea2435562, 0xddddd55e3400be25, 0xf1f0078bd243568d, 0x936a633777583eef, 0xe4eec4e76542deb5,
   0xba609f180904c15d, 0x6d81406ffc2bb3ff, 0xf606feb920b4ed17, 0x70f3ce10b6f373b0, 0x4f097e21b0913d96,
@@ -142003,7 +142284,10 @@ static const uint64_t ur_m128_u1x8_uart0_noled_pr_ce[] = {
   0x0000000000000375,
 };
 
-// m128_u1x8_uart0_noled_pr_ee_ce_u4 m128a_u1x8_uart0_noled_pr_ee_ce   m128a_u1x8_uart0_noled_pr_ee_ce_u4
+/*
+ * m128_u1x8_uart0_noled_pr_ee_ce_u4 m128a_u1x8_uart0_noled_pr_ee_ce   m128a_u1x8_uart0_noled_pr_ee_ce_u4
+ * ms128_u1x8_uart0_noled_pr_ee_ce   ms128_u1x8_uart0_noled_pr_ee_ce_u4
+ */
 static const uint64_t ur_m128_u1x8_uart0_noled_pr_ee_ce[] = {
   0x777775dd44863d5b, 0xddddd55d0ec8fc4b, 0xa2bd7643560ef4ed, 0x0cf410d7dd05ef4e, 0xa875e05d17d335c7,
   0xc602413057793ba5, 0x7ffe15d9fe9f9827, 0xe438b4ed176d8175, 0xb6f373b8ac06fea8, 0xb0913d9670f3ce10,
@@ -142014,7 +142298,7 @@ static const uint64_t ur_m128_u1x8_uart0_noled_pr_ee_ce[] = {
   0xf1a3d17f81fbff82, 0xc389c6592e19e985, 0xb35e67316fd252d9, 0x6a72cd13c9c17398, 0x00000000000013f2,
 };
 
-// m128a_u1x8_uart0_noled_ee_hw
+// m128a_u1x8_uart0_noled_ee_hw      ms128_u1x8_uart0_noled_ee_hw
 static const uint64_t ur_m128_u1x8_uart0_noled_ee_hw[] = {
   0xddddd775146890e3, 0x77775577906a712d, 0x2fa8635f504d6437, 0xb7b38913bbc1d22c, 0x65dd89d817853d3d,
   0x4f8c048260aef277, 0x552bffac99f4ad30, 0xad1cdc2d3b45db60, 0x831f3d4795ce3355, 0x4ddf15a01ea3e0d9,
@@ -142024,7 +142308,10 @@ static const uint64_t ur_m128_u1x8_uart0_noled_ee_hw[] = {
   0x867a617c68f45fe0, 0xf494b670e271964b, 0x705ce62cd799cc5b, 0x0000b7de8b2514f2,
 };
 
-// m128_u1x8_uart0_noled_ee_ce_u4_hw m128a_u1x8_uart0_noled_ee_ce_hw   m128a_u1x8_uart0_noled_ee_ce_u4_hw
+/*
+ * m128_u1x8_uart0_noled_ee_ce_u4_hw m128a_u1x8_uart0_noled_ee_ce_hw   m128a_u1x8_uart0_noled_ee_ce_u4_hw
+ * ms128_u1x8_uart0_noled_ee_ce_hw   ms128_u1x8_uart0_noled_ee_ce_u4_hw
+ */
 static const uint64_t ur_m128_u1x8_uart0_noled_ee_ce_hw[] = {
   0xddddd7751468bf3e, 0x777755743b23f12d, 0x8af5d90d583bd3b7, 0x33d0435f7417bd3a, 0x4eb46ad67d4cd71c,
   0x4f8c048260aef277, 0x757fff5933fd3f30, 0xa8e438b4ed176d81, 0x216fc873b8ac06fe, 0x4361227b2ce1e79c,
@@ -142035,7 +142322,10 @@ static const uint64_t ur_m128_u1x8_uart0_noled_ee_ce_hw[] = {
   0xd252d9c389c6592e, 0xc17398b35e67316f, 0x000a02a642f453c9,
 };
 
-// m128_u1x8_uart0_lednop_pr         m128a_u1x8_uart0_lednop           m128a_u1x8_uart0_lednop_pr
+/*
+ * m128_u1x8_uart0_lednop_pr         m128a_u1x8_uart0_lednop           m128a_u1x8_uart0_lednop_pr
+ * ms128_u1x8_uart0_lednop           ms128_u1x8_uart0_lednop_pr
+ */
 static const uint64_t ur_m128_u1x8_uart0_lednop[] = {
   0xb777775ddacdfebe, 0xbbbbbaabb9c983c4, 0x356f5e595af26d09, 0xf838716eeeae4244, 0x3ba5c6c98db537cd,
   0x9827c60241305779, 0xc086fff8541cfad7, 0xc77cb6b05a768bb6, 0x4871240ccf7a8ed7, 0xcc580b7ba6def9ea,
@@ -142044,7 +142334,7 @@ static const uint64_t ur_m128_u1x8_uart0_lednop[] = {
   0xf494b670e271964b, 0x705ce62cd799cc5b, 0x001f2163fe2374f2,
 };
 
-// m128a_u1x8_uart0_lednop_pr_u4
+// m128a_u1x8_uart0_lednop_pr_u4     ms128_u1x8_uart0_lednop_pr_u4
 static const uint64_t ur_m128_u1x8_uart0_lednop_pr_u4[] = {
   0x777775dd44861391, 0xbbbbaabb9cb9bc4b, 0x0e6d0da68d7de3fb, 0x67a99bbbb49f0b2e, 0xdd7ae62731a665ef,
   0xc13e30120982bbc9, 0xc09efffc2bb3f924, 0x9df2c27c5a768bb6, 0x90e24818fbf51d67, 0x98b016594c3e7414,
@@ -142054,7 +142344,10 @@ static const uint64_t ur_m128_u1x8_uart0_lednop_pr_u4[] = {
   0xf2705ce62cd799cc, 0x00001f271562b344,
 };
 
-// m128_u1x8_uart0_lednop_pr_ee_u4   m128a_u1x8_uart0_lednop_pr_ee     m128a_u1x8_uart0_lednop_pr_ee_u4
+/*
+ * m128_u1x8_uart0_lednop_pr_ee_u4   m128a_u1x8_uart0_lednop_pr_ee     m128a_u1x8_uart0_lednop_pr_ee_u4
+ * ms128_u1x8_uart0_lednop_pr_ee     ms128_u1x8_uart0_lednop_pr_ee_u4
+ */
 static const uint64_t ur_m128_u1x8_uart0_lednop_pr_ee[] = {
   0xbbbbbaeea2431768, 0xeeeeeaaef2164e25, 0xa9c2f623a56f419e, 0x71d9c489dde0e915, 0x336c564505209851,
   0xf180904c15de4eeb, 0x93ffc2bb3f21e609, 0x47370b4ed176d813, 0xc7cf51e567acd56b, 0x77c57d47a8f83660,
@@ -142065,7 +142358,10 @@ static const uint64_t ur_m128_u1x8_uart0_lednop_pr_ee[] = {
   0x00000013aec21fb3,
 };
 
-// m128_u1x8_uart0_lednop_pr_ce_u4   m128a_u1x8_uart0_lednop_pr_ce     m128a_u1x8_uart0_lednop_pr_ce_u4
+/*
+ * m128_u1x8_uart0_lednop_pr_ce_u4   m128a_u1x8_uart0_lednop_pr_ce     m128a_u1x8_uart0_lednop_pr_ce_u4
+ * ms128_u1x8_uart0_lednop_pr_ce     ms128_u1x8_uart0_lednop_pr_ce_u4
+ */
 static const uint64_t ur_m128_u1x8_uart0_lednop_pr_ce[] = {
   0xbbbbbaeea2431202, 0xddddd55e3418ee25, 0x0bfc7f1fd6434d8d, 0x164c6deeeeb07dde, 0x2776c4d860800512,
   0xd304f8c048260aef, 0x6c08a2ffe15d9ff9, 0xc037f5c905a768bb, 0xc3cf3842dbcdcedf, 0x3c25f886c244f659,
@@ -142078,7 +142374,8 @@ static const uint64_t ur_m128_u1x8_uart0_lednop_pr_ce[] = {
 
 /*
  * m128_u1x8_uart0_lednop_pr_ee_ce_u4 m128a_u1x8_uart0_lednop_pr_ee_ce
- * m128a_u1x8_uart0_lednop_pr_ee_ce_u4
+ * m128a_u1x8_uart0_lednop_pr_ee_ce_u4 ms128_u1x8_uart0_lednop_pr_ee_ce
+ * ms128_u1x8_uart0_lednop_pr_ee_ce_u4
  */
 static const uint64_t ur_m128_u1x8_uart0_lednop_pr_ee_ce[] = {
   0x777775dd4486cc7f, 0xddddd55d0efe9c4b, 0x1fa8a0cf638e891d, 0x85e821afba0bde99, 0xb1568dd5ce5834ce,
@@ -142090,7 +142387,7 @@ static const uint64_t ur_m128_u1x8_uart0_lednop_pr_ee_ce[] = {
   0x2ff03f7ff05347d8, 0xcb25c33d30be347a, 0xe62dfa4a5b387138, 0xa279382e73166bcc, 0x00000004fc4a71d9,
 };
 
-// m128a_u1x8_uart0_lednop_ee_hw
+// m128a_u1x8_uart0_lednop_ee_hw     ms128_u1x8_uart0_lednop_ee_hw
 static const uint64_t ur_m128_u1x8_uart0_lednop_ee_hw[] = {
   0xddddd7751468d38b, 0x7777557790b2712d, 0x4e17b11d2b7a0cf7, 0x8ece244eef0748ad, 0xc1b0dda6e904c28b,
   0x9f180904c15de4ee, 0x9c9fff5933f21e60, 0x5a39b85a768bb6c0, 0x063e7a8f2b3d66ab, 0x9bbe2bea3d47c1b3,
@@ -142102,7 +142399,8 @@ static const uint64_t ur_m128_u1x8_uart0_lednop_ee_hw[] = {
 
 /*
  * m128_u1x8_uart0_lednop_ee_ce_u4_hw m128a_u1x8_uart0_lednop_ee_ce_hw
- * m128a_u1x8_uart0_lednop_ee_ce_u4_hw
+ * m128a_u1x8_uart0_lednop_ee_ce_u4_hw ms128_u1x8_uart0_lednop_ee_ce_hw
+ * ms128_u1x8_uart0_lednop_ee_ce_u4_hw
  */
 static const uint64_t ur_m128_u1x8_uart0_lednop_ee_ce_hw[] = {
   0xddddd77514684aa4, 0x777755743bfa712d, 0x7ea2833d8e3a2477, 0x17a086bee82f7a64, 0xf6baef53ed60d33a,
@@ -142116,7 +142414,8 @@ static const uint64_t ur_m128_u1x8_uart0_lednop_ee_ce_hw[] = {
 
 /*
  * m128_u1x8_uart0_dual_pr           m128_u1x8_uart0_dual_pr_u4        m128a_u1x8_uart0_dual
- * m128a_u1x8_uart0_dual_pr          m128a_u1x8_uart0_dual_pr_u4
+ * m128a_u1x8_uart0_dual_pr          m128a_u1x8_uart0_dual_pr_u4       ms128_u1x8_uart0_dual
+ * ms128_u1x8_uart0_dual_pr          ms128_u1x8_uart0_dual_pr_u4
  */
 static const uint64_t ur_m128_u1x8_uart0_dual[] = {
   0x77777c5d12190907, 0xdddd79017d86a137, 0x237506f6716fdadd, 0x62b13bbbad17e9bb, 0x70be3fd8be66c7b3,
@@ -142129,7 +142428,7 @@ static const uint64_t ur_m128_u1x8_uart0_dual[] = {
   0x8bfc0fdffc14d1f6, 0x32c970cf4c2f8d1e, 0x398b7e9296ce1c4e, 0x689e4e0b9cc59af3, 0x000000029273f056,
 };
 
-// m128a_u1x8_uart0_dual_pr_ee
+// m128a_u1x8_uart0_dual_pr_ee       ms128_u1x8_uart0_dual_pr_ee
 static const uint64_t ur_m128_u1x8_uart0_dual_pr_ee[] = {
   0x77777c587ad0cf68, 0x77775e4c5f5aa137, 0x5f3ed266f77b5c77, 0x89e9f25dd7640287, 0x558d3c67489f55e5,
   0x13057792ccddc704, 0x45219eb9827c6024, 0xb48b59f755a8646d, 0x774fb97c40c2864f, 0xe2f5bff99612804a,
@@ -142142,7 +142441,7 @@ static const uint64_t ur_m128_u1x8_uart0_dual_pr_ee[] = {
   0xbf494b670e271964, 0x2705ce62cd799cc5, 0x00000ac810bb344f,
 };
 
-// m128a_u1x8_uart0_dual_pr_ee_u4
+// m128a_u1x8_uart0_dual_pr_ee_u4    ms128_u1x8_uart0_dual_pr_ee_u4
 static const uint64_t ur_m128_u1x8_uart0_dual_pr_ee_u4[] = {
   0x9bbbbbbe2e890c86, 0xdddddd79317efdd0, 0x62e5895f6a01d44f, 0x086f4f92ee86e765, 0x119d385a9d5cea2f,
   0x904c15de4e4e773c, 0xb514876ee609f180, 0x3ed22d67dd56a191, 0x29dd3ee5f1030a19, 0x6f8bcedfe6584a01,
@@ -142155,7 +142454,7 @@ static const uint64_t ur_m128_u1x8_uart0_dual_pr_ee_u4[] = {
   0xa4a5b387138cb25c, 0x82e73166bcce62df, 0x000ac956559a2793,
 };
 
-// m128a_u1x8_uart0_dual_pr_ce
+// m128a_u1x8_uart0_dual_pr_ce       ms128_u1x8_uart0_dual_pr_ce
 static const uint64_t ur_m128_u1x8_uart0_dual_pr_ce[] = {
   0xdddddf161eb432db, 0xeeeebc856e8be84d, 0x7a7dfdad0b6a6bee, 0x5a8d5bbba539a715, 0x1e19852d05aeaa3f,
   0x0120982bbc9b12ee, 0x91b51480b24c13e3, 0x193ed22d67dd56a1, 0x0129dd3ee5f1030a, 0x276f8bdadfe6584a,
@@ -142168,7 +142467,7 @@ static const uint64_t ur_m128_u1x8_uart0_dual_pr_ce[] = {
   0x5bf494b670e27196, 0xf2705ce62cd799cc, 0x000001a489a0b344,
 };
 
-// m128a_u1x8_uart0_dual_pr_ce_u4
+// m128a_u1x8_uart0_dual_pr_ce_u4    ms128_u1x8_uart0_dual_pr_ce_u4
 static const uint64_t ur_m128_u1x8_uart0_dual_pr_ce_u4[] = {
   0x6eeeeef8ba2432db, 0x777775e42b762f42, 0xb116a3b5b73b6abf, 0x957a4cddddb126e8, 0xe1e198509b6bad17,
   0x30120982bbc9466e, 0x191b5148f394c13e, 0xa193ed22d67dd56a, 0xa0129dd3ee5f1030, 0x70ff9c5c347e6584,
@@ -142181,7 +142480,7 @@ static const uint64_t ur_m128_u1x8_uart0_dual_pr_ce_u4[] = {
   0x67316fd252d9c389, 0xcd13c9c17398b35e, 0x000000001a48f36e,
 };
 
-// m128a_u1x8_uart0_dual_pr_ee_ce
+// m128a_u1x8_uart0_dual_pr_ee_ce    ms128_u1x8_uart0_dual_pr_ee_ce
 static const uint64_t ur_m128_u1x8_uart0_dual_pr_ee_ce[] = {
   0x4ddddddf17a86f97, 0x3777775e47a60fa8, 0x10d77badedf5f66d, 0x0b3d70ddba9c99f2, 0x8d7551895634f7b8,
   0x413057793389dd2c, 0x4521721f9827c602, 0xb48b59f755a8646d, 0x774fb97c40c2864f, 0xe2ec87f99612804a,
@@ -142194,7 +142493,7 @@ static const uint64_t ur_m128_u1x8_uart0_dual_pr_ee_ce[] = {
   0x87138cb25c33d30a, 0x66bcce62dfa4a5b3, 0x3cbd9a279382e731, 0x0000000000002608,
 };
 
-// m128a_u1x8_uart0_dual_pr_ee_ce_u4
+// m128a_u1x8_uart0_dual_pr_ee_ce_u4 ms128_u1x8_uart0_dual_pr_ee_ce_u4
 static const uint64_t ur_m128_u1x8_uart0_dual_pr_ee_ce_u4[] = {
   0x7777c5d150fe421f, 0xbbaf2033b04a1377, 0x26b8ede4f5c87bbb, 0x282b74abdd6c6732, 0xbda7c57bccd83e31,
   0x92c4eea9c6196859, 0xcc13e30120982bbc, 0xd56a191b5148e3c9, 0x1030a193ed22d67d, 0xcb094c049dd3ee5f,
@@ -142208,7 +142507,7 @@ static const uint64_t ur_m128_u1x8_uart0_dual_pr_ee_ce_u4[] = {
   0xe1c4e32c970cf4c2, 0x59af3398b7e9296c, 0xe4aaaa49e4e0b9cc, 0x0000000000010014,
 };
 
-// m128a_u1x8_uart0_dual_ee_hw
+// m128a_u1x8_uart0_dual_ee_hw       ms128_u1x8_uart0_dual_ee_hw
 static const uint64_t ur_m128_u1x8_uart0_dual_ee_hw[] = {
   0xbbbbbe2e8a34359b, 0xbbbbaf262fad509b, 0xaf9f69337bbdae3b, 0xc4f4f92eebb20143, 0x1f35f459b44faaf2,
   0x413057792ccddcfe, 0xd45219eb9827c602, 0xfb48b59f755a8646, 0x6774fb97c40c2864, 0xbe2f5bff996129d0,
@@ -142221,7 +142520,10 @@ static const uint64_t ur_m128_u1x8_uart0_dual_ee_hw[] = {
   0x9af3398b7e9296ce, 0x880ba29e4e0b9cc5, 0x000000000000aed0,
 };
 
-// m128_u1x8_uart0_dual_ee_ce_u4_hw  m128a_u1x8_uart0_dual_ee_ce_hw    m128a_u1x8_uart0_dual_ee_ce_u4_hw
+/*
+ * m128_u1x8_uart0_dual_ee_ce_u4_hw  m128a_u1x8_uart0_dual_ee_ce_hw    m128a_u1x8_uart0_dual_ee_ce_u4_hw
+ * ms128_u1x8_uart0_dual_ee_ce_hw    ms128_u1x8_uart0_dual_ee_ce_u4_hw
+ */
 static const uint64_t ur_m128_u1x8_uart0_dual_ee_ce_hw[] = {
   0xeeeef8ba28d1bf5b, 0x7775e4067609426e, 0x44d71dbc9eb90f77, 0x25056e957bad8ce6, 0xda5f58af799b07c6,
   0x57792589dcf3ad20, 0xc7939827c6024130, 0xacfbaad43236a291, 0xdcbe20614327da45, 0xdffccb094e833ba7,
@@ -142235,7 +142537,10 @@ static const uint64_t ur_m128_u1x8_uart0_dual_ee_ce_hw[] = {
   0xa79382e73166bcce, 0x0000003aeb2c85e8,
 };
 
-// m128_u1x8_uart1_noled_pr          m128a_u1x8_uart1_noled            m128a_u1x8_uart1_noled_pr
+/*
+ * m128_u1x8_uart1_noled_pr          m128a_u1x8_uart1_noled            m128a_u1x8_uart1_noled_pr
+ * ms128_u1x8_uart1_noled            ms128_u1x8_uart1_noled_pr
+ */
 static const uint64_t ur_m128_u1x8_uart1_noled[] = {
   0xb777775ddacdfc4f, 0xeeeeeeaaec397e44, 0x596a98369a5ef7c5, 0xd9fbbd83eeeee6b0, 0xef2777c7e145c490,
   0xce3304f8c048260a, 0x16f604be7f8541cf, 0x77cb243b12dfda19, 0x21c4903349ea3f3c, 0x62c05bdd36f75fe9,
@@ -142244,7 +142549,7 @@ static const uint64_t ur_m128_u1x8_uart1_noled[] = {
   0xbf494b670e271964, 0x2705ce62cd799cc5, 0x0001f203cbe2374f,
 };
 
-// m128a_u1x8_uart1_noled_pr_u4
+// m128a_u1x8_uart1_noled_pr_u4      ms128_u1x8_uart1_noled_pr_u4
 static const uint64_t ur_m128_u1x8_uart1_noled_pr_u4[] = {
   0xbbbbbaeea24328ae, 0xeeeeeaaec385ee25, 0xb67eefc3fa33499e, 0x7d68c1f7774880b2, 0x2775a2f4ec772edd,
   0x3304f8c048260aef, 0x7b025f3ff0aecfce, 0xe5843d896fed0c8b, 0xe2481a0bf51fa03b, 0xb016594c98dad490,
@@ -142254,7 +142559,10 @@ static const uint64_t ur_m128_u1x8_uart1_noled_pr_u4[] = {
   0x398b35e67316fd25, 0xc9d1e4ecd13c9c17, 0x0000000000000007,
 };
 
-// m128_u1x8_uart1_noled_pr_ee_u4    m128a_u1x8_uart1_noled_pr_ee      m128a_u1x8_uart1_noled_pr_ee_u4
+/*
+ * m128_u1x8_uart1_noled_pr_ee_u4    m128a_u1x8_uart1_noled_pr_ee      m128a_u1x8_uart1_noled_pr_ee_u4
+ * ms128_u1x8_uart1_noled_pr_ee      ms128_u1x8_uart1_noled_pr_ee_u4
+ */
 static const uint64_t ur_m128_u1x8_uart1_noled_pr_ee[] = {
   0xdddddd775121af43, 0x777775575c820912, 0xc29e98dbd867ad2f, 0x179c17c2f7777f8b, 0xb257df4e7162f360,
   0xf180904c15de4eeb, 0xc3ffc2bb3ec16609, 0x6c4b7f68645bd811, 0xa8f2b9126ab5a39c, 0xbeebd47c1b30698f,
@@ -142265,7 +142573,10 @@ static const uint64_t ur_m128_u1x8_uart1_noled_pr_ee[] = {
   0xafc6876689e4e0b9, 0x0000000000000013,
 };
 
-// m128_u1x8_uart1_noled_pr_ce_u4    m128a_u1x8_uart1_noled_pr_ce      m128a_u1x8_uart1_noled_pr_ce_u4
+/*
+ * m128_u1x8_uart1_noled_pr_ce_u4    m128a_u1x8_uart1_noled_pr_ce      m128a_u1x8_uart1_noled_pr_ce_u4
+ * ms128_u1x8_uart1_noled_pr_ce      ms128_u1x8_uart1_noled_pr_ce_u4
+ */
 static const uint64_t ur_m128_u1x8_uart1_noled_pr_ce[] = {
   0xdddddd775121b768, 0xbbbbbaabbc812112, 0xb26d4c99e9bbd3f7, 0xb682663bbbbc1e84, 0xc9dd29c3d8d29d62,
   0x5cc13e30120982bb, 0x7b0274bff85767ca, 0xfea0a5896fed0c8b, 0xce10b6f373ba9406, 0x7e21b0913d9670f3,
@@ -142276,7 +142587,10 @@ static const uint64_t ur_m128_u1x8_uart1_noled_pr_ce[] = {
   0x00dd7bc93b344f27,
 };
 
-// m128_u1x8_uart1_noled_pr_ee_ce_u4 m128a_u1x8_uart1_noled_pr_ee_ce   m128a_u1x8_uart1_noled_pr_ee_ce_u4
+/*
+ * m128_u1x8_uart1_noled_pr_ee_ce_u4 m128a_u1x8_uart1_noled_pr_ee_ce   m128a_u1x8_uart1_noled_pr_ee_ce_u4
+ * ms128_u1x8_uart1_noled_pr_ee_ce   ms128_u1x8_uart1_noled_pr_ee_ce_u4
+ */
 static const uint64_t ur_m128_u1x8_uart1_noled_pr_ee_ce[] = {
   0xbbbbbaeea2431bc1, 0xeeeeeaaf064b0625, 0x99ae3697a8ef6276, 0x646e25d7eeb535a2, 0x57a27b4e0b41b977,
   0xf180904c15de4ee9, 0xfcffc2bb3fa6a609, 0xec4b7f68645bd817, 0x9b9da5a037f54652, 0x89ecb3879e7085b7,
@@ -142288,7 +142602,7 @@ static const uint64_t ur_m128_u1x8_uart1_noled_pr_ee_ce[] = {
   0x0000000000000013,
 };
 
-// m128a_u1x8_uart1_noled_ee_hw
+// m128a_u1x8_uart1_noled_ee_hw      ms128_u1x8_uart1_noled_ee_hw
 static const uint64_t ur_m128_u1x8_uart1_noled_ee_hw[] = {
   0xeeeeebba8a343a31, 0xbbbbaabae4104896, 0x14f4c6dec33d697b, 0xbce0be17bbbbfc5e, 0xe4e7adad3b179b00,
   0x9f180904c15de4ee, 0x8e1fff5933ec1660, 0xe3625bfb4322dec0, 0x7d4795c89355ad1c, 0x15f75ea3e0d9834c,
@@ -142298,7 +142612,10 @@ static const uint64_t ur_m128_u1x8_uart1_noled_ee_hw[] = {
   0x07effe0a68fb19d8, 0xb867a617c68f45fe, 0xbf494b670e271964, 0x2705ce62cd799cc5, 0x000002df1a6b514f,
 };
 
-// m128_u1x8_uart1_noled_ee_ce_u4_hw m128a_u1x8_uart1_noled_ee_ce_hw   m128a_u1x8_uart1_noled_ee_ce_u4_hw
+/*
+ * m128_u1x8_uart1_noled_ee_ce_u4_hw m128a_u1x8_uart1_noled_ee_ce_hw   m128a_u1x8_uart1_noled_ee_ce_u4_hw
+ * ms128_u1x8_uart1_noled_ee_ce_hw   ms128_u1x8_uart1_noled_ee_ce_u4_hw
+ */
 static const uint64_t ur_m128_u1x8_uart1_noled_ee_ce_hw[] = {
   0xddddd77514687f3e, 0x777755783258312d, 0xcd71b4bd477b13b7, 0x23712ebf75a9ad14, 0x10f7ef475e0dcbbb,
   0x7c602413057793ba, 0xff9ffd64cfe9a982, 0x5d896fed0c8b7b02, 0xc873b4b406fea8ca, 0x227b2ce1e79c216f,
@@ -142309,7 +142626,10 @@ static const uint64_t ur_m128_u1x8_uart1_noled_ee_ce_hw[] = {
   0xc33d30be347a2ff0, 0xfa4a5b387138cb25, 0x382e73166bcce62d, 0x00005010e2fa8a79,
 };
 
-// m128_u1x8_uart1_lednop_pr         m128a_u1x8_uart1_lednop           m128a_u1x8_uart1_lednop_pr
+/*
+ * m128_u1x8_uart1_lednop_pr         m128a_u1x8_uart1_lednop           m128a_u1x8_uart1_lednop_pr
+ * ms128_u1x8_uart1_lednop           ms128_u1x8_uart1_lednop_pr
+ */
 static const uint64_t ur_m128_u1x8_uart1_lednop[] = {
   0x96eeeeebbb59bb37, 0xfbbbbbaabb0e3078, 0x0b2dd5838b6b4d1a, 0x4a1122f07ddddcd6, 0xaef277617ad1e3d0,
   0xfe95304f8c048260, 0x916f6040a7f8541c, 0xe77cb243b12dfda1, 0x24389206693d4759, 0x98b016f74c37f05d,
@@ -142318,7 +142638,7 @@ static const uint64_t ur_m128_u1x8_uart1_lednop[] = {
   0xce1c4e32c970cf4c, 0xc59af3398b7e9296, 0x1b8fc46e9e4e0b9c, 0x00000000000003e4,
 };
 
-// m128a_u1x8_uart1_lednop_pr_u4
+// m128a_u1x8_uart1_lednop_pr_u4     ms128_u1x8_uart1_lednop_pr_u4
 static const uint64_t ur_m128_u1x8_uart1_lednop_pr_u4[] = {
   0xdddddd775121ad4e, 0x7777755761c1af12, 0x2f7b3dfb68dbd803, 0x1d7993dddd2202ca, 0x93bab8c48a9b8363,
   0x59827c6024130577, 0x7b0297dff85767cf, 0xe5843d896fed0c8b, 0xe2481a0bf51ed63b, 0x602cb29b2483f490,
@@ -142328,7 +142648,10 @@ static const uint64_t ur_m128_u1x8_uart1_lednop_pr_u4[] = {
   0xcce62dfa4a5b3871, 0x59a279382e73166b, 0x000000000f935c5f,
 };
 
-// m128_u1x8_uart1_lednop_pr_ee_u4   m128a_u1x8_uart1_lednop_pr_ee     m128a_u1x8_uart1_lednop_pr_ee_u4
+/*
+ * m128_u1x8_uart1_lednop_pr_ee_u4   m128a_u1x8_uart1_lednop_pr_ee     m128a_u1x8_uart1_lednop_pr_ee_u4
+ * ms128_u1x8_uart1_lednop_pr_ee     ms128_u1x8_uart1_lednop_pr_ee_u4
+ */
 static const uint64_t ur_m128_u1x8_uart1_lednop_pr_ee[] = {
   0xdddddd775121b032, 0xeeeeeaaeb902b712, 0x4130aa87b42f5ebe, 0x1d9c17c2f7777f8b, 0x0db2bc8a4c8678bf,
   0xe30120982bbc9ddb, 0x87ff85767f2b4c13, 0xd896fed0c8b7b022, 0x51e56654d56b4738, 0xc3dfa8f83660d31f,
@@ -142339,7 +142662,10 @@ static const uint64_t ur_m128_u1x8_uart1_lednop_pr_ee[] = {
   0xecd13c9c17398b35, 0x000000000275cfd6,
 };
 
-// m128_u1x8_uart1_lednop_pr_ce_u4   m128a_u1x8_uart1_lednop_pr_ce     m128a_u1x8_uart1_lednop_pr_ce_u4
+/*
+ * m128_u1x8_uart1_lednop_pr_ce_u4   m128a_u1x8_uart1_lednop_pr_ce     m128a_u1x8_uart1_lednop_pr_ce_u4
+ * ms128_u1x8_uart1_lednop_pr_ce     ms128_u1x8_uart1_lednop_pr_ce_u4
+ */
 static const uint64_t ur_m128_u1x8_uart1_lednop_pr_ce[] = {
   0xdddddd775121b705, 0xbbbbbaabbc832112, 0x090b27006b4bd1a7, 0x7656ec7eeeef07a1, 0xc9dd7ad388c4fda3,
   0xf4c13e30120982bb, 0x7b022ebff85767d4, 0xfea0a5896fed0c8b, 0xce10b6f373b72606, 0x7e21b0913d9670f3,
@@ -142352,7 +142678,8 @@ static const uint64_t ur_m128_u1x8_uart1_lednop_pr_ce[] = {
 
 /*
  * m128_u1x8_uart1_lednop_pr_ee_ce_u4 m128a_u1x8_uart1_lednop_pr_ee_ce
- * m128a_u1x8_uart1_lednop_pr_ee_ce_u4
+ * m128a_u1x8_uart1_lednop_pr_ee_ce_u4 ms128_u1x8_uart1_lednop_pr_ee_ce
+ * ms128_u1x8_uart1_lednop_pr_ee_ce_u4
  */
 static const uint64_t ur_m128_u1x8_uart1_lednop_pr_ee_ce[] = {
   0xbbbbbaeea2431000, 0xeeeeeaaf0651c625, 0x60d337afa6476c4e, 0x696e25d7eeb535a1, 0x17f76d8ab8a3b836,
@@ -142365,7 +142692,7 @@ static const uint64_t ur_m128_u1x8_uart1_lednop_pr_ee_ce[] = {
   0x0000000009f86113,
 };
 
-// m128a_u1x8_uart1_lednop_ee_hw
+// m128a_u1x8_uart1_lednop_ee_hw     ms128_u1x8_uart1_lednop_ee_hw
 static const uint64_t ur_m128_u1x8_uart1_lednop_ee_hw[] = {
   0xeeeeebba8a342493, 0x77775575c815b896, 0x0985543da17af5f7, 0xece0be17bbbbfc5a, 0x81602b5b1433c5f8,
   0x3e30120982bbc9dd, 0x143ffeb267f2b4c1, 0xc6c4b7f68645bd81, 0xfa8f2b32a6ab5a39, 0x561efd47c1b30698,
@@ -142378,7 +142705,8 @@ static const uint64_t ur_m128_u1x8_uart1_lednop_ee_hw[] = {
 
 /*
  * m128_u1x8_uart1_lednop_ee_ce_u4_hw m128a_u1x8_uart1_lednop_ee_ce_hw
- * m128a_u1x8_uart1_lednop_ee_ce_u4_hw
+ * m128a_u1x8_uart1_lednop_ee_ce_u4_hw ms128_u1x8_uart1_lednop_ee_ce_hw
+ * ms128_u1x8_uart1_lednop_ee_ce_u4_hw
  */
 static const uint64_t ur_m128_u1x8_uart1_lednop_ee_ce_hw[] = {
   0xddddd77514684c7f, 0x77775578328e312d, 0x0699bd7d323b6277, 0x4b712ebf75a9ad0b, 0x59f3aded691dc1b3,
@@ -142392,7 +142720,8 @@ static const uint64_t ur_m128_u1x8_uart1_lednop_ee_ce_hw[] = {
 
 /*
  * m128_u1x8_uart1_dual_pr           m128_u1x8_uart1_dual_pr_u4        m128a_u1x8_uart1_dual
- * m128a_u1x8_uart1_dual_pr          m128a_u1x8_uart1_dual_pr_u4
+ * m128a_u1x8_uart1_dual_pr          m128a_u1x8_uart1_dual_pr_u4       ms128_u1x8_uart1_dual
+ * ms128_u1x8_uart1_dual_pr          ms128_u1x8_uart1_dual_pr_u4
  */
 static const uint64_t ur_m128_u1x8_uart1_dual[] = {
   0xdddddf1744869a4e, 0x77775e46a738a84d, 0xd9b140bd8d5acfb7, 0xb29eb6eee9a55823, 0xd368e43b9cfe14e5,
@@ -142406,7 +142735,7 @@ static const uint64_t ur_m128_u1x8_uart1_dual[] = {
   0x0000000000524d6b,
 };
 
-// m128a_u1x8_uart1_dual_pr_ee
+// m128a_u1x8_uart1_dual_pr_ee       ms128_u1x8_uart1_dual_pr_ee
 static const uint64_t ur_m128_u1x8_uart1_dual_pr_ee[] = {
   0x6eeeeef8bd43573e, 0xdddddd790fdf7742, 0x27d57f5de83ed70b, 0x17a9be9dbad38eb2, 0xf05f5768fa10d77d,
   0x260aef24dd3b8af6, 0x8a4271f304f8c048, 0x6916b3eeab50c8da, 0xee9f72f881850c9f, 0xe2f003f32c250094,
@@ -142419,7 +142748,7 @@ static const uint64_t ur_m128_u1x8_uart1_dual_pr_ee[] = {
   0xd9a279382e73166b, 0x00000000032147ad,
 };
 
-// m128a_u1x8_uart1_dual_pr_ee_u4
+// m128a_u1x8_uart1_dual_pr_ee_u4    ms128_u1x8_uart1_dual_pr_ee_u4
 static const uint64_t ur_m128_u1x8_uart1_dual_pr_ee_u4[] = {
   0xbbbbe2e8a87fbb90, 0x7775e43f7ddd09bb, 0x55fd77a0fb5c2f77, 0xa6fa76eb4e3ac89f, 0xff5766e8435df45e,
   0x577926e9dcdd8cfa, 0x138f9827c6024130, 0xb59f755a8646d452, 0xfb97c40c2864fb48, 0x003f32c253012774,
@@ -142432,7 +142761,7 @@ static const uint64_t ur_m128_u1x8_uart1_dual_pr_ee_u4[] = {
   0x81fbff829a3ec676, 0x2e19e985f1a3d17f, 0x6fd252d9c389c659, 0xc9c17398b35e6731, 0x000564cffc355493,
 };
 
-// m128a_u1x8_uart1_dual_pr_ce
+// m128a_u1x8_uart1_dual_pr_ce       ms128_u1x8_uart1_dual_pr_ce
 static const uint64_t ur_m128_u1x8_uart1_dual_pr_ce[] = {
   0x777777c5f6090c86, 0x777775e4c5e16a13, 0x51fad33ed26f70fb, 0xbeef7ef7775d91da, 0xdcf04675c7f53ad9,
   0xc602413057792ccd, 0x8646d45222319827, 0x2864fb48b59f755a, 0x2804a774fb97c40c, 0x70b5be2f5bff9961,
@@ -142445,7 +142774,7 @@ static const uint64_t ur_m128_u1x8_uart1_dual_pr_ce[] = {
   0x52d9c389c6592e19, 0x7398b35e67316fd2, 0x03493086cd13c9c1,
 };
 
-// m128a_u1x8_uart1_dual_pr_ce_u4
+// m128a_u1x8_uart1_dual_pr_ce_u4    ms128_u1x8_uart1_dual_pr_ce_u4
 static const uint64_t ur_m128_u1x8_uart1_dual_pr_ce_u4[] = {
   0x9bbbbbbe2e890c86, 0xdddddd79317a7dd0, 0x9dacfb656a01d44f, 0xe7517e7deeeeb336, 0x73b9e08ce9c2d4ea,
   0x4f8c048260aef262, 0xb50c8da8a43c0330, 0x1850c9f6916b3eea, 0xc250094ee9f72f88, 0xfc38068e2fa6bf32,
@@ -142458,7 +142787,7 @@ static const uint64_t ur_m128_u1x8_uart1_dual_pr_ce_u4[] = {
   0xc5bf494b670e2719, 0x4f2705ce62cd799c, 0x0000003492acab34,
 };
 
-// m128a_u1x8_uart1_dual_pr_ee_ce
+// m128a_u1x8_uart1_dual_pr_ee_ce    ms128_u1x8_uart1_dual_pr_ee_ce
 static const uint64_t ur_m128_u1x8_uart1_dual_pr_ee_ce[] = {
   0x9bbbbbbe2f50cf68, 0xdddddd7914da10d0, 0x2daef51fd9b4db04, 0x0e1f04053b752616, 0xc11560f0cce87e5a,
   0x0904c15de49d6771, 0x6d4520f67a609f18, 0x4fb48b59f755a864, 0x4a774fb97c40c286, 0x7ce2fd67f9961280,
@@ -142471,7 +142800,7 @@ static const uint64_t ur_m128_u1x8_uart1_dual_pr_ee_ce[] = {
   0x96ce1c4e32c970cf, 0x9cc59af3398b7e92, 0x9821c296689e4e0b,
 };
 
-// m128a_u1x8_uart1_dual_pr_ee_ce_u4
+// m128a_u1x8_uart1_dual_pr_ee_ce_u4 ms128_u1x8_uart1_dual_pr_ee_ce_u4
 static const uint64_t ur_m128_u1x8_uart1_dual_pr_ee_ce_u4[] = {
   0xeeef8ba2a1fc3000, 0xeebc86eef27426ee, 0xb70bd68fef766eee, 0x1edba3ae804af799, 0xccd12c8fe1bebf91,
   0xfb7755c7d8001a91, 0x13e30120982bbc94, 0xb50c8da8a432cdcc, 0x1850c9f6916b3eea, 0x84a6024ee9f72f88,
@@ -142485,7 +142814,7 @@ static const uint64_t ur_m128_u1x8_uart1_dual_pr_ee_ce_u4[] = {
   0xc68f45fe07effe0a, 0x0e271964b867a617, 0xcd799cc5bf494b67, 0x3e55524f2705ce62, 0x000000000008004d,
 };
 
-// m128a_u1x8_uart1_dual_ee_hw
+// m128a_u1x8_uart1_dual_ee_hw       ms128_u1x8_uart1_dual_ee_hw
 static const uint64_t ur_m128_u1x8_uart1_dual_ee_hw[] = {
   0xbbbbe2e8a34404d3, 0x7775e43f7ddd09bb, 0x55fd77a0fb5c2f77, 0xa6fa76eb4e3ac89f, 0xc5d35228435df45e,
   0x60aef24dd3bb595c, 0xa4271f304f8c0482, 0x916b3eeab50c8da8, 0xe9f72f881850c9f6, 0x2f003f32c253a0ce,
@@ -142498,7 +142827,10 @@ static const uint64_t ur_m128_u1x8_uart1_dual_ee_hw[] = {
   0x389c6592e19e985f, 0x35e67316fd252d9c, 0xcf27453c9c17398b, 0x000000000000aed6,
 };
 
-// m128_u1x8_uart1_dual_ee_ce_u4_hw  m128a_u1x8_uart1_dual_ee_ce_hw    m128a_u1x8_uart1_dual_ee_ce_u4_hw
+/*
+ * m128_u1x8_uart1_dual_ee_ce_u4_hw  m128a_u1x8_uart1_dual_ee_ce_hw    m128a_u1x8_uart1_dual_ee_ce_u4_hw
+ * ms128_u1x8_uart1_dual_ee_ce_hw    ms128_u1x8_uart1_dual_ee_ce_u4_hw
+ */
 static const uint64_t ur_m128_u1x8_uart1_dual_ee_ce_hw[] = {
   0xeeeef8ba28d06c4f, 0xeeebc86eef27426e, 0x9b70bd68fef766ee, 0x11edba3ae804af79, 0xd0cb52c8fe1bebf9,
   0xde4a7dbbb6b5506a, 0x66e609f180904c15, 0x9f755a8646d45219, 0x97c40c2864fb48b5, 0x3f996129d06774fb,
@@ -142512,7 +142844,10 @@ static const uint64_t ur_m128_u1x8_uart1_dual_ee_ce_hw[] = {
   0x62dfa4a5b387138c, 0xa79382e73166bcce, 0x0000001d758a04a8,
 };
 
-// m128_u1x12_uart0_noled_pr         m128a_u1x12_uart0_noled           m128a_u1x12_uart0_noled_pr
+/*
+ * m128_u1x12_uart0_noled_pr         m128a_u1x12_uart0_noled           m128a_u1x12_uart0_noled_pr
+ * ms128_u1x12_uart0_noled           ms128_u1x12_uart0_noled_pr
+ */
 static const uint64_t ur_m128_u1x12_uart0_noled[] = {
   0xbbaeed017acdfebe, 0xddd55ee04c1e25bb, 0x7af2cad793684ddd, 0xe1c5bbba308441ab, 0x971b2636d4df37e0,
   0x9f180904c15de4ee, 0x1bffe15073eb5e60, 0x9da2ed84425db7fe, 0xef51ded1df2dac16, 0xb86d7d490e248199,
@@ -142521,7 +142856,7 @@ static const uint64_t ur_m128_u1x12_uart0_noled[] = {
   0x6ce1c4e32c970cf4, 0xcc59af3398b7e929, 0x42c7fc46e9e4e0b9, 0x000000000000003e,
 };
 
-// m128a_u1x12_uart0_noled_pr_u4
+// m128a_u1x12_uart0_noled_pr_u4     ms128_u1x12_uart0_noled_pr_u4
 static const uint64_t ur_m128_u1x12_uart0_noled_pr_u4[] = {
   0xbaeed01744861391, 0xdd55ee05cde25bbb, 0x686d346bef1fdddd, 0x5337775b07527073, 0xf5cc4e634ccbdecf,
   0x7c602413057793ba, 0x3dfff85767f24982, 0x4ed176c2212edbff, 0x7ea3d7f3be584f8b, 0x1beb3e921c49031f,
@@ -142531,7 +142866,10 @@ static const uint64_t ur_m128_u1x12_uart0_noled_pr_u4[] = {
   0xb9cc59af3398b7e9, 0x3e4e2ac56689e4e0,
 };
 
-// m128_u1x12_uart0_noled_pr_ee_u4   m128a_u1x12_uart0_noled_pr_ee     m128a_u1x12_uart0_noled_pr_ee_u4
+/*
+ * m128_u1x12_uart0_noled_pr_ee_u4   m128a_u1x12_uart0_noled_pr_ee     m128a_u1x12_uart0_noled_pr_ee_u4
+ * ms128_u1x12_uart0_noled_pr_ee     ms128_u1x12_uart0_noled_pr_ee_u4
+ */
 static const uint64_t ur_m128_u1x12_uart0_noled_pr_ee[] = {
   0xdd77680ba2431768, 0xeeaae9ebb2712ddd, 0x2f623a56f419eeee, 0x220716ef37a11a9c, 0x62b2282904c28b8c,
   0x048260aef277599b, 0xfe15d9f90f304f8c, 0xbb6110976dff9c9f, 0xc66ab5a39b85a768, 0x7c1b3063e7a8f2b9,
@@ -142542,7 +142880,10 @@ static const uint64_t ur_m128_u1x12_uart0_noled_pr_ee[] = {
   0x000275d843f6689e,
 };
 
-// m128_u1x12_uart0_noled_pr_ce_u4   m128a_u1x12_uart0_noled_pr_ce     m128a_u1x12_uart0_noled_pr_ce_u4
+/*
+ * m128_u1x12_uart0_noled_pr_ce_u4   m128a_u1x12_uart0_noled_pr_ce     m128a_u1x12_uart0_noled_pr_ce_u4
+ * ms128_u1x12_uart0_noled_pr_ce     ms128_u1x12_uart0_noled_pr_ce_u4
+ */
 static const uint64_t ur_m128_u1x12_uart0_noled_pr_ce[] = {
   0xdd77680ba2431202, 0x77557832c7712ddd, 0xf1fc7f590d363777, 0x31b7bbba64f6782f, 0xdb13618200144859,
   0x13e30120982bbc9d, 0xe28bff85767fe74c, 0x69da2ed84425db7f, 0xe6e761ec0dfd7241, 0x227b2ce1e79c216d,
@@ -142555,7 +142896,8 @@ static const uint64_t ur_m128_u1x12_uart0_noled_pr_ce[] = {
 
 /*
  * m128_u1x12_uart0_noled_pr_ee_ce_u4 m128a_u1x12_uart0_noled_pr_ee_ce
- * m128a_u1x12_uart0_noled_pr_ee_ce_u4
+ * m128a_u1x12_uart0_noled_pr_ee_ce_u4 ms128_u1x12_uart0_noled_pr_ee_ce
+ * ms128_u1x12_uart0_noled_pr_ee_ce_u4
  */
 static const uint64_t ur_m128_u1x12_uart0_noled_pr_ee_ce[] = {
   0xbaeed0174486cc7f, 0xdd55d721f4e25bbb, 0x8a0cf638e891dddd, 0x44b11ddc778511fa, 0x68dd5ce5834ce85a,
@@ -142567,7 +142909,7 @@ static const uint64_t ur_m128_u1x12_uart0_noled_pr_ee_ce[] = {
   0x1fbff829a3ec6761, 0xe19e985f1a3d17f8, 0xfd252d9c389c6592, 0x9c17398b35e67316, 0x00027e2538ecd13c,
 };
 
-// m128a_u1x12_uart0_noled_ee_hw
+// m128a_u1x12_uart0_noled_ee_hw     ms128_u1x12_uart0_noled_ee_hw
 static const uint64_t ur_m128_u1x12_uart0_noled_ee_hw[] = {
   0xebbb405d1468d38b, 0x75574f5d93896eee, 0x7b11d2b7a0cf7777, 0x1038b779bd08d4e1, 0x86ed374826145c61,
   0xc048260aef27760d, 0xfffac99f90f304f8, 0x45db0884bb6ffce4, 0xce3355ad1cdc2d3b, 0xa3e0d9831f3d4795,
@@ -142579,7 +142921,8 @@ static const uint64_t ur_m128_u1x12_uart0_noled_ee_hw[] = {
 
 /*
  * m128_u1x12_uart0_noled_ee_ce_u4_hw m128a_u1x12_uart0_noled_ee_ce_hw
- * m128a_u1x12_uart0_noled_ee_ce_u4_hw
+ * m128a_u1x12_uart0_noled_ee_ce_u4_hw ms128_u1x12_uart0_noled_ee_ce_hw
+ * ms128_u1x12_uart0_noled_ee_ce_u4_hw
  */
 static const uint64_t ur_m128_u1x12_uart0_noled_ee_ce_hw[] = {
   0xebbb405d14684aa4, 0x75575c87d3896eee, 0x2833d8e3a2477777, 0x12c47771de1447ea, 0xaef53ed60d33a169,
@@ -142591,7 +142934,10 @@ static const uint64_t ur_m128_u1x12_uart0_noled_ee_ce_hw[] = {
   0x1964b867a617c68f, 0x9cc5bf494b670e27, 0x514f2705ce62cd79, 0x00000000140501f7,
 };
 
-// m128_u1x12_uart0_lednop_pr        m128a_u1x12_uart0_lednop          m128a_u1x12_uart0_lednop_pr
+/*
+ * m128_u1x12_uart0_lednop_pr        m128a_u1x12_uart0_lednop          m128a_u1x12_uart0_lednop_pr
+ * ms128_u1x12_uart0_lednop          ms128_u1x12_uart0_lednop_pr
+ */
 static const uint64_t ur_m128_u1x12_uart0_lednop[] = {
   0xddd77680bd66ef3a, 0xeeeaaf70232712dd, 0xf56b89df17b5a6ee, 0x7c3fbbba308440c1, 0x7731242a1ad0f273,
   0x04f8c048260aef27, 0xfc3e7f8541cfc433, 0x2d3b45db0884bb6f, 0x67bd476be3be5b58, 0xd36f7cf524389206,
@@ -142600,7 +142946,7 @@ static const uint64_t ur_m128_u1x12_uart0_lednop[] = {
   0x7138cb25c33d30ae, 0x6bcce62dfa4a5b38, 0x5311ba79382e7316, 0x00000000000f9038,
 };
 
-// m128a_u1x12_uart0_lednop_pr_u4
+// m128a_u1x12_uart0_lednop_pr_u4    ms128_u1x12_uart0_lednop_pr_u4
 static const uint64_t ur_m128_u1x12_uart0_lednop_pr_u4[] = {
   0xdd77680ba2435a91, 0x77557b813c912ddd, 0x07341d623be97777, 0xdf9bbbad83a939bf, 0x51792d8f58235cbd,
   0x7c602413057793bb, 0x7c9ff85767c14982, 0x4ed176c2212edbff, 0x7ea3acf3be584f8b, 0x87ce82921c49031f,
@@ -142610,7 +142956,10 @@ static const uint64_t ur_m128_u1x12_uart0_lednop_pr_u4[] = {
   0x9af3398b7e9296ce, 0x98b6689e4e0b9cc5, 0x000000000003e4ed,
 };
 
-// m128_u1x12_uart0_lednop_pr_ee_u4  m128a_u1x12_uart0_lednop_pr_ee    m128a_u1x12_uart0_lednop_pr_ee_u4
+/*
+ * m128_u1x12_uart0_lednop_pr_ee_u4  m128a_u1x12_uart0_lednop_pr_ee    m128a_u1x12_uart0_lednop_pr_ee_u4
+ * ms128_u1x12_uart0_lednop_pr_ee    ms128_u1x12_uart0_lednop_pr_ee_u4
+ */
 static const uint64_t ur_m128_u1x12_uart0_lednop_pr_ee[] = {
   0xeebbb405d121b768, 0xbbaaba7ac90896ee, 0xd4c99e9bbd3f7bbb, 0x0881c5bbcde84b26, 0x3d8d29d62b682663,
   0x0120982bbc9dd29c, 0xff85767ca5cc13e3, 0x2ed84425db7fe74b, 0xf59aad68e6e169da, 0x1f06cc18f9ea3cac,
@@ -142621,7 +142970,10 @@ static const uint64_t ur_m128_u1x12_uart0_lednop_pr_ee[] = {
   0xf79276689e4e0b9c, 0x000000000000013a,
 };
 
-// m128_u1x12_uart0_lednop_pr_ce_u4  m128a_u1x12_uart0_lednop_pr_ce    m128a_u1x12_uart0_lednop_pr_ce_u4
+/*
+ * m128_u1x12_uart0_lednop_pr_ce_u4  m128a_u1x12_uart0_lednop_pr_ce    m128a_u1x12_uart0_lednop_pr_ce_u4
+ * ms128_u1x12_uart0_lednop_pr_ce    ms128_u1x12_uart0_lednop_pr_ce_u4
+ */
 static const uint64_t ur_m128_u1x12_uart0_lednop_pr_ce[] = {
   0xeebbb405d12198e2, 0xbbaabc1929b896ee, 0x0bfd2e833dc5fbbb, 0x150f7774c9ecfc76, 0xa1b9053453b4c812,
   0x27c602413057793b, 0xc95bff0aecf9c398, 0xd3b45db0884bb6ff, 0xe6e76fe01bfae482, 0x227b2ce1e79c216d,
@@ -142634,7 +142986,8 @@ static const uint64_t ur_m128_u1x12_uart0_lednop_pr_ce[] = {
 
 /*
  * m128_u1x12_uart0_lednop_pr_ee_ce_u4 m128a_u1x12_uart0_lednop_pr_ee_ce
- * m128a_u1x12_uart0_lednop_pr_ee_ce_u4
+ * m128a_u1x12_uart0_lednop_pr_ee_ce_u4 ms128_u1x12_uart0_lednop_pr_ee_ce
+ * ms128_u1x12_uart0_lednop_pr_ee_ce_u4
  */
 static const uint64_t ur_m128_u1x12_uart0_lednop_pr_ee_ce[] = {
   0xeebbb405d1219f68, 0x775575c8791896ee, 0x8f9fbdb83a8cf777, 0x912c47771de15f4c, 0x8fbb24031c560840,
@@ -142647,7 +143000,7 @@ static const uint64_t ur_m128_u1x12_uart0_lednop_pr_ee_ce[] = {
   0x00000000000004fc,
 };
 
-// m128a_u1x12_uart0_lednop_ee_hw
+// m128a_u1x12_uart0_lednop_ee_hw    ms128_u1x12_uart0_lednop_ee_hw
 static const uint64_t ur_m128_u1x12_uart0_lednop_ee_hw[] = {
   0x75dda02e8a34280b, 0xdd55d3d64844b777, 0xa64cf4dde9fbdddd, 0x440e2dde6f425936, 0x652b5d915b413318,
   0x30120982bbc9dd47, 0x5ffeb267ca5cc13e, 0xd176c2212edbff3a, 0x67acd56b47370b4e, 0xa8f83660c7cf51e5,
@@ -142659,7 +143012,8 @@ static const uint64_t ur_m128_u1x12_uart0_lednop_ee_hw[] = {
 
 /*
  * m128_u1x12_uart0_lednop_ee_ce_u4_hw m128a_u1x12_uart0_lednop_ee_ce_hw
- * m128a_u1x12_uart0_lednop_ee_ce_u4_hw
+ * m128a_u1x12_uart0_lednop_ee_ce_u4_hw ms128_u1x12_uart0_lednop_ee_ce_hw
+ * ms128_u1x12_uart0_lednop_ee_ce_u4_hw
  */
 static const uint64_t ur_m128_u1x12_uart0_lednop_ee_ce_hw[] = {
   0xebbb405d146807e1, 0x75575c8791896eee, 0xf9fbdb83a8cf7777, 0x12c47771de15f4c8, 0x9f7a55f1c5608409,
@@ -142673,7 +143027,8 @@ static const uint64_t ur_m128_u1x12_uart0_lednop_ee_ce_hw[] = {
 
 /*
  * m128_u1x12_uart0_dual_pr          m128_u1x12_uart0_dual_pr_u4       m128a_u1x12_uart0_dual
- * m128a_u1x12_uart0_dual_pr         m128a_u1x12_uart0_dual_pr_u4
+ * m128a_u1x12_uart0_dual_pr         m128a_u1x12_uart0_dual_pr_u4      ms128_u1x12_uart0_dual
+ * ms128_u1x12_uart0_dual_pr         ms128_u1x12_uart0_dual_pr_u4
  */
 static const uint64_t ur_m128_u1x12_uart0_dual[] = {
   0xeef8be3f4486dd9e, 0xbbaf263b415426ee, 0xec91dea4cd39dbbb, 0xc1bb777571f91b0c, 0x13d7bdfb2bdce21e,
@@ -142687,7 +143042,7 @@ static const uint64_t ur_m128_u1x12_uart0_dual[] = {
   0x0000000000000005,
 };
 
-// m128a_u1x12_uart0_dual_pr_ee
+// m128a_u1x12_uart0_dual_pr_ee      ms128_u1x12_uart0_dual_pr_ee
 static const uint64_t ur_m128_u1x12_uart0_dual_pr_ee[] = {
   0x777c5f1fd41432db, 0xbbaf243351fa1377, 0xeb843dd9bdc99bbb, 0xe152ef76c31daad0, 0xa5f5daebdda27d8b,
   0x057792539dc3c330, 0x22e4a9827c602413, 0x8b59f755a8646d45, 0x4fb97c40c2864fb4, 0xe87df99612804a77,
@@ -142700,7 +143055,7 @@ static const uint64_t ur_m128_u1x12_uart0_dual_pr_ee[] = {
   0x16fd252d9c389c65, 0x3c9c17398b35e673, 0x0000000ac98c6cd1,
 };
 
-// m128a_u1x12_uart0_dual_pr_ee_u4
+// m128a_u1x12_uart0_dual_pr_ee_u4   ms128_u1x12_uart0_dual_pr_ee_u4
 static const uint64_t ur_m128_u1x12_uart0_dual_pr_ee_u4[] = {
   0xddddf17c7e890c86, 0xeeeebc90cd3ee84d, 0xd67db2b500ea27ee, 0xe7de152ef74a5586, 0x08ce9c2d4eae7517,
   0x48260aef2605bb9e, 0xda8a43c03304f8c0, 0x9f6916b3eeab50c8, 0x94ee9f72f881850c, 0xfce2f883f32c2500,
@@ -142713,7 +143068,7 @@ static const uint64_t ur_m128_u1x12_uart0_dual_pr_ee_u4[] = {
   0xbf494b670e271964, 0x2705ce62cd799cc5, 0x00001592acab344f,
 };
 
-// m128a_u1x12_uart0_dual_pr_ce
+// m128a_u1x12_uart0_dual_pr_ce      ms128_u1x12_uart0_dual_pr_ce
 static const uint64_t ur_m128_u1x12_uart0_dual_pr_ce[] = {
   0xbbbe2f8f87ad0c86, 0xeeebc86eee7509bb, 0x55e73b6b8ed77eee, 0xf5deeeebd66c545e, 0xc119d0fc53a0b28f,
   0x0904c15de486e773, 0x1b51488fba609f18, 0x93ed22d67dd56a19, 0x129dd3ee5f1030a1, 0x8838bb5dfe6584a0,
@@ -142726,7 +143081,7 @@ static const uint64_t ur_m128_u1x12_uart0_dual_pr_ce[] = {
   0x670e271964b867a6, 0x62cd799cc5bf494b, 0x24e9eb344f2705ce, 0x000000000000000d,
 };
 
-// m128a_u1x12_uart0_dual_pr_ce_u4
+// m128a_u1x12_uart0_dual_pr_ce_u4   ms128_u1x12_uart0_dual_pr_ce_u4
 static const uint64_t ur_m128_u1x12_uart0_dual_pr_ce_u4[] = {
   0xddddf17c7e890c86, 0xeeeebc86ef7ee84d, 0x72c4afb500ea27ee, 0x5e10f7774373b2b1, 0x78233a70b53ab9d4,
   0x0120982bbc9c9cee, 0x236a290eddcc13e3, 0x327da45acfbaad43, 0x0253ba7dcbe20614, 0x26df179dbfccb094,
@@ -142739,7 +143094,7 @@ static const uint64_t ur_m128_u1x12_uart0_dual_pr_ce_u4[] = {
   0x4b670e271964b867, 0xce62cd799cc5bf49, 0x3492acab344f2705,
 };
 
-// m128a_u1x12_uart0_dual_pr_ee_ce
+// m128a_u1x12_uart0_dual_pr_ee_ce   ms128_u1x12_uart0_dual_pr_ee_ce
 static const uint64_t ur_m128_u1x12_uart0_dual_pr_ee_ce[] = {
   0x77777c5f1fd432db, 0xddddd7930ac3ea13, 0xcae345fa339b7d7d, 0x7d45295ba73a3564, 0x28fe16bae44b85a2,
   0xc15de4abe770f0cc, 0x221e4e609f180904, 0x8b59f755a8646d45, 0x4fb97c40c2864fb4, 0xe951f99612804a77,
@@ -142752,7 +143107,7 @@ static const uint64_t ur_m128_u1x12_uart0_dual_pr_ee_ce[] = {
   0x389c6592e19e9857, 0x35e67316fd252d9c, 0x7eecd13c9c17398b, 0x0000000000013041,
 };
 
-// m128a_u1x12_uart0_dual_pr_ee_ce_u4
+// m128a_u1x12_uart0_dual_pr_ee_ce_u4 ms128_u1x12_uart0_dual_pr_ee_ce_u4
 static const uint64_t ur_m128_u1x12_uart0_dual_pr_ee_ce_u4[] = {
   0xbe2f8fd150feda9c, 0xaf21fbfabd09bbbb, 0x266a8c74787bbbbb, 0x5b768beabec10673, 0xe5ef2657bb41e4a7,
   0x2eeeac021010ab39, 0x27c6024130577936, 0xd43236a290f1eb98, 0x614327da45acfbaa, 0x1298093ba7dcbe20,
@@ -142766,7 +143121,7 @@ static const uint64_t ur_m128_u1x12_uart0_dual_pr_ee_ce_u4[] = {
   0x0cf4c2f8d1e8bfc0, 0xe9296ce1c4e32c97, 0xe0b9cc59af3398b7, 0x01000c793aaa49e4,
 };
 
-// m128a_u1x12_uart0_dual_ee_hw
+// m128a_u1x12_uart0_dual_ee_hw      ms128_u1x12_uart0_dual_ee_hw
 static const uint64_t ur_m128_u1x12_uart0_dual_ee_hw[] = {
   0xbbbe2f8fd1468f97, 0xddd79219a8fd09bb, 0x75c21eecdee4cddd, 0xf0a977bb618ed568, 0x8d75d2aceed13ec5,
   0x413057792539dd2c, 0xd4522e4a9827c602, 0xfb48b59f755a8646, 0x6774fb97c40c2864, 0xbe2e87df996129d0,
@@ -142779,7 +143134,10 @@ static const uint64_t ur_m128_u1x12_uart0_dual_ee_hw[] = {
   0x16fd252d9c389c65, 0x3c9c17398b35e673, 0x000002bb5334f945,
 };
 
-// m128_u1x12_uart0_dual_ee_ce_u4_hw m128a_u1x12_uart0_dual_ee_ce_hw   m128a_u1x12_uart0_dual_ee_ce_u4_hw
+/*
+ * m128_u1x12_uart0_dual_ee_ce_u4_hw m128a_u1x12_uart0_dual_ee_ce_hw   m128a_u1x12_uart0_dual_ee_ce_u4_hw
+ * ms128_u1x12_uart0_dual_ee_ce_hw   ms128_u1x12_uart0_dual_ee_ce_u4_hw
+ */
 static const uint64_t ur_m128_u1x12_uart0_dual_ee_ce_hw[] = {
   0xbbe2f8fd1468a812, 0xbaf21fbfabd09bbb, 0x3266a8c74787bbbb, 0x75b768beabec1067, 0x48c6f2657bb41e4a,
   0xde4d8bbb8af9017b, 0x7ae609f180904c15, 0x3eeab50c8da8a43c, 0x2f881850c9f6916b, 0xff32c253a0cee9f7,
@@ -142793,7 +143151,10 @@ static const uint64_t ur_m128_u1x12_uart0_dual_ee_ce_hw[] = {
   0x2cd799cc5bf494b6, 0xa6dbad14f2705ce6, 0x00000000000003ae,
 };
 
-// m128_u1x12_uart1_noled_pr         m128a_u1x12_uart1_noled           m128a_u1x12_uart1_noled_pr
+/*
+ * m128_u1x12_uart1_noled_pr         m128a_u1x12_uart1_noled           m128a_u1x12_uart1_noled_pr
+ * ms128_u1x12_uart1_noled           ms128_u1x12_uart1_noled_pr
+ */
 static const uint64_t ur_m128_u1x12_uart1_noled[] = {
   0xeeeda1af0759bb37, 0xbbbaabece307896e, 0xdd5838b6b4d1afbb, 0x891783eeeec88444, 0x93bb0bd68f1e8250,
   0xa9827c6024130577, 0xf69f053fc2a0e7f4, 0xd1b86ff6f6addba7, 0xea3f3c77cb243ce3, 0xf75fe921c4903349,
@@ -142802,7 +143163,7 @@ static const uint64_t ur_m128_u1x12_uart1_noled[] = {
   0x271964b867a615c9, 0x799cc5bf494b670e, 0xe2374f2705ce62cd, 0x0000000001f20dc7,
 };
 
-// m128a_u1x12_uart1_noled_pr_u4
+// m128a_u1x12_uart1_noled_pr_u4     ms128_u1x12_uart1_noled_pr_u4
 static const uint64_t ur_m128_u1x12_uart1_noled_pr_u4[] = {
   0xddb435e0d121b562, 0xbbaabece56912ddd, 0x48aa66edbd1b7bbb, 0xfc1f77742ca38e84, 0x9a58e364c48fa5e3,
   0x9f180904c15de4ee, 0xe0a7fe15d9fd2a60, 0x0dfeded5bb74fed3, 0xe80ef9610f9c7a37, 0xb52438920682fd47,
@@ -142812,7 +143173,10 @@ static const uint64_t ur_m128_u1x12_uart1_noled_pr_u4[] = {
   0xbf494b670e271964, 0x2705ce62cd799cc5, 0x0001f274e4ab344f,
 };
 
-// m128_u1x12_uart1_noled_pr_ee_u4   m128a_u1x12_uart1_noled_pr_ee     m128a_u1x12_uart1_noled_pr_ee_u4
+/*
+ * m128_u1x12_uart1_noled_pr_ee_u4   m128a_u1x12_uart1_noled_pr_ee     m128a_u1x12_uart1_noled_pr_ee_u4
+ * ms128_u1x12_uart1_noled_pr_ee     ms128_u1x12_uart1_noled_pr_ee_u4
+ */
 static const uint64_t ur_m128_u1x12_uart1_noled_pr_ee[] = {
   0xddb435e0d1219541, 0xbbaabe6b1b112ddd, 0xa6cb8e8d3da17bbb, 0xea6683ba9146bad0, 0xdaa67b28fd8336a7,
   0x048260aef2775a77, 0xfe15d9fc09304f8c, 0xbdab76e9fda7ca5f, 0x5a39c738f46e1bfd, 0x0698fa8f2b9126ab,
@@ -142823,7 +143187,10 @@ static const uint64_t ur_m128_u1x12_uart1_noled_pr_ee[] = {
   0x4e0b9cc59af3398b, 0x00013af95596689e,
 };
 
-// m128_u1x12_uart1_noled_pr_ce_u4   m128a_u1x12_uart1_noled_pr_ce     m128a_u1x12_uart1_noled_pr_ce_u4
+/*
+ * m128_u1x12_uart1_noled_pr_ce_u4   m128a_u1x12_uart1_noled_pr_ce     m128a_u1x12_uart1_noled_pr_ce_u4
+ * ms128_u1x12_uart1_noled_pr_ce     ms128_u1x12_uart1_noled_pr_ce_u4
+ */
 static const uint64_t ur_m128_u1x12_uart1_noled_pr_ce[] = {
   0xddb435e0d121af43, 0x775575c820912ddd, 0xe98dbd867ad2f777, 0x00bf777777f8bc29, 0x5d92befa738b179b,
   0x4f8c048260aef277, 0xce1ffe15d9f60b30, 0x1bfdbdab76e9fda7, 0x4a037f505338f46e, 0x3879e7085b79b9dd,
@@ -142836,7 +143203,8 @@ static const uint64_t ur_m128_u1x12_uart1_noled_pr_ce[] = {
 
 /*
  * m128_u1x12_uart1_noled_pr_ee_ce_u4 m128a_u1x12_uart1_noled_pr_ee_ce
- * m128a_u1x12_uart1_noled_pr_ee_ce_u4
+ * m128a_u1x12_uart1_noled_pr_ee_ce_u4 ms128_u1x12_uart1_noled_pr_ee_ce
+ * ms128_u1x12_uart1_noled_pr_ee_ce_u4
  */
 static const uint64_t ur_m128_u1x12_uart1_noled_pr_ee_ce[] = {
   0xbb686bc1a243704a, 0xdd55d3d72ee25bbb, 0x1342f7276991dddd, 0xda7a5dd7a6c87253, 0xae02bbb4662448f8,
@@ -142849,7 +143217,7 @@ static const uint64_t ur_m128_u1x12_uart1_noled_pr_ee_ce[] = {
   0x0013f2535acd13c9,
 };
 
-// m128a_u1x12_uart1_noled_ee_hw
+// m128a_u1x12_uart1_noled_ee_hw     ms128_u1x12_uart1_noled_ee_hw
 static const uint64_t ur_m128_u1x12_uart1_noled_ee_hw[] = {
   0xeda1af068a341202, 0xdd55f358d8896eee, 0x365c7469ed0bdddd, 0x53341dd48a35d685, 0xd86d0147ec19b53f,
   0xc048260aef2776c4, 0xfffac99fc09304f8, 0xeded5bb74fed3e52, 0x5ad1ce39c7a370df, 0x9834c7d4795c8935,
@@ -142862,7 +143230,8 @@ static const uint64_t ur_m128_u1x12_uart1_noled_ee_hw[] = {
 
 /*
  * m128_u1x12_uart1_noled_ee_ce_u4_hw m128a_u1x12_uart1_noled_ee_ce_hw
- * m128a_u1x12_uart1_noled_ee_ce_u4_hw
+ * m128a_u1x12_uart1_noled_ee_ce_u4_hw ms128_u1x12_uart1_noled_ee_ce_hw
+ * ms128_u1x12_uart1_noled_ee_ce_u4_hw
  */
 static const uint64_t ur_m128_u1x12_uart1_noled_ee_ce_hw[] = {
   0xdb435e0d14683375, 0xeaae9eb97712dddd, 0x9a17b93b4c8eeeee, 0xd3d2eebd36439298, 0x17ebada3312247c6,
@@ -142874,7 +143243,7 @@ static const uint64_t ur_m128_u1x12_uart1_noled_ee_ce_hw[] = {
   0x8bfc0fdffc14d1f6, 0x32c970cf4c2f8d1e, 0x398b7e9296ce1c4e, 0xa29e4e0b9cc59af3, 0x00000000280a6907,
 };
 
-// m128a_u1x12_uart1_lednop
+// m128a_u1x12_uart1_lednop          ms128_u1x12_uart1_lednop
 static const uint64_t ur_m128_u1x12_uart1_lednop[] = {
   0x776d0d783acdc49f, 0xddd55f670bdc4b77, 0xfddf87f466933ddd, 0x68c1f7776442226c, 0x2776a1a9bdc29d7d,
   0x3304f8c048260aef, 0xed3ebe7f8541cfce, 0xa370dfeded5bb74f, 0xd47278ef964879c7, 0xafd2524389206693,
@@ -142883,7 +143252,10 @@ static const uint64_t ur_m128_u1x12_uart1_lednop[] = {
   0x4a5b387138cb25c3, 0x2e73166bcce62dfa, 0x015201cb11ba7938,
 };
 
-// m128_u1x12_uart1_lednop_pr_u4     m128a_u1x12_uart1_lednop_pr       m128a_u1x12_uart1_lednop_pr_u4
+/*
+ * m128_u1x12_uart1_lednop_pr_u4     m128a_u1x12_uart1_lednop_pr       m128a_u1x12_uart1_lednop_pr_u4
+ * ms128_u1x12_uart1_lednop_pr       ms128_u1x12_uart1_lednop_pr_u4
+ */
 static const uint64_t ur_m128_u1x12_uart1_lednop_pr[] = {
   0xbb686bc1a2432aac, 0xeeaafb38ebe25bbb, 0x425f9a5c76a1eeee, 0x79beeee859471d69, 0x989b8248233db7e9,
   0x9f180904c15de4ee, 0xd00ffc2bb3e13e60, 0x1bfdbdab76e9fda7, 0x6b1df2c21f38f46e, 0xfa4871240d05fa8f,
@@ -142893,7 +143265,10 @@ static const uint64_t ur_m128_u1x12_uart1_lednop_pr[] = {
   0x9c389c6592e19e98, 0x8b35e67316fd252d, 0xb1e4ecd13c9c1739, 0x00000000000007c9,
 };
 
-// m128_u1x12_uart1_lednop_pr_ee_u4  m128a_u1x12_uart1_lednop_pr_ee    m128a_u1x12_uart1_lednop_pr_ee_u4
+/*
+ * m128_u1x12_uart1_lednop_pr_ee_u4  m128a_u1x12_uart1_lednop_pr_ee    m128a_u1x12_uart1_lednop_pr_ee_u4
+ * ms128_u1x12_uart1_lednop_pr_ee    ms128_u1x12_uart1_lednop_pr_ee_u4
+ */
 static const uint64_t ur_m128_u1x12_uart1_lednop_pr_ee[] = {
   0xeeda1af06890c582, 0xbbaabe6b62f896ee, 0x168cc7682e841bbb, 0xfd4cd0775228d736, 0x39cb05390d33f764,
   0x80904c15de4eeb62, 0xffc2bb3fbee609f1, 0xb7b56edd3fb4fa9e, 0x6b4738e71e8dc37f, 0x60d31f51e56654d5,
@@ -142904,7 +143279,10 @@ static const uint64_t ur_m128_u1x12_uart1_lednop_pr_ee[] = {
   0x398b35e67316fd25, 0x75cc1cacd13c9c17, 0x0000000000000002,
 };
 
-// m128_u1x12_uart1_lednop_pr_ce_u4  m128a_u1x12_uart1_lednop_pr_ce    m128a_u1x12_uart1_lednop_pr_ce_u4
+/*
+ * m128_u1x12_uart1_lednop_pr_ce_u4  m128a_u1x12_uart1_lednop_pr_ce    m128a_u1x12_uart1_lednop_pr_ce_u4
+ * ms128_u1x12_uart1_lednop_pr_ce    ms128_u1x12_uart1_lednop_pr_ce_u4
+ */
 static const uint64_t ur_m128_u1x12_uart1_lednop_pr_ce[] = {
   0xddb435e0d121b032, 0xeeaaeb902b712ddd, 0x0aa87b42f5ebeeee, 0xf8ef777777f8b413, 0xd86d95e4526433c5,
   0x9f180904c15de4ee, 0x943ffc2bb3f95a60, 0x37fb7b56edd3fb4f, 0x2606fea0a671e8dc, 0x70f3ce10b6f373b7,
@@ -142917,7 +143295,8 @@ static const uint64_t ur_m128_u1x12_uart1_lednop_pr_ce[] = {
 
 /*
  * m128_u1x12_uart1_lednop_pr_ee_ce_u4 m128a_u1x12_uart1_lednop_pr_ee_ce
- * m128a_u1x12_uart1_lednop_pr_ee_ce_u4
+ * m128a_u1x12_uart1_lednop_pr_ee_ce_u4 ms128_u1x12_uart1_lednop_pr_ee_ce
+ * ms128_u1x12_uart1_lednop_pr_ee_ce_u4
  */
 static const uint64_t ur_m128_u1x12_uart1_lednop_pr_ee_ce[] = {
   0xbb686bc1a243306a, 0xdd55d3d706e25bbb, 0x25083605eb33dddd, 0x6d3d2eebd36425df, 0xbced6cde4e467f4c,
@@ -142930,7 +143309,7 @@ static const uint64_t ur_m128_u1x12_uart1_lednop_pr_ee_ce[] = {
   0x262facd13c9c1739, 0x000000000000013f,
 };
 
-// m128a_u1x12_uart1_lednop_ee_hw
+// m128a_u1x12_uart1_lednop_ee_hw    ms128_u1x12_uart1_lednop_ee_hw
 static const uint64_t ur_m128_u1x12_uart1_lednop_ee_hw[] = {
   0x76d0d783451a18e2, 0xdd55f35b17c4b777, 0xb4663b417420dddd, 0xea6683ba9146b9b0, 0xe415a768699fbb27,
   0x180904c15de4ee86, 0xf7ff5933fbee609f, 0xfdbdab76e9fda7d4, 0xab5a39c738f46e1b, 0xb30698fa8f2b32a6,
@@ -142943,7 +143322,8 @@ static const uint64_t ur_m128_u1x12_uart1_lednop_ee_hw[] = {
 
 /*
  * m128_u1x12_uart1_lednop_ee_ce_u4_hw m128a_u1x12_uart1_lednop_ee_ce_hw
- * m128a_u1x12_uart1_lednop_ee_ce_u4_hw
+ * m128a_u1x12_uart1_lednop_ee_ce_u4_hw ms128_u1x12_uart1_lednop_ee_ce_hw
+ * ms128_u1x12_uart1_lednop_ee_ce_u4_hw
  */
 static const uint64_t ur_m128_u1x12_uart1_lednop_ee_ce_hw[] = {
   0xeda1af068a34304a, 0x75574f5c1b896eee, 0x9420d817accf7777, 0xb4f4bbaf4d90977c, 0xb9db55f93919fd31,
@@ -142957,7 +143337,8 @@ static const uint64_t ur_m128_u1x12_uart1_lednop_ee_ce_hw[] = {
 
 /*
  * m128_u1x12_uart1_dual_pr          m128_u1x12_uart1_dual_pr_u4       m128a_u1x12_uart1_dual
- * m128a_u1x12_uart1_dual_pr         m128a_u1x12_uart1_dual_pr_u4
+ * m128a_u1x12_uart1_dual_pr         m128a_u1x12_uart1_dual_pr_u4      ms128_u1x12_uart1_dual
+ * ms128_u1x12_uart1_dual_pr         ms128_u1x12_uart1_dual_pr_u4
  */
 static const uint64_t ur_m128_u1x12_uart1_dual[] = {
   0xee8d775f44860aac, 0xbbaf23d3d95426ee, 0xed06ed2c5bd77bbb, 0xac36eeefd3976af8, 0xfd462a3e3c32d473,
@@ -142971,7 +143352,7 @@ static const uint64_t ur_m128_u1x12_uart1_dual[] = {
   0x49af3eb344f2705c, 0x000000000000000a,
 };
 
-// m128a_u1x12_uart1_dual_pr_ee
+// m128a_u1x12_uart1_dual_pr_ee      ms128_u1x12_uart1_dual_pr_ee
 static const uint64_t ur_m128_u1x12_uart1_dual_pr_ee[] = {
   0x77746bbafd435202, 0xbbbaf234baefa137, 0xa01b17df71b683bb, 0x8908e3ba02a7126b, 0xec2bdeb2b0fb2656,
   0x3057792529dcb8be, 0x523b8f9827c60241, 0x48b59f755a8646d4, 0x74fb97c40c2864fb, 0x17149f99612804a7,
@@ -142984,7 +143365,7 @@ static const uint64_t ur_m128_u1x12_uart1_dual_pr_ee[] = {
   0xe73166bcce62dfa4, 0x64283a2d9a279382,
 };
 
-// m128a_u1x12_uart1_dual_pr_ee_u4
+// m128a_u1x12_uart1_dual_pr_ee_u4   ms128_u1x12_uart1_dual_pr_ee_u4
 static const uint64_t ur_m128_u1x12_uart1_dual_pr_ee_u4[] = {
   0xd1aeebe8a87f3202, 0xebc8d2ebbe84dddd, 0x6c5f7dc6da0eeeee, 0x238ee80a9c49ae80, 0xbdff5bc3ec995a24,
   0x7792529dc6a44af2, 0xb8f9827c60241305, 0x59f755a8646d4523, 0xb97c40c2864fb48b, 0x93f32c253012774f,
@@ -142998,7 +143379,7 @@ static const uint64_t ur_m128_u1x12_uart1_dual_pr_ee_u4[] = {
   0x0000000000ac8948,
 };
 
-// m128a_u1x12_uart1_dual_pr_ce
+// m128a_u1x12_uart1_dual_pr_ce      ms128_u1x12_uart1_dual_pr_ce
 static const uint64_t ur_m128_u1x12_uart1_dual_pr_ce[] = {
   0x746bbafd41435202, 0xdd7930aa2fa13777, 0xfbfb5a16d4d7dddd, 0x1ab7774c894a2af4, 0x5f765a0eb2947eb5,
   0x20982bbc9b82ee5c, 0xb51480b24c13e301, 0x3ed22d67dd56a191, 0x29dd3ee5f1030a19, 0x6f8beed7e6584a01,
@@ -143011,7 +143392,7 @@ static const uint64_t ur_m128_u1x12_uart1_dual_pr_ce[] = {
   0xe67316fd252d9c38, 0x2cd13c9c17398b35, 0x0000000000692268,
 };
 
-// m128a_u1x12_uart1_dual_pr_ce_u4
+// m128a_u1x12_uart1_dual_pr_ce_u4   ms128_u1x12_uart1_dual_pr_ce_u4
 static const uint64_t ur_m128_u1x12_uart1_dual_pr_ce_u4[] = {
   0xd1aeebe8a87fbb90, 0xbaf21fbeee84dddd, 0xfebbd07dae17bbbb, 0xbf7775a71d644faa, 0xf5feaecdd086bbe8,
   0x60aef24dd3b9bb19, 0xa4271f304f8c0482, 0x916b3eeab50c8da8, 0xe9f72f881850c9f6, 0x5e007e6584a6024e,
@@ -143025,7 +143406,7 @@ static const uint64_t ur_m128_u1x12_uart1_dual_pr_ce_u4[] = {
   0x00000001a499ff86,
 };
 
-// m128a_u1x12_uart1_dual_pr_ee_ce
+// m128a_u1x12_uart1_dual_pr_ee_ce   ms128_u1x12_uart1_dual_pr_ee_ce
 static const uint64_t ur_m128_u1x12_uart1_dual_pr_ee_ce[] = {
   0xddddd1aeebf50c86, 0xdddddd7909026e84, 0xbdd9b403b609bc7f, 0x907d645d96ea724f, 0x8233a96453a19cc8,
   0x120982bbc99c4ee7, 0xb5148e3c9cc13e30, 0x3ed22d67dd56a191, 0x29dd3ee5f1030a19, 0xcf8bb21fe6584a01,
@@ -143038,7 +143419,7 @@ static const uint64_t ur_m128_u1x12_uart1_dual_pr_ee_ce[] = {
   0xc970cf4c2b93f756, 0x8b7e9296ce1c4e32, 0x9e4e0b9cc59af339, 0x000000982371f668,
 };
 
-// m128a_u1x12_uart1_dual_pr_ee_ce_u4
+// m128a_u1x12_uart1_dual_pr_ee_ce_u4 ms128_u1x12_uart1_dual_pr_ee_ce_u4
 static const uint64_t ur_m128_u1x12_uart1_dual_pr_ee_ce_u4[] = {
   0x46bbafa2a1fc746e, 0x5e4866fe1a137777, 0x41dd656d6d377777, 0xf6ebad859717d7bb, 0x8bde08787608b055,
   0x6ee0cb5953834e90, 0x7c6024130577939f, 0x43236a291f107982, 0x14327da45acfbaad, 0x298093ba7dcbe206,
@@ -143052,7 +143433,7 @@ static const uint64_t ur_m128_u1x12_uart1_dual_pr_ee_ce_u4[] = {
   0xeffe0a68fb19d871, 0x67a617c68f45fe07, 0x494b670e271964b8, 0x05ce62cd799cc5bf, 0x1000eacdd5524f27,
 };
 
-// m128a_u1x12_uart1_dual_ee_hw
+// m128a_u1x12_uart1_dual_ee_hw      ms128_u1x12_uart1_dual_ee_hw
 static const uint64_t ur_m128_u1x12_uart1_dual_ee_hw[] = {
   0xe8d775f451a3b46e, 0x75e46975df426eee, 0x362fbee36d077777, 0x11c774054e24d740, 0xfb469d61f64cad12,
   0x0aef24a53bbcd7fa, 0x4771f304f8c04826, 0x16b3eeab50c8da8a, 0x9f72f881850c9f69, 0xe293f32c253a0cee,
@@ -143065,7 +143446,10 @@ static const uint64_t ur_m128_u1x12_uart1_dual_ee_hw[] = {
   0x33d30be347a2ff03, 0xa4a5b387138cb25c, 0x82e73166bcce62df, 0x0015daa45928a793,
 };
 
-// m128_u1x12_uart1_dual_ee_ce_u4_hw m128a_u1x12_uart1_dual_ee_ce_hw   m128a_u1x12_uart1_dual_ee_ce_u4_hw
+/*
+ * m128_u1x12_uart1_dual_ee_ce_u4_hw m128a_u1x12_uart1_dual_ee_ce_hw   m128a_u1x12_uart1_dual_ee_ce_u4_hw
+ * ms128_u1x12_uart1_dual_ee_ce_hw   ms128_u1x12_uart1_dual_ee_ce_u4_hw
+ */
 static const uint64_t ur_m128_u1x12_uart1_dual_ee_ce_hw[] = {
   0x746bbafa28d0f2df, 0x75e4866fe1a13777, 0xb41dd656d6d37777, 0x5f6ebad859717d7b, 0x16d1e08787608b05,
   0xc9cfb776906da7da, 0x3cc13e30120982bb, 0xdd56a191b5148f88, 0xf1030a193ed22d67, 0xe6584a7419dd3ee5,
@@ -143079,7 +143463,10 @@ static const uint64_t ur_m128_u1x12_uart1_dual_ee_ce_hw[] = {
   0x87138cb25c33d30b, 0x66bcce62dfa4a5b3, 0xb19a28a79382e731, 0x0000000000000eba,
 };
 
-// m128_u2x8_uart0_noled_pr          m128a_u2x8_uart0_noled            m128a_u2x8_uart0_noled_pr
+/*
+ * m128_u2x8_uart0_noled_pr          m128a_u2x8_uart0_noled            m128a_u2x8_uart0_noled_pr
+ * ms128_u2x8_uart0_noled            ms128_u2x8_uart0_noled_pr
+ */
 static const uint64_t ur_m128_u2x8_uart0_noled[] = {
   0x96eeeeebbb59bb37, 0xfbbbbbaabb0e6ef8, 0x2789bf12276b4d1a, 0x8448bebf77748822, 0xbc9dd85eb478f412,
   0xf24c13e30120982b, 0xb7aac5affe15073f, 0xc27c5a76849c126b, 0x4818fbf51ebf9df2, 0x596530df59f490e2,
@@ -143088,7 +143475,7 @@ static const uint64_t ur_m128_u2x8_uart0_noled[] = {
   0xc970cf4c2b93f756, 0x8b7e9296ce1c4e32, 0x9e4e0b9cc59af339, 0x000003e41b8fc46e,
 };
 
-// m128a_u2x8_uart0_noled_pr_u4
+// m128a_u2x8_uart0_noled_pr_u4      ms128_u2x8_uart0_noled_pr_u4
 static const uint64_t ur_m128_u2x8_uart0_noled_pr_u4[] = {
   0x777775dd44861c3b, 0xddddd55d87377c4b, 0xc4df8913b5a68d7d, 0x245f5fbbba441113, 0x3bb42fe9f8f31342,
   0x9827c60241305779, 0xaac5afff85767fe4, 0x7c5a76849c126bb7, 0x18fbf51ebf9df2c2, 0x6530df59f490e248,
@@ -143098,7 +143485,10 @@ static const uint64_t ur_m128_u2x8_uart0_noled_pr_u4[] = {
   0x2705ce62cd799cc5, 0x0003e4e5164b344f,
 };
 
-// m128_u2x8_uart0_noled_pr_ee_u4    m128a_u2x8_uart0_noled_pr_ee      m128a_u2x8_uart0_noled_pr_ee_u4
+/*
+ * m128_u2x8_uart0_noled_pr_ee_u4    m128a_u2x8_uart0_noled_pr_ee      m128a_u2x8_uart0_noled_pr_ee_u4
+ * ms128_u2x8_uart0_noled_pr_ee      ms128_u2x8_uart0_noled_pr_ee_u4
+ */
 static const uint64_t ur_m128_u2x8_uart0_noled_pr_ee[] = {
   0xbbbbbaeea2432493, 0xddddd55d720f4e25, 0x63f3175fa6c695bd, 0x001c17c2f7777bc9, 0x0580aa8ad8968537,
   0xf8c048260aef2776, 0xf77fe15d9f74b304, 0x9da127049aedeab3, 0xcae719aad68e6e16, 0x0f51f06cc18f9ea3,
@@ -143109,7 +143499,10 @@ static const uint64_t ur_m128_u2x8_uart0_noled_pr_ee[] = {
   0x00000009d782ed59,
 };
 
-// m128_u2x8_uart0_noled_pr_ce_u4    m128a_u2x8_uart0_noled_pr_ce      m128a_u2x8_uart0_noled_pr_ce_u4
+/*
+ * m128_u2x8_uart0_noled_pr_ce_u4    m128a_u2x8_uart0_noled_pr_ce      m128a_u2x8_uart0_noled_pr_ce_u4
+ * ms128_u2x8_uart0_noled_pr_ce      ms128_u2x8_uart0_noled_pr_ce_u4
+ */
 static const uint64_t ur_m128_u2x8_uart0_noled_pr_ce[] = {
   0xdddddd7751218375, 0x777775577906a712, 0xc2fa8635f504d643, 0x53d3db7bbbbc1d22, 0x93ba645a7505b0d8,
   0x69827c6024130577, 0xf55952bff0aecfa5, 0x920b4ed093824d76, 0x0b6f373b0f606feb, 0x1b0913d9670f3ce1,
@@ -143120,7 +143513,10 @@ static const uint64_t ur_m128_u2x8_uart0_noled_pr_ce[] = {
   0x0000001bae9562b3,
 };
 
-// m128_u2x8_uart0_noled_pr_ee_ce_u4 m128a_u2x8_uart0_noled_pr_ee_ce   m128a_u2x8_uart0_noled_pr_ee_ce_u4
+/*
+ * m128_u2x8_uart0_noled_pr_ee_ce_u4 m128a_u2x8_uart0_noled_pr_ee_ce   m128a_u2x8_uart0_noled_pr_ee_ce_u4
+ * ms128_u2x8_uart0_noled_pr_ee_ce   ms128_u2x8_uart0_noled_pr_ee_ce_u4
+ */
 static const uint64_t ur_m128_u2x8_uart0_noled_pr_ee_ce[] = {
   0x777775dd44864c7f, 0xddddd55e0c971c4b, 0xa284056f65dec71d, 0x69dc4bafdd6a6a6d, 0x3e75b0dd5ae4a624,
   0xf180904c15de4eeb, 0x3fff85767ec7e609, 0xed093824d76f5594, 0xb8ac06fea8e438b4, 0x9670f3ce10b6f373,
@@ -143131,7 +143527,7 @@ static const uint64_t ur_m128_u2x8_uart0_noled_pr_ee_ce[] = {
   0x7f81fbff829a3ec6, 0x592e19e985f1a3d1, 0x316fd252d9c389c6, 0x13c9c17398b35e67, 0x0000004fcb6dd6cd,
 };
 
-// m128a_u2x8_uart0_noled_ee_hw
+// m128a_u2x8_uart0_noled_ee_hw      ms128_u2x8_uart0_noled_ee_hw
 static const uint64_t ur_m128_u2x8_uart0_noled_ee_hw[] = {
   0xddddd7751468fc3b, 0xeeeeaaeb907a712d, 0x1f98bafd3634adee, 0x00e0be17bbbbde4b, 0x448b33d0dcb429b8,
   0x4f8c048260aef277, 0x9fbbffac99f74b30, 0xb4ed093824d76f55, 0x1e5738cd56b47370, 0x807a8f83660c7cf5,
@@ -143141,7 +143537,10 @@ static const uint64_t ur_m128_u2x8_uart0_noled_ee_hw[] = {
   0xf1a3d17f81fbff82, 0xc389c6592e19e985, 0xb35e67316fd252d9, 0xea429453c9c17398, 0x00000000000005be,
 };
 
-// m128_u2x8_uart0_noled_ee_ce_u4_hw m128a_u2x8_uart0_noled_ee_ce_hw   m128a_u2x8_uart0_noled_ee_ce_u4_hw
+/*
+ * m128_u2x8_uart0_noled_ee_ce_u4_hw m128a_u2x8_uart0_noled_ee_ce_hw   m128a_u2x8_uart0_noled_ee_ce_u4_hw
+ * ms128_u2x8_uart0_noled_ee_ce_hw   ms128_u2x8_uart0_noled_ee_ce_u4_hw
+ */
 static const uint64_t ur_m128_u2x8_uart0_noled_ee_ce_hw[] = {
   0xddddd7751468b044, 0x77775578325c712d, 0x8a1015bd977b1c77, 0xa7712ebf75a9a9b6, 0x9c458b7aef929891,
   0x3e30120982bbc9dd, 0x43fffd64cfd8fcc1, 0x4ed093824d76f559, 0x3b8ac06fea8e438b, 0xb2ce1e79c216fc87,
@@ -143152,7 +143551,10 @@ static const uint64_t ur_m128_u2x8_uart0_noled_ee_ce_hw[] = {
   0x389c6592e19e985f, 0x35e67316fd252d9c, 0x09a7453c9c17398b, 0x000000000000a026,
 };
 
-// m128_u2x8_uart0_lednop_pr         m128a_u2x8_uart0_lednop           m128a_u2x8_uart0_lednop_pr
+/*
+ * m128_u2x8_uart0_lednop_pr         m128a_u2x8_uart0_lednop           m128a_u2x8_uart0_lednop_pr
+ * ms128_u2x8_uart0_lednop           ms128_u2x8_uart0_lednop_pr
+ */
 static const uint64_t ur_m128_u2x8_uart0_lednop[] = {
   0xb777775ddacdfc4f, 0xdddddd55d87383c4, 0x9b4fda38f4bdef8b, 0xfbbd0e6eeee6b1e0, 0x2777c7e145c490d9,
   0x3304f8c048260aef, 0xeab322ff8541cfa6, 0xac169da127049aed, 0x0333dea3b5f1df2d, 0xdee9b7be7a921c49,
@@ -143161,7 +143563,7 @@ static const uint64_t ur_m128_u2x8_uart0_lednop[] = {
   0x9c389c6592e19e98, 0x8b35e67316fd252d, 0x0f2f88dd3c9c1739, 0x00000000000007c8,
 };
 
-// m128a_u2x8_uart0_lednop_pr_u4
+// m128a_u2x8_uart0_lednop_pr_u4     ms128_u2x8_uart0_lednop_pr_u4
 static const uint64_t ur_m128_u2x8_uart0_lednop_pr_u4[] = {
   0x777775dd44863f3e, 0xddddd55d87367c4b, 0xdfe2438b5d7eb11d, 0x509ab6eee910444d, 0x9dd083c882fe4b5a,
   0x4c13e30120982bbc, 0xeab221ffc2bb3f37, 0x9f169da127049aed, 0x063efd4759e77cb0, 0x96530f9d05243892,
@@ -143171,7 +143573,10 @@ static const uint64_t ur_m128_u2x8_uart0_lednop_pr_u4[] = {
   0x398b35e67316fd25, 0xc9c69f2cd13c9c17, 0x0000000000000007,
 };
 
-// m128_u2x8_uart0_lednop_pr_ee_u4   m128a_u2x8_uart0_lednop_pr_ee     m128a_u2x8_uart0_lednop_pr_ee_u4
+/*
+ * m128_u2x8_uart0_lednop_pr_ee_u4   m128a_u2x8_uart0_lednop_pr_ee     m128a_u2x8_uart0_lednop_pr_ee_u4
+ * ms128_u2x8_uart0_lednop_pr_ee     ms128_u2x8_uart0_lednop_pr_ee_u4
+ */
 static const uint64_t ur_m128_u2x8_uart0_lednop_pr_ee[] = {
   0xdddddd775121be4a, 0x777775575c861512, 0x8f4ec78cdc5fa6ef, 0x3c79c17c2f7777bc, 0x4dd1da23e3d8d85a,
   0x4f8c048260aef277, 0x3e77fe15d9f2eb30, 0x69da127049aedeab, 0x3cacf59aad68e6e1, 0xa8f51f06cc18f9ea,
@@ -143182,7 +143587,10 @@ static const uint64_t ur_m128_u2x8_uart0_lednop_pr_ee[] = {
   0x04ebcafc36689e4e,
 };
 
-// m128_u2x8_uart0_lednop_pr_ce_u4   m128a_u2x8_uart0_lednop_pr_ce     m128a_u2x8_uart0_lednop_pr_ce_u4
+/*
+ * m128_u2x8_uart0_lednop_pr_ce_u4   m128a_u2x8_uart0_lednop_pr_ce     m128a_u2x8_uart0_lednop_pr_ce_u4
+ * ms128_u2x8_uart0_lednop_pr_ce     ms128_u2x8_uart0_lednop_pr_ce_u4
+ */
 static const uint64_t ur_m128_u2x8_uart0_lednop_pr_ce[] = {
   0xbbbbbaeea2431768, 0xeeeeeaaef2164e25, 0xa9c2f623a56f419e, 0x985171dddde0e915, 0x4eeb336c56450520,
   0xe609f180904c15de, 0xd56393ffc2bb3f21, 0x482d3b424e0935db, 0x16de6e76fe01bfae, 0x361227b2ce1e79c2,
@@ -143195,7 +143603,8 @@ static const uint64_t ur_m128_u2x8_uart0_lednop_pr_ce[] = {
 
 /*
  * m128_u2x8_uart0_lednop_pr_ee_ce_u4 m128a_u2x8_uart0_lednop_pr_ee_ce
- * m128a_u2x8_uart0_lednop_pr_ee_ce_u4
+ * m128a_u2x8_uart0_lednop_pr_ee_ce_u4 ms128_u2x8_uart0_lednop_pr_ee_ce
+ * ms128_u2x8_uart0_lednop_pr_ee_ce_u4
  */
 static const uint64_t ur_m128_u2x8_uart0_lednop_pr_ee_ce[] = {
   0xbbbbbaeea243173e, 0xeeeeeaaf0654ce25, 0x71b45377b06f6e0e, 0x82dc4bafdd6a6a6d, 0xdd5794a51f977c96,
@@ -143208,7 +143617,7 @@ static const uint64_t ur_m128_u2x8_uart0_lednop_pr_ee_ce[] = {
   0x0000000000000002,
 };
 
-// m128a_u2x8_uart0_lednop_ee_hw
+// m128a_u2x8_uart0_lednop_ee_hw     ms128_u2x8_uart0_lednop_ee_hw
 static const uint64_t ur_m128_u2x8_uart0_lednop_ee_hw[] = {
   0xddddd775146851eb, 0x77775575c861512d, 0xf4ec78cdc5fa6ef7, 0xc79c17c2f7777bc8, 0xea3329da528d85a3,
   0x09f180904c15de4e, 0xb3e77ff5933e5d66, 0x169da127049aedea, 0xa3cacf59aad68e6e, 0xfa8f51f06cc18f9e,
@@ -143220,7 +143629,8 @@ static const uint64_t ur_m128_u2x8_uart0_lednop_ee_hw[] = {
 
 /*
  * m128_u2x8_uart0_lednop_ee_ce_u4_hw m128a_u2x8_uart0_lednop_ee_ce_hw
- * m128a_u2x8_uart0_lednop_ee_ce_u4_hw
+ * m128a_u2x8_uart0_lednop_ee_ce_u4_hw ms128_u2x8_uart0_lednop_ee_ce_hw
+ * ms128_u2x8_uart0_lednop_ee_ce_u4_hw
  */
 static const uint64_t ur_m128_u2x8_uart0_lednop_ee_ce_hw[] = {
   0xbbbbaeea28d01107, 0xeeeeaaf0654ce25b, 0x1b45377b06f6e0ee, 0x2dc4bafdd6a6a6d7, 0x4cb17dcfb977c968,
@@ -143234,7 +143644,8 @@ static const uint64_t ur_m128_u2x8_uart0_lednop_ee_ce_hw[] = {
 
 /*
  * m128_u2x8_uart0_dual_pr           m128_u2x8_uart0_dual_pr_u4        m128a_u2x8_uart0_dual
- * m128a_u2x8_uart0_dual_pr          m128a_u2x8_uart0_dual_pr_u4
+ * m128a_u2x8_uart0_dual_pr          m128a_u2x8_uart0_dual_pr_u4       ms128_u2x8_uart0_dual
+ * ms128_u2x8_uart0_dual_pr          ms128_u2x8_uart0_dual_pr_u4
  */
 static const uint64_t ur_m128_u2x8_uart0_dual[] = {
   0xdddddf174486ff3e, 0x77775e46a6d8a84d, 0x38a5233dd95a9337, 0x76999eeee9a5a66d, 0xad07eae55fd7b57c,
@@ -143247,7 +143658,7 @@ static const uint64_t ur_m128_u2x8_uart0_dual[] = {
   0xfdffc14d1f633b0e, 0x0cf4c2f8d1e8bfc0, 0xe9296ce1c4e32c97, 0xe0b9cc59af3398b7, 0x002926ae0b6689e4,
 };
 
-// m128a_u2x8_uart0_dual_pr_ee
+// m128a_u2x8_uart0_dual_pr_ee       ms128_u2x8_uart0_dual_pr_ee
 static const uint64_t ur_m128_u2x8_uart0_dual_pr_ee[] = {
   0x77777c5ea0a1a5fb, 0xbbbaf21fbaafa137, 0xdfb4e5b5dfbb37bb, 0x537d3b75a720a75b, 0xb19c30a26ba014fb,
   0x15de49ba7728c459, 0x8f5aa609f180904c, 0x2d67dd56a191b514, 0x3ee5f1030a193ed2, 0xe007e6584a0129dd,
@@ -143260,7 +143671,7 @@ static const uint64_t ur_m128_u2x8_uart0_dual_pr_ee[] = {
   0x5bf494b670e27196, 0xf2705ce62cd799cc, 0x0000002b240ab344,
 };
 
-// m128a_u2x8_uart0_dual_pr_ee_u4
+// m128a_u2x8_uart0_dual_pr_ee_u4    ms128_u2x8_uart0_dual_pr_ee_u4
 static const uint64_t ur_m128_u2x8_uart0_dual_pr_ee_u4[] = {
   0xbbbbbbe2e890cf68, 0xddddd790fdf5dd09, 0xdb1abed6a8fea01d, 0xf62ea6fa76e94e69, 0x7045580f8ceab43a,
   0x02413057793625dc, 0x46d4522e4a9827c6, 0x64fb48b59f755a86, 0x04a774fb97c40c28, 0x9dbe2f6b7f996128,
@@ -143273,7 +143684,7 @@ static const uint64_t ur_m128_u2x8_uart0_dual_pr_ee_u4[] = {
   0xb7e9296ce1c4e32c, 0xe4e0b9cc59af3398, 0x00000564bab76689,
 };
 
-// m128a_u2x8_uart0_dual_pr_ce
+// m128a_u2x8_uart0_dual_pr_ce       ms128_u2x8_uart0_dual_pr_ce
 static const uint64_t ur_m128_u2x8_uart0_dual_pr_ce[] = {
   0x77777c587ad0cf68, 0x77775e4c5f5aa137, 0x5f3ed266f77b5c77, 0x57962dddd7640287, 0x1c115634f19d227d,
   0x80904c15de4b3377, 0x91b514867ae609f1, 0x193ed22d67dd56a1, 0x0129dd3ee5f1030a, 0x2d6f8bd6ffe6584a,
@@ -143286,7 +143697,7 @@ static const uint64_t ur_m128_u2x8_uart0_dual_pr_ce[] = {
   0xd9c389c6592e19e9, 0x98b35e67316fd252, 0x92042ecd13c9c173, 0x0000000000000006,
 };
 
-// m128a_u2x8_uart0_dual_pr_ce_u4
+// m128a_u2x8_uart0_dual_pr_ce_u4    ms128_u2x8_uart0_dual_pr_ce_u4
 static const uint64_t ur_m128_u2x8_uart0_dual_pr_ce_u4[] = {
   0xbbbbbbe2e890cf68, 0xddddd79317957d09, 0xf6cf8eb6a8fea01d, 0x75d396eeeb332949, 0xb8e08ab01f19d568,
   0x8c048260aef26273, 0x8646d4523a9d304f, 0x2864fb48b59f755a, 0x2804a774fb97c40c, 0x1c034717d35f9961,
@@ -143299,7 +143710,7 @@ static const uint64_t ur_m128_u2x8_uart0_dual_pr_ce_u4[] = {
   0xe9296ce1c4e32c97, 0xe0b9cc59af3398b7, 0x000d24bab76689e4,
 };
 
-// m128a_u2x8_uart0_dual_pr_ee_ce
+// m128a_u2x8_uart0_dual_pr_ee_ce    ms128_u2x8_uart0_dual_pr_ee_ce
 static const uint64_t ur_m128_u2x8_uart0_dual_pr_ee_ce[] = {
   0x09bbbbbbe2f50c86, 0xfeeeeeebc8a6fdc5, 0xf0fb265cedb04de3, 0x9eec2029dba5abae, 0x8233a96453a19cc8,
   0x120982bbc9d94ee7, 0xda8a41662cc13e30, 0x9f6916b3eeab50c8, 0x94ee9f72f881850c, 0x87c5e92bf32c2500,
@@ -143312,7 +143723,7 @@ static const uint64_t ur_m128_u2x8_uart0_dual_pr_ee_ce[] = {
   0xcb25c33d30ae4fdd, 0xe62dfa4a5b387138, 0xa279382e73166bcc, 0x00000002608dc7d9,
 };
 
-// m128a_u2x8_uart0_dual_pr_ee_ce_u4
+// m128a_u2x8_uart0_dual_pr_ee_ce_u4 ms128_u2x8_uart0_dual_pr_ee_ce_u4
 static const uint64_t ur_m128_u2x8_uart0_dual_pr_ee_ce_u4[] = {
   0xddddf174543fb69f, 0xddd790dde66e84dd, 0xf366f5fc3aa31ddd, 0x88f6dd1d7b9d3683, 0xd42022e2faf7ee3c,
   0x253eddc5f582da35, 0xf304f8c048260aef, 0x755a8646d4521e20, 0xc40c2864fb48b59f, 0x32c253012774fb97,
@@ -143326,7 +143737,7 @@ static const uint64_t ur_m128_u2x8_uart0_dual_pr_ee_ce_u4[] = {
   0x2c970cf4c2f8d1e8, 0x98b7e9296ce1c4e3, 0x49e4e0b9cc59af33, 0x00000200397e1aaa,
 };
 
-// m128a_u2x8_uart0_dual_ee_hw
+// m128a_u2x8_uart0_dual_ee_hw       ms128_u2x8_uart0_dual_ee_hw
 static const uint64_t ur_m128_u2x8_uart0_dual_ee_hw[] = {
   0xbbbbbbe2e8a342db, 0xddddd790fdd57d09, 0xdefda72daefdd9bd, 0xda9be9dbad39053a, 0x330a6b5d535d00a7,
   0x4130577926e9dc3c, 0xd4523d6a9827c602, 0xfb48b59f755a8646, 0x6774fb97c40c2864, 0xff17801f996129d0,
@@ -143339,7 +143750,10 @@ static const uint64_t ur_m128_u2x8_uart0_dual_ee_hw[] = {
   0x16fd252d9c389c65, 0x3c9c17398b35e673, 0x0000015da0a42945,
 };
 
-// m128_u2x8_uart0_dual_ee_ce_u4_hw  m128a_u2x8_uart0_dual_ee_ce_hw    m128a_u2x8_uart0_dual_ee_ce_u4_hw
+/*
+ * m128_u2x8_uart0_dual_ee_ce_u4_hw  m128a_u2x8_uart0_dual_ee_ce_hw    m128a_u2x8_uart0_dual_ee_ce_u4_hw
+ * ms128_u2x8_uart0_dual_ee_ce_hw    ms128_u2x8_uart0_dual_ee_ce_u4_hw
+ */
 static const uint64_t ur_m128_u2x8_uart0_dual_ee_ce_hw[] = {
   0x77777c5d1468b202, 0x7775e437799ba137, 0xfcd9bd7f0ea8c777, 0x223db7475ee74da0, 0x1d9016b8bebdfb8f,
   0x15de4a7dbb99bd60, 0x3c41e609f180904c, 0x6b3eeab50c8da8a4, 0xf72f881850c9f691, 0xa47f32c253a0cee9,
@@ -143353,7 +143767,10 @@ static const uint64_t ur_m128_u2x8_uart0_dual_ee_ce_hw[] = {
   0xe73166bcce62dfa4, 0x1d750ee428a79382,
 };
 
-// m128_u2x8_uart1_noled_pr          m128a_u2x8_uart1_noled            m128a_u2x8_uart1_noled_pr
+/*
+ * m128_u2x8_uart1_noled_pr          m128a_u2x8_uart1_noled            m128a_u2x8_uart1_noled_pr
+ * ms128_u2x8_uart1_noled            ms128_u2x8_uart1_noled_pr
+ */
 static const uint64_t ur_m128_u2x8_uart1_noled[] = {
   0xb777776d0f59bb37, 0xdddddd55f67183c4, 0x226eac1c5b5a68d7, 0x28448bc1f7776442, 0xbbc9dd85eb478f41,
   0xfa54c13e30120982, 0xd3fb4f829fe15073, 0xc7a3668c6390dbed, 0x93d47e78ef964879, 0x6deebfd243892066,
@@ -143362,7 +143779,7 @@ static const uint64_t ur_m128_u2x8_uart1_noled[] = {
   0x1c4e32c970cf4c2b, 0x9af3398b7e9296ce, 0x8fc46e9e4e0b9cc5, 0x000000000003e41b,
 };
 
-// m128a_u2x8_uart1_noled_pr_u4
+// m128a_u2x8_uart1_noled_pr_u4      ms128_u2x8_uart1_noled_pr_u4
 static const uint64_t ur_m128_u2x8_uart1_noled_pr_u4[] = {
   0xeeeeeda1d121b562, 0xddddd55f672b4896, 0x4224553376de8dbd, 0xf1fe0fbbba1651c7, 0x774d2c71b26247d2,
   0x304f8c048260aef2, 0x69f053ff0aecfe95, 0x6cd18c721b7dba7f, 0x8fd01df2c21f38f4, 0x6d6a4871240d05fa,
@@ -143372,7 +143789,10 @@ static const uint64_t ur_m128_u2x8_uart1_noled_pr_u4[] = {
   0x8b7e9296ce1c4e32, 0x9e4e0b9cc59af339, 0x000003e4e9c95668,
 };
 
-// m128_u2x8_uart1_noled_pr_ee_u4    m128a_u2x8_uart1_noled_pr_ee      m128a_u2x8_uart1_noled_pr_ee_u4
+/*
+ * m128_u2x8_uart1_noled_pr_ee_u4    m128a_u2x8_uart1_noled_pr_ee      m128a_u2x8_uart1_noled_pr_ee_u4
+ * ms128_u2x8_uart1_noled_pr_ee      ms128_u2x8_uart1_noled_pr_ee_u4
+ */
 static const uint64_t ur_m128_u2x8_uart1_noled_pr_ee[] = {
   0xeeeeeda1d1219541, 0xddddd55f358d8896, 0x685365c7469ed0bd, 0x53f53341dd48a35d, 0x3bed533d947ec19b,
   0xc602413057793bad, 0x2fff0aecfe049827, 0x18e436fb74fed3e5, 0x56b4738e71e8d9a3, 0x660d31f51e57224d,
@@ -143383,7 +143803,10 @@ static const uint64_t ur_m128_u2x8_uart1_noled_pr_ee[] = {
   0x3c9c17398b35e673, 0x00000275f2ab2cd1,
 };
 
-// m128_u2x8_uart1_noled_pr_ce_u4    m128a_u2x8_uart1_noled_pr_ce      m128a_u2x8_uart1_noled_pr_ce_u4
+/*
+ * m128_u2x8_uart1_noled_pr_ce_u4    m128a_u2x8_uart1_noled_pr_ce      m128a_u2x8_uart1_noled_pr_ce_u4
+ * ms128_u2x8_uart1_noled_pr_ce      ms128_u2x8_uart1_noled_pr_ce_u4
+ */
 static const uint64_t ur_m128_u2x8_uart1_noled_pr_ce[] = {
   0xeeeeeda1d121af43, 0xbbbbaabae4104896, 0x14f4c6dec33d697b, 0xcd805fbbbbbbfc5e, 0x3baec95f7d39c58b,
   0x9827c60241305779, 0xd3e70fff0aecfb05, 0xd9a318e436fb74fe, 0xba9406fea0a671e8, 0x9670f3ce10b6f373,
@@ -143394,7 +143817,10 @@ static const uint64_t ur_m128_u2x8_uart1_noled_pr_ce[] = {
   0x344f2705ce62cd79, 0x00000000dd7e343b,
 };
 
-// m128_u2x8_uart1_noled_pr_ee_ce_u4 m128a_u2x8_uart1_noled_pr_ee_ce   m128a_u2x8_uart1_noled_pr_ee_ce_u4
+/*
+ * m128_u2x8_uart1_noled_pr_ee_ce_u4 m128a_u2x8_uart1_noled_pr_ee_ce   m128a_u2x8_uart1_noled_pr_ee_ce_u4
+ * ms128_u2x8_uart1_noled_pr_ee_ce   ms128_u2x8_uart1_noled_pr_ee_ce_u4
+ */
 static const uint64_t ur_m128_u2x8_uart1_noled_pr_ee_ce[] = {
   0xdddddb43a243704a, 0xeeeeaae9eb97712d, 0x2989a17b93b4c8ee, 0x7c6d3d2eebd36439, 0x74d7015dda331224,
   0x30120982bbc9dd1d, 0x1ff85767dfe4c13e, 0xc721b7dba7f69f0d, 0xf54652f38f46cd18, 0x7085b79b9da5a037,
@@ -143406,7 +143832,7 @@ static const uint64_t ur_m128_u2x8_uart1_noled_pr_ee_ce[] = {
   0x000027e4a6b59a27,
 };
 
-// m128a_u2x8_uart1_noled_ee_hw
+// m128a_u2x8_uart1_noled_ee_hw      ms128_u2x8_uart1_noled_ee_hw
 static const uint64_t ur_m128_u2x8_uart1_noled_ee_hw[] = {
   0x77776d0e8a341202, 0xeeeeaaf9ac6c44b7, 0x429b2e3a34f685ee, 0x9fa99a0eea451aeb, 0x626c3680a3f60cda,
   0x7c602413057793bb, 0x297ffd64cfe04982, 0x18c721b7dba7f69f, 0x6ab5a39c738f46cd, 0x1b30698fa8f2b912,
@@ -143417,7 +143843,10 @@ static const uint64_t ur_m128_u2x8_uart1_noled_ee_hw[] = {
   0x000000000000b7e8,
 };
 
-// m128_u2x8_uart1_noled_ee_ce_u4_hw m128a_u2x8_uart1_noled_ee_ce_hw   m128a_u2x8_uart1_noled_ee_ce_u4_hw
+/*
+ * m128_u2x8_uart1_noled_ee_ce_u4_hw m128a_u2x8_uart1_noled_ee_ce_hw   m128a_u2x8_uart1_noled_ee_ce_u4_hw
+ * ms128_u2x8_uart1_noled_ee_ce_hw   ms128_u2x8_uart1_noled_ee_ce_u4_hw
+ */
 static const uint64_t ur_m128_u2x8_uart1_noled_ee_ce_hw[] = {
   0xeeeeda1d14683375, 0x7775574f5cbb896e, 0x4c4d0bdc9da64777, 0xe369e9775e9b21c9, 0xaa8bf5d6d1989123,
   0xc602413057793bb1, 0xd1ffd64cfbfc9827, 0x8c721b7dba7f69f0, 0x7f54652f38f46cd1, 0xce10b7e439da5a03,
@@ -143428,7 +143857,7 @@ static const uint64_t ur_m128_u2x8_uart1_noled_ee_ce_hw[] = {
   0x3d17f81fbff829a3, 0x9c6592e19e985f1a, 0xe67316fd252d9c38, 0x0f453c9c17398b35, 0x00000000005014d2,
 };
 
-// m128a_u2x8_uart1_lednop
+// m128a_u2x8_uart1_lednop           ms128_u2x8_uart1_lednop
 static const uint64_t ur_m128_u2x8_uart1_lednop[] = {
   0xbbbbbb687acdc49f, 0xeeeeeaafb385ee25, 0x367eefc3fa33499e, 0xbeb460fbbbb22111, 0x7793bb50d4dee14e,
   0xe719827c60241305, 0xa7f69f5f3fc2a0e7, 0x8f46cd18c721b7db, 0x27a8e4f1df2c90f3, 0xcb5fa4a4871240cd,
@@ -143437,7 +143866,10 @@ static const uint64_t ur_m128_u2x8_uart1_lednop[] = {
   0xf494b670e271964b, 0x705ce62cd799cc5b, 0x0002a403962374f2,
 };
 
-// m128_u2x8_uart1_lednop_pr_u4      m128a_u2x8_uart1_lednop_pr        m128a_u2x8_uart1_lednop_pr_u4
+/*
+ * m128_u2x8_uart1_lednop_pr_u4      m128a_u2x8_uart1_lednop_pr        m128a_u2x8_uart1_lednop_pr_u4
+ * ms128_u2x8_uart1_lednop_pr        ms128_u2x8_uart1_lednop_pr_u4
+ */
 static const uint64_t ur_m128_u2x8_uart1_lednop_pr[] = {
   0xdddddb43a2432aac, 0x7777557d9c75f12d, 0xb4a12fcd2e3b50f7, 0xf4bcdf77742ca38e, 0x774c4dc124119edb,
   0x304f8c048260aef2, 0xd3e807fe15d9f09f, 0xd9a318e436fb74fe, 0x1ed63be5843e71e8, 0x83f490e2481a0bf5,
@@ -143447,7 +143879,10 @@ static const uint64_t ur_m128_u2x8_uart1_lednop_pr[] = {
   0x5b387138cb25c33d, 0x73166bcce62dfa4a, 0x9363c9d9a279382e, 0x000000000000000f,
 };
 
-// m128_u2x8_uart1_lednop_pr_ee_u4   m128a_u2x8_uart1_lednop_pr_ee     m128a_u2x8_uart1_lednop_pr_ee_u4
+/*
+ * m128_u2x8_uart1_lednop_pr_ee_u4   m128a_u2x8_uart1_lednop_pr_ee     m128a_u2x8_uart1_lednop_pr_ee_u4
+ * ms128_u2x8_uart1_lednop_pr_ee     ms128_u2x8_uart1_lednop_pr_ee_u4
+ */
 static const uint64_t ur_m128_u2x8_uart1_lednop_pr_ee[] = {
   0x777776d0e890c582, 0xddddd55f35b17c4b, 0x9b0b4663b417420d, 0xb27ea6683ba9146b, 0xb11ce5829c8699fb,
   0xf8c048260aef2775, 0x4f7fe15d9fdf7304, 0x631c86df6e9fda7d, 0xaad68e71ce3d1b34, 0x6cc1a63ea3cacca9,
@@ -143458,7 +143893,10 @@ static const uint64_t ur_m128_u2x8_uart1_lednop_pr_ee[] = {
   0x2e73166bcce62dfa, 0x04eb983959a27938,
 };
 
-// m128_u2x8_uart1_lednop_pr_ce_u4   m128a_u2x8_uart1_lednop_pr_ce     m128a_u2x8_uart1_lednop_pr_ce_u4
+/*
+ * m128_u2x8_uart1_lednop_pr_ce_u4   m128a_u2x8_uart1_lednop_pr_ce     m128a_u2x8_uart1_lednop_pr_ce_u4
+ * ms128_u2x8_uart1_lednop_pr_ce     ms128_u2x8_uart1_lednop_pr_ce_u4
+ */
 static const uint64_t ur_m128_u2x8_uart1_lednop_pr_ce[] = {
   0xeeeeeda1d121b032, 0x77775575c815b896, 0x0985543da17af5f7, 0xe2fc77bbbbbbfc5a, 0x776c36caf2293219,
   0x304f8c048260aef2, 0xa7ca1ffe15d9fcad, 0xb34631c86df6e9fd, 0x6e4c0dfd414ce3d1, 0x2ce1e79c216de6e7,
@@ -143471,7 +143909,8 @@ static const uint64_t ur_m128_u2x8_uart1_lednop_pr_ce[] = {
 
 /*
  * m128_u2x8_uart1_lednop_pr_ee_ce_u4 m128a_u2x8_uart1_lednop_pr_ee_ce
- * m128a_u2x8_uart1_lednop_pr_ee_ce_u4
+ * m128a_u2x8_uart1_lednop_pr_ee_ce_u4 ms128_u2x8_uart1_lednop_pr_ee_ce
+ * ms128_u2x8_uart1_lednop_pr_ee_ce_u4
  */
 static const uint64_t ur_m128_u2x8_uart1_lednop_pr_ee_ce[] = {
   0xdddddb43a243306a, 0xeeeeaae9eb83712d, 0xef92841b02f599ee, 0xa6369e9775e9b212, 0x55de76b66f27233f,
@@ -143484,7 +143923,7 @@ static const uint64_t ur_m128_u2x8_uart1_lednop_pr_ee_ce[] = {
   0x7e4c5f59a279382e, 0x0000000000000002,
 };
 
-// m128a_u2x8_uart1_lednop_ee_hw
+// m128a_u2x8_uart1_lednop_ee_hw     ms128_u2x8_uart1_lednop_ee_hw
 static const uint64_t ur_m128_u2x8_uart1_lednop_ee_hw[] = {
   0xbbbbb687451a18e2, 0xeeeeaaf9ad8be25b, 0xd85a331da0ba106e, 0x93f53341dd48a35c, 0x43720ad3b434cfdd,
   0x4f8c048260aef277, 0xea7bffac99fdf730, 0xa318e436fb74fed3, 0x4d56b4738e71e8d9, 0x83660d31f51e5665,
@@ -143497,7 +143936,8 @@ static const uint64_t ur_m128_u2x8_uart1_lednop_ee_hw[] = {
 
 /*
  * m128_u2x8_uart1_lednop_ee_ce_u4_hw m128a_u2x8_uart1_lednop_ee_ce_hw
- * m128a_u2x8_uart1_lednop_ee_ce_u4_hw
+ * m128a_u2x8_uart1_lednop_ee_ce_u4_hw ms128_u2x8_uart1_lednop_ee_ce_hw
+ * ms128_u2x8_uart1_lednop_ee_ce_u4_hw
  */
 static const uint64_t ur_m128_u2x8_uart1_lednop_ee_ce_hw[] = {
   0x77776d0e8a34304a, 0xbbbaaba7ae0dc4b7, 0xbe4a106c0bd667bb, 0x98da7a5dd7a6c84b, 0x5ddcedaafc9c8cfe,
@@ -143511,7 +143951,8 @@ static const uint64_t ur_m128_u2x8_uart1_lednop_ee_ce_hw[] = {
 
 /*
  * m128_u2x8_uart1_dual_pr           m128_u2x8_uart1_dual_pr_u4        m128a_u2x8_uart1_dual
- * m128a_u2x8_uart1_dual_pr          m128a_u2x8_uart1_dual_pr_u4
+ * m128a_u2x8_uart1_dual_pr          m128a_u2x8_uart1_dual_pr_u4       ms128_u2x8_uart1_dual
+ * ms128_u2x8_uart1_dual_pr          ms128_u2x8_uart1_dual_pr_u4
  */
 static const uint64_t ur_m128_u2x8_uart1_dual[] = {
   0xddddd1af44860aac, 0x77775e47a7b2a84d, 0xf1da0dda58b7aef7, 0xe7586ddddfa72ed5, 0xe3fa8c547c7865a8,
@@ -143525,7 +143966,7 @@ static const uint64_t ur_m128_u2x8_uart1_dual[] = {
   0x524d79f59a279382,
 };
 
-// m128a_u2x8_uart1_dual_pr_ee
+// m128a_u2x8_uart1_dual_pr_ee       ms128_u2x8_uart1_dual_pr_ee
 static const uint64_t ur_m128_u2x8_uart1_dual_pr_ee[] = {
   0x6eeeee8d7d435202, 0x777775e46975df42, 0xd740362fbee36d07, 0xad1211c774054e24, 0x7dd857bd6561f64c,
   0x8260aef24a53b971, 0xa8a4771f304f8c04, 0xf6916b3eeab50c8d, 0x4ee9f72f881850c9, 0x0e2e293f32c25009,
@@ -143538,7 +143979,7 @@ static const uint64_t ur_m128_u2x8_uart1_dual_pr_ee[] = {
   0x17398b35e67316fd, 0x032141d16cd13c9c,
 };
 
-// m128a_u2x8_uart1_dual_pr_ee_u4
+// m128a_u2x8_uart1_dual_pr_ee_u4    ms128_u2x8_uart1_dual_pr_ee_u4
 static const uint64_t ur_m128_u2x8_uart1_dual_pr_ee_u4[] = {
   0xbbba35e8a87f3202, 0xddd791a5d77d09bb, 0x00d8befb8db41ddd, 0x48471dd01538935d, 0xe57bfeb787d932b4,
   0x0aef24a53b8d4895, 0x4771f304f8c04826, 0x16b3eeab50c8da8a, 0x9f72f881850c9f69, 0xc527e6584a6024ee,
@@ -143552,7 +143993,7 @@ static const uint64_t ur_m128_u2x8_uart1_dual_pr_ee_u4[] = {
   0x000000000005644a,
 };
 
-// m128a_u2x8_uart1_dual_pr_ce
+// m128a_u2x8_uart1_dual_pr_ce       ms128_u2x8_uart1_dual_pr_ce
 static const uint64_t ur_m128_u2x8_uart1_dual_pr_ce[] = {
   0xeeee8d7d41435202, 0xbbbaf261545f426e, 0xe9f7f6b42da9afbb, 0x6a356eee99129455, 0xb8beecb41d6528fd,
   0x02413057793705dc, 0x236a2901649827c6, 0x327da45acfbaad43, 0x0253ba7dcbe20614, 0x0cdf17ddafccb094,
@@ -143565,7 +144006,7 @@ static const uint64_t ur_m128_u2x8_uart1_dual_pr_ce[] = {
   0xaf3398b7e9296ce1, 0x416689e4e0b9cc59, 0x0000000000034913,
 };
 
-// m128a_u2x8_uart1_dual_pr_ce_u4
+// m128a_u2x8_uart1_dual_pr_ce_u4    ms128_u2x8_uart1_dual_pr_ce_u4
 static const uint64_t ur_m128_u2x8_uart1_dual_pr_ce_u4[] = {
   0xbbba35e8a87fbb90, 0x7775e43f7ddd09bb, 0x55fd77a0fb5c2f77, 0xd17eeeeb4e3ac89f, 0x33ebfd5d9ba10d77,
   0x04c15de49ba77376, 0x51484e3e609f1809, 0xed22d67dd56a191b, 0x9dd3ee5f1030a193, 0xf8bc00fccb094c04,
@@ -143579,7 +144020,7 @@ static const uint64_t ur_m128_u2x8_uart1_dual_pr_ce_u4[] = {
   0x000000000d24cffc,
 };
 
-// m128a_u2x8_uart1_dual_pr_ee_ce
+// m128a_u2x8_uart1_dual_pr_ee_ce    ms128_u2x8_uart1_dual_pr_ee_ce
 static const uint64_t ur_m128_u2x8_uart1_dual_pr_ee_ce[] = {
   0x09bbbbba35f50c86, 0xffbbbbbaf21204dd, 0x9f7bb368076c1378, 0x9120fac8bb2dd4e4, 0xcf046752c8a74339,
   0x602413057793389d, 0x236a291c7939827c, 0x327da45acfbaad43, 0x0253ba7dcbe20614, 0x759f17643fccb094,
@@ -143592,7 +144033,7 @@ static const uint64_t ur_m128_u2x8_uart1_dual_pr_ee_ce[] = {
   0x964b867a615c9fba, 0xcc5bf494b670e271, 0x44f2705ce62cd799, 0x00000004c11b8fb3,
 };
 
-// m128a_u2x8_uart1_dual_pr_ee_ce_u4
+// m128a_u2x8_uart1_dual_pr_ee_ce_u4 ms128_u2x8_uart1_dual_pr_ee_ce_u4
 static const uint64_t ur_m128_u2x8_uart1_dual_pr_ee_ce_u4[] = {
   0xeee8d7a2a1fc746e, 0xeebc90cdfc3426ee, 0x7683bacadada6eee, 0xabedd75b0b2e2faf, 0x2117bc10f0ec1160,
   0x3eddc196b2a7069d, 0x04f8c048260aef27, 0x5a8646d4523e20f3, 0x0c2864fb48b59f75, 0xc253012774fb97c4,
@@ -143606,7 +144047,7 @@ static const uint64_t ur_m128_u2x8_uart1_dual_pr_ee_ce_u4[] = {
   0x3f7ff05347d8cec3, 0xc33d30be347a2ff0, 0xfa4a5b387138cb25, 0x382e73166bcce62d, 0x008007566eaa9279,
 };
 
-// m128a_u2x8_uart1_dual_ee_hw
+// m128a_u2x8_uart1_dual_ee_hw       ms128_u2x8_uart1_dual_ee_hw
 static const uint64_t ur_m128_u2x8_uart1_dual_ee_hw[] = {
   0xdddd1af451a3b46e, 0xeeebc8d2ebbe84dd, 0x806c5f7dc6da0eee, 0x24238ee80a9c49ae, 0xf5f68d3ac3ec995a,
   0x4c15de494a7779af, 0x148ee3e609f18090, 0xd22d67dd56a191b5, 0xdd3ee5f1030a193e, 0xc5c527e6584a7419,
@@ -143619,7 +144060,10 @@ static const uint64_t ur_m128_u2x8_uart1_dual_ee_hw[] = {
   0xe19e985f1a3d17f8, 0xfd252d9c389c6592, 0x9c17398b35e67316, 0x0000aed522c9453c,
 };
 
-// m128_u2x8_uart1_dual_ee_ce_u4_hw  m128a_u2x8_uart1_dual_ee_ce_hw    m128a_u2x8_uart1_dual_ee_ce_u4_hw
+/*
+ * m128_u2x8_uart1_dual_ee_ce_u4_hw  m128a_u2x8_uart1_dual_ee_ce_hw    m128a_u2x8_uart1_dual_ee_ce_u4_hw
+ * ms128_u2x8_uart1_dual_ee_ce_hw    ms128_u2x8_uart1_dual_ee_ce_u4_hw
+ */
 static const uint64_t ur_m128_u2x8_uart1_dual_ee_ce_hw[] = {
   0xeeee8d7a28d0f2df, 0xeeebc90cdfc3426e, 0xf7683bacadada6ee, 0x0abedd75b0b2e2fa, 0xb42da3c10f0ec116,
   0x77939f6eed20db4f, 0x1079827c60241305, 0xcfbaad43236a291f, 0xcbe20614327da45a, 0x6fccb094e833ba7d,
@@ -143633,7 +144077,10 @@ static const uint64_t ur_m128_u2x8_uart1_dual_ee_ce_hw[] = {
   0x9c389c6592e19e98, 0x8b35e67316fd252d, 0xd58cd1453c9c1739, 0x0000000000000075,
 };
 
-// m128_u2x12_uart0_noled_pr         m128a_u2x12_uart0_noled           m128a_u2x12_uart0_noled_pr
+/*
+ * m128_u2x12_uart0_noled_pr         m128a_u2x12_uart0_noled           m128a_u2x12_uart0_noled_pr
+ * ms128_u2x12_uart0_noled           ms128_u2x12_uart0_noled_pr
+ */
 static const uint64_t ur_m128_u2x12_uart0_noled[] = {
   0xbbaeed017acdfc4f, 0x77557eb05c1e25bb, 0xf68e3d2f7be2f777, 0x873777693e1646d3, 0xe3f0a2e2486cfdde,
   0x7c602413057793bb, 0x917fc2a0e7d31982, 0x9aede6825db7989f, 0xdf2dac169da12704, 0x0e248199ef51ded1,
@@ -143642,7 +144089,7 @@ static const uint64_t ur_m128_u2x12_uart0_noled[] = {
   0x2c970cf4c2b93f75, 0x98b7e9296ce1c4e3, 0xe9e4e0b9cc59af33, 0x0000003e40797c46,
 };
 
-// m128a_u2x12_uart0_noled_pr_u4
+// m128a_u2x12_uart0_noled_pr_u4     ms128_u2x12_uart0_noled_pr_u4
 static const uint64_t ur_m128_u2x12_uart0_noled_pr_u4[] = {
   0xbaeed01744863f3e, 0x7557eb05b3e25bbb, 0x90e2d75fac477777, 0x5b77745fcb2b77f8, 0x41e4417f25ad284d,
   0xf180904c15de4ee8, 0x10ffe15d9f9ba609, 0x9aede6825db7989f, 0x7cb09f169da12704, 0x3892063efd47afe7,
@@ -143652,7 +144099,10 @@ static const uint64_t ur_m128_u2x12_uart0_noled_pr_u4[] = {
   0x67316fd252d9c389, 0xcd13c9c17398b35e, 0x000000007c9c69f2,
 };
 
-// m128_u2x12_uart0_noled_pr_ee_u4   m128a_u2x12_uart0_noled_pr_ee     m128a_u2x12_uart0_noled_pr_ee_u4
+/*
+ * m128_u2x12_uart0_noled_pr_ee_u4   m128a_u2x12_uart0_noled_pr_ee     m128a_u2x12_uart0_noled_pr_ee_u4
+ * ms128_u2x12_uart0_noled_pr_ee     ms128_u2x12_uart0_noled_pr_ee_u4
+ */
 static const uint64_t ur_m128_u2x12_uart0_noled_pr_ee[] = {
   0xeebbb405d121be4a, 0xddd55c6130a896ee, 0x3b1e33717e9bbddd, 0xc217439bbb3fc5bd, 0x8ed11f1ec6c2d1e3,
   0x602413057793ba6e, 0xbff0aecf9759827c, 0xede6825db7989ff3, 0x8e6e169da127049a, 0x8f9ea3cae719aad6,
@@ -143663,7 +144113,10 @@ static const uint64_t ur_m128_u2x12_uart0_noled_pr_ee[] = {
   0x2bf0d9a279382e73, 0x00000000000013af,
 };
 
-// m128_u2x12_uart0_noled_pr_ce_u4   m128a_u2x12_uart0_noled_pr_ce     m128a_u2x12_uart0_noled_pr_ce_u4
+/*
+ * m128_u2x12_uart0_noled_pr_ce_u4   m128a_u2x12_uart0_noled_pr_ce     m128a_u2x12_uart0_noled_pr_ce_u4
+ * ms128_u2x12_uart0_noled_pr_ce     ms128_u2x12_uart0_noled_pr_ce_u4
+ */
 static const uint64_t ur_m128_u2x12_uart0_noled_pr_ce[] = {
   0xdd77680ba2431768, 0xeeaae9ebb2712ddd, 0x2f623a56f419eeee, 0x8b8eeeef37a11a9c, 0x599b62b2282904c2,
   0x4f8c048260aef277, 0xdc9ffe15d9f90f30, 0x935dbcd04bb6f313, 0x1bfae482d3b424e0, 0xcf3842dbcdcec3d8,
@@ -143676,7 +144129,8 @@ static const uint64_t ur_m128_u2x12_uart0_noled_pr_ce[] = {
 
 /*
  * m128_u2x12_uart0_noled_pr_ee_ce_u4 m128a_u2x12_uart0_noled_pr_ee_ce
- * m128a_u2x12_uart0_noled_pr_ee_ce_u4
+ * m128a_u2x12_uart0_noled_pr_ee_ce_u4 ms128_u2x12_uart0_noled_pr_ee_ce
+ * ms128_u2x12_uart0_noled_pr_ee_ce_u4
  */
 static const uint64_t ur_m128_u2x12_uart0_noled_pr_ee_ce[] = {
   0xdd77680ba243173e, 0x77557cd6a6712ddd, 0xa29bbd837b707777, 0xbe163376c9ad0b8d, 0x55e52947e5df25a0,
@@ -143689,7 +144143,7 @@ static const uint64_t ur_m128_u2x12_uart0_noled_pr_ee_ce[] = {
   0x0000000000009f83,
 };
 
-// m128a_u2x12_uart0_noled_ee_hw
+// m128a_u2x12_uart0_noled_ee_hw     ms128_u2x12_uart0_noled_ee_hw
 static const uint64_t ur_m128_u2x12_uart0_noled_ee_hw[] = {
   0xebbb405d146851eb, 0xdd55c6130a896eee, 0xb1e33717e9bbdddd, 0x217439bbb3fc5bd3, 0x994ed2946c2d1e3c,
   0x8c048260aef27751, 0x3bffac99f2eb304f, 0xaede6825db7989ff, 0x68e6e169da127049, 0x18f9ea3cae719aad,
@@ -143701,7 +144155,8 @@ static const uint64_t ur_m128_u2x12_uart0_noled_ee_hw[] = {
 
 /*
  * m128_u2x12_uart0_noled_ee_ce_u4_hw m128a_u2x12_uart0_noled_ee_ce_hw
- * m128a_u2x12_uart0_noled_ee_ce_u4_hw
+ * m128a_u2x12_uart0_noled_ee_ce_u4_hw ms128_u2x12_uart0_noled_ee_ce_hw
+ * ms128_u2x12_uart0_noled_ee_ce_u4_hw
  */
 static const uint64_t ur_m128_u2x12_uart0_noled_ee_ce_hw[] = {
   0xd77680ba28d01107, 0x7557cd6a6712dddd, 0x29bbd837b7077777, 0xe163376c9ad0b8da, 0x2c5f73ee5df25a0b,
@@ -143713,7 +144168,10 @@ static const uint64_t ur_m128_u2x12_uart0_noled_ee_ce_hw[] = {
   0x7a617c68f45fe07e, 0x94b670e271964b86, 0x5ce62cd799cc5bf4, 0x014049800514f270,
 };
 
-// m128_u2x12_uart0_lednop_pr        m128a_u2x12_uart0_lednop          m128a_u2x12_uart0_lednop_pr
+/*
+ * m128_u2x12_uart0_lednop_pr        m128a_u2x12_uart0_lednop          m128a_u2x12_uart0_lednop_pr
+ * ms128_u2x12_uart0_lednop          ms128_u2x12_uart0_lednop_pr
+ */
 static const uint64_t ur_m128_u2x12_uart0_lednop[] = {
   0xbbaeed017acdfc4f, 0xbbaabf582bf225bb, 0xa60da697bdf17bbb, 0xdec1f777693e165a, 0xbbe3f0a2e2486cfd,
   0x827c602413057793, 0x4f5f3fc2a0e7e719, 0x824d76f3412edbcc, 0xf8ef96d60b4ed093, 0x490e248199ef51da,
@@ -143722,7 +144180,7 @@ static const uint64_t ur_m128_u2x12_uart0_lednop[] = {
   0x89c6592e19e98572, 0x5e67316fd252d9c3, 0xf88dd3c9c17398b3, 0x00000000007c80f2,
 };
 
-// m128a_u2x12_uart0_lednop_pr_u4
+// m128a_u2x12_uart0_lednop_pr_u4    ms128_u2x12_uart0_lednop_pr_u4
 static const uint64_t ur_m128_u2x12_uart0_lednop_pr_u4[] = {
   0xdd77680ba24328ae, 0xbaabf5822f712ddd, 0xbbf0fe8cd267bbbb, 0x307dddd17f2cad9f, 0x68bd3b1dcbb75f5a,
   0x3e30120982bbc9dd, 0xd7cffc2bb3f38cc1, 0x935dbcd04bb6f313, 0xef9613e2d3b424e0, 0x871240c7dfa8eb3c,
@@ -143732,7 +144190,10 @@ static const uint64_t ur_m128_u2x12_uart0_lednop_pr_u4[] = {
   0xdfa4a5b387138cb2, 0x9382e73166bcce62, 0x0000f93a3c9d9a27,
 };
 
-// m128_u2x12_uart0_lednop_pr_ee_u4  m128a_u2x12_uart0_lednop_pr_ee    m128a_u2x12_uart0_lednop_pr_ee_u4
+/*
+ * m128_u2x12_uart0_lednop_pr_ee_u4  m128a_u2x12_uart0_lednop_pr_ee    m128a_u2x12_uart0_lednop_pr_ee_u4
+ * ms128_u2x12_uart0_lednop_pr_ee    ms128_u2x12_uart0_lednop_pr_ee_u4
+ */
 static const uint64_t ur_m128_u2x12_uart0_lednop_pr_ee[] = {
   0xeebbb405d121af43, 0xddd55c61104896ee, 0x7a636f619eb4bddd, 0x10ba1cddd9fe2f0a, 0x5f7d39c58bcd805e,
   0x02413057793baec9, 0xff0aecfb059827c6, 0xde6825db7989e70f, 0xe6e169da127049ae, 0xf9ea3cacf59aad68,
@@ -143743,7 +144204,10 @@ static const uint64_t ur_m128_u2x12_uart0_lednop_pr_ee[] = {
   0x9e4e0b9cc59af339, 0x0000013afc687668,
 };
 
-// m128_u2x12_uart0_lednop_pr_ce_u4  m128a_u2x12_uart0_lednop_pr_ce    m128a_u2x12_uart0_lednop_pr_ce_u4
+/*
+ * m128_u2x12_uart0_lednop_pr_ce_u4  m128a_u2x12_uart0_lednop_pr_ce    m128a_u2x12_uart0_lednop_pr_ce_u4
+ * ms128_u2x12_uart0_lednop_pr_ce    ms128_u2x12_uart0_lednop_pr_ce_u4
+ */
 static const uint64_t ur_m128_u2x12_uart0_lednop_pr_ce[] = {
   0xeebbb405d121b768, 0xbbaaba7ac90896ee, 0xd4c99e9bbd3f7bbb, 0x2663bbbbcde84b26, 0xd29c3d8d29d62b68,
   0x13e30120982bbc9d, 0xf74bff85767ca5cc, 0x24d76f3412edbcc4, 0x06feb920b4ed0938, 0x79e7085b79b9dbf8,
@@ -143756,7 +144220,8 @@ static const uint64_t ur_m128_u2x12_uart0_lednop_pr_ce[] = {
 
 /*
  * m128_u2x12_uart0_lednop_pr_ee_ce_u4 m128a_u2x12_uart0_lednop_pr_ee_ce
- * m128a_u2x12_uart0_lednop_pr_ee_ce_u4
+ * m128a_u2x12_uart0_lednop_pr_ee_ce_u4 ms128_u2x12_uart0_lednop_pr_ee_ce
+ * ms128_u2x12_uart0_lednop_pr_ee_ce_u4
  */
 static const uint64_t ur_m128_u2x12_uart0_lednop_pr_ee_ce[] = {
   0xdd77680ba2431bc1, 0x77557cd658312ddd, 0x71b4bd477b13b777, 0x3e163376c9ad14cd, 0xd13da705a0dcbbb2,
@@ -143769,7 +144234,7 @@ static const uint64_t ur_m128_u2x12_uart0_lednop_pr_ee_ce[] = {
   0x00000004fc4b6966,
 };
 
-// m128a_u2x12_uart0_lednop_ee_hw
+// m128a_u2x12_uart0_lednop_ee_hw    ms128_u2x12_uart0_lednop_ee_hw
 static const uint64_t ur_m128_u2x12_uart0_lednop_ee_hw[] = {
   0x75dda02e8a343a31, 0xeeaae3088244b777, 0xd31b7b0cf5a5eeee, 0x85d0e6eecff17853, 0x9eb6b4ec5e6c02f0,
   0x602413057793bb93, 0x7ffd64cfb059827c, 0x76f3412edbcc4f38, 0x47370b4ed093824d, 0xc7cf51e567acd56b,
@@ -143782,7 +144247,8 @@ static const uint64_t ur_m128_u2x12_uart0_lednop_ee_hw[] = {
 
 /*
  * m128_u2x12_uart0_lednop_ee_ce_u4_hw m128a_u2x12_uart0_lednop_ee_ce_hw
- * m128a_u2x12_uart0_lednop_ee_ce_u4_hw
+ * m128a_u2x12_uart0_lednop_ee_ce_u4_hw ms128_u2x12_uart0_lednop_ee_ce_hw
+ * ms128_u2x12_uart0_lednop_ee_ce_u4_hw
  */
 static const uint64_t ur_m128_u2x12_uart0_lednop_ee_ce_hw[] = {
   0xebbb405d14687f3e, 0xbaabe6b2c1896eee, 0x8da5ea3bd89dbbbb, 0xf0b19bb64d68a66b, 0x7bf7a3af06e5dd91,
@@ -143796,7 +144262,8 @@ static const uint64_t ur_m128_u2x12_uart0_lednop_ee_ce_hw[] = {
 
 /*
  * m128_u2x12_uart0_dual_pr          m128_u2x12_uart0_dual_pr_u4       m128a_u2x12_uart0_dual
- * m128a_u2x12_uart0_dual_pr         m128a_u2x12_uart0_dual_pr_u4
+ * m128a_u2x12_uart0_dual_pr         m128a_u2x12_uart0_dual_pr_u4      ms128_u2x12_uart0_dual
+ * ms128_u2x12_uart0_dual_pr         ms128_u2x12_uart0_dual_pr_u4
  */
 static const uint64_t ur_m128_u2x12_uart0_dual[] = {
   0xddf17c7e890ddb75, 0x775e4b263da84ddd, 0xa764ed4e5a10f777, 0x8a76eee989582d89, 0xf2af745eb8bd94af,
@@ -143810,7 +144277,7 @@ static const uint64_t ur_m128_u2x12_uart0_dual[] = {
   0x0000000524ce43f6,
 };
 
-// m128a_u2x12_uart0_dual_pr_ee
+// m128a_u2x12_uart0_dual_pr_ee      ms128_u2x12_uart0_dual_pr_ee
 static const uint64_t ur_m128_u2x12_uart0_dual_pr_ee[] = {
   0xddf17c7f5050cf68, 0xeebc834d13e84ddd, 0x5b8d5a843a4deeee, 0xd024775b11d6aaf7, 0x58219d577a6b957a,
   0x15de4bb2771c1156, 0x83afa609f180904c, 0x2d67dd56a191b514, 0x3ee5f1030a193ed2, 0xe377e6584a0129dd,
@@ -143823,7 +144290,7 @@ static const uint64_t ur_m128_u2x12_uart0_dual_pr_ee[] = {
   0x70e271964b867a61, 0x2cd799cc5bf494b6, 0xc864b344f2705ce6, 0x000000000000000a,
 };
 
-// m128a_u2x12_uart0_dual_pr_ee_u4
+// m128a_u2x12_uart0_dual_pr_ee_u4   ms128_u2x12_uart0_dual_pr_ee_u4
 static const uint64_t ur_m128_u2x12_uart0_dual_pr_ee_u4[] = {
   0xddddf17c7e890c86, 0xeeeebc834d3ee84d, 0xd67db2b500ea27ee, 0xe7dad024775eb362, 0x08ce9c2d4eae7517,
   0x48260aef24373b9e, 0xda8a43c03304f8c0, 0x9f6916b3eeab50c8, 0x94ee9f72f881850c, 0x41c5daeff32c2500,
@@ -143836,7 +144303,7 @@ static const uint64_t ur_m128_u2x12_uart0_dual_pr_ee_u4[] = {
   0x52d9c389c6592e19, 0x7398b35e67316fd2, 0x0564ab2acd13c9c1,
 };
 
-// m128a_u2x12_uart0_dual_pr_ce
+// m128a_u2x12_uart0_dual_pr_ce      ms128_u2x12_uart0_dual_pr_ce
 static const uint64_t ur_m128_u2x12_uart0_dual_pr_ce[] = {
   0xeef8be3fd82432db, 0x775e4866a3f426ee, 0xd7087bb37b933777, 0xd8beeeed863b55a1, 0x330a5f5daebdda27,
   0x413057792539dc3c, 0xd4522e4a9827c602, 0xfb48b59f755a8646, 0xa774fb97c40c2864, 0xbe2e87df99612804,
@@ -143849,7 +144316,7 @@ static const uint64_t ur_m128_u2x12_uart0_dual_pr_ce[] = {
   0xce1c4e32c970cf4c, 0xc59af3398b7e9296, 0x24c636689e4e0b9c, 0x000000000000000d,
 };
 
-// m128a_u2x12_uart0_dual_pr_ce_u4
+// m128a_u2x12_uart0_dual_pr_ce_u4   ms128_u2x12_uart0_dual_pr_ce_u4
 static const uint64_t ur_m128_u2x12_uart0_dual_pr_ce_u4[] = {
   0xdddf17c7e890cf68, 0xeeebc90cfaee84dd, 0x8d5f6b547f500eee, 0x75ec5f7774a734ed, 0xb8e08ab01f19d568,
   0x8c048260aef26c4b, 0x0c8da8a45c95304f, 0x50c9f6916b3eeab5, 0x50094ee9f72f8818, 0xe13b7c5ed6ff32c2,
@@ -143862,7 +144329,7 @@ static const uint64_t ur_m128_u2x12_uart0_dual_pr_ce_u4[] = {
   0x4b670e271964b867, 0xce62cd799cc5bf49, 0x6925d5bb344f2705,
 };
 
-// m128a_u2x12_uart0_dual_pr_ee_ce
+// m128a_u2x12_uart0_dual_pr_ee_ce   ms128_u2x12_uart0_dual_pr_ee_ce
 static const uint64_t ur_m128_u2x12_uart0_dual_pr_ee_ce[] = {
   0xddddf17c7f50cf68, 0x77775e45a1c2e84d, 0xdecdd6b66d36c137, 0xaed15eb6e8432c44, 0x5583c333a1f96829,
   0x13057793f69dc704, 0x1489aa49827c6024, 0xd22d67dd56a191b5, 0xdd3ee5f1030a193e, 0x8bdc8fe6584a0129,
@@ -143875,7 +144342,7 @@ static const uint64_t ur_m128_u2x12_uart0_dual_pr_ee_ce[] = {
   0x92e19e985727eeac, 0x16fd252d9c389c65, 0x3c9c17398b35e673, 0x0000013043852cd1,
 };
 
-// m128a_u2x12_uart0_dual_pr_ee_ce_u4
+// m128a_u2x12_uart0_dual_pr_ee_ce_u4 ms128_u2x12_uart0_dual_pr_ee_ce_u4
 static const uint64_t ur_m128_u2x12_uart0_dual_pr_ee_ce_u4[] = {
   0x7c5f1fa2a1fe022f, 0x5e469657ba137777, 0x26f65934e0b77777, 0x9c5bb5a40399b9b4, 0x598afe15c5b4f74e,
   0xabddd48c4438d4e9, 0x04f8c048260aef24, 0xad43236a2914fc33, 0x0614327da45acfba, 0x61298093ba7dcbe2,
@@ -143889,7 +144356,7 @@ static const uint64_t ur_m128_u2x12_uart0_dual_pr_ee_ce_u4[] = {
   0x8d1e8bfc0fdffc14, 0x1c4e32c970cf4c2f, 0x9af3398b7e9296ce, 0xdaaaa49e4e0b9cc5, 0x0000000000200345,
 };
 
-// m128a_u2x12_uart0_dual_ee_hw
+// m128a_u2x12_uart0_dual_ee_hw      ms128_u2x12_uart0_dual_ee_hw
 static const uint64_t ur_m128_u2x12_uart0_dual_ee_hw[] = {
   0x7777c5f1fa28d086, 0xbbbaf20d344fa137, 0xdd6e356a10e937bb, 0xeb4091dd6c475aab, 0x4675aa755de9ae55,
   0x413057792ec9dcf0, 0xd4520ebe9827c602, 0xfb48b59f755a8646, 0x6774fb97c40c2864, 0xee2f8ddf996129d0,
@@ -143902,7 +144369,10 @@ static const uint64_t ur_m128_u2x12_uart0_dual_ee_hw[] = {
   0x9c389c6592e19e98, 0x8b35e67316fd252d, 0x8d2463453c9c1739, 0x0000000000000576,
 };
 
-// m128_u2x12_uart0_dual_ee_ce_u4_hw m128a_u2x12_uart0_dual_ee_ce_hw   m128a_u2x12_uart0_dual_ee_ce_u4_hw
+/*
+ * m128_u2x12_uart0_dual_ee_ce_u4_hw m128a_u2x12_uart0_dual_ee_ce_hw   m128a_u2x12_uart0_dual_ee_ce_u4_hw
+ * ms128_u2x12_uart0_dual_ee_ce_hw   ms128_u2x12_uart0_dual_ee_ce_u4_hw
+ */
 static const uint64_t ur_m128_u2x12_uart0_dual_ee_ce_hw[] = {
   0x77c5f1fa28d1ac4f, 0x75e469657ba13777, 0x426f65934e0b7777, 0xe9c5bb5a40399b9b, 0xdfed0fe15c5b4f74,
   0xde4957bb83ebf072, 0xf86609f180904c15, 0x9f755a8646d45229, 0x97c40c2864fb48b5, 0x1f996129d06774fb,
@@ -143916,7 +144386,10 @@ static const uint64_t ur_m128_u2x12_uart0_dual_ee_ce_hw[] = {
   0x2dfa4a5b387138cb, 0x79382e73166bcce6, 0x000000ebace2fa8a,
 };
 
-// m128_u2x12_uart1_noled_pr         m128a_u2x12_uart1_noled           m128a_u2x12_uart1_noled_pr
+/*
+ * m128_u2x12_uart1_noled_pr         m128a_u2x12_uart1_noled           m128a_u2x12_uart1_noled_pr
+ * ms128_u2x12_uart1_noled           ms128_u2x12_uart1_noled_pr
+ */
 static const uint64_t ur_m128_u2x12_uart1_noled[] = {
   0xeeeda1af0759bb37, 0x777557382b07896e, 0xbab0716d69a35f77, 0x245e0fbbba7833dd, 0x4eec2f5a3c7a0942,
   0xa609f180904c15de, 0xda7c14ff0a839fd2, 0xc721bf9bda956e9f, 0xdf2c90f38f46cd18, 0x0e24819a4f51c439,
@@ -143925,7 +144398,7 @@ static const uint64_t ur_m128_u2x12_uart1_noled[] = {
   0x6592e19e985727ee, 0x7316fd252d9c389c, 0xdd3c9c17398b35e6, 0x00000007c8371f88,
 };
 
-// m128a_u2x12_uart1_noled_pr_u4
+// m128a_u2x12_uart1_noled_pr_u4     ms128_u2x12_uart1_noled_pr_u4
 static const uint64_t ur_m128_u2x12_uart1_noled_pr_u4[] = {
   0xbbb686bc1a243762, 0xddd55ce0bc7e25bb, 0x6f26adb006971ddd, 0x4777eeeec44489f1, 0xefd3837855c1266c,
   0x09f180904c15de4e, 0x3f38ffe15d9fea26, 0x90dfcded4ab74fed, 0x9610f9c7a3668c63, 0x8920682fd47e80ef,
@@ -143935,7 +144408,10 @@ static const uint64_t ur_m128_u2x12_uart1_noled_pr_u4[] = {
   0xb670e271964b867a, 0xe62cd799cc5bf494, 0x4f97e1b344f2705c, 0x000000000000003e,
 };
 
-// m128_u2x12_uart1_noled_pr_ee_u4   m128a_u2x12_uart1_noled_pr_ee     m128a_u2x12_uart1_noled_pr_ee_u4
+/*
+ * m128_u2x12_uart1_noled_pr_ee_u4   m128a_u2x12_uart1_noled_pr_ee     m128a_u2x12_uart1_noled_pr_ee_u4
+ * ms128_u2x12_uart1_noled_pr_ee     ms128_u2x12_uart1_noled_pr_ee_u4
+ */
 static const uint64_t ur_m128_u2x12_uart1_noled_pr_ee[] = {
   0xeeda1af06890c044, 0xbbaabc88033896ee, 0x243c7ebd7da0bbbb, 0xe6130feebc8ebd90, 0x499c94e734b376f4,
   0x80904c15de4ee80a, 0xffc2bb3f2ba609f1, 0x37b52add3fb4fb05, 0xe71e8d9a318e437f, 0x51e57224d56b4738,
@@ -143946,7 +144422,10 @@ static const uint64_t ur_m128_u2x12_uart1_noled_pr_ee[] = {
   0x98b35e67316fd252, 0xb98e26cd13c9c173, 0x000000000000004e,
 };
 
-// m128_u2x12_uart1_noled_pr_ce_u4   m128a_u2x12_uart1_noled_pr_ce     m128a_u2x12_uart1_noled_pr_ce_u4
+/*
+ * m128_u2x12_uart1_noled_pr_ce_u4   m128a_u2x12_uart1_noled_pr_ce     m128a_u2x12_uart1_noled_pr_ce_u4
+ * ms128_u2x12_uart1_noled_pr_ce     ms128_u2x12_uart1_noled_pr_ce_u4
+ */
 static const uint64_t ur_m128_u2x12_uart1_noled_pr_ce[] = {
   0xddb435e0d1219541, 0xbbaabe6b1b112ddd, 0xa6cb8e8d3da17bbb, 0x36a7bbba9146bad0, 0x5a77daa67b28fd83,
   0x4f8c048260aef277, 0xca5ffe15d9fc0930, 0x1bf9bda956e9fda7, 0x505338f46cd18c72, 0x085b79b9dd4a037f,
@@ -143959,7 +144438,8 @@ static const uint64_t ur_m128_u2x12_uart1_noled_pr_ce[] = {
 
 /*
  * m128_u2x12_uart1_noled_pr_ee_ce_u4 m128a_u2x12_uart1_noled_pr_ee_ce
- * m128a_u2x12_uart1_noled_pr_ee_ce_u4
+ * m128a_u2x12_uart1_noled_pr_ee_ce_u4 ms128_u2x12_uart1_noled_pr_ee_ce
+ * ms128_u2x12_uart1_noled_pr_ee_ce_u4
  */
 static const uint64_t ur_m128_u2x12_uart1_noled_pr_ee_ce[] = {
   0xbb686bc1a2436d3a, 0xeeaae30824625bbb, 0x91a0bb627605eeee, 0x71133dd53656fa77, 0x8a0aaef89d705718,
@@ -143972,7 +144452,7 @@ static const uint64_t ur_m128_u2x12_uart1_noled_pr_ee_ce[] = {
   0x883d9a279382e731, 0x0000000000004fcb,
 };
 
-// m128a_u2x12_uart1_noled_ee_hw
+// m128a_u2x12_uart1_noled_ee_hw     ms128_u2x12_uart1_noled_ee_hw
 static const uint64_t ur_m128_u2x12_uart1_noled_ee_hw[] = {
   0xeda1af068a341768, 0xbaabc88033896eee, 0x43c7ebd7da0bbbbb, 0x6130feebc8ebd902, 0x6d8b50534b376f4e,
   0x30120982bbc9dd66, 0x5ffeb267e574c13e, 0xf37b52add3fb4fb0, 0x8e71e8d9a318e437, 0xf51e57224d56b473,
@@ -143985,7 +144465,8 @@ static const uint64_t ur_m128_u2x12_uart1_noled_ee_hw[] = {
 
 /*
  * m128_u2x12_uart1_noled_ee_ce_u4_hw m128a_u2x12_uart1_noled_ee_ce_hw
- * m128a_u2x12_uart1_noled_ee_ce_u4_hw
+ * m128a_u2x12_uart1_noled_ee_ce_u4_hw ms128_u2x12_uart1_noled_ee_ce_hw
+ * ms128_u2x12_uart1_noled_ee_ce_u4_hw
  */
 static const uint64_t ur_m128_u2x12_uart1_noled_ee_ce_hw[] = {
   0xdb435e0d1468cc7f, 0x755718412312dddd, 0x8d05db13b02f7777, 0x8899eea9b2b7d3bc, 0x56b6e744eb82b8c3,
@@ -143997,7 +144478,7 @@ static const uint64_t ur_m128_u2x12_uart1_noled_ee_ce_hw[] = {
   0xfdffc14d1f633b0e, 0x0cf4c2f8d1e8bfc0, 0xe9296ce1c4e32c97, 0xe0b9cc59af3398b7, 0x000280845daa29e4,
 };
 
-// m128a_u2x12_uart1_lednop
+// m128a_u2x12_uart1_lednop          ms128_u2x12_uart1_lednop
 static const uint64_t ur_m128_u2x12_uart1_lednop[] = {
   0xbbb686bc1d66ef3a, 0xeeeaae705ad225bb, 0x122a99bb6f46deee, 0xff07dddd3c19eea1, 0x4eee62486ad1e978,
   0xa609f180904c15de, 0xda7c14ff0a839fd2, 0xc721bf9bda956e9f, 0xdf2c90f38f46cd18, 0x871240cd27a8e4f1,
@@ -144006,7 +144487,10 @@ static const uint64_t ur_m128_u2x12_uart1_lednop[] = {
   0xe271964b867a615c, 0xd799cc5bf494b670, 0x162374f2705ce62c, 0x0000000000005480,
 };
 
-// m128_u2x12_uart1_lednop_pr_u4     m128a_u2x12_uart1_lednop_pr       m128a_u2x12_uart1_lednop_pr_u4
+/*
+ * m128_u2x12_uart1_lednop_pr_u4     m128a_u2x12_uart1_lednop_pr       m128a_u2x12_uart1_lednop_pr_u4
+ * ms128_u2x12_uart1_lednop_pr       ms128_u2x12_uart1_lednop_pr_u4
+ */
 static const uint64_t ur_m128_u2x12_uart1_lednop_pr[] = {
   0x76d0d7834486c056, 0xbaab9c17d2c4b777, 0x16c1f7c7ee63bbbb, 0xb3f777622244f1ff, 0xe451da0913a00267,
   0x7c602413057793bb, 0x9ebff85767fba982, 0x37f37b52add3fb4f, 0x843e71e8d9a318e4, 0x481a0bf51ed63be5,
@@ -144016,7 +144500,10 @@ static const uint64_t ur_m128_u2x12_uart1_lednop_pr[] = {
   0xcb25c33d30be347a, 0xe62dfa4a5b387138, 0xa279382e73166bcc, 0x0000001f27a2ed59,
 };
 
-// m128_u2x12_uart1_lednop_pr_ee_u4  m128a_u2x12_uart1_lednop_pr_ee    m128a_u2x12_uart1_lednop_pr_ee_u4
+/*
+ * m128_u2x12_uart1_lednop_pr_ee_u4  m128a_u2x12_uart1_lednop_pr_ee    m128a_u2x12_uart1_lednop_pr_ee_u4
+ * ms128_u2x12_uart1_lednop_pr_ee    ms128_u2x12_uart1_lednop_pr_ee_u4
+ */
 static const uint64_t ur_m128_u2x12_uart1_lednop_pr_ee[] = {
   0xeeda1af06890d2a8, 0xbbaabc881fb896ee, 0x64017ed45db23bbb, 0x4c261fdd791d7833, 0x0872ecb53d769785,
   0x80904c15de4ee9da, 0xffc2bb3fa6e609f1, 0x37b52add3fb4fe56, 0xe71e8d9a318e437f, 0x51e56654d56b4738,
@@ -144027,7 +144514,10 @@ static const uint64_t ur_m128_u2x12_uart1_lednop_pr_ee[] = {
   0xe67316fd252d9c38, 0x2cd13c9c17398b35, 0x000000000275cc11,
 };
 
-// m128_u2x12_uart1_lednop_pr_ce_u4  m128a_u2x12_uart1_lednop_pr_ce    m128a_u2x12_uart1_lednop_pr_ce_u4
+/*
+ * m128_u2x12_uart1_lednop_pr_ce_u4  m128a_u2x12_uart1_lednop_pr_ce    m128a_u2x12_uart1_lednop_pr_ce_u4
+ * ms128_u2x12_uart1_lednop_pr_ce    ms128_u2x12_uart1_lednop_pr_ce_u4
+ */
 static const uint64_t ur_m128_u2x12_uart1_lednop_pr_ce[] = {
   0xeeda1af06890c582, 0xbbaabe6b62f896ee, 0x168cc7682e841bbb, 0xf764f7775228d736, 0xeb6239cb05390d33,
   0x09f180904c15de4e, 0xfa9effc2bb3fbee6, 0x437f37b52add3fb4, 0xea0a671e8d9a318e, 0xe10b6f373b72606f,
@@ -144040,7 +144530,8 @@ static const uint64_t ur_m128_u2x12_uart1_lednop_pr_ce[] = {
 
 /*
  * m128_u2x12_uart1_lednop_pr_ee_ce_u4 m128a_u2x12_uart1_lednop_pr_ee_ce
- * m128a_u2x12_uart1_lednop_pr_ee_ce_u4
+ * m128a_u2x12_uart1_lednop_pr_ee_ce_u4 ms128_u2x12_uart1_lednop_pr_ee_ce
+ * ms128_u2x12_uart1_lednop_pr_ee_ce_u4
  */
 static const uint64_t ur_m128_u2x12_uart1_lednop_pr_ee_ce[] = {
   0x76d0d78344864541, 0xdd55c61119c4b777, 0x9d64743769badddd, 0xe2267baa6cad891e, 0xc3ac843626275330,
@@ -144053,7 +144544,7 @@ static const uint64_t ur_m128_u2x12_uart1_lednop_pr_ee_ce[] = {
   0x89e4e0b9cc59af33, 0x00000004fc372166,
 };
 
-// m128a_u2x12_uart1_lednop_ee_hw
+// m128a_u2x12_uart1_lednop_ee_hw    ms128_u2x12_uart1_lednop_ee_hw
 static const uint64_t ur_m128_u2x12_uart1_lednop_ee_hw[] = {
   0x76d0d783451a3768, 0xdd55e440fdc4b777, 0x200bf6a2ed91dddd, 0x6130feebc8ebc19b, 0xe1eda759ebb4bc2a,
   0x180904c15de4ee94, 0xb7ff5933fa6e609f, 0xf9bda956e9fda7f2, 0xc738f46cd18c721b, 0xfa8f2b32a6ab5a39,
@@ -144066,7 +144557,8 @@ static const uint64_t ur_m128_u2x12_uart1_lednop_ee_hw[] = {
 
 /*
  * m128_u2x12_uart1_lednop_ee_ce_u4_hw m128a_u2x12_uart1_lednop_ee_ce_hw
- * m128a_u2x12_uart1_lednop_ee_ce_u4_hw
+ * m128a_u2x12_uart1_lednop_ee_ce_u4_hw ms128_u2x12_uart1_lednop_ee_ce_hw
+ * ms128_u2x12_uart1_lednop_ee_ce_u4_hw
  */
 static const uint64_t ur_m128_u2x12_uart1_lednop_ee_ce_hw[] = {
   0x76d0d783451a1f68, 0xdd55c61119c4b777, 0x9d64743769badddd, 0xe2267baa6cad891e, 0x51fd403626275330,
@@ -144081,7 +144573,8 @@ static const uint64_t ur_m128_u2x12_uart1_lednop_ee_ce_hw[] = {
 
 /*
  * m128_u2x12_uart1_dual_pr          m128_u2x12_uart1_dual_pr_u4       m128a_u2x12_uart1_dual
- * m128a_u2x12_uart1_dual_pr         m128a_u2x12_uart1_dual_pr_u4
+ * m128a_u2x12_uart1_dual_pr         m128a_u2x12_uart1_dual_pr_u4      ms128_u2x12_uart1_dual
+ * ms128_u2x12_uart1_dual_pr         ms128_u2x12_uart1_dual_pr_u4
  */
 static const uint64_t ur_m128_u2x12_uart1_dual[] = {
   0xee8d775f448687e1, 0xbbaf229b39d426ee, 0xd629da9f7b62fbbb, 0xb62dddda66247ed1, 0xaf2c889e704cf821,
@@ -144095,7 +144588,7 @@ static const uint64_t ur_m128_u2x12_uart1_dual[] = {
   0xb344f2705ce62cd7, 0x000000000a49ad3e,
 };
 
-// m128a_u2x12_uart1_dual_pr_ee
+// m128a_u2x12_uart1_dual_pr_ee      ms128_u2x12_uart1_dual_pr_ee
 static const uint64_t ur_m128_u2x12_uart1_dual_pr_ee[] = {
   0x77746bbafd431f02, 0xdddd79285e4ca137, 0x2162afdc89d69edd, 0x7a0906f75056caae, 0xb45c5f9aee164dd5,
   0x60aef25eb3b9c875, 0xa43a75304f8c0482, 0x916b3eeab50c8da8, 0xe9f72f881850c9f6, 0x5ff5ff32c250094e,
@@ -144108,7 +144601,7 @@ static const uint64_t ur_m128_u2x12_uart1_dual_pr_ee[] = {
   0x799cc5bf494b670e, 0xeb344f2705ce62cd, 0x0000000000642873,
 };
 
-// m128a_u2x12_uart1_dual_pr_ee_u4
+// m128a_u2x12_uart1_dual_pr_ee_u4   ms128_u2x12_uart1_dual_pr_ee_u4
 static const uint64_t ur_m128_u2x12_uart1_dual_pr_ee_u4[] = {
   0xa35dd7d150ff9231, 0xebc942f26509bbbb, 0x157ee44eb4f6eeee, 0x4837ba82b655710b, 0xc5f4d670b26eabd0,
   0xf25eb3b869d07d75, 0x75304f8c048260ae, 0x3eeab50c8da8a43a, 0x2f881850c9f6916b, 0xfe6584a6024ee9f7,
@@ -144122,7 +144615,7 @@ static const uint64_t ur_m128_u2x12_uart1_dual_pr_ee_u4[] = {
   0x00ac9eb1c4d5524f,
 };
 
-// m128a_u2x12_uart1_dual_pr_ce
+// m128a_u2x12_uart1_dual_pr_ce      ms128_u2x12_uart1_dual_pr_ce
 static const uint64_t ur_m128_u2x12_uart1_dual_pr_ce[] = {
   0x746bbafd41431f02, 0xbbaf22d15aa13777, 0x9f69337bbdae3bbb, 0xcb16eeec0b7ac3af, 0x75b469ef35d13eab,
   0x8260aef251dbb9c8, 0xa8a433d7304f8c04, 0xf6916b3eeab50c8d, 0x4ee9f72f881850c9, 0x5c5d36ff32c25009,
@@ -144135,7 +144628,7 @@ static const uint64_t ur_m128_u2x12_uart1_dual_pr_ce[] = {
   0xd252d9c389c6592e, 0xc17398b35e67316f, 0x000692042ecd13c9,
 };
 
-// m128a_u2x12_uart1_dual_pr_ce_u4
+// m128a_u2x12_uart1_dual_pr_ce_u4   ms128_u2x12_uart1_dual_pr_ce_u4
 static const uint64_t ur_m128_u2x12_uart1_dual_pr_ce_u4[] = {
   0xd1aeebe8a87f3202, 0xebc8d2ebbe84dddd, 0x6c5f7dc6da0eeeee, 0xd6eee80a9c49ae80, 0x5795effade1f64ca,
   0x982bbc9294ee3522, 0x291dc7cc13e30120, 0xa45acfbaad43236a, 0xba7dcbe20614327d, 0x17149f9961298093,
@@ -144149,7 +144642,10 @@ static const uint64_t ur_m128_u2x12_uart1_dual_pr_ce_u4[] = {
   0x0069225214aaa49e,
 };
 
-// m128_u2x12_uart1_dual_pr_ee_ce_u4 m128a_u2x12_uart1_dual_pr_ee_ce   m128a_u2x12_uart1_dual_pr_ee_ce_u4
+/*
+ * m128_u2x12_uart1_dual_pr_ee_ce_u4 m128a_u2x12_uart1_dual_pr_ee_ce   m128a_u2x12_uart1_dual_pr_ee_ce_u4
+ * ms128_u2x12_uart1_dual_pr_ee_ce   ms128_u2x12_uart1_dual_pr_ee_ce_u4
+ */
 static const uint64_t ur_m128_u2x12_uart1_dual_pr_ee_ce[] = {
   0x35dd7d150fe49231, 0xf20d31e1d09bbbba, 0xdbe6be8b37bbbbba, 0xddb9dddb90eaf6d3, 0xa7761c1666e5dfda,
   0x705b495c7fff0e90, 0x30120982bbc9dfb7, 0x236a290f3c9cc13e, 0x327da45acfbaad43, 0x8093ba7dcbe20614,
@@ -144164,7 +144660,7 @@ static const uint64_t ur_m128_u2x12_uart1_dual_pr_ee_ce[] = {
   0x0000000010002668,
 };
 
-// m128a_u2x12_uart1_dual_ee_hw
+// m128a_u2x12_uart1_dual_ee_hw      ms128_u2x12_uart1_dual_ee_hw
 static const uint64_t ur_m128_u2x12_uart1_dual_ee_hw[] = {
   0xd1aeebe8a3457c3b, 0x75e4a1793284dddd, 0x8abf72275a7b7777, 0x241bdd415b2ab885, 0xfefff0b8593755e8,
   0x0aef25eb3b8c2824, 0x43a75304f8c04826, 0x16b3eeab50c8da8a, 0x9f72f881850c9f69, 0xff5ff32c253a0cee,
@@ -144177,7 +144673,10 @@ static const uint64_t ur_m128_u2x12_uart1_dual_ee_hw[] = {
   0xe347a2ff03f7ff05, 0x87138cb25c33d30b, 0x66bcce62dfa4a5b3, 0x4f4ea8a79382e731, 0x0000000000002bb4,
 };
 
-// m128_u2x12_uart1_dual_ee_ce_u4_hw m128a_u2x12_uart1_dual_ee_ce_hw   m128a_u2x12_uart1_dual_ee_ce_u4_hw
+/*
+ * m128_u2x12_uart1_dual_ee_ce_u4_hw m128a_u2x12_uart1_dual_ee_ce_hw   m128a_u2x12_uart1_dual_ee_ce_u4_hw
+ * ms128_u2x12_uart1_dual_ee_ce_hw   ms128_u2x12_uart1_dual_ee_ce_u4_hw
+ */
 static const uint64_t ur_m128_u2x12_uart1_dual_ee_ce_hw[] = {
   0x746bbafa28d0da9c, 0x75e41a63c3a13777, 0xa7b7cd7d166f7777, 0xb5bb73bbb721d5ed, 0x797eec382ccdcbbf,
   0x4efdbbab008404de, 0xe609f180904c15de, 0xd56a191b514879e4, 0x1030a193ed22d67d, 0x6584a7419dd3ee5f,
@@ -144191,7 +144690,7 @@ static const uint64_t ur_m128_u2x12_uart1_dual_ee_ce_hw[] = {
   0x4b867a617c68f45f, 0x5bf494b670e27196, 0xf2705ce62cd799cc, 0x000003aebc8b2514,
 };
 
-// m128a_swio10_noled
+// m128a_swio10_noled                ms128_swio10_noled
 static const uint64_t ur_m128_swio10_noled[] = {
   0x511377777759bb37, 0x27adddaab914a122, 0xd1b7b000714718c2, 0x417f43bd05a914da, 0xa350418ebfc5eec4,
   0x0904c15de4eec2f5, 0xe15073f1ee609f18, 0xd73be589af0a775f, 0x2921c490310fea3a, 0x6731602dee9a711f,
@@ -144200,7 +144699,10 @@ static const uint64_t ur_m128_swio10_noled[] = {
   0x25c33d30ae4fdf3c, 0x2dfa4a5b387138cb, 0x79382e73166bcce6, 0x000001520e2f11ba,
 };
 
-// m128_swio10_noled_pr_u4           m128a_swio10_noled_pr             m128a_swio10_noled_pr_u4
+/*
+ * m128_swio10_noled_pr_u4           m128a_swio10_noled_pr             m128a_swio10_noled_pr_u4
+ * ms128_swio10_noled_pr             ms128_swio10_noled_pr_u4
+ */
 static const uint64_t ur_m128_swio10_noled_pr[] = {
   0xc7bbbbbb4486fc3b, 0x0bbb5572285c6251, 0x3bd7a6a60713609e, 0xcd6f0bdb7e9522ee, 0x05fe3c6beec71e82,
   0xbc9dd122cccdd86e, 0xfe4c13e30120982b, 0x22f850caffc2bb3e, 0x2064f7a8f371df2c, 0xb2ca60f738d24389,
@@ -144210,7 +144712,10 @@ static const uint64_t ur_m128_swio10_noled_pr[] = {
   0x07effe0a68fb19d8, 0xb867a617c68f45fe, 0xbf494b670e271964, 0x2705ce62cd799cc5, 0x0001f26959bb344f,
 };
 
-// m128_swio10_noled_pr_ee_u4        m128a_swio10_noled_pr_ee          m128a_swio10_noled_pr_ee_u4
+/*
+ * m128_swio10_noled_pr_ee_u4        m128a_swio10_noled_pr_ee          m128a_swio10_noled_pr_ee_u4
+ * ms128_swio10_noled_pr_ee          ms128_swio10_noled_pr_ee_u4
+ */
 static const uint64_t ur_m128_swio10_noled_pr_ee[] = {
   0xafbbbbbb4486a4d6, 0x9bbb557e17a0b121, 0xbf4f4c497119cdcc, 0x5a1b5e94699fb537, 0x3f514ad8836821af,
   0x27776527da3bb172, 0x5304f8c048260aef, 0xf8522b7fe15d9f27, 0x47959c39aad68e3d, 0x2ebea3e0d9833d7d,
@@ -144221,7 +144726,10 @@ static const uint64_t ur_m128_swio10_noled_pr_ee[] = {
   0xc970cf4c2f8d1e8b, 0x8b7e9296ce1c4e32, 0x9e4e0b9cc59af339, 0x0000009d700ad668,
 };
 
-// m128_swio10_noled_pr_ce_u4        m128a_swio10_noled_pr_ce          m128a_swio10_noled_pr_ce_u4
+/*
+ * m128_swio10_noled_pr_ce_u4        m128a_swio10_noled_pr_ce          m128a_swio10_noled_pr_ce_u4
+ * ms128_swio10_noled_pr_ce          ms128_swio10_noled_pr_ce_u4
+ */
 static const uint64_t ur_m128_swio10_noled_pr_ce[] = {
   0x17bbbbbb4486b044, 0x4bbb557984a1712f, 0x6975718db62264fc, 0xdeacebe19e2f7a7a, 0x7764682b21bbe2cb,
   0xaef277671162b83d, 0xf1ad304f8c048260, 0xa6578534dffe15d9, 0x10b6f373bb7406fe, 0x21b0913d9670f3ce,
@@ -144232,7 +144740,10 @@ static const uint64_t ur_m128_swio10_noled_pr_ce[] = {
   0x592e19e985f1a3d1, 0x316fd252d9c389c6, 0x13c9c17398b35e67, 0x000000375f3316cd,
 };
 
-// m128_swio10_noled_pr_ee_ce_u4     m128a_swio10_noled_pr_ee_ce       m128a_swio10_noled_pr_ee_ce_u4
+/*
+ * m128_swio10_noled_pr_ee_ce_u4     m128a_swio10_noled_pr_ee_ce       m128a_swio10_noled_pr_ee_ce_u4
+ * ms128_swio10_noled_pr_ee_ce       ms128_swio10_noled_pr_ee_ce_u4
+ */
 static const uint64_t ur_m128_swio10_noled_pr_ee_ce[] = {
   0x90dddddda24343ee, 0x3dddaabce2605c49, 0x69db61a859bbc776, 0x278fc5f93919989d, 0x506e8e3a90bdb208,
   0x2777bbf7073ad04a, 0x7304f8c048260aef, 0xf0a0a4ffc2bb3e6b, 0x6e770000dfd51c56, 0x27b2ce1e79c216de,
@@ -144244,7 +144755,7 @@ static const uint64_t ur_m128_swio10_noled_pr_ee_ce[] = {
   0x2dfa4a5b387138cb, 0x79382e73166bcce6, 0x0000013f2dc859a2,
 };
 
-// m128a_swio10_noled_ee_hw
+// m128a_swio10_noled_ee_hw          ms128_swio10_noled_ee_hw
 static const uint64_t ur_m128_swio10_noled_ee_hw[] = {
   0xd7dddddda28d0044, 0x4dddaabf0bd05890, 0xdfa7a624b88ce6e6, 0xad0daf4a34cfda9b, 0x1fa8a56c41b410d7,
   0xbbc9dd0149334e71, 0xc9d4c13e30120982, 0xc7bf0a456ffeb267, 0xafa8f2b387355ad1, 0xc565d7d47c1b3067,
@@ -144255,7 +144766,10 @@ static const uint64_t ur_m128_swio10_noled_ee_hw[] = {
   0xb35e67316fd252d9, 0xe69ad453c9c17398, 0x00000000000000b7,
 };
 
-// m128_swio10_noled_ee_ce_u4_hw     m128a_swio10_noled_ee_ce_hw       m128a_swio10_noled_ee_ce_u4_hw
+/*
+ * m128_swio10_noled_ee_ce_u4_hw     m128a_swio10_noled_ee_ce_hw       m128a_swio10_noled_ee_ce_u4_hw
+ * ms128_swio10_noled_ee_ce_hw       ms128_swio10_noled_ee_ce_u4_hw
+ */
 static const uint64_t ur_m128_swio10_noled_ee_ce_hw[] = {
   0x437777768a346d3a, 0xf776aaf389817126, 0xa76d86a166ef1dd8, 0x9e3f17e4e4666275, 0x41ba38ea42f6c820,
   0xe4eebadd71daef29, 0x6e609f180904c15d, 0x6f0a0a4ffeb267cd, 0x90e770000dfd51c5, 0x44f659c3cf3842df,
@@ -144269,7 +144783,8 @@ static const uint64_t ur_m128_swio10_noled_ee_ce_hw[] = {
 
 /*
  * m128_swio10_lednop_pr             m128_swio10_lednop_pr_u4          m128a_swio10_lednop
- * m128a_swio10_lednop_pr            m128a_swio10_lednop_pr_u4
+ * m128a_swio10_lednop_pr            m128a_swio10_lednop_pr_u4         ms128_swio10_lednop
+ * ms128_swio10_lednop_pr            ms128_swio10_lednop_pr_u4
  */
 static const uint64_t ur_m128_swio10_lednop[] = {
   0xc7bbbbbb448651eb, 0x05ddaab914cc6251, 0x537b856ac871b04f, 0x2cd6f0b2e3b6e84d, 0xac760bd88eec71e8,
@@ -144281,7 +144796,10 @@ static const uint64_t ur_m128_swio10_lednop[] = {
   0x000000000000001f,
 };
 
-// m128_swio10_lednop_pr_ee_u4       m128a_swio10_lednop_pr_ee         m128a_swio10_lednop_pr_ee_u4
+/*
+ * m128_swio10_lednop_pr_ee_u4       m128a_swio10_lednop_pr_ee         m128a_swio10_lednop_pr_ee_u4
+ * ms128_swio10_lednop_pr_ee         ms128_swio10_lednop_pr_ee_u4
+ */
 static const uint64_t ur_m128_swio10_lednop_pr_ee[] = {
   0x5f777776890cac4f, 0x3776aafc2f646243, 0xc8ef25f1fb6f9b99, 0xa1b5e96828d35a37, 0x647cdd8836821af5,
   0x77539157991dfbfa, 0x304f8c048260aef2, 0x0a1c1ffc2bb3f43f, 0xf2b287355ad1c7bf, 0x17d47c1b3067afa8,
@@ -144292,7 +144810,10 @@ static const uint64_t ur_m128_swio10_lednop_pr_ee[] = {
   0xc2f8d1e8bfc0fdff, 0x6ce1c4e32c970cf4, 0xcc59af3398b7e929, 0xae6b056689e4e0b9, 0x0000000000000013,
 };
 
-// m128_swio10_lednop_pr_ce_u4       m128a_swio10_lednop_pr_ce         m128a_swio10_lednop_pr_ce_u4
+/*
+ * m128_swio10_lednop_pr_ce_u4       m128a_swio10_lednop_pr_ce         m128a_swio10_lednop_pr_ce_u4
+ * ms128_swio10_lednop_pr_ce         ms128_swio10_lednop_pr_ce_u4
+ */
 static const uint64_t ur_m128_swio10_lednop_pr_ce[] = {
   0x2f777776890c1107, 0x4bbb55798408225e, 0xa6276999711864fc, 0x5ef5675f42e19e15, 0x9f6696c8833ddf16,
   0x15de4eea4cb1789d, 0x7fabe609f180904c, 0xa995e148e5ff8576, 0x842dbcdcee2b01bf, 0x886c244f659c3cf3,
@@ -144303,7 +144824,10 @@ static const uint64_t ur_m128_swio10_lednop_pr_ce[] = {
   0x3d30be347a2ff03f, 0x4a5b387138cb25c3, 0x2e73166bcce62dfa, 0x06ebfe69d9a27938,
 };
 
-// m128_swio10_lednop_pr_ee_ce_u4    m128a_swio10_lednop_pr_ee_ce      m128a_swio10_lednop_pr_ee_ce_u4
+/*
+ * m128_swio10_lednop_pr_ee_ce_u4    m128a_swio10_lednop_pr_ee_ce      m128a_swio10_lednop_pr_ee_ce_u4
+ * ms128_swio10_lednop_pr_ee_ce      ms128_swio10_lednop_pr_ee_ce_u4
+ */
 static const uint64_t ur_m128_swio10_lednop_pr_ee_ce[] = {
   0x86eeeeed121b9a7c, 0xeeed55e7126ea24c, 0x62d41541619e3bb1, 0x3c7e2f81793b92eb, 0x8a55c1d485ed9041,
   0xeeecdb4f16a1f8d3, 0x609f180904c15de4, 0x29d83ff85767f96a, 0x3bc6e037f54715bc, 0xd9670f3ce10b6f37,
@@ -144315,7 +144839,7 @@ static const uint64_t ur_m128_swio10_lednop_pr_ee_ce[] = {
   0xce1c4e32c970cf4c, 0xc59af3398b7e9296, 0x9bc956689e4e0b9c, 0x000000000000009f,
 };
 
-// m128a_swio10_lednop_ee_hw
+// m128a_swio10_lednop_ee_hw         ms128_swio10_lednop_ee_hw
 static const uint64_t ur_m128_swio10_lednop_ee_hw[] = {
   0xd7dddddda28d12a8, 0x4dddaabf0bd91890, 0xf23bc97c7edbe6e6, 0x686d7a5a0a34d68d, 0x991f37620da086bd,
   0xde4ee9da087a5abe, 0x87e609f180904c15, 0x7bf0a1c1ffeb267e, 0xfa8f2b287355ad1c, 0x56c17d47c1b3067a,
@@ -144326,7 +144850,10 @@ static const uint64_t ur_m128_swio10_lednop_ee_hw[] = {
   0x8b7e9296ce1c4e32, 0x9e4e0b9cc59af339, 0x0000000b7c6907a2,
 };
 
-// m128_swio10_lednop_ee_ce_u4_hw    m128a_swio10_lednop_ee_ce_hw      m128a_swio10_lednop_ee_ce_u4_hw
+/*
+ * m128_swio10_lednop_ee_ce_u4_hw    m128a_swio10_lednop_ee_ce_hw      m128a_swio10_lednop_ee_ce_u4_hw
+ * ms128_swio10_lednop_ee_ce_hw      ms128_swio10_lednop_ee_ce_u4_hw
+ */
 static const uint64_t ur_m128_swio10_lednop_ee_ce_hw[] = {
   0x86eeeeed14684541, 0xeeed55e7126ea24c, 0x62d41541619e3bb1, 0x3c7e2f81793b92eb, 0x8a55c1d485ed9041,
   0xc9ddaafc99a842d3, 0xd4c13e30120982bb, 0xbc29d83ffd64cff2, 0x873bc6e037f54715, 0x27b2ce1e79c216fc,
@@ -144340,7 +144867,8 @@ static const uint64_t ur_m128_swio10_lednop_ee_ce_hw[] = {
 
 /*
  * m128_swio10_dual_pr               m128_swio10_dual_pr_u4            m128a_swio10_dual
- * m128a_swio10_dual_pr              m128a_swio10_dual_pr_u4
+ * m128a_swio10_dual_pr              m128a_swio10_dual_pr_u4           ms128_swio10_dual
+ * ms128_swio10_dual_pr              ms128_swio10_dual_pr_u4
  */
 static const uint64_t ur_m128_swio10_dual[] = {
   0x4bbdddddda2432db, 0x3fe2f5e4f1f62f42, 0xb9db55ecce272e32, 0x3820b82588b51dad, 0xad17957a4cdd977d,
@@ -144354,7 +144882,7 @@ static const uint64_t ur_m128_swio10_dual[] = {
   0x94b670e271964b86, 0x5ce62cd799cc5bf4, 0x0a49bcdbb344f270,
 };
 
-// m128a_swio10_dual_pr_ee
+// m128a_swio10_dual_pr_ee           ms128_swio10_dual_pr_ee
 static const uint64_t ur_m128_swio10_dual_pr_ee[] = {
   0x876b77777750cf68, 0x6ebc5ebc86c385d0, 0x66d36c123524c294, 0x055899c44decdd6b, 0xe5a0a6bd8f312769,
   0x771c11560f0cce87, 0xf180904c15de4a33, 0x8646d45226a92609, 0x2864fb48b59f755a, 0x2804a774fb97c40c,
@@ -144367,7 +144895,7 @@ static const uint64_t ur_m128_swio10_dual_pr_ee[] = {
   0x7138cb25c33d30ae, 0x6bcce62dfa4a5b38, 0x0a59a279382e7316, 0x0000000000064287,
 };
 
-// m128a_swio10_dual_pr_ee_u4
+// m128a_swio10_dual_pr_ee_u4        ms128_swio10_dual_pr_ee_u4
 static const uint64_t ur_m128_swio10_dual_pr_ee_u4[] = {
   0x6eeeeed150fe5f82, 0x8bd790d869ea1271, 0xbd7b4fb2d5619eb7, 0x1cef7187c8077eaf, 0x66ec79899c4af8dd,
   0x8c5a3fc1cac10673, 0x82bbc9322eefeb74, 0x208f5cc13e301209, 0x8b59f755a8646d45, 0x4fb97c40c2864fb4,
@@ -144381,7 +144909,7 @@ static const uint64_t ur_m128_swio10_dual_pr_ee_u4[] = {
   0x67316fd252d9c389, 0x5493c9c17398b35e, 0x0000000159234f95,
 };
 
-// m128a_swio10_dual_pr_ce
+// m128a_swio10_dual_pr_ce           ms128_swio10_dual_pr_ce
 static const uint64_t ur_m128_swio10_dual_pr_ce[] = {
   0x14addddddd437089, 0x3bf17af202fae342, 0xb85efb89c482b272, 0x3848d860b28fa7de, 0xb09bd9b75bdd2945,
   0xc95dd57b68ff5efb, 0x827c602413057793, 0x55a8646d4522c939, 0x40c2864fb48b59f7, 0x9612804a774fb97c,
@@ -144394,7 +144922,7 @@ static const uint64_t ur_m128_swio10_dual_pr_ce[] = {
   0x98b7e9296ce1c4e3, 0x89e4e0b9cc59af33, 0x0000000e7acad566,
 };
 
-// m128a_swio10_dual_pr_ce_u4
+// m128a_swio10_dual_pr_ce_u4        ms128_swio10_dual_pr_ce_u4
 static const uint64_t ur_m128_swio10_dual_pr_ce_u4[] = {
   0xb7777768a87fb202, 0xc5ebc8825a0d0875, 0xee66cb12727ac52b, 0xf6503e421aafde3f, 0xda7ab8ee9d61eccc,
   0x66f5804e0a405df5, 0x0120982bbc989cee, 0x46d45213cbcc13e3, 0x64fb48b59f755a86, 0x012774fb97c40c28,
@@ -144408,7 +144936,10 @@ static const uint64_t ur_m128_swio10_dual_pr_ce_u4[] = {
   0xe67316fd252d9c38, 0x55493c9c17398b35, 0x0000000034922ac5,
 };
 
-// m128_swio10_dual_pr_ee_ce_u4      m128a_swio10_dual_pr_ee_ce        m128a_swio10_dual_pr_ee_ce_u4
+/*
+ * m128_swio10_dual_pr_ee_ce_u4      m128a_swio10_dual_pr_ee_ce        m128a_swio10_dual_pr_ee_ce_u4
+ * ms128_swio10_dual_pr_ee_ce        ms128_swio10_dual_pr_ee_ce_u4
+ */
 static const uint64_t ur_m128_swio10_dual_pr_ee_ce[] = {
   0xddddda2a1ff96389, 0x7af23202cdd0816d, 0x5f7b8421a2fdfbf1, 0x594f05d7bd3523bf, 0x96c305913d3eebbf,
   0xc2acda9d35d54626, 0x2d4ee422fbd3ae9a, 0xc13e30120982bbc9, 0xb50c8da8a404918c, 0x1850c9f6916b3eea,
@@ -144423,7 +144954,7 @@ static const uint64_t ur_m128_swio10_dual_pr_ee_ce[] = {
   0x3166bcce62dfa4a5, 0x3087eaa9279382e7, 0x0000000000000400,
 };
 
-// m128a_swio10_dual_ee_hw
+// m128a_swio10_dual_ee_hw           ms128_swio10_dual_ee_hw
 static const uint64_t ur_m128_swio10_dual_ee_hw[] = {
   0x2dddddda28d19231, 0xf17af21b0d3d424e, 0xf7af69f65aac33d6, 0xa39dee30f900efd5, 0x6cdd8f3133895f1b,
   0x741f5f7a6b5820ce, 0x20982bbc9322ee1a, 0xd45208f5cc13e301, 0xfb48b59f755a8646, 0x6774fb97c40c2864,
@@ -144437,7 +144968,10 @@ static const uint64_t ur_m128_swio10_dual_ee_hw[] = {
   0x02bb4baa4a29e4e0,
 };
 
-// m128_swio10_dual_ee_ce_u4_hw      m128a_swio10_dual_ee_ce_hw        m128a_swio10_dual_ee_ce_u4_hw
+/*
+ * m128_swio10_dual_ee_ce_u4_hw      m128a_swio10_dual_ee_ce_hw        m128a_swio10_dual_ee_ce_u4_hw
+ * ms128_swio10_dual_ee_ce_hw        ms128_swio10_dual_ee_ce_u4_hw
+ */
 static const uint64_t ur_m128_swio10_dual_ee_ce_hw[] = {
   0xdddddda28d049231, 0x17af23202cdd0816, 0xf5f7b8421a2fdfbf, 0xf594f05d7bd3523b, 0x696c305913d3eebb,
   0x7ee90a29d35d5462, 0x5de496a7705b495c, 0x48c6609f180904c1, 0x9f755a8646d45202, 0x97c40c2864fb48b5,
@@ -144456,7 +144990,9 @@ static const uint64_t ur_m128_swio10_dual_ee_ce_hw[] = {
  * m128_swio11_noled_pr              m128_swio11_noled_pr_u4           m128_swio12_noled
  * m128_swio12_noled_pr              m128_swio12_noled_pr_u4           m128a_swio11_noled
  * m128a_swio11_noled_pr             m128a_swio11_noled_pr_u4          m128a_swio12_noled
- * m128a_swio12_noled_pr             m128a_swio12_noled_pr_u4
+ * m128a_swio12_noled_pr             m128a_swio12_noled_pr_u4          ms128_swio11_noled
+ * ms128_swio11_noled_pr             ms128_swio11_noled_pr_u4          ms128_swio12_noled
+ * ms128_swio12_noled_pr             ms128_swio12_noled_pr_u4
  */
 static const uint64_t ur_m128_swio11_noled[] = {
   0xd05bbbbb4486d38b, 0xddaab914a8712b89, 0xdb26fd8d05b04f05, 0xd60e21b63367ebd3, 0x8fcc78feedc4e82c,
@@ -144470,7 +145006,8 @@ static const uint64_t ur_m128_swio11_noled[] = {
 /*
  * m128_swio11_noled_pr_ee_u4        m128_swio12_noled_pr_ee           m128_swio12_noled_pr_ee_u4
  * m128a_swio11_noled_pr_ee          m128a_swio11_noled_pr_ee_u4       m128a_swio12_noled_pr_ee
- * m128a_swio12_noled_pr_ee_u4
+ * m128a_swio12_noled_pr_ee_u4       ms128_swio11_noled_pr_ee          ms128_swio11_noled_pr_ee_u4
+ * ms128_swio12_noled_pr_ee          ms128_swio12_noled_pr_ee_u4
  */
 static const uint64_t ur_m128_swio11_noled_pr_ee[] = {
   0xad377776890c1107, 0xeed55f85c208971f, 0x9da6750c99f37326, 0x4368650b86785698, 0x6c8833106d05c7eb,
@@ -144485,7 +145022,8 @@ static const uint64_t ur_m128_swio11_noled_pr_ee[] = {
 /*
  * m128_swio11_noled_pr_ce_u4        m128_swio12_noled_pr_ce           m128_swio12_noled_pr_ce_u4
  * m128a_swio11_noled_pr_ce          m128a_swio11_noled_pr_ce_u4       m128a_swio12_noled_pr_ce
- * m128a_swio12_noled_pr_ce_u4
+ * m128a_swio12_noled_pr_ce_u4       ms128_swio11_noled_pr_ce          ms128_swio11_noled_pr_ce_u4
+ * ms128_swio12_noled_pr_ce          ms128_swio12_noled_pr_ce_u4
  */
 static const uint64_t ur_m128_swio11_noled_pr_ce[] = {
   0x2f7bbbbb44864aa4, 0xeed55e611ebc4ab4, 0x1efd3803d2993f12, 0xd5988b4b37764f57, 0xb68a101b1bb5a17b,
@@ -144500,7 +145038,8 @@ static const uint64_t ur_m128_swio11_noled_pr_ce[] = {
 /*
  * m128_swio11_noled_pr_ee_ce_u4     m128_swio12_noled_pr_ee_ce        m128_swio12_noled_pr_ee_ce_u4
  * m128a_swio11_noled_pr_ee_ce       m128a_swio11_noled_pr_ee_ce_u4    m128a_swio12_noled_pr_ee_ce
- * m128a_swio12_noled_pr_ee_ce_u4
+ * m128a_swio12_noled_pr_ee_ce_u4    ms128_swio11_noled_pr_ee_ce       ms128_swio11_noled_pr_ee_ce_u4
+ * ms128_swio12_noled_pr_ee_ce       ms128_swio12_noled_pr_ee_ce_u4
  */
 static const uint64_t ur_m128_swio11_noled_pr_ee_ce[] = {
   0xc209bbbbb4486e7c, 0xeeed55e712cce246, 0x86d014f5cfde3bb1, 0x3c79bb3228ee99ed, 0x8dd091d485ecd841,
@@ -144513,7 +145052,10 @@ static const uint64_t ur_m128_swio11_noled_pr_ee_ce[] = {
   0xe9296ce1c4e32c97, 0xe0b9cc59af3398b7, 0x0009f91a9d6689e4,
 };
 
-// m128_swio12_noled_ee_hw           m128a_swio11_noled_ee_hw          m128a_swio12_noled_ee_hw
+/*
+ * m128_swio12_noled_ee_hw           m128a_swio11_noled_ee_hw          m128a_swio12_noled_ee_hw
+ * ms128_swio11_noled_ee_hw          ms128_swio12_noled_ee_hw
+ */
 static const uint64_t ur_m128_swio11_noled_ee_hw[] = {
   0xeb4ddddda28d0582, 0xbbb557e1708225c7, 0x27699d43267cdcc9, 0xd0da1942e19e15a6, 0x5b220cc41b4171fa,
   0xbc9dd6c473b5391a, 0x57cc13e30120982b, 0x1fe148e5ffd64cff, 0xf51e565d66ab5a33, 0xaca5fa8f83660fa8,
@@ -144527,7 +145069,8 @@ static const uint64_t ur_m128_swio11_noled_ee_hw[] = {
 /*
  * m128_swio11_noled_ee_ce_u4_hw     m128_swio12_noled_ee_ce_hw        m128_swio12_noled_ee_ce_u4_hw
  * m128a_swio11_noled_ee_ce_hw       m128a_swio11_noled_ee_ce_u4_hw    m128a_swio12_noled_ee_ce_hw
- * m128a_swio12_noled_ee_ce_u4_hw
+ * m128a_swio12_noled_ee_ce_u4_hw    ms128_swio11_noled_ee_ce_hw       ms128_swio11_noled_ee_ce_u4_hw
+ * ms128_swio12_noled_ee_ce_hw       ms128_swio12_noled_ee_ce_u4_hw
  */
 static const uint64_t ur_m128_swio11_noled_ee_ce_hw[] = {
   0x413777768a34306a, 0xddaabce2599c48d8, 0xda029eb9fbc7763d, 0x8f3766451dd33db0, 0xba123a90bd9b0827,
@@ -144544,7 +145087,9 @@ static const uint64_t ur_m128_swio11_noled_ee_ce_hw[] = {
  * m128_swio11_lednop_pr             m128_swio11_lednop_pr_u4          m128_swio12_lednop
  * m128_swio12_lednop_pr             m128_swio12_lednop_pr_u4          m128a_swio11_lednop
  * m128a_swio11_lednop_pr            m128a_swio11_lednop_pr_u4         m128a_swio12_lednop
- * m128a_swio12_lednop_pr            m128a_swio12_lednop_pr_u4
+ * m128a_swio12_lednop_pr            m128a_swio12_lednop_pr_u4         ms128_swio11_lednop
+ * ms128_swio11_lednop_pr            ms128_swio11_lednop_pr_u4         ms128_swio12_lednop
+ * ms128_swio12_lednop_pr            ms128_swio12_lednop_pr_u4
  */
 static const uint64_t ur_m128_swio11_lednop[] = {
   0xe82ddddda243280b, 0xeed55c8a42f895c4, 0xad242fcc3ed82782, 0x6b0715431b65ef70, 0xd3b1fe9776e27416,
@@ -144559,7 +145104,8 @@ static const uint64_t ur_m128_swio11_lednop[] = {
 /*
  * m128_swio11_lednop_pr_ee_u4       m128_swio12_lednop_pr_ee          m128_swio12_lednop_pr_ee_u4
  * m128a_swio11_lednop_pr_ee         m128a_swio11_lednop_pr_ee_u4      m128a_swio12_lednop_pr_ee
- * m128a_swio12_lednop_pr_ee_u4
+ * m128a_swio12_lednop_pr_ee_u4      ms128_swio11_lednop_pr_ee         ms128_swio11_lednop_pr_ee_u4
+ * ms128_swio12_lednop_pr_ee         ms128_swio12_lednop_pr_ee_u4
  */
 static const uint64_t ur_m128_swio11_lednop_pr_ee[] = {
   0xd69bbbbb44867f3e, 0xeed55f85da2c4b8f, 0x2eac1cc46df37326, 0xd0da181050b41379, 0x934a7ec41b4171fa,
@@ -144574,7 +145120,8 @@ static const uint64_t ur_m128_swio11_lednop_pr_ee[] = {
 /*
  * m128_swio11_lednop_pr_ce_u4       m128_swio12_lednop_pr_ce          m128_swio12_lednop_pr_ce_u4
  * m128a_swio11_lednop_pr_ce         m128a_swio11_lednop_pr_ce_u4      m128a_swio12_lednop_pr_ce
- * m128a_swio12_lednop_pr_ce_u4
+ * m128a_swio12_lednop_pr_ce_u4      ms128_swio11_lednop_pr_ce         ms128_swio11_lednop_pr_ce_u4
+ * ms128_swio12_lednop_pr_ce         ms128_swio12_lednop_pr_ce_u4
  */
 static const uint64_t ur_m128_swio11_lednop_pr_ce[] = {
   0x2f7bbbbb448607e1, 0xeed55e612a2c4ab4, 0x3df2350c99993f12, 0xd5988bd7696486d3, 0xd71b45c5fbb5a17b,
@@ -144589,7 +145136,8 @@ static const uint64_t ur_m128_swio11_lednop_pr_ce[] = {
 /*
  * m128_swio11_lednop_pr_ee_ce_u4    m128_swio12_lednop_pr_ee_ce       m128_swio12_lednop_pr_ee_ce_u4
  * m128a_swio11_lednop_pr_ee_ce      m128a_swio11_lednop_pr_ee_ce_u4   m128a_swio12_lednop_pr_ee_ce
- * m128a_swio12_lednop_pr_ee_ce_u4
+ * m128a_swio12_lednop_pr_ee_ce_u4   ms128_swio11_lednop_pr_ee_ce      ms128_swio11_lednop_pr_ee_ce_u4
+ * ms128_swio12_lednop_pr_ee_ce      ms128_swio12_lednop_pr_ee_ce_u4
  */
 static const uint64_t ur_m128_swio11_lednop_pr_ee_ce[] = {
   0x41377776890c365a, 0xddaabce24a7448d8, 0xad3b41034bc7763d, 0xc79bb66664560ea0, 0xd9233d485ecd8413,
@@ -144602,7 +145150,10 @@ static const uint64_t ur_m128_swio11_lednop_pr_ee_ce[] = {
   0x70e271964b867a61, 0x2cd799cc5bf494b6, 0x106ab344f2705ce6, 0x00000000000004fc,
 };
 
-// m128_swio12_lednop_ee_hw          m128a_swio11_lednop_ee_hw         m128a_swio12_lednop_ee_hw
+/*
+ * m128_swio12_lednop_ee_hw          m128a_swio11_lednop_ee_hw         m128a_swio12_lednop_ee_hw
+ * ms128_swio11_lednop_ee_hw         ms128_swio12_lednop_ee_hw
+ */
 static const uint64_t ur_m128_swio11_lednop_ee_hw[] = {
   0xfd69bbbbb451a111, 0x6eed55f85da2c4b8, 0x92eac1cc46df3732, 0xad0da181050b4137, 0x8934a7ec41b4171f,
   0xbbc9dd1ec5ab6351, 0xc2d4c13e30120982, 0x98ff0a13affeb267, 0x47a8f2b60b355ad1, 0xc56a7bd47c1b307d,
@@ -144616,7 +145167,8 @@ static const uint64_t ur_m128_swio11_lednop_ee_hw[] = {
 /*
  * m128_swio11_lednop_ee_ce_u4_hw    m128_swio12_lednop_ee_ce_hw       m128_swio12_lednop_ee_ce_u4_hw
  * m128a_swio11_lednop_ee_ce_hw      m128a_swio11_lednop_ee_ce_u4_hw   m128a_swio12_lednop_ee_ce_hw
- * m128a_swio12_lednop_ee_ce_u4_hw
+ * m128a_swio12_lednop_ee_ce_u4_hw   ms128_swio11_lednop_ee_ce_hw      ms128_swio11_lednop_ee_ce_u4_hw
+ * ms128_swio12_lednop_ee_ce_hw      ms128_swio12_lednop_ee_ce_u4_hw
  */
 static const uint64_t ur_m128_swio11_lednop_ee_ce_hw[] = {
   0x826eeeed14687a31, 0xbb5579c494e891b0, 0x5a768206978eec7b, 0x8f376cccc8ac1d41, 0xb2467a90bd9b0827,
@@ -144633,7 +145185,9 @@ static const uint64_t ur_m128_swio11_lednop_ee_ce_hw[] = {
  * m128_swio11_dual_pr               m128_swio11_dual_pr_u4            m128_swio12_dual
  * m128_swio12_dual_pr               m128_swio12_dual_pr_u4            m128a_swio11_dual
  * m128a_swio11_dual_pr              m128a_swio11_dual_pr_u4           m128a_swio12_dual
- * m128a_swio12_dual_pr              m128a_swio12_dual_pr_u4
+ * m128a_swio12_dual_pr              m128a_swio12_dual_pr_u4           ms128_swio11_dual
+ * ms128_swio11_dual_pr              ms128_swio11_dual_pr_u4           ms128_swio12_dual
+ * ms128_swio12_dual_pr              ms128_swio12_dual_pr_u4
  */
 static const uint64_t ur_m128_swio11_dual[] = {
   0x1e9dbbbbb4486f97, 0xe2f5e4f1f9f74247, 0xfaa3e1bb272e323f, 0x8119f5dc6a1edb55, 0xb7bf673b7638f4e0,
@@ -144647,7 +145201,10 @@ static const uint64_t ur_m128_swio11_dual[] = {
   0xb670e271964b867a, 0xe62cd799cc5bf494, 0x49c7d7b344f2705c, 0x000000000000000a,
 };
 
-// m128_swio12_dual_pr_ee            m128a_swio11_dual_pr_ee           m128a_swio12_dual_pr_ee
+/*
+ * m128_swio12_dual_pr_ee            m128a_swio11_dual_pr_ee           m128a_swio12_dual_pr_ee
+ * ms128_swio11_dual_pr_ee           ms128_swio12_dual_pr_ee
+ */
 static const uint64_t ur_m128_swio11_dual_pr_ee[] = {
   0x1ec82b7777750c86, 0xbaf17af21b1ee284, 0x609bc7f67c738a51, 0x5627ed61f64cb9db, 0x644f7763cc48f641,
   0x73c119d4b229d0ce, 0x180904c15de4a337, 0x646d4520b316609f, 0x864fb48b59f755a8, 0x804a774fb97c40c2,
@@ -144660,7 +145217,10 @@ static const uint64_t ur_m128_swio11_dual_pr_ee[] = {
   0x71964b867a615c9f, 0x99cc5bf494b670e2, 0xb344f2705ce62cd7, 0x000000000c851b8f,
 };
 
-// m128_swio12_dual_pr_ee_u4         m128a_swio11_dual_pr_ee_u4        m128a_swio12_dual_pr_ee_u4
+/*
+ * m128_swio12_dual_pr_ee_u4         m128a_swio11_dual_pr_ee_u4        m128a_swio12_dual_pr_ee_u4
+ * ms128_swio11_dual_pr_ee_u4        ms128_swio12_dual_pr_ee_u4
+ */
 static const uint64_t ur_m128_swio11_dual_pr_ee_u4[] = {
   0xf6eeeed150ffac4f, 0xf5e43607e509f695, 0x5eec5e355867ade2, 0x95a083e44fdebde9, 0x963cc4fda57c6e93,
   0x5dd9fda38ff7d7c9, 0x5de49917707d7e0e, 0xe7ae609f180904c1, 0xacfbaad43236a291, 0xdcbe20614327da45,
@@ -144674,7 +145234,10 @@ static const uint64_t ur_m128_swio11_dual_pr_ee_u4[] = {
   0xc5bf494b670e2719, 0x4f2705ce62cd799c, 0x00000564b662d552,
 };
 
-// m128_swio12_dual_pr_ce            m128a_swio11_dual_pr_ce           m128a_swio12_dual_pr_ce
+/*
+ * m128_swio12_dual_pr_ce            m128a_swio11_dual_pr_ce           m128a_swio12_dual_pr_ce
+ * ms128_swio11_dual_pr_ce           ms128_swio12_dual_pr_ce
+ */
 static const uint64_t ur_m128_swio11_dual_pr_ce[] = {
   0x914edddddd435202, 0xf17af202faefa11d, 0x8db41fb476b2723b, 0x2202935d00d8befb, 0x0fb2656b75d914e1,
   0x5dcb8beec2bdeb2b, 0x7c602413057793c9, 0xa8646d4523b8f982, 0xc2864fb48b59f755, 0x12804a774fb97c40,
@@ -144687,7 +145250,10 @@ static const uint64_t ur_m128_swio11_dual_pr_ce[] = {
   0xdfa4a5b387138cb2, 0x9382e73166bcce62, 0x000073d63a2d9a27,
 };
 
-// m128_swio12_dual_pr_ce_u4         m128a_swio11_dual_pr_ce_u4        m128a_swio12_dual_pr_ce_u4
+/*
+ * m128_swio12_dual_pr_ce_u4         m128a_swio11_dual_pr_ce_u4        m128a_swio12_dual_pr_ce_u4
+ * ms128_swio11_dual_pr_ce_u4        ms128_swio12_dual_pr_ce_u4
+ */
 static const uint64_t ur_m128_swio11_dual_pr_ce_u4[] = {
   0xdb777768a87fa812, 0xf5e44132268457c3, 0xd5faec21bd6295e2, 0x31c2c9b51fdccdef, 0xf2bbf755f0f66669,
   0x7c80b782a4633683, 0x2413057793139dc5, 0xda8a41c939827c60, 0x9f6916b3eeab50c8, 0x24ee9f72f881850c,
@@ -144704,7 +145270,8 @@ static const uint64_t ur_m128_swio11_dual_pr_ce_u4[] = {
 /*
  * m128_swio11_dual_pr_ee_ce_u4      m128_swio12_dual_pr_ee_ce         m128_swio12_dual_pr_ee_ce_u4
  * m128a_swio11_dual_pr_ee_ce        m128a_swio11_dual_pr_ee_ce_u4     m128a_swio12_dual_pr_ee_ce
- * m128a_swio12_dual_pr_ee_ce_u4
+ * m128a_swio12_dual_pr_ee_ce_u4     ms128_swio11_dual_pr_ee_ce        ms128_swio11_dual_pr_ee_ce_u4
+ * ms128_swio12_dual_pr_ee_ce        ms128_swio12_dual_pr_ee_ce_u4
  */
 static const uint64_t ur_m128_swio11_dual_pr_ee_ce[] = {
   0xf777768a87fd5214, 0xf2320614a1135d13, 0xad049ba2fdfbf17a, 0x8d1f2bdefd7da34e, 0x1935d13d3ef66eb6,
@@ -144720,7 +145287,10 @@ static const uint64_t ur_m128_swio11_dual_pr_ee_ce[] = {
   0xaf3398b7e9296ce1, 0x4aaa49e4e0b9cc59, 0x00000000008001aa,
 };
 
-// m128_swio12_dual_ee_hw            m128a_swio11_dual_ee_hw           m128a_swio12_dual_ee_hw
+/*
+ * m128_swio12_dual_ee_hw            m128a_swio11_dual_ee_hw           m128a_swio12_dual_ee_hw
+ * ms128_swio11_dual_ee_hw           ms128_swio12_dual_ee_hw
+ */
 static const uint64_t ur_m128_swio11_dual_ee_hw[] = {
   0xbeddddda28d08f43, 0x5ebc86c0fca13ed2, 0x2bdd8bc6ab0cf5bc, 0x72b4107c89fbd7bd, 0x32c7989fb4af8dd2,
   0xd35b669d71fefaf9, 0x4c15de499177093f, 0x291e7ae609f18090, 0xa45acfbaad43236a, 0xba7dcbe20614327d,
@@ -144737,7 +145307,8 @@ static const uint64_t ur_m128_swio11_dual_ee_hw[] = {
 /*
  * m128_swio11_dual_ee_ce_u4_hw      m128_swio12_dual_ee_ce_hw         m128_swio12_dual_ee_ce_u4_hw
  * m128a_swio11_dual_ee_ce_hw        m128a_swio11_dual_ee_ce_u4_hw     m128a_swio12_dual_ee_ce_hw
- * m128a_swio12_dual_ee_ce_u4_hw
+ * m128a_swio12_dual_ee_ce_u4_hw     ms128_swio11_dual_ee_ce_hw        ms128_swio11_dual_ee_ce_u4_hw
+ * ms128_swio12_dual_ee_ce_hw        ms128_swio12_dual_ee_ce_u4_hw
  */
 static const uint64_t ur_m128_swio11_dual_ee_ce_hw[] = {
   0x7eeeeed14685b217, 0x5e4640c294226ba2, 0xd5a093745fbf7e2f, 0xd1a3e57bdfafb469, 0xc326ba27a7decdd6,
@@ -144755,7 +145326,8 @@ static const uint64_t ur_m128_swio11_dual_ee_ce_hw[] = {
 
 /*
  * m128_swio13_noled_pr              m128_swio13_noled_pr_u4           m128a_swio13_noled
- * m128a_swio13_noled_pr             m128a_swio13_noled_pr_u4
+ * m128a_swio13_noled_pr             m128a_swio13_noled_pr_u4          ms128_swio13_noled
+ * ms128_swio13_noled_pr             ms128_swio13_noled_pr_u4
  */
 static const uint64_t ur_m128_swio13_noled[] = {
   0x13bbbbbb44862d7b, 0x0bbb557229e3e249, 0xc9ea9bd590e3609e, 0x59ac683001337936, 0xcd4e17bafdd489d0,
@@ -144766,7 +145338,10 @@ static const uint64_t ur_m128_swio13_noled[] = {
   0xffc14d1f633b0e3f, 0xf4c2f8d1e8bfc0fd, 0x296ce1c4e32c970c, 0xb9cc59af3398b7e9, 0x3e4e4cd16689e4e0,
 };
 
-// m128_swio13_noled_pr_ee_u4        m128a_swio13_noled_pr_ee          m128a_swio13_noled_pr_ee_u4
+/*
+ * m128_swio13_noled_pr_ee_u4        m128a_swio13_noled_pr_ee          m128a_swio13_noled_pr_ee_u4
+ * ms128_swio13_noled_pr_ee          ms128_swio13_noled_pr_ee_u4
+ */
 static const uint64_t ur_m128_swio13_noled_pr_ee[] = {
   0x5fbbbbbb448607e1, 0x9bbb557e17a8b127, 0x4cf7c8f8fdb7cdcc, 0xd0da266f5da5921b, 0x368b8bc41b413afa,
   0x3ba73b3ef27157ae, 0x9827c60241305779, 0xc2835bff0aecfa5a, 0x1e5652e6ab5a37f3, 0x43f51f06cc184ff5,
@@ -144777,7 +145352,10 @@ static const uint64_t ur_m128_swio13_noled_pr_ee[] = {
   0xcf4c2f8d1e8bfc0f, 0x9296ce1c4e32c970, 0x0b9cc59af3398b7e, 0x013aff9276689e4e,
 };
 
-// m128_swio13_noled_pr_ce_u4        m128a_swio13_noled_pr_ce          m128a_swio13_noled_pr_ce_u4
+/*
+ * m128_swio13_noled_pr_ce_u4        m128a_swio13_noled_pr_ce          m128a_swio13_noled_pr_ce_u4
+ * ms128_swio13_noled_pr_ce          ms128_swio13_noled_pr_ce_u4
+ */
 static const uint64_t ur_m128_swio13_noled_pr_ce[] = {
   0xafbbbbbb4486a4d6, 0x4bbb557984a0b121, 0xbf4f4c49711864fc, 0xbdeade94699fb537, 0xc5c8fd452b7ba35c,
   0x2bbc9ddd949f68ee, 0x7c9d4c13e3012098, 0x58f7e148adff8576, 0x085b79b9dece037f, 0x10d8489ecb3879e7,
@@ -144788,7 +145366,10 @@ static const uint64_t ur_m128_swio13_noled_pr_ce[] = {
   0x70cf4c2f8d1e8bfc, 0x7e9296ce1c4e32c9, 0x4e0b9cc59af3398b, 0x0000dd700ad6689e,
 };
 
-// m128_swio13_noled_pr_ee_ce_u4     m128a_swio13_noled_pr_ee_ce       m128a_swio13_noled_pr_ee_ce_u4
+/*
+ * m128_swio13_noled_pr_ee_ce_u4     m128a_swio13_noled_pr_ee_ce       m128a_swio13_noled_pr_ee_ce_u4
+ * ms128_swio13_noled_pr_ee_ce       ms128_swio13_noled_pr_ee_ce_u4
+ */
 static const uint64_t ur_m128_swio13_noled_pr_ee_ce[] = {
   0xdeeeeeed1218022f, 0xdddaabce2437448a, 0x15ad8a82c33c7763, 0x78f3f762627791d0, 0x29d06f5217b2b682,
   0x76bbf22421b4f3d6, 0x04f8c048260aef27, 0x4fd7ffc2bb3f30d3, 0xec5201bfaa31ade1, 0x659c3cf3842dbcdc,
@@ -144800,7 +145381,7 @@ static const uint64_t ur_m128_swio13_noled_pr_ee_ce[] = {
   0x96ce1c4e32c970cf, 0x9cc59af3398b7e92, 0x9f80f276689e4e0b,
 };
 
-// m128a_swio13_noled_ee_hw
+// m128a_swio13_noled_ee_hw          ms128_swio13_noled_ee_hw
 static const uint64_t ur_m128_swio13_noled_ee_hw[] = {
   0xafdddddda28d0a20, 0x4dddaabf0bd45893, 0xa67be47c7edbe6e6, 0x686d1337aed2c90d, 0x1b45c5e20da09d7d,
   0xde4eea0a4e5a10d7, 0x96a609f180904c15, 0xfe78506b7ff5933e, 0xfea3caca5cd56b46, 0x2b287ea3e0d98309,
@@ -144811,7 +145392,10 @@ static const uint64_t ur_m128_swio13_noled_ee_hw[] = {
   0x67316fd252d9c389, 0x1453c9c17398b35e, 0x0000000000b7c8cd,
 };
 
-// m128_swio13_noled_ee_ce_u4_hw     m128a_swio13_noled_ee_ce_hw       m128a_swio13_noled_ee_ce_u4_hw
+/*
+ * m128_swio13_noled_ee_ce_u4_hw     m128a_swio13_noled_ee_ce_hw       m128a_swio13_noled_ee_ce_u4_hw
+ * ms128_swio13_noled_ee_ce_hw       ms128_swio13_noled_ee_ce_u4_hw
+ */
 static const uint64_t ur_m128_swio13_noled_ee_ce_hw[] = {
   0xdeeeeeed146892df, 0xdddaabce2437448a, 0x15ad8a82c33c7763, 0x78f3f762627791d0, 0x29d06f5217b2b682,
   0x93bb73b66f7263d6, 0x69827c6024130577, 0x7853f5fffac99f98, 0x873b14806fea8c6b, 0x27b2ce1e79c216fc,
@@ -144825,7 +145409,8 @@ static const uint64_t ur_m128_swio13_noled_ee_ce_hw[] = {
 
 /*
  * m128_swio13_lednop_pr             m128_swio13_lednop_pr_u4          m128a_swio13_lednop
- * m128a_swio13_lednop_pr            m128a_swio13_lednop_pr_u4
+ * m128a_swio13_lednop_pr            m128a_swio13_lednop_pr_u4         ms128_swio13_lednop
+ * ms128_swio13_lednop_pr            ms128_swio13_lednop_pr_u4
  */
 static const uint64_t ur_m128_swio13_lednop[] = {
   0x89dddddda2435562, 0x05ddaab91405f124, 0x921ab41b5ebdb04f, 0x166b1a0f8f803c5e, 0xeb5936a633752274,
@@ -144837,7 +145422,10 @@ static const uint64_t ur_m128_swio13_lednop[] = {
   0x0000000000003e4c,
 };
 
-// m128_swio13_lednop_pr_ee_u4       m128a_swio13_lednop_pr_ee         m128a_swio13_lednop_pr_ee_u4
+/*
+ * m128_swio13_lednop_pr_ee_u4       m128a_swio13_lednop_pr_ee         m128a_swio13_lednop_pr_ee_u4
+ * ms128_swio13_lednop_pr_ee         ms128_swio13_lednop_pr_ee_u4
+ */
 static const uint64_t ur_m128_swio13_lednop_pr_ee[] = {
   0x5fbbbbbb44863d5b, 0x9bbb557e1723f127, 0x583bd3a17c01cdcc, 0x686d133a8af5d90d, 0x9ae386620da09d7d,
   0x9dd2d43af02e8be9, 0xcc13e30120982bbc, 0x853abfff0aecff4f, 0x3cad4f4d56b46fe7, 0x09ea3e0d98309fea,
@@ -144848,7 +145436,10 @@ static const uint64_t ur_m128_swio13_lednop_pr_ee[] = {
   0xf1a3d17f81fbff82, 0xc389c6592e19e985, 0xb35e67316fd252d9, 0x6a72cd13c9c17398, 0x000000000000275e,
 };
 
-// m128_swio13_lednop_pr_ce_u4       m128a_swio13_lednop_pr_ce         m128a_swio13_lednop_pr_ce_u4
+/*
+ * m128_swio13_lednop_pr_ce_u4       m128a_swio13_lednop_pr_ce         m128a_swio13_lednop_pr_ce_u4
+ * ms128_swio13_lednop_pr_ce         ms128_swio13_lednop_pr_ce_u4
+ */
 static const uint64_t ur_m128_swio13_lednop_pr_ce[] = {
   0x5f777776890cac4f, 0x9776aaf309646243, 0xc8ef25f1fb6cc9f8, 0xdeade96828d35a37, 0xefe991f377ba35cb,
   0xbbc9dd4e455e6477, 0xd0fcc13e30120982, 0x1efc28707ff0aecf, 0x0b6f373b1ac06feb, 0x1b0913d9670f3ce1,
@@ -144859,7 +145450,10 @@ static const uint64_t ur_m128_swio13_lednop_pr_ce[] = {
   0xbe347a2ff03f7ff0, 0x387138cb25c33d30, 0x166bcce62dfa4a5b, 0x9ac159a279382e73, 0x00000000000006eb,
 };
 
-// m128_swio13_lednop_pr_ee_ce_u4    m128a_swio13_lednop_pr_ee_ce      m128a_swio13_lednop_pr_ee_ce_u4
+/*
+ * m128_swio13_lednop_pr_ee_ce_u4    m128a_swio13_lednop_pr_ee_ce      m128a_swio13_lednop_pr_ee_ce_u4
+ * ms128_swio13_lednop_pr_ee_ce      ms128_swio13_lednop_pr_ee_ce_u4
+ */
 static const uint64_t ur_m128_swio13_lednop_pr_ee_ce[] = {
   0x6f777776890c5aa4, 0xeeed55e71252a245, 0xdad1ed51469e3bb1, 0x3c79fb0dd627a769, 0x3d6477a90bd95b41,
   0x750846719f5f5c05, 0x04f8c048260aef27, 0x9787ff85767d9bf3, 0xbec1037f54635bc2, 0x9670f3ce10b6f373,
@@ -144871,7 +145465,7 @@ static const uint64_t ur_m128_swio13_lednop_pr_ee_ce[] = {
   0x89c6592e19e985f1, 0x5e67316fd252d9c3, 0x16cd13c9c17398b3, 0x000000000013f25c,
 };
 
-// m128a_swio13_lednop_ee_hw
+// m128a_swio13_lednop_ee_hw         ms128_swio13_lednop_ee_hw
 static const uint64_t ur_m128_swio13_lednop_ee_hw[] = {
   0x7eeeeeed1468bf3e, 0x6eed55f85c8fc49d, 0x60ef4e85f0073732, 0xa1b44cea2bd76435, 0x6b8e1988368275f5,
   0x793ba75a356b3ea6, 0x9f9827c602413057, 0xe7853abfffac99fe, 0xea3cad4f4d56b46f, 0xbc09ea3e0d98309f,
@@ -144882,7 +145476,10 @@ static const uint64_t ur_m128_swio13_lednop_ee_hw[] = {
   0xd252d9c389c6592e, 0xc17398b35e67316f, 0x0002dfa642f453c9,
 };
 
-// m128_swio13_lednop_ee_ce_u4_hw    m128a_swio13_lednop_ee_ce_hw      m128a_swio13_lednop_ee_ce_u4_hw
+/*
+ * m128_swio13_lednop_ee_ce_u4_hw    m128a_swio13_lednop_ee_ce_hw      m128a_swio13_lednop_ee_ce_u4_hw
+ * ms128_swio13_lednop_ee_ce_hw      ms128_swio13_lednop_ee_ce_u4_hw
+ */
 static const uint64_t ur_m128_swio13_lednop_ee_ce_hw[] = {
   0xdeeeeeed146850e3, 0xdddaabce24a5448a, 0xb5a3daa28d3c7763, 0x78f3f61bac4f4ed3, 0x7ac8ef5217b2b682,
   0xc9dd4024dee1f00a, 0xfcc13e30120982bb, 0x7852f0fffac99f66, 0x0e77d8206fea8c6b, 0x4f659c3cf3842df9,
@@ -144896,7 +145493,8 @@ static const uint64_t ur_m128_swio13_lednop_ee_ce_hw[] = {
 
 /*
  * m128_swio13_dual_pr               m128_swio13_dual_pr_u4            m128a_swio13_dual
- * m128a_swio13_dual_pr              m128a_swio13_dual_pr_u4
+ * m128a_swio13_dual_pr              m128a_swio13_dual_pr_u4           ms128_swio13_dual
+ * ms128_swio13_dual_pr              ms128_swio13_dual_pr_u4
  */
 static const uint64_t ur_m128_swio13_dual[] = {
   0x247777776890cf68, 0xff8bd793c7957d08, 0x47f5009ba322b8c8, 0xc1023b4fb67c75b5, 0xd56875d396e891e9,
@@ -144910,7 +145508,7 @@ static const uint64_t ur_m128_swio13_dual[] = {
   0x96ce1c4e32c970cf, 0x9cc59af3398b7e92, 0x493bab76689e4e0b, 0x0000000000000001,
 };
 
-// m128a_swio13_dual_pr_ee
+// m128a_swio13_dual_pr_ee           ms128_swio13_dual_pr_ee
 static const uint64_t ur_m128_swio13_dual_pr_ee[] = {
   0x21d6ddddddd432db, 0x1baf17af21b1b374, 0xa339b7d72c49c8a5, 0xb20ab13b2b7bbb9d, 0xc8970b421b1e624e,
   0x6ee1e19851fc2d75, 0x3e30120982bbc946, 0xa8646d4520f9f4c1, 0xc2864fb48b59f755, 0x12804a774fb97c40,
@@ -144923,7 +145521,7 @@ static const uint64_t ur_m128_swio13_dual_pr_ee[] = {
   0xd9c389c6592e19e9, 0x98b35e67316fd252, 0x1417eecd13c9c173, 0x0000000000000032,
 };
 
-// m128a_swio13_dual_pr_ee_u4
+// m128a_swio13_dual_pr_ee_u4        ms128_swio13_dual_pr_ee_u4
 static const uint64_t ur_m128_swio13_dual_pr_ee_u4[] = {
   0x6eeeeed150ff72df, 0x8bd790d819ca1365, 0xb57bcfb67d619eb7, 0x821e44b8585b4af7, 0x84363cc4eca57c6e,
   0xb46b2aae3f337368, 0x057792645ddd35bf, 0x41f3e9827c602413, 0x16b3eeab50c8da8a, 0x9f72f881850c9f69,
@@ -144937,7 +145535,7 @@ static const uint64_t ur_m128_swio13_dual_pr_ee_u4[] = {
   0xb7e9296ce1c4e32c, 0xe4e0b9cc59af3398, 0x000159197e1aaa49,
 };
 
-// m128a_swio13_dual_pr_ce
+// m128a_swio13_dual_pr_ce           ms128_swio13_dual_pr_ce
 static const uint64_t ur_m128_swio13_dual_pr_ce[] = {
   0x3d6ddddddd436f02, 0x77e2f5e405fb3742, 0x683b913b287b64e4, 0xc245b177689f9f7b, 0x80f9086e76ebd629,
   0x95dd793d6555eeb6, 0x27c602413057793c, 0x5a8646d452174598, 0x0c2864fb48b59f75, 0x612804a774fb97c4,
@@ -144950,7 +145548,7 @@ static const uint64_t ur_m128_swio13_dual_pr_ce[] = {
   0xfa4a5b387138cb25, 0x382e73166bcce62d, 0x000e7ad3ebd9a279,
 };
 
-// m128a_swio13_dual_pr_ce_u4
+// m128a_swio13_dual_pr_ce_u4        ms128_swio13_dual_pr_ce_u4
 static const uint64_t ur_m128_swio13_dual_pr_ce_u4[] = {
   0x6eeeeed150fe5f82, 0x8bd7910469ea1271, 0xbd7b4fb2d4f58a57, 0x9cef7187c8077eaf, 0x19cd9bdd9c43d999,
   0xadd23168ff072b04, 0x48260aef26273bbf, 0xb514823d7304f8c0, 0x3ed22d67dd56a191, 0x49dd3ee5f1030a19,
@@ -144964,7 +145562,10 @@ static const uint64_t ur_m128_swio13_dual_pr_ce_u4[] = {
   0x2dfa4a5b387138cb, 0x79382e73166bcce6, 0x0000692469f2aa92,
 };
 
-// m128_swio13_dual_pr_ee_ce_u4      m128a_swio13_dual_pr_ee_ce        m128a_swio13_dual_pr_ee_ce_u4
+/*
+ * m128_swio13_dual_pr_ee_ce_u4      m128a_swio13_dual_pr_ee_ce        m128a_swio13_dual_pr_ee_ce_u4
+ * ms128_swio13_dual_pr_ee_ce        ms128_swio13_dual_pr_ee_ce_u4
+ */
 static const uint64_t ur_m128_swio13_dual_pr_ee_ce[] = {
   0x7777768a87fd7fe1, 0x5ebc8c835d684eef, 0x27f2270fa8bf7efc, 0xcd7eecabde8d3ad1, 0x96c377689e9f7933,
   0x95485398a6752c86, 0x5a9dda429fe83b5a, 0x827c602413057792, 0xad43236a2917aa49, 0x0614327da45acfba,
@@ -144979,7 +145580,7 @@ static const uint64_t ur_m128_swio13_dual_pr_ee_ce[] = {
   0xd799cc5bf494b670, 0x0d5524f2705ce62c, 0x00000000010012bf,
 };
 
-// m128a_swio13_dual_ee_hw
+// m128a_swio13_dual_ee_hw           ms128_swio13_dual_ee_hw
 static const uint64_t ur_m128_swio13_dual_ee_hw[] = {
   0xadddddda28d11107, 0xf17af21b0339426c, 0xf6af79f6cfac33d6, 0xd043c8970b0b695e, 0x1086c7989d94af8d,
   0xc334eb76b5666e6d, 0x413057792645ddff, 0xa8a41f3e9827c602, 0xf6916b3eeab50c8d, 0xcee9f72f881850c9,
@@ -144993,7 +145594,10 @@ static const uint64_t ur_m128_swio13_dual_ee_hw[] = {
   0x94405d14f2705ce6, 0x0000000000000576,
 };
 
-// m128_swio13_dual_ee_ce_u4_hw      m128a_swio13_dual_ee_ce_hw        m128a_swio13_dual_ee_ce_u4_hw
+/*
+ * m128_swio13_dual_ee_ce_u4_hw      m128a_swio13_dual_ee_ce_hw        m128a_swio13_dual_ee_ce_u4_hw
+ * ms128_swio13_dual_ee_ce_hw        ms128_swio13_dual_ee_ce_u4_hw
+ */
 static const uint64_t ur_m128_swio13_dual_ee_ce_hw[] = {
   0xf7777768a344d164, 0xc5ebc8c835d684ee, 0x127f2270fa8bf7ef, 0x3cd7eecabde8d3ad, 0x696c377689e9f793,
   0xddab4eb98a6752c8, 0x5de496a7773cbb68, 0xea92609f180904c1, 0xb3eeab50c8da8a45, 0x72f881850c9f6916,
@@ -145010,7 +145614,8 @@ static const uint64_t ur_m128_swio13_dual_ee_ce_hw[] = {
 
 /*
  * m128_swio14_noled_pr              m128_swio14_noled_pr_u4           m128a_swio14_noled
- * m128a_swio14_noled_pr             m128a_swio14_noled_pr_u4
+ * m128a_swio14_noled_pr             m128a_swio14_noled_pr_u4          ms128_swio14_noled
+ * ms128_swio14_noled_pr             ms128_swio14_noled_pr_u4
  */
 static const uint64_t ur_m128_swio14_noled[] = {
   0xc7bbbbbb4486d38b, 0x0bbb55722950e251, 0xa7b64dfb1a0b609e, 0x59ac1c436c66cfd7, 0xab1f98f1fdd8e3d0,
@@ -145021,7 +145626,10 @@ static const uint64_t ur_m128_swio14_noled[] = {
   0xfdffc14d1f633b0e, 0x0cf4c2f8d1e8bfc0, 0xe9296ce1c4e32c97, 0xe0b9cc59af3398b7, 0x003e4c4cd16689e4,
 };
 
-// m128_swio14_noled_pr_ee_u4        m128a_swio14_noled_pr_ee          m128a_swio14_noled_pr_ee_u4
+/*
+ * m128_swio14_noled_pr_ee_u4        m128a_swio14_noled_pr_ee          m128a_swio14_noled_pr_ee_u4
+ * ms128_swio14_noled_pr_ee          ms128_swio14_noled_pr_ee_u4
+ */
 static const uint64_t ur_m128_swio14_noled_pr_ee[] = {
   0x5f777776890c1107, 0x9bbb557e17082243, 0x627699d43267cdcc, 0xad0da1942e19e15a, 0xa5b220cc41b410d7,
   0x93ba932c5e2767d9, 0xf9827c6024130577, 0xf852397fe15d9fea, 0x47959759aad68cc7, 0x297ea3e0d983ea3d,
@@ -145032,7 +145640,10 @@ static const uint64_t ur_m128_swio14_noled_pr_ee[] = {
   0x70cf4c2f8d1e8bfc, 0x7e9296ce1c4e32c9, 0x4e0b9cc59af3398b, 0x00013aff9a76689e,
 };
 
-// m128_swio14_noled_pr_ce_u4        m128a_swio14_noled_pr_ce          m128a_swio14_noled_pr_ce_u4
+/*
+ * m128_swio14_noled_pr_ce_u4        m128a_swio14_noled_pr_ce          m128a_swio14_noled_pr_ce_u4
+ * ms128_swio14_noled_pr_ce          ms128_swio14_noled_pr_ce_u4
+ */
 static const uint64_t ur_m128_swio14_noled_pr_ce[] = {
   0x17bbbbbb44864aa4, 0x4bbb5579847af12f, 0x5c7bf4e00f4a64fc, 0xef56622d2cddd93d, 0x7db45080d8ddf165,
   0x57793bbf6baed19a, 0xf9c19827c6024130, 0xa1efc29b3bff0aec, 0x10b6f373bd3606fe, 0x21b0913d9670f3ce,
@@ -145043,7 +145654,10 @@ static const uint64_t ur_m128_swio14_noled_pr_ce[] = {
   0x970cf4c2f8d1e8bf, 0xb7e9296ce1c4e32c, 0xe4e0b9cc59af3398, 0x00001bafdf056689,
 };
 
-// m128_swio14_noled_pr_ee_ce_u4     m128a_swio14_noled_pr_ee_ce       m128a_swio14_noled_pr_ee_ce_u4
+/*
+ * m128_swio14_noled_pr_ee_ce_u4     m128a_swio14_noled_pr_ee_ce       m128a_swio14_noled_pr_ee_ce_u4
+ * ms128_swio14_noled_pr_ee_ce       ms128_swio14_noled_pr_ee_ce_u4
+ */
 static const uint64_t ur_m128_swio14_noled_pr_ee_ce[] = {
   0x321bbbbbb4486e7c, 0xc7bbb5579c4b3389, 0xb61b4053d73f78ee, 0x04f1e6ecc8a3ba67, 0xb23742475217b641,
   0x93bb5c6d0539644b, 0x39827c6024130577, 0xf0a6377fe15d9fbc, 0xdced0f80dfd51c72, 0x4f659c3cf3842dbc,
@@ -145055,7 +145669,7 @@ static const uint64_t ur_m128_swio14_noled_pr_ee_ce[] = {
   0xf494b670e271964b, 0x705ce62cd799cc5b, 0x0004fc8d4eb344f2,
 };
 
-// m128a_swio14_noled_ee_hw
+// m128a_swio14_noled_ee_hw          ms128_swio14_noled_ee_hw
 static const uint64_t ur_m128_swio14_noled_ee_hw[] = {
   0xd7dddddda28d0582, 0x26eed55f85c20890, 0x989da6750c99f373, 0xeb4368650b867856, 0x696c8833106d0435,
   0xaef2775b11ced4e4, 0xfd5f304f8c048260, 0xcc7f852397ff5933, 0xa3d47959759aad68, 0xe2b297ea3e0d983e,
@@ -145066,7 +145680,10 @@ static const uint64_t ur_m128_swio14_noled_ee_hw[] = {
   0xaf3398b7e9296ce1, 0x04aa29e4e0b9cc59, 0x0000000000005bfd,
 };
 
-// m128_swio14_noled_ee_ce_u4_hw     m128a_swio14_noled_ee_ce_hw       m128a_swio14_noled_ee_ce_u4_hw
+/*
+ * m128_swio14_noled_ee_ce_u4_hw     m128a_swio14_noled_ee_ce_hw       m128a_swio14_noled_ee_ce_u4_hw
+ * ms128_swio14_noled_ee_ce_hw       ms128_swio14_noled_ee_ce_u4_hw
+ */
 static const uint64_t ur_m128_swio14_noled_ee_ce_hw[] = {
   0x437777768a34306a, 0xf776aaf389667126, 0xc3680a7ae7ef1dd8, 0x9e3cdd9914774cf6, 0x46e848ea42f6c820,
   0x793bb5aaefdd9b76, 0xc39827c602413057, 0x978531bbffac99fb, 0x90e7687c06fea8e3, 0x44f659c3cf3842df,
@@ -145080,7 +145697,8 @@ static const uint64_t ur_m128_swio14_noled_ee_ce_hw[] = {
 
 /*
  * m128_swio14_lednop_pr             m128_swio14_lednop_pr_u4          m128a_swio14_lednop
- * m128a_swio14_lednop_pr            m128a_swio14_lednop_pr_u4
+ * m128a_swio14_lednop_pr            m128a_swio14_lednop_pr_u4         ms128_swio14_lednop
+ * ms128_swio14_lednop_pr            ms128_swio14_lednop_pr_u4
  */
 static const uint64_t ur_m128_swio14_lednop[] = {
   0xe3dddddda243280b, 0x05ddaab91485f128, 0xe15a485f987db04f, 0x2cd60e2a8636cbde, 0x27a763fd2eec71e8,
@@ -145092,7 +145710,10 @@ static const uint64_t ur_m128_swio14_lednop[] = {
   0x0000000000000f93,
 };
 
-// m128_swio14_lednop_pr_ee_u4       m128a_swio14_lednop_pr_ee         m128a_swio14_lednop_pr_ee_u4
+/*
+ * m128_swio14_lednop_pr_ee_u4       m128a_swio14_lednop_pr_ee         m128a_swio14_lednop_pr_ee_u4
+ * ms128_swio14_lednop_pr_ee         ms128_swio14_lednop_pr_ee_u4
+ */
 static const uint64_t ur_m128_swio14_lednop_pr_ee[] = {
   0xafbbbbbb44867f3e, 0x9bbb557e1768b121, 0xe4bab07311b7cdcc, 0xeb4368604142d04d, 0x624d29fb106d0435,
   0xe4ee843dfbb123ae, 0x6a609f180904c15d, 0xff0a13affc2bb3e1, 0xa8f2b60b355ad198, 0x6a7bd47c1b307d47,
@@ -145103,7 +145724,10 @@ static const uint64_t ur_m128_swio14_lednop_pr_ee[] = {
   0x4c2f8d1e8bfc0fdf, 0x96ce1c4e32c970cf, 0x9cc59af3398b7e92, 0x3ae35396689e4e0b, 0x0000000000000001,
 };
 
-// m128_swio14_lednop_pr_ce_u4       m128a_swio14_lednop_pr_ce         m128a_swio14_lednop_pr_ce_u4
+/*
+ * m128_swio14_lednop_pr_ce_u4       m128a_swio14_lednop_pr_ce         m128a_swio14_lednop_pr_ce_u4
+ * ms128_swio14_lednop_pr_ce         ms128_swio14_lednop_pr_ce_u4
+ */
 static const uint64_t ur_m128_swio14_lednop_pr_ce[] = {
   0x17bbbbbb448607e1, 0x4bbb557984a8b12f, 0x4cf7c8d4326664fc, 0xef56622f5da5921b, 0x5eb8da2e2fddf165,
   0x5de4ee9cecfbc9c5, 0xe96a609f180904c1, 0x87bf0a0d6ffc2bb3, 0x42dbcdcee3901bfa, 0x86c244f659c3cf38,
@@ -145114,7 +145738,10 @@ static const uint64_t ur_m128_swio14_lednop_pr_ce[] = {
   0x0be347a2ff03f7ff, 0xb387138cb25c33d3, 0x3166bcce62dfa4a5, 0xbfe49d9a279382e7, 0x000000000000006e,
 };
 
-// m128_swio14_lednop_pr_ee_ce_u4    m128a_swio14_lednop_pr_ee_ce      m128a_swio14_lednop_pr_ee_ce_u4
+/*
+ * m128_swio14_lednop_pr_ee_ce_u4    m128a_swio14_lednop_pr_ee_ce      m128a_swio14_lednop_pr_ee_ce_u4
+ * ms128_swio14_lednop_pr_ee_ce      ms128_swio14_lednop_pr_ee_ce_u4
+ */
 static const uint64_t ur_m128_swio14_lednop_pr_ee_ce[] = {
   0x43777776890c365a, 0xf776aaf38929d126, 0x82b4ed040d2f1dd8, 0x4f1e6ed99991583a, 0x67648cf5217b6410,
   0x9ddc983f2350ce58, 0x4c13e30120982bbc, 0x850d6fff0aecfb3e, 0xe77fae06fea8e397, 0x7b2ce1e79c216de6,
@@ -145126,7 +145753,7 @@ static const uint64_t ur_m128_swio14_lednop_pr_ee_ce[] = {
   0x9c389c6592e19e98, 0x8b35e67316fd252d, 0x041aacd13c9c1739, 0x000000000000013f,
 };
 
-// m128a_swio14_lednop_ee_hw
+// m128a_swio14_lednop_ee_hw         ms128_swio14_lednop_ee_hw
 static const uint64_t ur_m128_swio14_lednop_ee_hw[] = {
   0x1afbbbbbb451a111, 0xc9bbb557e1768b12, 0xde4bab07311b7cdc, 0x5eb4368604142d04, 0x4624d29fb106d043,
   0x0aef27747b16ad8d, 0x9f0b5304f8c04826, 0x4663fc284ebffac9, 0xf51ea3cad82cd56b, 0xdf15a9ef51f06cc1,
@@ -145137,7 +145764,10 @@ static const uint64_t ur_m128_swio14_lednop_ee_hw[] = {
   0xe62dfa4a5b387138, 0x8a79382e73166bcc, 0x000000002dfe08be,
 };
 
-// m128_swio14_lednop_ee_ce_u4_hw    m128a_swio14_lednop_ee_ce_hw      m128a_swio14_lednop_ee_ce_u4_hw
+/*
+ * m128_swio14_lednop_ee_ce_u4_hw    m128a_swio14_lednop_ee_ce_hw      m128a_swio14_lednop_ee_ce_u4_hw
+ * ms128_swio14_lednop_ee_ce_hw      ms128_swio14_lednop_ee_ce_u4_hw
+ */
 static const uint64_t ur_m128_swio14_lednop_ee_ce_hw[] = {
   0x86eeeeed14687a31, 0xeeed55e71253a24c, 0x0569da081a5e3bb1, 0x9e3cddb33322b075, 0xcec919ea42f6c820,
   0xf277547d08749bb0, 0xf9304f8c048260ae, 0x2f0a1adfff5933ec, 0x21ceff5c0dfd51c7, 0x89ecb3879e7085bf,
@@ -145151,7 +145781,8 @@ static const uint64_t ur_m128_swio14_lednop_ee_ce_hw[] = {
 
 /*
  * m128_swio14_dual_pr               m128_swio14_dual_pr_u4            m128a_swio14_dual
- * m128a_swio14_dual_pr              m128a_swio14_dual_pr_u4
+ * m128a_swio14_dual_pr              m128a_swio14_dual_pr_u4           ms128_swio14_dual
+ * ms128_swio14_dual_pr              ms128_swio14_dual_pr_u4
  */
 static const uint64_t ur_m128_swio14_dual[] = {
   0x977bbbbbb4486f97, 0x7fc5ebc9e3f3ee84, 0xabf547c3764e5c64, 0xc10233ebb8d43db6, 0x1d6f7ece76ecbbe9,
@@ -145165,7 +145796,7 @@ static const uint64_t ur_m128_swio14_dual[] = {
   0x96ce1c4e32c970cf, 0x9cc59af3398b7e92, 0x4938faf6689e4e0b, 0x0000000000000001,
 };
 
-// m128a_swio14_dual_pr_ee
+// m128a_swio14_dual_pr_ee           ms128_swio14_dual_pr_ee
 static const uint64_t ur_m128_swio14_dual_pr_ee[] = {
   0x0876b77777750c86, 0xa375e2f5e4363dc5, 0xb6c1378fecf8e714, 0x82ac4fdac3ec9973, 0x9cc89eeec79893b4,
   0x6ee78233a96453a1, 0x3e30120982bbc946, 0x50c8da8a41662cc1, 0x850c9f6916b3eeab, 0x250094ee9f72f881,
@@ -145178,7 +145809,7 @@ static const uint64_t ur_m128_swio14_dual_pr_ee[] = {
   0x4e32c970cf4c2b93, 0xf3398b7e9296ce1c, 0xf6689e4e0b9cc59a, 0x000000000190a371,
 };
 
-// m128a_swio14_dual_pr_ee_u4
+// m128a_swio14_dual_pr_ee_u4        ms128_swio14_dual_pr_ee_u4
 static const uint64_t ur_m128_swio14_dual_pr_ee_u4[] = {
   0x6eeeeed150ffac4f, 0xc5ebc86c0fca1271, 0xd2bdd8bc6ab0cf5b, 0x272b4107c89fbd7b, 0x932c79899c4af8dd,
   0x1cbbb3fb471fefaf, 0x82bbc9322ee0fafc, 0x23cf5cc13e301209, 0x8b59f755a8646d45, 0x4fb97c40c2864fb4,
@@ -145192,7 +145823,7 @@ static const uint64_t ur_m128_swio14_dual_pr_ee_u4[] = {
   0x98b7e9296ce1c4e3, 0x49e4e0b9cc59af33, 0x000000ac96cc5aaa,
 };
 
-// m128a_swio14_dual_pr_ce
+// m128a_swio14_dual_pr_ce           ms128_swio14_dual_pr_ce
 static const uint64_t ur_m128_swio14_dual_pr_ce[] = {
   0x14addddddd435202, 0x77e2f5e405f5df42, 0xf71b683f68ed64e4, 0xc2440526ba01b17d, 0x561f64cad6e94a29,
   0x92bb9717dd857bd6, 0x04f8c048260aef27, 0xab50c8da8a4771f3, 0x81850c9f6916b3ee, 0x2c250094ee9f72f8,
@@ -145205,7 +145836,7 @@ static const uint64_t ur_m128_swio14_dual_pr_ce[] = {
   0x5bf494b670e27196, 0xf2705ce62cd799cc, 0x00000e7ac745b344,
 };
 
-// m128a_swio14_dual_pr_ce_u4
+// m128a_swio14_dual_pr_ce_u4        ms128_swio14_dual_pr_ce_u4
 static const uint64_t ur_m128_swio14_dual_pr_ce_u4[] = {
   0xb7777768a87fa812, 0xc5ebc882644d0875, 0xdfabf5d8437ac52b, 0xd26385936a3fb99b, 0x07e577ee9d61eccc,
   0x8af9016f0548c66d, 0xc048260aef26273b, 0x91b51483927304f8, 0x193ed22d67dd56a1, 0xc049dd3ee5f1030a,
@@ -145219,7 +145850,10 @@ static const uint64_t ur_m128_swio14_dual_pr_ce_u4[] = {
   0xce62dfa4a5b38713, 0xa9279382e73166bc, 0x0000000692719a2a,
 };
 
-// m128_swio14_dual_pr_ee_ce_u4      m128a_swio14_dual_pr_ee_ce        m128a_swio14_dual_pr_ee_ce_u4
+/*
+ * m128_swio14_dual_pr_ee_ce_u4      m128a_swio14_dual_pr_ee_ce        m128a_swio14_dual_pr_ee_ce_u4
+ * ms128_swio14_dual_pr_ee_ce        ms128_swio14_dual_pr_ee_ce_u4
+ */
 static const uint64_t ur_m128_swio14_dual_pr_ee_ce[] = {
   0x7777768a87fd5214, 0x2f5e4640c294205b, 0x69d5a093745fbf7e, 0xd6d1a3e57bdfafb4, 0xd2d860b227a7decd,
   0x9d7fa0b761560f0c, 0x25a9dd2b8f1566e6, 0x9827c60241305779, 0x55a8646d452157e1, 0x40c2864fb48b59f7,
@@ -145234,7 +145868,7 @@ static const uint64_t ur_m128_swio14_dual_pr_ee_ce[] = {
   0x166bcce62dfa4a5b, 0x6a92aa9279382e73, 0x0000000000002000,
 };
 
-// m128a_swio14_dual_ee_hw
+// m128a_swio14_dual_ee_hw           ms128_swio14_dual_ee_hw
 static const uint64_t ur_m128_swio14_dual_ee_hw[] = {
   0x2dddddda28d08f43, 0x78bd790d81f9424e, 0x7a57bb178d5619eb, 0xa4e56820f913f7af, 0xf2658f3133895f1b,
   0x7fa6b6cd3ae3fdf5, 0x20982bbc9322ee12, 0xd4523cf5cc13e301, 0xfb48b59f755a8646, 0x6774fb97c40c2864,
@@ -145248,7 +145882,10 @@ static const uint64_t ur_m128_swio14_dual_ee_hw[] = {
   0xbb473c9d14f2705c, 0x0000000000000002,
 };
 
-// m128_swio14_dual_ee_ce_u4_hw      m128a_swio14_dual_ee_ce_hw        m128a_swio14_dual_ee_ce_u4_hw
+/*
+ * m128_swio14_dual_ee_ce_u4_hw      m128a_swio14_dual_ee_ce_hw        m128a_swio14_dual_ee_ce_u4_hw
+ * ms128_swio14_dual_ee_ce_hw        ms128_swio14_dual_ee_ce_u4_hw
+ */
 static const uint64_t ur_m128_swio14_dual_ee_ce_hw[] = {
   0x6eeeeed14685b217, 0xc5ebc8c81852840b, 0x8d3ab4126e8bf7ef, 0xbada347caf7bf5f6, 0x9a5b0c1644f4fbd9,
   0x535b46e6ec2ac1e1, 0x577925a9dc101348, 0x57e19827c6024130, 0x59f755a8646d4521, 0xb97c40c2864fb48b,
@@ -145265,7 +145902,8 @@ static const uint64_t ur_m128_swio14_dual_ee_ce_hw[] = {
 
 /*
  * m128_swio15_noled_pr              m128_swio15_noled_pr_u4           m128a_swio15_noled
- * m128a_swio15_noled_pr             m128a_swio15_noled_pr_u4
+ * m128a_swio15_noled_pr             m128a_swio15_noled_pr_u4          ms128_swio15_noled
+ * ms128_swio15_noled_pr             ms128_swio15_noled_pr_u4
  */
 static const uint64_t ur_m128_swio15_noled[] = {
   0x13bbbbbb44862d7b, 0x0bbb557229e3e257, 0xc9ea9bd590e3609e, 0x59ac683001337936, 0xcd4e17bafddb89d0,
@@ -145276,7 +145914,10 @@ static const uint64_t ur_m128_swio15_noled[] = {
   0xffe0a68fb19d871f, 0x7a617c68f45fe07e, 0x94b670e271964b86, 0x5ce62cd799cc5bf4, 0x1f272668b344f270,
 };
 
-// m128_swio15_noled_pr_ee_u4        m128a_swio15_noled_pr_ee          m128a_swio15_noled_pr_ee_u4
+/*
+ * m128_swio15_noled_pr_ee_u4        m128a_swio15_noled_pr_ee          m128a_swio15_noled_pr_ee_u4
+ * ms128_swio15_noled_pr_ee          ms128_swio15_noled_pr_ee_u4
+ */
 static const uint64_t ur_m128_swio15_noled_pr_ee[] = {
   0x3fbbbbbb448607e1, 0x9bbb557e17a8b12e, 0x4cf7c8f8fdb7cdcc, 0xd0da266f5da5921b, 0x368b8bc41b4171fa,
   0x3ba73b3ef27157ae, 0x9827c60241305779, 0xc2835bff0aecfa5a, 0x1e5652e6ab5a37f3, 0x43f51f06cc184ff5,
@@ -145287,7 +145928,10 @@ static const uint64_t ur_m128_swio15_noled_pr_ee[] = {
   0x67a617c68f45fe07, 0x494b670e271964b8, 0x05ce62cd799cc5bf, 0x009d7fc93b344f27,
 };
 
-// m128_swio15_noled_pr_ce_u4        m128a_swio15_noled_pr_ce          m128a_swio15_noled_pr_ce_u4
+/*
+ * m128_swio15_noled_pr_ce_u4        m128a_swio15_noled_pr_ce          m128a_swio15_noled_pr_ce_u4
+ * ms128_swio15_noled_pr_ce          ms128_swio15_noled_pr_ce_u4
+ */
 static const uint64_t ur_m128_swio15_noled_pr_ce[] = {
   0x69bbbbbb4486a4d6, 0x25ddaabcc2505895, 0xdfa7a624b88c327e, 0x5ef56f4a34cfda9b, 0xb1723f514adeed68,
   0x0aef27776527da3b, 0x9f275304f8c04826, 0xd63df8522b7fe15d, 0xc216de6e77b380df, 0xc4361227b2ce1e79,
@@ -145298,7 +145942,10 @@ static const uint64_t ur_m128_swio15_noled_pr_ce[] = {
   0x2e19e985f1a3d17f, 0x6fd252d9c389c659, 0xc9c17398b35e6731, 0x00001bae015acd13,
 };
 
-// m128_swio15_noled_pr_ee_ce_u4     m128a_swio15_noled_pr_ee_ce       m128a_swio15_noled_pr_ee_ce_u4
+/*
+ * m128_swio15_noled_pr_ee_ce_u4     m128a_swio15_noled_pr_ee_ce       m128a_swio15_noled_pr_ee_ce_u4
+ * ms128_swio15_noled_pr_ee_ce       ms128_swio15_noled_pr_ee_ce_u4
+ */
 static const uint64_t ur_m128_swio15_noled_pr_ee_ce[] = {
   0xc6eeeeed1218022f, 0xeeed55e7121ba246, 0x0ad6c541619e3bb1, 0x3c79fbb1313bc8e8, 0x8a741bd485ecd841,
   0xddaefc89086d3cf5, 0xc13e30120982bbc9, 0x53f5fff0aecfcc34, 0x3b14806fea8c6b78, 0xd9670f3ce10b6f37,
@@ -145310,7 +145957,7 @@ static const uint64_t ur_m128_swio15_noled_pr_ee_ce[] = {
   0x52d9c389c6592e19, 0x7398b35e67316fd2, 0x13f01e4ecd13c9c1,
 };
 
-// m128a_swio15_noled_ee_hw
+// m128a_swio15_noled_ee_hw          ms128_swio15_noled_ee_hw
 static const uint64_t ur_m128_swio15_noled_ee_hw[] = {
   0x1fdddddda28d0a20, 0x4dddaabf0bd45897, 0xa67be47c7edbe6e6, 0x686d1337aed2c90d, 0x1b45c5e20da0b8fd,
   0xde4eea0a4e5a10d7, 0x96a609f180904c15, 0xfe78506b7ff5933e, 0xfea3caca5cd56b46, 0x2b287ea3e0d98309,
@@ -145321,7 +145968,10 @@ static const uint64_t ur_m128_swio15_noled_ee_hw[] = {
   0x3398b7e9296ce1c4, 0x8a29e4e0b9cc59af, 0x00000000005be466,
 };
 
-// m128_swio15_noled_ee_ce_u4_hw     m128a_swio15_noled_ee_ce_hw       m128a_swio15_noled_ee_ce_u4_hw
+/*
+ * m128_swio15_noled_ee_ce_u4_hw     m128a_swio15_noled_ee_ce_hw       m128a_swio15_noled_ee_ce_u4_hw
+ * ms128_swio15_noled_ee_ce_hw       ms128_swio15_noled_ee_ce_u4_hw
+ */
 static const uint64_t ur_m128_swio15_noled_ee_ce_hw[] = {
   0xc6eeeeed146892df, 0xeeed55e7121ba246, 0x0ad6c541619e3bb1, 0x3c79fbb1313bc8e8, 0x8a741bd485ecd841,
   0xe4eedced9bdc98f5, 0x1a609f180904c15d, 0xde14fd7ffeb267e6, 0x21cec5201bfaa31a, 0x89ecb3879e7085bf,
@@ -145335,7 +145985,8 @@ static const uint64_t ur_m128_swio15_noled_ee_ce_hw[] = {
 
 /*
  * m128_swio15_lednop_pr             m128_swio15_lednop_pr_u4          m128a_swio15_lednop
- * m128a_swio15_lednop_pr            m128a_swio15_lednop_pr_u4
+ * m128a_swio15_lednop_pr            m128a_swio15_lednop_pr_u4         ms128_swio15_lednop
+ * ms128_swio15_lednop_pr            ms128_swio15_lednop_pr_u4
  */
 static const uint64_t ur_m128_swio15_lednop[] = {
   0x89dddddda2435562, 0x05ddaab91405f12b, 0x921ab41b5ebdb04f, 0x166b1a0f8f803c5e, 0xeb5936a63376e274,
@@ -145347,7 +145998,10 @@ static const uint64_t ur_m128_swio15_lednop[] = {
   0x0000000000000f93,
 };
 
-// m128_swio15_lednop_pr_ee_u4       m128a_swio15_lednop_pr_ee         m128a_swio15_lednop_pr_ee_u4
+/*
+ * m128_swio15_lednop_pr_ee_u4       m128a_swio15_lednop_pr_ee         m128a_swio15_lednop_pr_ee_u4
+ * ms128_swio15_lednop_pr_ee         ms128_swio15_lednop_pr_ee_u4
+ */
 static const uint64_t ur_m128_swio15_lednop_pr_ee[] = {
   0x3fbbbbbb44863d5b, 0x9bbb557e1723f12e, 0x583bd3a17c01cdcc, 0x686d133a8af5d90d, 0x9ae386620da0b8fd,
   0x9dd2d43af02e8be9, 0xcc13e30120982bbc, 0x853abfff0aecff4f, 0x3cad4f4d56b46fe7, 0x09ea3e0d98309fea,
@@ -145358,7 +146012,10 @@ static const uint64_t ur_m128_swio15_lednop_pr_ee[] = {
   0x7c68f45fe07effe0, 0x70e271964b867a61, 0x2cd799cc5bf494b6, 0x9a9cb344f2705ce6, 0x00000000000009d7,
 };
 
-// m128_swio15_lednop_pr_ce_u4       m128a_swio15_lednop_pr_ce         m128a_swio15_lednop_pr_ce_u4
+/*
+ * m128_swio15_lednop_pr_ce_u4       m128a_swio15_lednop_pr_ce         m128a_swio15_lednop_pr_ce_u4
+ * ms128_swio15_lednop_pr_ce         ms128_swio15_lednop_pr_ce_u4
+ */
 static const uint64_t ur_m128_swio15_lednop_pr_ce[] = {
   0xd3777776890cac4f, 0x4bbb557984b2312a, 0xe47792f8fdb664fc, 0xef56f4b41469ad1b, 0xfbfa647cddeed685,
   0xaef277539157991d, 0xf43f304f8c048260, 0xc7bf0a1c1ffc2bb3, 0x42dbcdcec6b01bfa, 0x86c244f659c3cf38,
@@ -145369,7 +146026,10 @@ static const uint64_t ur_m128_swio15_lednop_pr_ce[] = {
   0x0be347a2ff03f7ff, 0xb387138cb25c33d3, 0x3166bcce62dfa4a5, 0xb9ac159a279382e7, 0x000000000000006e,
 };
 
-// m128_swio15_lednop_pr_ee_ce_u4    m128a_swio15_lednop_pr_ee_ce      m128a_swio15_lednop_pr_ee_ce_u4
+/*
+ * m128_swio15_lednop_pr_ee_ce_u4    m128a_swio15_lednop_pr_ee_ce      m128a_swio15_lednop_pr_ee_ce_u4
+ * ms128_swio15_lednop_pr_ee_ce      ms128_swio15_lednop_pr_ee_ce_u4
+ */
 static const uint64_t ur_m128_swio15_lednop_pr_ee_ce[] = {
   0x63777776890c5aa4, 0xf776aaf389295123, 0xed68f6a8a34f1dd8, 0x9e3cfd86eb13d3b4, 0x4f591dea42f66c20,
   0xdd42119c67d7d701, 0xc13e30120982bbc9, 0xa5e1ffe15d9f66fc, 0xefb040dfd518d6f0, 0x659c3cf3842dbcdc,
@@ -145381,7 +146041,7 @@ static const uint64_t ur_m128_swio15_lednop_pr_ee_ce[] = {
   0x389c6592e19e985f, 0x35e67316fd252d9c, 0xc16cd13c9c17398b, 0x0000000000013f25,
 };
 
-// m128a_swio15_lednop_ee_hw
+// m128a_swio15_lednop_ee_hw         ms128_swio15_lednop_ee_hw
 static const uint64_t ur_m128_swio15_lednop_ee_hw[] = {
   0xfeeeeeed1468bf3e, 0x6eed55f85c8fc4b8, 0x60ef4e85f0073732, 0xa1b44cea2bd76435, 0x6b8e19883682e3f5,
   0x793ba75a356b3ea6, 0x9f9827c602413057, 0xe7853abfffac99fe, 0xea3cad4f4d56b46f, 0xbc09ea3e0d98309f,
@@ -145392,7 +146052,10 @@ static const uint64_t ur_m128_swio15_lednop_ee_hw[] = {
   0xf494b670e271964b, 0x705ce62cd799cc5b, 0x0000b7e990bd14f2,
 };
 
-// m128_swio15_lednop_ee_ce_u4_hw    m128a_swio15_lednop_ee_ce_hw      m128a_swio15_lednop_ee_ce_u4_hw
+/*
+ * m128_swio15_lednop_ee_ce_u4_hw    m128a_swio15_lednop_ee_ce_hw      m128a_swio15_lednop_ee_ce_u4_hw
+ * ms128_swio15_lednop_ee_ce_hw      ms128_swio15_lednop_ee_ce_u4_hw
+ */
 static const uint64_t ur_m128_swio15_lednop_ee_ce_hw[] = {
   0xc6eeeeed146850e3, 0xeeed55e71252a246, 0xdad1ed51469e3bb1, 0x3c79fb0dd627a769, 0x9eb23bd485ecd841,
   0xf277500937b87c02, 0xbf304f8c048260ae, 0xde14bc3ffeb267d9, 0x439df6081bfaa31a, 0x13d9670f3ce10b7e,
@@ -145406,7 +146069,8 @@ static const uint64_t ur_m128_swio15_lednop_ee_ce_hw[] = {
 
 /*
  * m128_swio15_dual_pr               m128_swio15_dual_pr_u4            m128a_swio15_dual
- * m128a_swio15_dual_pr              m128a_swio15_dual_pr_u4
+ * m128a_swio15_dual_pr              m128a_swio15_dual_pr_u4           ms128_swio15_dual
+ * ms128_swio15_dual_pr              ms128_swio15_dual_pr_u4
  */
 static const uint64_t ur_m128_swio15_dual[] = {
   0x1c7777776890cf68, 0xff8bd793c7957d09, 0x47f5009ba322b8c8, 0xc1023b4fb67c75b5, 0xd56875d396ec71e9,
@@ -145420,7 +146084,7 @@ static const uint64_t ur_m128_swio15_dual[] = {
   0xa5b387138cb25c33, 0xe73166bcce62dfa4, 0x524eeadd9a279382,
 };
 
-// m128a_swio15_dual_pr_ee
+// m128a_swio15_dual_pr_ee           ms128_swio15_dual_pr_ee
 static const uint64_t ur_m128_swio15_dual_pr_ee[] = {
   0x20f6ddddddd432db, 0x1baf17af21b1b374, 0xa339b7d72c49c8a5, 0xb20ab13b2b7bbb9d, 0xc8970b421b1e6247,
   0x6ee1e19851fc2d75, 0x3e30120982bbc946, 0xa8646d4520f9f4c1, 0xc2864fb48b59f755, 0x12804a774fb97c40,
@@ -145433,7 +146097,7 @@ static const uint64_t ur_m128_swio15_dual_pr_ee[] = {
   0xb670e271964b867a, 0xe62cd799cc5bf494, 0x8505fbb344f2705c, 0x000000000000000c,
 };
 
-// m128a_swio15_dual_pr_ee_u4
+// m128a_swio15_dual_pr_ee_u4        ms128_swio15_dual_pr_ee_u4
 static const uint64_t ur_m128_swio15_dual_pr_ee_u4[] = {
   0x6eeeeed150ff72df, 0x8bd790d819ca13ed, 0xb57bcfb67d619eb7, 0x821e44b8585b4af7, 0x84363cc4fda57c6e,
   0xb46b2aae3f337368, 0x057792645ddd35bf, 0x41f3e9827c602413, 0x16b3eeab50c8da8a, 0x9f72f881850c9f69,
@@ -145447,7 +146111,7 @@ static const uint64_t ur_m128_swio15_dual_pr_ee_u4[] = {
   0x2dfa4a5b387138cb, 0x79382e73166bcce6, 0x000056465f86aa92,
 };
 
-// m128a_swio15_dual_pr_ce
+// m128a_swio15_dual_pr_ce           ms128_swio15_dual_pr_ce
 static const uint64_t ur_m128_swio15_dual_pr_ce[] = {
   0x3b2ddddddd436f02, 0x77e2f5e405fb3742, 0x683b913b287b64e4, 0xc245b177689f9f7b, 0x80f9086e76ebb229,
   0x95dd793d6555eeb6, 0x27c602413057793c, 0x5a8646d452174598, 0x0c2864fb48b59f75, 0x612804a774fb97c4,
@@ -145460,7 +146124,7 @@ static const uint64_t ur_m128_swio15_dual_pr_ce[] = {
   0x7e9296ce1c4e32c9, 0x4e0b9cc59af3398b, 0x00039eb4faf6689e,
 };
 
-// m128a_swio15_dual_pr_ce_u4
+// m128a_swio15_dual_pr_ce_u4        ms128_swio15_dual_pr_ce_u4
 static const uint64_t ur_m128_swio15_dual_pr_ce_u4[] = {
   0x6eeeeed150fe5f82, 0x8bd7910469ea115f, 0xbd7b4fb2d4f58a57, 0x9cef7187c8077eaf, 0x19cd9bdd57c3d999,
   0xadd23168ff072b04, 0x48260aef26273bbf, 0xb514823d7304f8c0, 0x3ed22d67dd56a191, 0x49dd3ee5f1030a19,
@@ -145474,7 +146138,10 @@ static const uint64_t ur_m128_swio15_dual_pr_ce_u4[] = {
   0x8b7e9296ce1c4e32, 0x9e4e0b9cc59af339, 0x00001a491a7caaa4,
 };
 
-// m128_swio15_dual_pr_ee_ce_u4      m128a_swio15_dual_pr_ee_ce        m128a_swio15_dual_pr_ee_ce_u4
+/*
+ * m128_swio15_dual_pr_ee_ce_u4      m128a_swio15_dual_pr_ee_ce        m128a_swio15_dual_pr_ee_ce_u4
+ * ms128_swio15_dual_pr_ee_ce        ms128_swio15_dual_pr_ee_ce_u4
+ */
 static const uint64_t ur_m128_swio15_dual_pr_ee_ce[] = {
   0x7777768a87fd7fe1, 0x7af2320d75a1135f, 0x9fc89c3ea2fdfbf1, 0x35fbb2af7a34eb44, 0x6c326ba27a7de4cf,
   0x5485398a6752c869, 0xa9dda429fe83b5a9, 0x27c6024130577925, 0xd43236a2917aa498, 0x614327da45acfbaa,
@@ -145489,7 +146156,7 @@ static const uint64_t ur_m128_swio15_dual_pr_ee_ce[] = {
   0x5e67316fd252d9c3, 0x355493c9c17398b3, 0x0000000004004afc,
 };
 
-// m128a_swio15_dual_ee_hw
+// m128a_swio15_dual_ee_hw           ms128_swio15_dual_ee_hw
 static const uint64_t ur_m128_swio15_dual_ee_hw[] = {
   0xadddddda28d11107, 0xf17af21b0339427d, 0xf6af79f6cfac33d6, 0xd043c8970b0b695e, 0x1086c7989fb4af8d,
   0xc334eb76b5666e6d, 0x413057792645ddff, 0xa8a41f3e9827c602, 0xf6916b3eeab50c8d, 0xcee9f72f881850c9,
@@ -145503,7 +146170,10 @@ static const uint64_t ur_m128_swio15_dual_ee_hw[] = {
   0xa51017453c9c1739, 0x000000000000015d,
 };
 
-// m128_swio15_dual_ee_ce_u4_hw      m128a_swio15_dual_ee_ce_hw        m128a_swio15_dual_ee_ce_u4_hw
+/*
+ * m128_swio15_dual_ee_ce_u4_hw      m128a_swio15_dual_ee_ce_hw        m128a_swio15_dual_ee_ce_u4_hw
+ * ms128_swio15_dual_ee_ce_hw        ms128_swio15_dual_ee_ce_u4_hw
+ */
 static const uint64_t ur_m128_swio15_dual_ee_ce_hw[] = {
   0xf7777768a344d164, 0x17af2320d75a1135, 0x49fc89c3ea2fdfbf, 0xf35fbb2af7a34eb4, 0x96c326ba27a7de4c,
   0xdab4eb98a6752c86, 0xde496a7773cbb68d, 0xa92609f180904c15, 0x3eeab50c8da8a45e, 0x2f881850c9f6916b,
@@ -206394,11 +207064,11 @@ static const uint64_t ur_usb1286_swio15_dual_ee_ce_hw[] = {
 
 
 /*
- * This is a list of 65205 bootloader templates, each one described by a unique number
+ * This is a list of 66069 bootloader templates, each one described by a unique number
  *
  *   n = ((mcu*UL_IOTYPE_N + io)*UL_BLTYPE_N + blt)*UL_CONFIG_N + cfg,
  *
- * where mcu in [0, 165] specifies the MCU; io in [0, 30] the I/O type; blt in [0, 2] the
+ * where mcu in [0, 167] specifies the MCU; io in [0, 30] the I/O type; blt in [0, 2] the
  * bootloader type, cfg in [0, 13] the configuration type of the bootloader. These values can be
  * obtained from n by
  *
@@ -206418,7 +207088,7 @@ static const uint64_t ur_usb1286_swio15_dual_ee_ce_hw[] = {
  *   - Size/2 - 3 words of bootloader code
  *   - 3 words of a version table to be put on top of flash
  *
- * These templates need around 5.144 MiBi read-only storage and can create around 1.55 quadrillion
+ * These templates need around 5.154 MiBi read-only storage and can create around 1.56 quadrillion
  * different bootloaders.
  */
 
@@ -206427,7 +207097,7 @@ typedef struct {
   const uint64_t *bl;           // Compressed bootloader template as described above
 } Ul_urlist;
 
-static Ul_urlist urbootlist[65205] = {
+static Ul_urlist urbootlist[66069] = {
  {      0, ur_m169_autobaud_uart0_noled },
  {      1, ur_m169_autobaud_uart0_noled },
  {      2, ur_m169_autobaud_uart0_noled_pr_u4 },
@@ -271633,6 +272303,870 @@ static Ul_urlist urbootlist[65205] = {
  { 216124, ur_t167_swio15_dual_pr_ce },
  { 216125, ur_t167_swio15_dual_pr_ee_ce },
  { 216126, ur_t167_swio15_dual_pr_ee_ce_u4 },
+ { 216132, ur_m64c1_autobaud_uart0_noled },
+ { 216133, ur_m64c1_autobaud_uart0_noled },
+ { 216134, ur_m64c1_autobaud_uart0_noled_pr_u4 },
+ { 216135, ur_m64c1_autobaud_uart0_noled_pr_ee },
+ { 216136, ur_m64c1_autobaud_uart0_noled_pr_ee },
+ { 216137, ur_m64c1_autobaud_uart0_noled_pr_ce },
+ { 216138, ur_m64c1_autobaud_uart0_noled_pr_ce },
+ { 216139, ur_m64c1_autobaud_uart0_noled_pr_ee_ce },
+ { 216140, ur_m64c1_autobaud_uart0_noled_pr_ee_ce },
+ { 216142, ur_m64c1_autobaud_uart0_noled_ee_hw },
+ { 216144, ur_m64c1_autobaud_uart0_noled_ee_ce_hw },
+ { 216145, ur_m64c1_autobaud_uart0_noled_ee_ce_hw },
+ { 216146, ur_m64c1_autobaud_uart0_lednop },
+ { 216147, ur_m64c1_autobaud_uart0_lednop },
+ { 216148, ur_m64c1_autobaud_uart0_lednop_pr_u4 },
+ { 216149, ur_m64c1_autobaud_uart0_lednop_pr_ee },
+ { 216150, ur_m64c1_autobaud_uart0_lednop_pr_ee },
+ { 216151, ur_m64c1_autobaud_uart0_lednop_pr_ce },
+ { 216152, ur_m64c1_autobaud_uart0_lednop_pr_ce },
+ { 216153, ur_m64c1_autobaud_uart0_lednop_pr_ee_ce },
+ { 216154, ur_m64c1_autobaud_uart0_lednop_pr_ee_ce },
+ { 216156, ur_m64c1_autobaud_uart0_lednop_ee_hw },
+ { 216158, ur_m64c1_autobaud_uart0_lednop_ee_ce_hw },
+ { 216159, ur_m64c1_autobaud_uart0_lednop_ee_ce_hw },
+ { 216160, ur_m64c1_autobaud_uart0_dual },
+ { 216161, ur_m64c1_autobaud_uart0_dual },
+ { 216162, ur_m64c1_autobaud_uart0_dual },
+ { 216163, ur_m64c1_autobaud_uart0_dual_pr_ee },
+ { 216164, ur_m64c1_autobaud_uart0_dual_pr_ee_u4 },
+ { 216165, ur_m64c1_autobaud_uart0_dual_pr_ce },
+ { 216166, ur_m64c1_autobaud_uart0_dual_pr_ce },
+ { 216167, ur_m64c1_autobaud_uart0_dual_pr_ee_ce },
+ { 216168, ur_m64c1_autobaud_uart0_dual_pr_ee_ce_u4 },
+ { 216170, ur_m64c1_autobaud_uart0_dual_ee_hw },
+ { 216172, ur_m64c1_autobaud_uart0_dual_ee_ce_hw },
+ { 216173, ur_m64c1_autobaud_uart0_dual_ee_ce_hw },
+ { 216300, ur_m64c1_lin_uart0_noled },
+ { 216301, ur_m64c1_lin_uart0_noled },
+ { 216302, ur_m64c1_lin_uart0_noled_pr_u4 },
+ { 216303, ur_m64c1_lin_uart0_noled_pr_ee },
+ { 216304, ur_m64c1_lin_uart0_noled_pr_ee },
+ { 216305, ur_m64c1_lin_uart0_noled_pr_ce },
+ { 216306, ur_m64c1_lin_uart0_noled_pr_ce_u4 },
+ { 216307, ur_m64c1_lin_uart0_noled_pr_ee_ce },
+ { 216308, ur_m64c1_lin_uart0_noled_pr_ee_ce },
+ { 216310, ur_m64c1_lin_uart0_noled_ee_hw },
+ { 216312, ur_m64c1_lin_uart0_noled_ee_ce_hw },
+ { 216313, ur_m64c1_lin_uart0_noled_ee_ce_hw },
+ { 216314, ur_m64c1_lin_uart0_lednop },
+ { 216315, ur_m64c1_lin_uart0_lednop },
+ { 216316, ur_m64c1_lin_uart0_lednop_pr_u4 },
+ { 216317, ur_m64c1_lin_uart0_lednop_pr_ee },
+ { 216318, ur_m64c1_lin_uart0_lednop_pr_ee },
+ { 216319, ur_m64c1_lin_uart0_lednop_pr_ce },
+ { 216320, ur_m64c1_lin_uart0_lednop_pr_ce },
+ { 216321, ur_m64c1_lin_uart0_lednop_pr_ee_ce },
+ { 216322, ur_m64c1_lin_uart0_lednop_pr_ee_ce },
+ { 216324, ur_m64c1_lin_uart0_lednop_ee_hw },
+ { 216326, ur_m64c1_lin_uart0_lednop_ee_ce_hw },
+ { 216327, ur_m64c1_lin_uart0_lednop_ee_ce_hw },
+ { 216328, ur_m64c1_lin_uart0_dual },
+ { 216329, ur_m64c1_lin_uart0_dual },
+ { 216330, ur_m64c1_lin_uart0_dual },
+ { 216331, ur_m64c1_lin_uart0_dual_pr_ee },
+ { 216332, ur_m64c1_lin_uart0_dual_pr_ee },
+ { 216333, ur_m64c1_lin_uart0_dual_pr_ce },
+ { 216334, ur_m64c1_lin_uart0_dual_pr_ce },
+ { 216335, ur_m64c1_lin_uart0_dual_pr_ee_ce },
+ { 216336, ur_m64c1_lin_uart0_dual_pr_ee_ce_u4 },
+ { 216338, ur_m64c1_lin_uart0_dual_ee_hw },
+ { 216340, ur_m64c1_lin_uart0_dual_ee_ce_hw },
+ { 216341, ur_m64c1_lin_uart0_dual_ee_ce_hw },
+ { 217182, ur_m64c1_swio10_noled },
+ { 217183, ur_m64c1_swio10_noled },
+ { 217184, ur_m64c1_swio10_noled_pr_u4 },
+ { 217185, ur_m64c1_swio10_noled_pr_ee },
+ { 217186, ur_m64c1_swio10_noled_pr_ee },
+ { 217187, ur_m64c1_swio10_noled_pr_ce },
+ { 217188, ur_m64c1_swio10_noled_pr_ce },
+ { 217189, ur_m64c1_swio10_noled_pr_ee_ce },
+ { 217190, ur_m64c1_swio10_noled_pr_ee_ce },
+ { 217192, ur_m64c1_swio10_noled_ee_hw },
+ { 217194, ur_m64c1_swio10_noled_ee_ce_hw },
+ { 217195, ur_m64c1_swio10_noled_ee_ce_hw },
+ { 217196, ur_m64c1_swio10_lednop },
+ { 217197, ur_m64c1_swio10_lednop },
+ { 217198, ur_m64c1_swio10_lednop_pr_u4 },
+ { 217199, ur_m64c1_swio10_lednop_pr_ee },
+ { 217200, ur_m64c1_swio10_lednop_pr_ee },
+ { 217201, ur_m64c1_swio10_lednop_pr_ce },
+ { 217202, ur_m64c1_swio10_lednop_pr_ce },
+ { 217203, ur_m64c1_swio10_lednop_pr_ee_ce },
+ { 217204, ur_m64c1_swio10_lednop_pr_ee_ce },
+ { 217206, ur_m64c1_swio10_lednop_ee_hw },
+ { 217208, ur_m64c1_swio10_lednop_ee_ce_hw },
+ { 217209, ur_m64c1_swio10_lednop_ee_ce_hw },
+ { 217210, ur_m64c1_swio10_dual },
+ { 217211, ur_m64c1_swio10_dual },
+ { 217212, ur_m64c1_swio10_dual },
+ { 217213, ur_m64c1_swio10_dual_pr_ee },
+ { 217214, ur_m64c1_swio10_dual_pr_ee_u4 },
+ { 217215, ur_m64c1_swio10_dual_pr_ce },
+ { 217216, ur_m64c1_swio10_dual_pr_ce },
+ { 217217, ur_m64c1_swio10_dual_pr_ee_ce },
+ { 217218, ur_m64c1_swio10_dual_pr_ee_ce_u4 },
+ { 217220, ur_m64c1_swio10_dual_ee_hw },
+ { 217222, ur_m64c1_swio10_dual_ee_ce_hw },
+ { 217223, ur_m64c1_swio10_dual_ee_ce_hw },
+ { 217224, ur_m64c1_swio11_noled },
+ { 217225, ur_m64c1_swio11_noled },
+ { 217226, ur_m64c1_swio11_noled_pr_u4 },
+ { 217227, ur_m64c1_swio11_noled_pr_ee },
+ { 217228, ur_m64c1_swio11_noled_pr_ee },
+ { 217229, ur_m64c1_swio11_noled_pr_ce },
+ { 217230, ur_m64c1_swio11_noled_pr_ce },
+ { 217231, ur_m64c1_swio11_noled_pr_ee_ce },
+ { 217232, ur_m64c1_swio11_noled_pr_ee_ce },
+ { 217234, ur_m64c1_swio11_noled_ee_hw },
+ { 217236, ur_m64c1_swio11_noled_ee_ce_hw },
+ { 217237, ur_m64c1_swio11_noled_ee_ce_hw },
+ { 217238, ur_m64c1_swio11_lednop },
+ { 217239, ur_m64c1_swio11_lednop_pr },
+ { 217240, ur_m64c1_swio11_lednop_pr },
+ { 217241, ur_m64c1_swio11_lednop_pr_ee },
+ { 217242, ur_m64c1_swio11_lednop_pr_ee },
+ { 217243, ur_m64c1_swio11_lednop_pr_ce },
+ { 217244, ur_m64c1_swio11_lednop_pr_ce },
+ { 217245, ur_m64c1_swio11_lednop_pr_ee_ce },
+ { 217246, ur_m64c1_swio11_lednop_pr_ee_ce },
+ { 217248, ur_m64c1_swio11_lednop_ee_hw },
+ { 217250, ur_m64c1_swio11_lednop_ee_ce_hw },
+ { 217251, ur_m64c1_swio11_lednop_ee_ce_hw },
+ { 217252, ur_m64c1_swio11_dual },
+ { 217253, ur_m64c1_swio11_dual },
+ { 217254, ur_m64c1_swio11_dual },
+ { 217255, ur_m64c1_swio11_dual_pr_ee },
+ { 217256, ur_m64c1_swio11_dual_pr_ee_u4 },
+ { 217257, ur_m64c1_swio11_dual_pr_ce },
+ { 217258, ur_m64c1_swio11_dual_pr_ce },
+ { 217259, ur_m64c1_swio11_dual_pr_ee_ce },
+ { 217260, ur_m64c1_swio11_dual_pr_ee_ce_u4 },
+ { 217262, ur_m64c1_swio11_dual_ee_hw },
+ { 217264, ur_m64c1_swio11_dual_ee_ce_hw },
+ { 217265, ur_m64c1_swio11_dual_ee_ce_hw },
+ { 217266, ur_m64c1_swio11_noled },
+ { 217267, ur_m64c1_swio11_noled },
+ { 217268, ur_m64c1_swio11_noled_pr_u4 },
+ { 217269, ur_m64c1_swio11_noled_pr_ee },
+ { 217270, ur_m64c1_swio11_noled_pr_ee },
+ { 217271, ur_m64c1_swio11_noled_pr_ce },
+ { 217272, ur_m64c1_swio11_noled_pr_ce },
+ { 217273, ur_m64c1_swio11_noled_pr_ee_ce },
+ { 217274, ur_m64c1_swio11_noled_pr_ee_ce },
+ { 217276, ur_m64c1_swio11_noled_ee_hw },
+ { 217278, ur_m64c1_swio11_noled_ee_ce_hw },
+ { 217279, ur_m64c1_swio11_noled_ee_ce_hw },
+ { 217280, ur_m64c1_swio11_lednop },
+ { 217281, ur_m64c1_swio11_lednop_pr },
+ { 217282, ur_m64c1_swio11_lednop_pr },
+ { 217283, ur_m64c1_swio11_lednop_pr_ee },
+ { 217284, ur_m64c1_swio11_lednop_pr_ee },
+ { 217285, ur_m64c1_swio11_lednop_pr_ce },
+ { 217286, ur_m64c1_swio11_lednop_pr_ce },
+ { 217287, ur_m64c1_swio11_lednop_pr_ee_ce },
+ { 217288, ur_m64c1_swio11_lednop_pr_ee_ce },
+ { 217290, ur_m64c1_swio11_lednop_ee_hw },
+ { 217292, ur_m64c1_swio11_lednop_ee_ce_hw },
+ { 217293, ur_m64c1_swio11_lednop_ee_ce_hw },
+ { 217294, ur_m64c1_swio11_dual },
+ { 217295, ur_m64c1_swio11_dual },
+ { 217296, ur_m64c1_swio11_dual },
+ { 217297, ur_m64c1_swio11_dual_pr_ee },
+ { 217298, ur_m64c1_swio11_dual_pr_ee_u4 },
+ { 217299, ur_m64c1_swio11_dual_pr_ce },
+ { 217300, ur_m64c1_swio11_dual_pr_ce },
+ { 217301, ur_m64c1_swio11_dual_pr_ee_ce },
+ { 217302, ur_m64c1_swio11_dual_pr_ee_ce_u4 },
+ { 217304, ur_m64c1_swio11_dual_ee_hw },
+ { 217306, ur_m64c1_swio11_dual_ee_ce_hw },
+ { 217307, ur_m64c1_swio11_dual_ee_ce_hw },
+ { 217308, ur_m64c1_swio13_noled },
+ { 217309, ur_m64c1_swio13_noled },
+ { 217310, ur_m64c1_swio13_noled_pr_u4 },
+ { 217311, ur_m64c1_swio13_noled_pr_ee },
+ { 217312, ur_m64c1_swio13_noled_pr_ee },
+ { 217313, ur_m64c1_swio13_noled_pr_ce },
+ { 217314, ur_m64c1_swio13_noled_pr_ce },
+ { 217315, ur_m64c1_swio13_noled_pr_ee_ce },
+ { 217316, ur_m64c1_swio13_noled_pr_ee_ce },
+ { 217318, ur_m64c1_swio13_noled_ee_hw },
+ { 217320, ur_m64c1_swio13_noled_ee_ce_hw },
+ { 217321, ur_m64c1_swio13_noled_ee_ce_hw },
+ { 217322, ur_m64c1_swio13_lednop },
+ { 217323, ur_m64c1_swio13_lednop_pr },
+ { 217324, ur_m64c1_swio13_lednop_pr },
+ { 217325, ur_m64c1_swio13_lednop_pr_ee },
+ { 217326, ur_m64c1_swio13_lednop_pr_ee },
+ { 217327, ur_m64c1_swio13_lednop_pr_ce },
+ { 217328, ur_m64c1_swio13_lednop_pr_ce },
+ { 217329, ur_m64c1_swio13_lednop_pr_ee_ce },
+ { 217330, ur_m64c1_swio13_lednop_pr_ee_ce },
+ { 217332, ur_m64c1_swio13_lednop_ee_hw },
+ { 217334, ur_m64c1_swio13_lednop_ee_ce_hw },
+ { 217335, ur_m64c1_swio13_lednop_ee_ce_hw },
+ { 217336, ur_m64c1_swio13_dual },
+ { 217337, ur_m64c1_swio13_dual },
+ { 217338, ur_m64c1_swio13_dual },
+ { 217339, ur_m64c1_swio13_dual_pr_ee },
+ { 217340, ur_m64c1_swio13_dual_pr_ee_u4 },
+ { 217341, ur_m64c1_swio13_dual_pr_ce },
+ { 217342, ur_m64c1_swio13_dual_pr_ce },
+ { 217343, ur_m64c1_swio13_dual_pr_ee_ce },
+ { 217344, ur_m64c1_swio13_dual_pr_ee_ce_u4 },
+ { 217346, ur_m64c1_swio13_dual_ee_hw },
+ { 217348, ur_m64c1_swio13_dual_ee_ce_hw },
+ { 217349, ur_m64c1_swio13_dual_ee_ce_hw },
+ { 217350, ur_m64c1_swio14_noled },
+ { 217351, ur_m64c1_swio14_noled },
+ { 217352, ur_m64c1_swio14_noled_pr_u4 },
+ { 217353, ur_m64c1_swio14_noled_pr_ee },
+ { 217354, ur_m64c1_swio14_noled_pr_ee },
+ { 217355, ur_m64c1_swio14_noled_pr_ce },
+ { 217356, ur_m64c1_swio14_noled_pr_ce },
+ { 217357, ur_m64c1_swio14_noled_pr_ee_ce },
+ { 217358, ur_m64c1_swio14_noled_pr_ee_ce },
+ { 217360, ur_m64c1_swio14_noled_ee_hw },
+ { 217362, ur_m64c1_swio14_noled_ee_ce_hw },
+ { 217363, ur_m64c1_swio14_noled_ee_ce_hw },
+ { 217364, ur_m64c1_swio14_lednop },
+ { 217365, ur_m64c1_swio14_lednop_pr },
+ { 217366, ur_m64c1_swio14_lednop_pr },
+ { 217367, ur_m64c1_swio14_lednop_pr_ee },
+ { 217368, ur_m64c1_swio14_lednop_pr_ee },
+ { 217369, ur_m64c1_swio14_lednop_pr_ce },
+ { 217370, ur_m64c1_swio14_lednop_pr_ce },
+ { 217371, ur_m64c1_swio14_lednop_pr_ee_ce },
+ { 217372, ur_m64c1_swio14_lednop_pr_ee_ce },
+ { 217374, ur_m64c1_swio14_lednop_ee_hw },
+ { 217376, ur_m64c1_swio14_lednop_ee_ce_hw },
+ { 217377, ur_m64c1_swio14_lednop_ee_ce_hw },
+ { 217378, ur_m64c1_swio14_dual },
+ { 217379, ur_m64c1_swio14_dual },
+ { 217380, ur_m64c1_swio14_dual },
+ { 217381, ur_m64c1_swio14_dual_pr_ee },
+ { 217382, ur_m64c1_swio14_dual_pr_ee_u4 },
+ { 217383, ur_m64c1_swio14_dual_pr_ce },
+ { 217384, ur_m64c1_swio14_dual_pr_ce },
+ { 217385, ur_m64c1_swio14_dual_pr_ee_ce },
+ { 217386, ur_m64c1_swio14_dual_pr_ee_ce_u4 },
+ { 217388, ur_m64c1_swio14_dual_ee_hw },
+ { 217390, ur_m64c1_swio14_dual_ee_ce_hw },
+ { 217391, ur_m64c1_swio14_dual_ee_ce_hw },
+ { 217392, ur_m64c1_swio15_noled },
+ { 217393, ur_m64c1_swio15_noled },
+ { 217394, ur_m64c1_swio15_noled_pr_u4 },
+ { 217395, ur_m64c1_swio15_noled_pr_ee },
+ { 217396, ur_m64c1_swio15_noled_pr_ee },
+ { 217397, ur_m64c1_swio15_noled_pr_ce },
+ { 217398, ur_m64c1_swio15_noled_pr_ce },
+ { 217399, ur_m64c1_swio15_noled_pr_ee_ce },
+ { 217400, ur_m64c1_swio15_noled_pr_ee_ce },
+ { 217402, ur_m64c1_swio15_noled_ee_hw },
+ { 217404, ur_m64c1_swio15_noled_ee_ce_hw },
+ { 217405, ur_m64c1_swio15_noled_ee_ce_hw },
+ { 217406, ur_m64c1_swio15_lednop },
+ { 217407, ur_m64c1_swio15_lednop_pr },
+ { 217408, ur_m64c1_swio15_lednop_pr },
+ { 217409, ur_m64c1_swio15_lednop_pr_ee },
+ { 217410, ur_m64c1_swio15_lednop_pr_ee },
+ { 217411, ur_m64c1_swio15_lednop_pr_ce },
+ { 217412, ur_m64c1_swio15_lednop_pr_ce },
+ { 217413, ur_m64c1_swio15_lednop_pr_ee_ce },
+ { 217414, ur_m64c1_swio15_lednop_pr_ee_ce },
+ { 217416, ur_m64c1_swio15_lednop_ee_hw },
+ { 217418, ur_m64c1_swio15_lednop_ee_ce_hw },
+ { 217419, ur_m64c1_swio15_lednop_ee_ce_hw },
+ { 217420, ur_m64c1_swio15_dual },
+ { 217421, ur_m64c1_swio15_dual },
+ { 217422, ur_m64c1_swio15_dual },
+ { 217423, ur_m64c1_swio15_dual_pr_ee },
+ { 217424, ur_m64c1_swio15_dual_pr_ee_u4 },
+ { 217425, ur_m64c1_swio15_dual_pr_ce },
+ { 217426, ur_m64c1_swio15_dual_pr_ce },
+ { 217427, ur_m64c1_swio15_dual_pr_ee_ce },
+ { 217428, ur_m64c1_swio15_dual_pr_ee_ce_u4 },
+ { 217430, ur_m64c1_swio15_dual_ee_hw },
+ { 217432, ur_m64c1_swio15_dual_ee_ce_hw },
+ { 217433, ur_m64c1_swio15_dual_ee_ce_hw },
+ { 217434, ur_m128_autobaud_uart0_noled },
+ { 217435, ur_m128_autobaud_uart0_noled },
+ { 217436, ur_m128_autobaud_uart0_noled_pr_u4 },
+ { 217437, ur_m128_autobaud_uart0_noled_pr_ee },
+ { 217438, ur_m128_autobaud_uart0_noled_pr_ee },
+ { 217439, ur_m128_autobaud_uart0_noled_pr_ce },
+ { 217440, ur_m128_autobaud_uart0_noled_pr_ce },
+ { 217441, ur_m128_autobaud_uart0_noled_pr_ee_ce },
+ { 217442, ur_m128_autobaud_uart0_noled_pr_ee_ce },
+ { 217444, ur_m128_autobaud_uart0_noled_ee_hw },
+ { 217446, ur_m128_autobaud_uart0_noled_ee_ce_hw },
+ { 217447, ur_m128_autobaud_uart0_noled_ee_ce_hw },
+ { 217448, ur_m128_autobaud_uart0_lednop },
+ { 217449, ur_m128_autobaud_uart0_lednop_pr },
+ { 217450, ur_m128_autobaud_uart0_lednop_pr },
+ { 217451, ur_m128_autobaud_uart0_lednop_pr_ee },
+ { 217452, ur_m128_autobaud_uart0_lednop_pr_ee },
+ { 217453, ur_m128_autobaud_uart0_lednop_pr_ce },
+ { 217454, ur_m128_autobaud_uart0_lednop_pr_ce },
+ { 217455, ur_m128_autobaud_uart0_lednop_pr_ee_ce },
+ { 217456, ur_m128_autobaud_uart0_lednop_pr_ee_ce },
+ { 217458, ur_m128_autobaud_uart0_lednop_ee_hw },
+ { 217460, ur_m128_autobaud_uart0_lednop_ee_ce_hw },
+ { 217461, ur_m128_autobaud_uart0_lednop_ee_ce_hw },
+ { 217462, ur_m128_autobaud_uart0_dual },
+ { 217463, ur_m128_autobaud_uart0_dual },
+ { 217464, ur_m128_autobaud_uart0_dual },
+ { 217465, ur_m128_autobaud_uart0_dual_pr_ee },
+ { 217466, ur_m128_autobaud_uart0_dual_pr_ee_u4 },
+ { 217467, ur_m128_autobaud_uart0_dual_pr_ce },
+ { 217468, ur_m128_autobaud_uart0_dual_pr_ce_u4 },
+ { 217469, ur_m128_autobaud_uart0_dual_pr_ee_ce },
+ { 217470, ur_m128_autobaud_uart0_dual_pr_ee_ce_u4 },
+ { 217472, ur_m128_autobaud_uart0_dual_ee_hw },
+ { 217474, ur_m128_autobaud_uart0_dual_ee_ce_hw },
+ { 217475, ur_m128_autobaud_uart0_dual_ee_ce_hw },
+ { 217518, ur_m128_autobaud_uart1_noled },
+ { 217519, ur_m128_autobaud_uart1_noled_pr },
+ { 217520, ur_m128_autobaud_uart1_noled_pr },
+ { 217521, ur_m128_autobaud_uart1_noled_pr_ee },
+ { 217522, ur_m128_autobaud_uart1_noled_pr_ee },
+ { 217523, ur_m128_autobaud_uart1_noled_pr_ce },
+ { 217524, ur_m128_autobaud_uart1_noled_pr_ce },
+ { 217525, ur_m128_autobaud_uart1_noled_pr_ee_ce },
+ { 217526, ur_m128_autobaud_uart1_noled_pr_ee_ce },
+ { 217528, ur_m128_autobaud_uart1_noled_ee_hw },
+ { 217530, ur_m128_autobaud_uart1_noled_ee_ce_hw },
+ { 217531, ur_m128_autobaud_uart1_noled_ee_ce_hw },
+ { 217532, ur_m128_autobaud_uart1_lednop },
+ { 217533, ur_m128_autobaud_uart1_lednop_pr },
+ { 217534, ur_m128_autobaud_uart1_lednop_pr },
+ { 217535, ur_m128_autobaud_uart1_lednop_pr_ee },
+ { 217536, ur_m128_autobaud_uart1_lednop_pr_ee },
+ { 217537, ur_m128_autobaud_uart1_lednop_pr_ce },
+ { 217538, ur_m128_autobaud_uart1_lednop_pr_ce },
+ { 217539, ur_m128_autobaud_uart1_lednop_pr_ee_ce },
+ { 217540, ur_m128_autobaud_uart1_lednop_pr_ee_ce },
+ { 217542, ur_m128_autobaud_uart1_lednop_ee_hw },
+ { 217544, ur_m128_autobaud_uart1_lednop_ee_ce_hw },
+ { 217545, ur_m128_autobaud_uart1_lednop_ee_ce_hw },
+ { 217546, ur_m128_autobaud_uart1_dual },
+ { 217547, ur_m128_autobaud_uart1_dual },
+ { 217548, ur_m128_autobaud_uart1_dual },
+ { 217549, ur_m128_autobaud_uart1_dual_pr_ee },
+ { 217550, ur_m128_autobaud_uart1_dual_pr_ee_u4 },
+ { 217551, ur_m128_autobaud_uart1_dual_pr_ce },
+ { 217552, ur_m128_autobaud_uart1_dual_pr_ce_u4 },
+ { 217553, ur_m128_autobaud_uart1_dual_pr_ee_ce },
+ { 217554, ur_m128_autobaud_uart1_dual_pr_ee_ce },
+ { 217556, ur_m128_autobaud_uart1_dual_ee_hw },
+ { 217558, ur_m128_autobaud_uart1_dual_ee_ce_hw },
+ { 217559, ur_m128_autobaud_uart1_dual_ee_ce_hw },
+ { 217644, ur_m128_u1x8_uart0_noled },
+ { 217645, ur_m128_u1x8_uart0_noled },
+ { 217646, ur_m128_u1x8_uart0_noled_pr_u4 },
+ { 217647, ur_m128_u1x8_uart0_noled_pr_ee },
+ { 217648, ur_m128_u1x8_uart0_noled_pr_ee },
+ { 217649, ur_m128_u1x8_uart0_noled_pr_ce },
+ { 217650, ur_m128_u1x8_uart0_noled_pr_ce },
+ { 217651, ur_m128_u1x8_uart0_noled_pr_ee_ce },
+ { 217652, ur_m128_u1x8_uart0_noled_pr_ee_ce },
+ { 217654, ur_m128_u1x8_uart0_noled_ee_hw },
+ { 217656, ur_m128_u1x8_uart0_noled_ee_ce_hw },
+ { 217657, ur_m128_u1x8_uart0_noled_ee_ce_hw },
+ { 217658, ur_m128_u1x8_uart0_lednop },
+ { 217659, ur_m128_u1x8_uart0_lednop },
+ { 217660, ur_m128_u1x8_uart0_lednop_pr_u4 },
+ { 217661, ur_m128_u1x8_uart0_lednop_pr_ee },
+ { 217662, ur_m128_u1x8_uart0_lednop_pr_ee },
+ { 217663, ur_m128_u1x8_uart0_lednop_pr_ce },
+ { 217664, ur_m128_u1x8_uart0_lednop_pr_ce },
+ { 217665, ur_m128_u1x8_uart0_lednop_pr_ee_ce },
+ { 217666, ur_m128_u1x8_uart0_lednop_pr_ee_ce },
+ { 217668, ur_m128_u1x8_uart0_lednop_ee_hw },
+ { 217670, ur_m128_u1x8_uart0_lednop_ee_ce_hw },
+ { 217671, ur_m128_u1x8_uart0_lednop_ee_ce_hw },
+ { 217672, ur_m128_u1x8_uart0_dual },
+ { 217673, ur_m128_u1x8_uart0_dual },
+ { 217674, ur_m128_u1x8_uart0_dual },
+ { 217675, ur_m128_u1x8_uart0_dual_pr_ee },
+ { 217676, ur_m128_u1x8_uart0_dual_pr_ee_u4 },
+ { 217677, ur_m128_u1x8_uart0_dual_pr_ce },
+ { 217678, ur_m128_u1x8_uart0_dual_pr_ce_u4 },
+ { 217679, ur_m128_u1x8_uart0_dual_pr_ee_ce },
+ { 217680, ur_m128_u1x8_uart0_dual_pr_ee_ce_u4 },
+ { 217682, ur_m128_u1x8_uart0_dual_ee_hw },
+ { 217684, ur_m128_u1x8_uart0_dual_ee_ce_hw },
+ { 217685, ur_m128_u1x8_uart0_dual_ee_ce_hw },
+ { 217728, ur_m128_u1x8_uart1_noled },
+ { 217729, ur_m128_u1x8_uart1_noled },
+ { 217730, ur_m128_u1x8_uart1_noled_pr_u4 },
+ { 217731, ur_m128_u1x8_uart1_noled_pr_ee },
+ { 217732, ur_m128_u1x8_uart1_noled_pr_ee },
+ { 217733, ur_m128_u1x8_uart1_noled_pr_ce },
+ { 217734, ur_m128_u1x8_uart1_noled_pr_ce },
+ { 217735, ur_m128_u1x8_uart1_noled_pr_ee_ce },
+ { 217736, ur_m128_u1x8_uart1_noled_pr_ee_ce },
+ { 217738, ur_m128_u1x8_uart1_noled_ee_hw },
+ { 217740, ur_m128_u1x8_uart1_noled_ee_ce_hw },
+ { 217741, ur_m128_u1x8_uart1_noled_ee_ce_hw },
+ { 217742, ur_m128_u1x8_uart1_lednop },
+ { 217743, ur_m128_u1x8_uart1_lednop },
+ { 217744, ur_m128_u1x8_uart1_lednop_pr_u4 },
+ { 217745, ur_m128_u1x8_uart1_lednop_pr_ee },
+ { 217746, ur_m128_u1x8_uart1_lednop_pr_ee },
+ { 217747, ur_m128_u1x8_uart1_lednop_pr_ce },
+ { 217748, ur_m128_u1x8_uart1_lednop_pr_ce },
+ { 217749, ur_m128_u1x8_uart1_lednop_pr_ee_ce },
+ { 217750, ur_m128_u1x8_uart1_lednop_pr_ee_ce },
+ { 217752, ur_m128_u1x8_uart1_lednop_ee_hw },
+ { 217754, ur_m128_u1x8_uart1_lednop_ee_ce_hw },
+ { 217755, ur_m128_u1x8_uart1_lednop_ee_ce_hw },
+ { 217756, ur_m128_u1x8_uart1_dual },
+ { 217757, ur_m128_u1x8_uart1_dual },
+ { 217758, ur_m128_u1x8_uart1_dual },
+ { 217759, ur_m128_u1x8_uart1_dual_pr_ee },
+ { 217760, ur_m128_u1x8_uart1_dual_pr_ee_u4 },
+ { 217761, ur_m128_u1x8_uart1_dual_pr_ce },
+ { 217762, ur_m128_u1x8_uart1_dual_pr_ce_u4 },
+ { 217763, ur_m128_u1x8_uart1_dual_pr_ee_ce },
+ { 217764, ur_m128_u1x8_uart1_dual_pr_ee_ce_u4 },
+ { 217766, ur_m128_u1x8_uart1_dual_ee_hw },
+ { 217768, ur_m128_u1x8_uart1_dual_ee_ce_hw },
+ { 217769, ur_m128_u1x8_uart1_dual_ee_ce_hw },
+ { 217854, ur_m128_u1x12_uart0_noled },
+ { 217855, ur_m128_u1x12_uart0_noled },
+ { 217856, ur_m128_u1x12_uart0_noled_pr_u4 },
+ { 217857, ur_m128_u1x12_uart0_noled_pr_ee },
+ { 217858, ur_m128_u1x12_uart0_noled_pr_ee },
+ { 217859, ur_m128_u1x12_uart0_noled_pr_ce },
+ { 217860, ur_m128_u1x12_uart0_noled_pr_ce },
+ { 217861, ur_m128_u1x12_uart0_noled_pr_ee_ce },
+ { 217862, ur_m128_u1x12_uart0_noled_pr_ee_ce },
+ { 217864, ur_m128_u1x12_uart0_noled_ee_hw },
+ { 217866, ur_m128_u1x12_uart0_noled_ee_ce_hw },
+ { 217867, ur_m128_u1x12_uart0_noled_ee_ce_hw },
+ { 217868, ur_m128_u1x12_uart0_lednop },
+ { 217869, ur_m128_u1x12_uart0_lednop },
+ { 217870, ur_m128_u1x12_uart0_lednop_pr_u4 },
+ { 217871, ur_m128_u1x12_uart0_lednop_pr_ee },
+ { 217872, ur_m128_u1x12_uart0_lednop_pr_ee },
+ { 217873, ur_m128_u1x12_uart0_lednop_pr_ce },
+ { 217874, ur_m128_u1x12_uart0_lednop_pr_ce },
+ { 217875, ur_m128_u1x12_uart0_lednop_pr_ee_ce },
+ { 217876, ur_m128_u1x12_uart0_lednop_pr_ee_ce },
+ { 217878, ur_m128_u1x12_uart0_lednop_ee_hw },
+ { 217880, ur_m128_u1x12_uart0_lednop_ee_ce_hw },
+ { 217881, ur_m128_u1x12_uart0_lednop_ee_ce_hw },
+ { 217882, ur_m128_u1x12_uart0_dual },
+ { 217883, ur_m128_u1x12_uart0_dual },
+ { 217884, ur_m128_u1x12_uart0_dual },
+ { 217885, ur_m128_u1x12_uart0_dual_pr_ee },
+ { 217886, ur_m128_u1x12_uart0_dual_pr_ee_u4 },
+ { 217887, ur_m128_u1x12_uart0_dual_pr_ce },
+ { 217888, ur_m128_u1x12_uart0_dual_pr_ce_u4 },
+ { 217889, ur_m128_u1x12_uart0_dual_pr_ee_ce },
+ { 217890, ur_m128_u1x12_uart0_dual_pr_ee_ce_u4 },
+ { 217892, ur_m128_u1x12_uart0_dual_ee_hw },
+ { 217894, ur_m128_u1x12_uart0_dual_ee_ce_hw },
+ { 217895, ur_m128_u1x12_uart0_dual_ee_ce_hw },
+ { 217938, ur_m128_u1x12_uart1_noled },
+ { 217939, ur_m128_u1x12_uart1_noled },
+ { 217940, ur_m128_u1x12_uart1_noled_pr_u4 },
+ { 217941, ur_m128_u1x12_uart1_noled_pr_ee },
+ { 217942, ur_m128_u1x12_uart1_noled_pr_ee },
+ { 217943, ur_m128_u1x12_uart1_noled_pr_ce },
+ { 217944, ur_m128_u1x12_uart1_noled_pr_ce },
+ { 217945, ur_m128_u1x12_uart1_noled_pr_ee_ce },
+ { 217946, ur_m128_u1x12_uart1_noled_pr_ee_ce },
+ { 217948, ur_m128_u1x12_uart1_noled_ee_hw },
+ { 217950, ur_m128_u1x12_uart1_noled_ee_ce_hw },
+ { 217951, ur_m128_u1x12_uart1_noled_ee_ce_hw },
+ { 217952, ur_m128_u1x12_uart1_lednop },
+ { 217953, ur_m128_u1x12_uart1_lednop_pr },
+ { 217954, ur_m128_u1x12_uart1_lednop_pr },
+ { 217955, ur_m128_u1x12_uart1_lednop_pr_ee },
+ { 217956, ur_m128_u1x12_uart1_lednop_pr_ee },
+ { 217957, ur_m128_u1x12_uart1_lednop_pr_ce },
+ { 217958, ur_m128_u1x12_uart1_lednop_pr_ce },
+ { 217959, ur_m128_u1x12_uart1_lednop_pr_ee_ce },
+ { 217960, ur_m128_u1x12_uart1_lednop_pr_ee_ce },
+ { 217962, ur_m128_u1x12_uart1_lednop_ee_hw },
+ { 217964, ur_m128_u1x12_uart1_lednop_ee_ce_hw },
+ { 217965, ur_m128_u1x12_uart1_lednop_ee_ce_hw },
+ { 217966, ur_m128_u1x12_uart1_dual },
+ { 217967, ur_m128_u1x12_uart1_dual },
+ { 217968, ur_m128_u1x12_uart1_dual },
+ { 217969, ur_m128_u1x12_uart1_dual_pr_ee },
+ { 217970, ur_m128_u1x12_uart1_dual_pr_ee_u4 },
+ { 217971, ur_m128_u1x12_uart1_dual_pr_ce },
+ { 217972, ur_m128_u1x12_uart1_dual_pr_ce_u4 },
+ { 217973, ur_m128_u1x12_uart1_dual_pr_ee_ce },
+ { 217974, ur_m128_u1x12_uart1_dual_pr_ee_ce_u4 },
+ { 217976, ur_m128_u1x12_uart1_dual_ee_hw },
+ { 217978, ur_m128_u1x12_uart1_dual_ee_ce_hw },
+ { 217979, ur_m128_u1x12_uart1_dual_ee_ce_hw },
+ { 218064, ur_m128_u2x8_uart0_noled },
+ { 218065, ur_m128_u2x8_uart0_noled },
+ { 218066, ur_m128_u2x8_uart0_noled_pr_u4 },
+ { 218067, ur_m128_u2x8_uart0_noled_pr_ee },
+ { 218068, ur_m128_u2x8_uart0_noled_pr_ee },
+ { 218069, ur_m128_u2x8_uart0_noled_pr_ce },
+ { 218070, ur_m128_u2x8_uart0_noled_pr_ce },
+ { 218071, ur_m128_u2x8_uart0_noled_pr_ee_ce },
+ { 218072, ur_m128_u2x8_uart0_noled_pr_ee_ce },
+ { 218074, ur_m128_u2x8_uart0_noled_ee_hw },
+ { 218076, ur_m128_u2x8_uart0_noled_ee_ce_hw },
+ { 218077, ur_m128_u2x8_uart0_noled_ee_ce_hw },
+ { 218078, ur_m128_u2x8_uart0_lednop },
+ { 218079, ur_m128_u2x8_uart0_lednop },
+ { 218080, ur_m128_u2x8_uart0_lednop_pr_u4 },
+ { 218081, ur_m128_u2x8_uart0_lednop_pr_ee },
+ { 218082, ur_m128_u2x8_uart0_lednop_pr_ee },
+ { 218083, ur_m128_u2x8_uart0_lednop_pr_ce },
+ { 218084, ur_m128_u2x8_uart0_lednop_pr_ce },
+ { 218085, ur_m128_u2x8_uart0_lednop_pr_ee_ce },
+ { 218086, ur_m128_u2x8_uart0_lednop_pr_ee_ce },
+ { 218088, ur_m128_u2x8_uart0_lednop_ee_hw },
+ { 218090, ur_m128_u2x8_uart0_lednop_ee_ce_hw },
+ { 218091, ur_m128_u2x8_uart0_lednop_ee_ce_hw },
+ { 218092, ur_m128_u2x8_uart0_dual },
+ { 218093, ur_m128_u2x8_uart0_dual },
+ { 218094, ur_m128_u2x8_uart0_dual },
+ { 218095, ur_m128_u2x8_uart0_dual_pr_ee },
+ { 218096, ur_m128_u2x8_uart0_dual_pr_ee_u4 },
+ { 218097, ur_m128_u2x8_uart0_dual_pr_ce },
+ { 218098, ur_m128_u2x8_uart0_dual_pr_ce_u4 },
+ { 218099, ur_m128_u2x8_uart0_dual_pr_ee_ce },
+ { 218100, ur_m128_u2x8_uart0_dual_pr_ee_ce_u4 },
+ { 218102, ur_m128_u2x8_uart0_dual_ee_hw },
+ { 218104, ur_m128_u2x8_uart0_dual_ee_ce_hw },
+ { 218105, ur_m128_u2x8_uart0_dual_ee_ce_hw },
+ { 218148, ur_m128_u2x8_uart1_noled },
+ { 218149, ur_m128_u2x8_uart1_noled },
+ { 218150, ur_m128_u2x8_uart1_noled_pr_u4 },
+ { 218151, ur_m128_u2x8_uart1_noled_pr_ee },
+ { 218152, ur_m128_u2x8_uart1_noled_pr_ee },
+ { 218153, ur_m128_u2x8_uart1_noled_pr_ce },
+ { 218154, ur_m128_u2x8_uart1_noled_pr_ce },
+ { 218155, ur_m128_u2x8_uart1_noled_pr_ee_ce },
+ { 218156, ur_m128_u2x8_uart1_noled_pr_ee_ce },
+ { 218158, ur_m128_u2x8_uart1_noled_ee_hw },
+ { 218160, ur_m128_u2x8_uart1_noled_ee_ce_hw },
+ { 218161, ur_m128_u2x8_uart1_noled_ee_ce_hw },
+ { 218162, ur_m128_u2x8_uart1_lednop },
+ { 218163, ur_m128_u2x8_uart1_lednop_pr },
+ { 218164, ur_m128_u2x8_uart1_lednop_pr },
+ { 218165, ur_m128_u2x8_uart1_lednop_pr_ee },
+ { 218166, ur_m128_u2x8_uart1_lednop_pr_ee },
+ { 218167, ur_m128_u2x8_uart1_lednop_pr_ce },
+ { 218168, ur_m128_u2x8_uart1_lednop_pr_ce },
+ { 218169, ur_m128_u2x8_uart1_lednop_pr_ee_ce },
+ { 218170, ur_m128_u2x8_uart1_lednop_pr_ee_ce },
+ { 218172, ur_m128_u2x8_uart1_lednop_ee_hw },
+ { 218174, ur_m128_u2x8_uart1_lednop_ee_ce_hw },
+ { 218175, ur_m128_u2x8_uart1_lednop_ee_ce_hw },
+ { 218176, ur_m128_u2x8_uart1_dual },
+ { 218177, ur_m128_u2x8_uart1_dual },
+ { 218178, ur_m128_u2x8_uart1_dual },
+ { 218179, ur_m128_u2x8_uart1_dual_pr_ee },
+ { 218180, ur_m128_u2x8_uart1_dual_pr_ee_u4 },
+ { 218181, ur_m128_u2x8_uart1_dual_pr_ce },
+ { 218182, ur_m128_u2x8_uart1_dual_pr_ce_u4 },
+ { 218183, ur_m128_u2x8_uart1_dual_pr_ee_ce },
+ { 218184, ur_m128_u2x8_uart1_dual_pr_ee_ce_u4 },
+ { 218186, ur_m128_u2x8_uart1_dual_ee_hw },
+ { 218188, ur_m128_u2x8_uart1_dual_ee_ce_hw },
+ { 218189, ur_m128_u2x8_uart1_dual_ee_ce_hw },
+ { 218274, ur_m128_u2x12_uart0_noled },
+ { 218275, ur_m128_u2x12_uart0_noled },
+ { 218276, ur_m128_u2x12_uart0_noled_pr_u4 },
+ { 218277, ur_m128_u2x12_uart0_noled_pr_ee },
+ { 218278, ur_m128_u2x12_uart0_noled_pr_ee },
+ { 218279, ur_m128_u2x12_uart0_noled_pr_ce },
+ { 218280, ur_m128_u2x12_uart0_noled_pr_ce },
+ { 218281, ur_m128_u2x12_uart0_noled_pr_ee_ce },
+ { 218282, ur_m128_u2x12_uart0_noled_pr_ee_ce },
+ { 218284, ur_m128_u2x12_uart0_noled_ee_hw },
+ { 218286, ur_m128_u2x12_uart0_noled_ee_ce_hw },
+ { 218287, ur_m128_u2x12_uart0_noled_ee_ce_hw },
+ { 218288, ur_m128_u2x12_uart0_lednop },
+ { 218289, ur_m128_u2x12_uart0_lednop },
+ { 218290, ur_m128_u2x12_uart0_lednop_pr_u4 },
+ { 218291, ur_m128_u2x12_uart0_lednop_pr_ee },
+ { 218292, ur_m128_u2x12_uart0_lednop_pr_ee },
+ { 218293, ur_m128_u2x12_uart0_lednop_pr_ce },
+ { 218294, ur_m128_u2x12_uart0_lednop_pr_ce },
+ { 218295, ur_m128_u2x12_uart0_lednop_pr_ee_ce },
+ { 218296, ur_m128_u2x12_uart0_lednop_pr_ee_ce },
+ { 218298, ur_m128_u2x12_uart0_lednop_ee_hw },
+ { 218300, ur_m128_u2x12_uart0_lednop_ee_ce_hw },
+ { 218301, ur_m128_u2x12_uart0_lednop_ee_ce_hw },
+ { 218302, ur_m128_u2x12_uart0_dual },
+ { 218303, ur_m128_u2x12_uart0_dual },
+ { 218304, ur_m128_u2x12_uart0_dual },
+ { 218305, ur_m128_u2x12_uart0_dual_pr_ee },
+ { 218306, ur_m128_u2x12_uart0_dual_pr_ee_u4 },
+ { 218307, ur_m128_u2x12_uart0_dual_pr_ce },
+ { 218308, ur_m128_u2x12_uart0_dual_pr_ce_u4 },
+ { 218309, ur_m128_u2x12_uart0_dual_pr_ee_ce },
+ { 218310, ur_m128_u2x12_uart0_dual_pr_ee_ce_u4 },
+ { 218312, ur_m128_u2x12_uart0_dual_ee_hw },
+ { 218314, ur_m128_u2x12_uart0_dual_ee_ce_hw },
+ { 218315, ur_m128_u2x12_uart0_dual_ee_ce_hw },
+ { 218358, ur_m128_u2x12_uart1_noled },
+ { 218359, ur_m128_u2x12_uart1_noled },
+ { 218360, ur_m128_u2x12_uart1_noled_pr_u4 },
+ { 218361, ur_m128_u2x12_uart1_noled_pr_ee },
+ { 218362, ur_m128_u2x12_uart1_noled_pr_ee },
+ { 218363, ur_m128_u2x12_uart1_noled_pr_ce },
+ { 218364, ur_m128_u2x12_uart1_noled_pr_ce },
+ { 218365, ur_m128_u2x12_uart1_noled_pr_ee_ce },
+ { 218366, ur_m128_u2x12_uart1_noled_pr_ee_ce },
+ { 218368, ur_m128_u2x12_uart1_noled_ee_hw },
+ { 218370, ur_m128_u2x12_uart1_noled_ee_ce_hw },
+ { 218371, ur_m128_u2x12_uart1_noled_ee_ce_hw },
+ { 218372, ur_m128_u2x12_uart1_lednop },
+ { 218373, ur_m128_u2x12_uart1_lednop_pr },
+ { 218374, ur_m128_u2x12_uart1_lednop_pr },
+ { 218375, ur_m128_u2x12_uart1_lednop_pr_ee },
+ { 218376, ur_m128_u2x12_uart1_lednop_pr_ee },
+ { 218377, ur_m128_u2x12_uart1_lednop_pr_ce },
+ { 218378, ur_m128_u2x12_uart1_lednop_pr_ce },
+ { 218379, ur_m128_u2x12_uart1_lednop_pr_ee_ce },
+ { 218380, ur_m128_u2x12_uart1_lednop_pr_ee_ce },
+ { 218382, ur_m128_u2x12_uart1_lednop_ee_hw },
+ { 218384, ur_m128_u2x12_uart1_lednop_ee_ce_hw },
+ { 218385, ur_m128_u2x12_uart1_lednop_ee_ce_hw },
+ { 218386, ur_m128_u2x12_uart1_dual },
+ { 218387, ur_m128_u2x12_uart1_dual },
+ { 218388, ur_m128_u2x12_uart1_dual },
+ { 218389, ur_m128_u2x12_uart1_dual_pr_ee },
+ { 218390, ur_m128_u2x12_uart1_dual_pr_ee_u4 },
+ { 218391, ur_m128_u2x12_uart1_dual_pr_ce },
+ { 218392, ur_m128_u2x12_uart1_dual_pr_ce_u4 },
+ { 218393, ur_m128_u2x12_uart1_dual_pr_ee_ce },
+ { 218394, ur_m128_u2x12_uart1_dual_pr_ee_ce },
+ { 218396, ur_m128_u2x12_uart1_dual_ee_hw },
+ { 218398, ur_m128_u2x12_uart1_dual_ee_ce_hw },
+ { 218399, ur_m128_u2x12_uart1_dual_ee_ce_hw },
+ { 218484, ur_m128_swio10_noled },
+ { 218485, ur_m128_swio10_noled_pr },
+ { 218486, ur_m128_swio10_noled_pr },
+ { 218487, ur_m128_swio10_noled_pr_ee },
+ { 218488, ur_m128_swio10_noled_pr_ee },
+ { 218489, ur_m128_swio10_noled_pr_ce },
+ { 218490, ur_m128_swio10_noled_pr_ce },
+ { 218491, ur_m128_swio10_noled_pr_ee_ce },
+ { 218492, ur_m128_swio10_noled_pr_ee_ce },
+ { 218494, ur_m128_swio10_noled_ee_hw },
+ { 218496, ur_m128_swio10_noled_ee_ce_hw },
+ { 218497, ur_m128_swio10_noled_ee_ce_hw },
+ { 218498, ur_m128_swio10_lednop },
+ { 218499, ur_m128_swio10_lednop },
+ { 218500, ur_m128_swio10_lednop },
+ { 218501, ur_m128_swio10_lednop_pr_ee },
+ { 218502, ur_m128_swio10_lednop_pr_ee },
+ { 218503, ur_m128_swio10_lednop_pr_ce },
+ { 218504, ur_m128_swio10_lednop_pr_ce },
+ { 218505, ur_m128_swio10_lednop_pr_ee_ce },
+ { 218506, ur_m128_swio10_lednop_pr_ee_ce },
+ { 218508, ur_m128_swio10_lednop_ee_hw },
+ { 218510, ur_m128_swio10_lednop_ee_ce_hw },
+ { 218511, ur_m128_swio10_lednop_ee_ce_hw },
+ { 218512, ur_m128_swio10_dual },
+ { 218513, ur_m128_swio10_dual },
+ { 218514, ur_m128_swio10_dual },
+ { 218515, ur_m128_swio10_dual_pr_ee },
+ { 218516, ur_m128_swio10_dual_pr_ee_u4 },
+ { 218517, ur_m128_swio10_dual_pr_ce },
+ { 218518, ur_m128_swio10_dual_pr_ce_u4 },
+ { 218519, ur_m128_swio10_dual_pr_ee_ce },
+ { 218520, ur_m128_swio10_dual_pr_ee_ce },
+ { 218522, ur_m128_swio10_dual_ee_hw },
+ { 218524, ur_m128_swio10_dual_ee_ce_hw },
+ { 218525, ur_m128_swio10_dual_ee_ce_hw },
+ { 218526, ur_m128_swio11_noled },
+ { 218527, ur_m128_swio11_noled },
+ { 218528, ur_m128_swio11_noled },
+ { 218529, ur_m128_swio11_noled_pr_ee },
+ { 218530, ur_m128_swio11_noled_pr_ee },
+ { 218531, ur_m128_swio11_noled_pr_ce },
+ { 218532, ur_m128_swio11_noled_pr_ce },
+ { 218533, ur_m128_swio11_noled_pr_ee_ce },
+ { 218534, ur_m128_swio11_noled_pr_ee_ce },
+ { 218536, ur_m128_swio11_noled_ee_hw },
+ { 218538, ur_m128_swio11_noled_ee_ce_hw },
+ { 218539, ur_m128_swio11_noled_ee_ce_hw },
+ { 218540, ur_m128_swio11_lednop },
+ { 218541, ur_m128_swio11_lednop },
+ { 218542, ur_m128_swio11_lednop },
+ { 218543, ur_m128_swio11_lednop_pr_ee },
+ { 218544, ur_m128_swio11_lednop_pr_ee },
+ { 218545, ur_m128_swio11_lednop_pr_ce },
+ { 218546, ur_m128_swio11_lednop_pr_ce },
+ { 218547, ur_m128_swio11_lednop_pr_ee_ce },
+ { 218548, ur_m128_swio11_lednop_pr_ee_ce },
+ { 218550, ur_m128_swio11_lednop_ee_hw },
+ { 218552, ur_m128_swio11_lednop_ee_ce_hw },
+ { 218553, ur_m128_swio11_lednop_ee_ce_hw },
+ { 218554, ur_m128_swio11_dual },
+ { 218555, ur_m128_swio11_dual },
+ { 218556, ur_m128_swio11_dual },
+ { 218557, ur_m128_swio11_dual_pr_ee },
+ { 218558, ur_m128_swio11_dual_pr_ee_u4 },
+ { 218559, ur_m128_swio11_dual_pr_ce },
+ { 218560, ur_m128_swio11_dual_pr_ce_u4 },
+ { 218561, ur_m128_swio11_dual_pr_ee_ce },
+ { 218562, ur_m128_swio11_dual_pr_ee_ce },
+ { 218564, ur_m128_swio11_dual_ee_hw },
+ { 218566, ur_m128_swio11_dual_ee_ce_hw },
+ { 218567, ur_m128_swio11_dual_ee_ce_hw },
+ { 218568, ur_m128_swio11_noled },
+ { 218569, ur_m128_swio11_noled },
+ { 218570, ur_m128_swio11_noled },
+ { 218571, ur_m128_swio11_noled_pr_ee },
+ { 218572, ur_m128_swio11_noled_pr_ee },
+ { 218573, ur_m128_swio11_noled_pr_ce },
+ { 218574, ur_m128_swio11_noled_pr_ce },
+ { 218575, ur_m128_swio11_noled_pr_ee_ce },
+ { 218576, ur_m128_swio11_noled_pr_ee_ce },
+ { 218578, ur_m128_swio11_noled_ee_hw },
+ { 218580, ur_m128_swio11_noled_ee_ce_hw },
+ { 218581, ur_m128_swio11_noled_ee_ce_hw },
+ { 218582, ur_m128_swio11_lednop },
+ { 218583, ur_m128_swio11_lednop },
+ { 218584, ur_m128_swio11_lednop },
+ { 218585, ur_m128_swio11_lednop_pr_ee },
+ { 218586, ur_m128_swio11_lednop_pr_ee },
+ { 218587, ur_m128_swio11_lednop_pr_ce },
+ { 218588, ur_m128_swio11_lednop_pr_ce },
+ { 218589, ur_m128_swio11_lednop_pr_ee_ce },
+ { 218590, ur_m128_swio11_lednop_pr_ee_ce },
+ { 218592, ur_m128_swio11_lednop_ee_hw },
+ { 218594, ur_m128_swio11_lednop_ee_ce_hw },
+ { 218595, ur_m128_swio11_lednop_ee_ce_hw },
+ { 218596, ur_m128_swio11_dual },
+ { 218597, ur_m128_swio11_dual },
+ { 218598, ur_m128_swio11_dual },
+ { 218599, ur_m128_swio11_dual_pr_ee },
+ { 218600, ur_m128_swio11_dual_pr_ee_u4 },
+ { 218601, ur_m128_swio11_dual_pr_ce },
+ { 218602, ur_m128_swio11_dual_pr_ce_u4 },
+ { 218603, ur_m128_swio11_dual_pr_ee_ce },
+ { 218604, ur_m128_swio11_dual_pr_ee_ce },
+ { 218606, ur_m128_swio11_dual_ee_hw },
+ { 218608, ur_m128_swio11_dual_ee_ce_hw },
+ { 218609, ur_m128_swio11_dual_ee_ce_hw },
+ { 218610, ur_m128_swio13_noled },
+ { 218611, ur_m128_swio13_noled },
+ { 218612, ur_m128_swio13_noled },
+ { 218613, ur_m128_swio13_noled_pr_ee },
+ { 218614, ur_m128_swio13_noled_pr_ee },
+ { 218615, ur_m128_swio13_noled_pr_ce },
+ { 218616, ur_m128_swio13_noled_pr_ce },
+ { 218617, ur_m128_swio13_noled_pr_ee_ce },
+ { 218618, ur_m128_swio13_noled_pr_ee_ce },
+ { 218620, ur_m128_swio13_noled_ee_hw },
+ { 218622, ur_m128_swio13_noled_ee_ce_hw },
+ { 218623, ur_m128_swio13_noled_ee_ce_hw },
+ { 218624, ur_m128_swio13_lednop },
+ { 218625, ur_m128_swio13_lednop },
+ { 218626, ur_m128_swio13_lednop },
+ { 218627, ur_m128_swio13_lednop_pr_ee },
+ { 218628, ur_m128_swio13_lednop_pr_ee },
+ { 218629, ur_m128_swio13_lednop_pr_ce },
+ { 218630, ur_m128_swio13_lednop_pr_ce },
+ { 218631, ur_m128_swio13_lednop_pr_ee_ce },
+ { 218632, ur_m128_swio13_lednop_pr_ee_ce },
+ { 218634, ur_m128_swio13_lednop_ee_hw },
+ { 218636, ur_m128_swio13_lednop_ee_ce_hw },
+ { 218637, ur_m128_swio13_lednop_ee_ce_hw },
+ { 218638, ur_m128_swio13_dual },
+ { 218639, ur_m128_swio13_dual },
+ { 218640, ur_m128_swio13_dual },
+ { 218641, ur_m128_swio13_dual_pr_ee },
+ { 218642, ur_m128_swio13_dual_pr_ee_u4 },
+ { 218643, ur_m128_swio13_dual_pr_ce },
+ { 218644, ur_m128_swio13_dual_pr_ce_u4 },
+ { 218645, ur_m128_swio13_dual_pr_ee_ce },
+ { 218646, ur_m128_swio13_dual_pr_ee_ce },
+ { 218648, ur_m128_swio13_dual_ee_hw },
+ { 218650, ur_m128_swio13_dual_ee_ce_hw },
+ { 218651, ur_m128_swio13_dual_ee_ce_hw },
+ { 218652, ur_m128_swio14_noled },
+ { 218653, ur_m128_swio14_noled },
+ { 218654, ur_m128_swio14_noled },
+ { 218655, ur_m128_swio14_noled_pr_ee },
+ { 218656, ur_m128_swio14_noled_pr_ee },
+ { 218657, ur_m128_swio14_noled_pr_ce },
+ { 218658, ur_m128_swio14_noled_pr_ce },
+ { 218659, ur_m128_swio14_noled_pr_ee_ce },
+ { 218660, ur_m128_swio14_noled_pr_ee_ce },
+ { 218662, ur_m128_swio14_noled_ee_hw },
+ { 218664, ur_m128_swio14_noled_ee_ce_hw },
+ { 218665, ur_m128_swio14_noled_ee_ce_hw },
+ { 218666, ur_m128_swio14_lednop },
+ { 218667, ur_m128_swio14_lednop },
+ { 218668, ur_m128_swio14_lednop },
+ { 218669, ur_m128_swio14_lednop_pr_ee },
+ { 218670, ur_m128_swio14_lednop_pr_ee },
+ { 218671, ur_m128_swio14_lednop_pr_ce },
+ { 218672, ur_m128_swio14_lednop_pr_ce },
+ { 218673, ur_m128_swio14_lednop_pr_ee_ce },
+ { 218674, ur_m128_swio14_lednop_pr_ee_ce },
+ { 218676, ur_m128_swio14_lednop_ee_hw },
+ { 218678, ur_m128_swio14_lednop_ee_ce_hw },
+ { 218679, ur_m128_swio14_lednop_ee_ce_hw },
+ { 218680, ur_m128_swio14_dual },
+ { 218681, ur_m128_swio14_dual },
+ { 218682, ur_m128_swio14_dual },
+ { 218683, ur_m128_swio14_dual_pr_ee },
+ { 218684, ur_m128_swio14_dual_pr_ee_u4 },
+ { 218685, ur_m128_swio14_dual_pr_ce },
+ { 218686, ur_m128_swio14_dual_pr_ce_u4 },
+ { 218687, ur_m128_swio14_dual_pr_ee_ce },
+ { 218688, ur_m128_swio14_dual_pr_ee_ce },
+ { 218690, ur_m128_swio14_dual_ee_hw },
+ { 218692, ur_m128_swio14_dual_ee_ce_hw },
+ { 218693, ur_m128_swio14_dual_ee_ce_hw },
+ { 218694, ur_m128_swio15_noled },
+ { 218695, ur_m128_swio15_noled },
+ { 218696, ur_m128_swio15_noled },
+ { 218697, ur_m128_swio15_noled_pr_ee },
+ { 218698, ur_m128_swio15_noled_pr_ee },
+ { 218699, ur_m128_swio15_noled_pr_ce },
+ { 218700, ur_m128_swio15_noled_pr_ce },
+ { 218701, ur_m128_swio15_noled_pr_ee_ce },
+ { 218702, ur_m128_swio15_noled_pr_ee_ce },
+ { 218704, ur_m128_swio15_noled_ee_hw },
+ { 218706, ur_m128_swio15_noled_ee_ce_hw },
+ { 218707, ur_m128_swio15_noled_ee_ce_hw },
+ { 218708, ur_m128_swio15_lednop },
+ { 218709, ur_m128_swio15_lednop },
+ { 218710, ur_m128_swio15_lednop },
+ { 218711, ur_m128_swio15_lednop_pr_ee },
+ { 218712, ur_m128_swio15_lednop_pr_ee },
+ { 218713, ur_m128_swio15_lednop_pr_ce },
+ { 218714, ur_m128_swio15_lednop_pr_ce },
+ { 218715, ur_m128_swio15_lednop_pr_ee_ce },
+ { 218716, ur_m128_swio15_lednop_pr_ee_ce },
+ { 218718, ur_m128_swio15_lednop_ee_hw },
+ { 218720, ur_m128_swio15_lednop_ee_ce_hw },
+ { 218721, ur_m128_swio15_lednop_ee_ce_hw },
+ { 218722, ur_m128_swio15_dual },
+ { 218723, ur_m128_swio15_dual },
+ { 218724, ur_m128_swio15_dual },
+ { 218725, ur_m128_swio15_dual_pr_ee },
+ { 218726, ur_m128_swio15_dual_pr_ee_u4 },
+ { 218727, ur_m128_swio15_dual_pr_ce },
+ { 218728, ur_m128_swio15_dual_pr_ce_u4 },
+ { 218729, ur_m128_swio15_dual_pr_ee_ce },
+ { 218730, ur_m128_swio15_dual_pr_ee_ce },
+ { 218732, ur_m128_swio15_dual_ee_hw },
+ { 218734, ur_m128_swio15_dual_ee_ce_hw },
+ { 218735, ur_m128_swio15_dual_ee_ce_hw },
 };
 
 
