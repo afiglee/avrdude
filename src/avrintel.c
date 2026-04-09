@@ -8,8 +8,8 @@
  * Published under GNU General Public License, version 3 (GPL-3.0)
  * Meta-author Stefan Rueger <stefan.rueger@urclocks.com>
  *
- * v 1.45
- * 07.01.2026
+ * v 1.46
+ * 09.04.2026
  *
  */
 
@@ -680,7 +680,7 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   /*ATmega64C1*/       122, rgftab_atmega64c1,      1,          UART_LIN,  1, uarts_atmega16m1, // Register file, UART
   /*ATmega64C1*/         4, ports_atmega16m1, WDT_CLASSIC4}, // Ports, WDT
 
-  //ATmegaS64M1                                 atdf, from ATmega64M1 // Sources
+  //ATmegaS64M1                        atdf, avrdude, from ATmega64M1 // Sources
   {"ATmegaS64M1",      412,  F_AVR8, {0x1E, 0x96, 0x84}, // ID
   /*ATmegaS64M1*/        0, 0x10000, 0x100,  4, 0x0400,       0, 0x0800,  8, 0x0100, 0x1000, // Mem
   /*ATmegaS64M1*/        3,  1,  31, vtab_atmega64m1,      17, cfgtab_atmega64c1, // ISRs, Config
@@ -764,7 +764,7 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   /*ATmega128*/        103, rgftab_atmega128,       2, UART_CLASSIC_2x12,  2, uarts_atmega64, // Register file, UART
   /*ATmega128*/          7, ports_atmega64, WDT_CLASSIC3}, // Ports, WDT
 
-  //ATmegaS128                                                   atdf // Sources
+  //ATmegaS128                          atdf, avrdude, from ATmega128 // Sources
   {"ATmegaS128",       413,  F_AVR8, {0x1E, 0x97, 0x02}, // ID
   /*ATmegaS128*/         0, 0x20000, 0x100,  4, 0x0400,       0, 0x1000,  8, 0x0100, 0x1000, // Mem
   /*ATmegaS128*/         3,  1,  35, vtab_atmega128a,      15, cfgtab_atmega128, // ISRs, Config
@@ -1020,7 +1020,7 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   {"ATmega328PB",      120,  F_AVR8, {0x1E, 0x95, 0x16}, // ID
   /*ATmega328PB*/        0, 0x08000, 0x080,  4, 0x0200,       0, 0x0400,  4, 0x0100, 0x0800, // Mem
   /*ATmega328PB*/        3,  1,  45, vtab_atmega328pb,     15, cfgtab_atmega328pb, // ISRs, Config
-  /*ATmega328PB*/      123, rgftab_atmega328pb,     2, UART_CLASSIC_2x12,  2, uarts_atmega328pb, // Register file, UART
+  /*ATmega328PB*/      125, rgftab_atmega328pb,     2, UART_CLASSIC_2x12,  2, uarts_atmega328pb, // Register file, UART
   /*ATmega328PB*/        4, ports_atmega328pb, WDT_CLASSIC4}, // Ports, WDT
 
   //ATmega329                           atdf, avr-gcc 12.2.0, avrdude // Sources
@@ -1818,7 +1818,7 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   //ATxmega16A4                         atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATxmega16A4",      231, F_XMEGA, {0x1E, 0x94, 0x41}, // ID
   /*ATxmega16A4*/        0, 0x05000, 0x100,  1, 0x1000,       0, 0x0400, 32, 0x2000, 0x0800, // Mem
-  /*ATxmega16A4*/        6,  1,  94, vtab_atxmega32a4,     16, cfgtab_atxmega16a4, // ISRs, Config
+  /*ATxmega16A4*/        6,  1,  94, vtab_atxmega32a4,     16, cfgtab_atxmega64a4, // ISRs, Config
   /*ATxmega16A4*/      553, rgftab_atxmega16a4,     5,        UART_XMEGA,  7, uarts_atxmega16a4, // Register file, UART
   /*ATxmega16A4*/        0, NULL, WDT_XMEGA}, // Ports, WDT
 
@@ -1826,7 +1826,7 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   {"ATxmega16A4U",     232, F_XMEGA, {0x1E, 0x94, 0x41}, // ID
   /*ATxmega16A4U*/       0, 0x05000, 0x100,  1, 0x1000,       0, 0x0400, 32, 0x2000, 0x0800, // Mem
   /*ATxmega16A4U*/       6,  1, 127, vtab_atxmega128a4u,   17, cfgtab_atxmega128a3u, // ISRs, Config
-  /*ATxmega16A4U*/     630, rgftab_atxmega16a4u,    5,        UART_XMEGA,  7, uarts_atxmega16a4u, // Register file, UART
+  /*ATxmega16A4U*/     630, rgftab_atxmega16a4u,    5,        UART_XMEGA,  7, uarts_atxmega16a4, // Register file, UART
   /*ATxmega16A4U*/       6, ports_atxmega16a4u, WDT_XMEGA}, // Ports, WDT
 
   //ATxmega16C4                         atdf, avr-gcc 12.2.0, avrdude // Sources
@@ -1867,7 +1867,7 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   //ATxmega32A4                         atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATxmega32A4",      238, F_XMEGA, {0x1E, 0x95, 0x41}, // ID
   /*ATxmega32A4*/        0, 0x09000, 0x100,  1, 0x1000,       0, 0x0400, 32, 0x2000, 0x1000, // Mem
-  /*ATxmega32A4*/        6,  1,  94, vtab_atxmega32a4,     16, cfgtab_atxmega16a4, // ISRs, Config
+  /*ATxmega32A4*/        6,  1,  94, vtab_atxmega32a4,     16, cfgtab_atxmega64a4, // ISRs, Config
   /*ATxmega32A4*/      553, rgftab_atxmega16a4,     5,        UART_XMEGA,  7, uarts_atxmega16a4, // Register file, UART
   /*ATxmega32A4*/        0, NULL, WDT_XMEGA}, // Ports, WDT
 
@@ -1875,7 +1875,7 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   {"ATxmega32A4U",     239, F_XMEGA, {0x1E, 0x95, 0x41}, // ID
   /*ATxmega32A4U*/       0, 0x09000, 0x100,  1, 0x1000,       0, 0x0400, 32, 0x2000, 0x1000, // Mem
   /*ATxmega32A4U*/       6,  1, 127, vtab_atxmega128a4u,   17, cfgtab_atxmega128a3u, // ISRs, Config
-  /*ATxmega32A4U*/     630, rgftab_atxmega16a4u,    5,        UART_XMEGA,  7, uarts_atxmega16a4u, // Register file, UART
+  /*ATxmega32A4U*/     630, rgftab_atxmega16a4u,    5,        UART_XMEGA,  7, uarts_atxmega16a4, // Register file, UART
   /*ATxmega32A4U*/       6, ports_atxmega16a4u, WDT_XMEGA}, // Ports, WDT
 
   //ATxmega32C4                         atdf, avr-gcc 12.2.0, avrdude // Sources
@@ -1902,7 +1902,7 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   //ATxmega64A1                         atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATxmega64A1",      243, F_XMEGA, {0x1E, 0x96, 0x4E}, // ID
   /*ATxmega64A1*/        0, 0x11000, 0x100,  1, 0x1000,       0, 0x0800, 32, 0x2000, 0x1000, // Mem
-  /*ATxmega64A1*/        6,  1, 125, vtab_atxmega128a1revd, 16, cfgtab_atxmega128a3, // ISRs, Config
+  /*ATxmega64A1*/        6,  1, 125, vtab_atxmega128a1revd, 16, cfgtab_atxmega192a1, // ISRs, Config
   /*ATxmega64A1*/      814, rgftab_atxmega64a1,     8,        UART_XMEGA,  8, uarts_atxmega64a1, // Register file, UART
   /*ATxmega64A1*/        0, NULL, WDT_XMEGA}, // Ports, WDT
 
@@ -1923,7 +1923,7 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   //ATxmega64A3                         atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATxmega64A3",      246, F_XMEGA, {0x1E, 0x96, 0x42}, // ID
   /*ATxmega64A3*/        0, 0x11000, 0x100,  1, 0x1000,       0, 0x0800, 32, 0x2000, 0x1000, // Mem
-  /*ATxmega64A3*/        6,  1, 122, vtab_atxmega256a3,    16, cfgtab_atxmega128a3, // ISRs, Config
+  /*ATxmega64A3*/        6,  1, 122, vtab_atxmega256a3,    16, cfgtab_atxmega192a1, // ISRs, Config
   /*ATxmega64A3*/      680, rgftab_atxmega128a3,    7,        UART_XMEGA,  7, uarts_atxmega64a3, // Register file, UART
   /*ATxmega64A3*/        0, NULL, WDT_XMEGA}, // Ports, WDT
 
@@ -1955,18 +1955,18 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   /*ATxmega64D3*/      567, rgftab_atxmega32d3,     3,        UART_XMEGA,  4, uarts_atxmega32c3, // Register file, UART
   /*ATxmega64D3*/        7, ports_atxmega128a3u, WDT_XMEGA}, // Ports, WDT
 
-  //ATxmega64A4                                               avrdude // Sources
+  //ATxmega64A4                             avrdude, from ATxmega32A4 // Sources
   {"ATxmega64A4",      251, F_XMEGA, {0x1E, 0x96, 0x46}, // ID
   /*ATxmega64A4*/        0, 0x11000, 0x100,  1, 0x1000,       0, 0x0800, 32, 0x2000, 0x1000, // Mem
-  /*ATxmega64A4*/       -1, -1,   0, NULL,                  0, NULL, // ISRs, Config
-  /*ATxmega64A4*/        0, NULL,                   0,        UART_XMEGA, -1, NULL, // Register file, UART
-  /*ATxmega64A4*/       -1, NULL, WDT_UNKNOWN}, // Ports, WDT
+  /*ATxmega64A4*/        6,  1,   0, NULL,                 16, cfgtab_atxmega64a4, // ISRs, Config
+  /*ATxmega64A4*/      553, rgftab_atxmega16a4,     5,        UART_XMEGA,  7, uarts_atxmega16a4, // Register file, UART
+  /*ATxmega64A4*/        0, NULL, WDT_XMEGA}, // Ports, WDT
 
   //ATxmega64A4U                        atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATxmega64A4U",     252, F_XMEGA, {0x1E, 0x96, 0x46}, // ID
   /*ATxmega64A4U*/       0, 0x11000, 0x100,  1, 0x1000,       0, 0x0800, 32, 0x2000, 0x1000, // Mem
   /*ATxmega64A4U*/       6,  1, 127, vtab_atxmega128a4u,   17, cfgtab_atxmega128a3u, // ISRs, Config
-  /*ATxmega64A4U*/     632, rgftab_atxmega64a4u,    5,        UART_XMEGA,  7, uarts_atxmega16a4u, // Register file, UART
+  /*ATxmega64A4U*/     632, rgftab_atxmega64a4u,    5,        UART_XMEGA,  7, uarts_atxmega16a4, // Register file, UART
   /*ATxmega64A4U*/       6, ports_atxmega16a4u, WDT_XMEGA}, // Ports, WDT
 
   //ATxmega64D4                         atdf, avr-gcc 12.2.0, avrdude // Sources
@@ -1979,14 +1979,14 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   //ATxmega128A1                        atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATxmega128A1",     254, F_XMEGA, {0x1E, 0x97, 0x4C}, // ID
   /*ATxmega128A1*/       0, 0x22000, 0x200,  1, 0x2000,       0, 0x0800, 32, 0x2000, 0x2000, // Mem
-  /*ATxmega128A1*/       6,  1, 125, vtab_atxmega128a1revd, 16, cfgtab_atxmega128a3, // ISRs, Config
+  /*ATxmega128A1*/       6,  1, 125, vtab_atxmega128a1revd, 16, cfgtab_atxmega192a1, // ISRs, Config
   /*ATxmega128A1*/     814, rgftab_atxmega64a1,     8,        UART_XMEGA,  8, uarts_atxmega64a1, // Register file, UART
   /*ATxmega128A1*/       0, NULL, WDT_XMEGA}, // Ports, WDT
 
   //ATxmega128A1revD                       avrdude, from ATxmega128A1 // Sources
   {"ATxmega128A1revD", 255, F_XMEGA, {0x1E, 0x97, 0x41}, // ID
   /*ATxmega128A1revD*/   0, 0x22000, 0x200,  1, 0x2000,       0, 0x0800, 32, 0x2000, 0x2000, // Mem
-  /*ATxmega128A1revD*/   6,  1, 125, vtab_atxmega128a1revd, 16, cfgtab_atxmega128a3, // ISRs, Config
+  /*ATxmega128A1revD*/   6,  1, 125, vtab_atxmega128a1revd, 16, cfgtab_atxmega192a1, // ISRs, Config
   /*ATxmega128A1revD*/ 814, rgftab_atxmega64a1,     8,        UART_XMEGA,  8, uarts_atxmega64a1, // Register file, UART
   /*ATxmega128A1revD*/   0, NULL, WDT_XMEGA}, // Ports, WDT
 
@@ -2007,7 +2007,7 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   //ATxmega128A3                        atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATxmega128A3",     258, F_XMEGA, {0x1E, 0x97, 0x42}, // ID
   /*ATxmega128A3*/       0, 0x22000, 0x200,  1, 0x2000,       0, 0x0800, 32, 0x2000, 0x2000, // Mem
-  /*ATxmega128A3*/       6,  1, 122, vtab_atxmega256a3,    16, cfgtab_atxmega128a3, // ISRs, Config
+  /*ATxmega128A3*/       6,  1, 122, vtab_atxmega256a3,    16, cfgtab_atxmega192a1, // ISRs, Config
   /*ATxmega128A3*/     680, rgftab_atxmega128a3,    7,        UART_XMEGA,  7, uarts_atxmega64a3, // Register file, UART
   /*ATxmega128A3*/       0, NULL, WDT_XMEGA}, // Ports, WDT
 
@@ -2039,18 +2039,18 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   /*ATxmega128D3*/     567, rgftab_atxmega32d3,     3,        UART_XMEGA,  4, uarts_atxmega32c3, // Register file, UART
   /*ATxmega128D3*/       7, ports_atxmega128a3u, WDT_XMEGA}, // Ports, WDT
 
-  //ATxmega128A4                                              avrdude // Sources
+  //ATxmega128A4                            avrdude, from ATxmega32A4 // Sources
   {"ATxmega128A4",     263, F_XMEGA, {0x1E, 0x97, 0x46}, // ID
   /*ATxmega128A4*/       0, 0x22000, 0x100,  1, 0x2000,       0, 0x0800, 32, 0x2000, 0x2000, // Mem
-  /*ATxmega128A4*/      -1, -1,   0, NULL,                  0, NULL, // ISRs, Config
-  /*ATxmega128A4*/       0, NULL,                   0,        UART_XMEGA, -1, NULL, // Register file, UART
-  /*ATxmega128A4*/      -1, NULL, WDT_UNKNOWN}, // Ports, WDT
+  /*ATxmega128A4*/       6,  1,   0, NULL,                 16, cfgtab_atxmega64a4, // ISRs, Config
+  /*ATxmega128A4*/     553, rgftab_atxmega16a4,     5,        UART_XMEGA,  7, uarts_atxmega16a4, // Register file, UART
+  /*ATxmega128A4*/       0, NULL, WDT_XMEGA}, // Ports, WDT
 
   //ATxmega128A4U                       atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATxmega128A4U",    264, F_XMEGA, {0x1E, 0x97, 0x46}, // ID
   /*ATxmega128A4U*/      0, 0x22000, 0x100,  1, 0x2000,       0, 0x0800, 32, 0x2000, 0x2000, // Mem
   /*ATxmega128A4U*/      6,  1, 127, vtab_atxmega128a4u,   17, cfgtab_atxmega128a3u, // ISRs, Config
-  /*ATxmega128A4U*/    632, rgftab_atxmega64a4u,    5,        UART_XMEGA,  7, uarts_atxmega16a4u, // Register file, UART
+  /*ATxmega128A4U*/    632, rgftab_atxmega64a4u,    5,        UART_XMEGA,  7, uarts_atxmega16a4, // Register file, UART
   /*ATxmega128A4U*/      6, ports_atxmega16a4u, WDT_XMEGA}, // Ports, WDT
 
   //ATxmega128D4                        atdf, avr-gcc 12.2.0, avrdude // Sources
@@ -2060,17 +2060,17 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   /*ATxmega128D4*/     460, rgftab_atxmega64d4,     2,        UART_XMEGA,  3, uarts_atxmega16d4, // Register file, UART
   /*ATxmega128D4*/       6, ports_atxmega16a4u, WDT_XMEGA}, // Ports, WDT
 
-  //ATxmega192A1                                              avrdude // Sources
+  //ATxmega192A1                           avrdude, from ATxmega128A1 // Sources
   {"ATxmega192A1",     266, F_XMEGA, {0x1E, 0x97, 0x4E}, // ID
   /*ATxmega192A1*/       0, 0x32000, 0x200,  1, 0x2000,       0, 0x0800, 32, 0x2000, 0x4000, // Mem
-  /*ATxmega192A1*/      -1, -1,   0, NULL,                  0, NULL, // ISRs, Config
-  /*ATxmega192A1*/       0, NULL,                   0,        UART_XMEGA, -1, NULL, // Register file, UART
-  /*ATxmega192A1*/      -1, NULL, WDT_UNKNOWN}, // Ports, WDT
+  /*ATxmega192A1*/       6,  1,   0, NULL,                 16, cfgtab_atxmega192a1, // ISRs, Config
+  /*ATxmega192A1*/     814, rgftab_atxmega64a1,     8,        UART_XMEGA,  8, uarts_atxmega64a1, // Register file, UART
+  /*ATxmega192A1*/       0, NULL, WDT_XMEGA}, // Ports, WDT
 
   //ATxmega192A3                        atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATxmega192A3",     267, F_XMEGA, {0x1E, 0x97, 0x44}, // ID
   /*ATxmega192A3*/       0, 0x32000, 0x200,  1, 0x2000,       0, 0x0800, 32, 0x2000, 0x4000, // Mem
-  /*ATxmega192A3*/       6,  1, 122, vtab_atxmega256a3,    16, cfgtab_atxmega128a3, // ISRs, Config
+  /*ATxmega192A3*/       6,  1, 122, vtab_atxmega256a3,    16, cfgtab_atxmega192a1, // ISRs, Config
   /*ATxmega192A3*/     680, rgftab_atxmega128a3,    7,        UART_XMEGA,  7, uarts_atxmega64a3, // Register file, UART
   /*ATxmega192A3*/       0, NULL, WDT_XMEGA}, // Ports, WDT
 
@@ -2095,24 +2095,24 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   /*ATxmega192D3*/     567, rgftab_atxmega32d3,     3,        UART_XMEGA,  4, uarts_atxmega32c3, // Register file, UART
   /*ATxmega192D3*/       7, ports_atxmega128a3u, WDT_XMEGA}, // Ports, WDT
 
-  //ATxmega256A1                                              avrdude // Sources
+  //ATxmega256A1                           avrdude, from ATxmega128A1 // Sources
   {"ATxmega256A1",     271, F_XMEGA, {0x1E, 0x98, 0x46}, // ID
   /*ATxmega256A1*/       0, 0x42000, 0x200,  1, 0x2000,       0, 0x1000, 32, 0x2000, 0x4000, // Mem
-  /*ATxmega256A1*/      -1, -1,   0, NULL,                  0, NULL, // ISRs, Config
-  /*ATxmega256A1*/       0, NULL,                   0,        UART_XMEGA, -1, NULL, // Register file, UART
-  /*ATxmega256A1*/      -1, NULL, WDT_UNKNOWN}, // Ports, WDT
+  /*ATxmega256A1*/       6,  1,   0, NULL,                 16, cfgtab_atxmega192a1, // ISRs, Config
+  /*ATxmega256A1*/     814, rgftab_atxmega64a1,     8,        UART_XMEGA,  8, uarts_atxmega64a1, // Register file, UART
+  /*ATxmega256A1*/       0, NULL, WDT_XMEGA}, // Ports, WDT
 
   //ATxmega256A3                        atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATxmega256A3",     272, F_XMEGA, {0x1E, 0x98, 0x42}, // ID
   /*ATxmega256A3*/       0, 0x42000, 0x200,  1, 0x2000,       0, 0x1000, 32, 0x2000, 0x4000, // Mem
-  /*ATxmega256A3*/       6,  1, 122, vtab_atxmega256a3,    16, cfgtab_atxmega128a3, // ISRs, Config
+  /*ATxmega256A3*/       6,  1, 122, vtab_atxmega256a3,    16, cfgtab_atxmega192a1, // ISRs, Config
   /*ATxmega256A3*/     680, rgftab_atxmega128a3,    7,        UART_XMEGA,  7, uarts_atxmega64a3, // Register file, UART
   /*ATxmega256A3*/       0, NULL, WDT_XMEGA}, // Ports, WDT
 
   //ATxmega256A3B                       atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATxmega256A3B",    273, F_XMEGA, {0x1E, 0x98, 0x43}, // ID
   /*ATxmega256A3B*/      0, 0x42000, 0x200,  1, 0x2000,       0, 0x1000, 32, 0x2000, 0x4000, // Mem
-  /*ATxmega256A3B*/      6,  1, 122, vtab_atxmega256a3b,   16, cfgtab_atxmega128a3, // ISRs, Config
+  /*ATxmega256A3B*/      6,  1, 122, vtab_atxmega256a3b,   16, cfgtab_atxmega192a1, // ISRs, Config
   /*ATxmega256A3B*/    665, rgftab_atxmega256a3b,   6,        UART_XMEGA,  6, uarts_atxmega256a3b, // Register file, UART
   /*ATxmega256A3B*/      0, NULL, WDT_XMEGA}, // Ports, WDT
 
@@ -10025,31 +10025,32 @@ static const Configvalue _values_ckdiv8_atmega328[2] = {
 
 /*
  * ATmega328 ATmega16M1 ATmega32HVBrevB ATmega64HVE ATmega328PB ATmega8515 AT90PWM2 AT90PWM81
- * AT90CAN128 AT90USB162 ATA5700M322 ATA5781 ATA6285 ATxmega16E5 ATxmega128A3 ATxmega128A3U
- * ATmega103comp AT90SCR100H ATmega161comp AT90S8535comp ATtiny828 ATtiny828R ATmega8 ATmega8A
- * ATmega8U2 ATmega16 ATmega16A ATmega16HVB ATmega16HVBrevB ATmega16U2 ATmega16U4 ATmega32
- * ATmega32A ATmega32HVB ATmega32C1 ATmega32M1 ATmega32U2 ATmega32U4 ATmega32U6 ATmega64 ATmega64A
- * ATmega64C1 ATmegaS64M1 ATmega64M1 ATmega64HVE2 ATmega64RFR2 ATmega88 ATmega88A ATmega88P
- * ATmega88PA ATmega88PB ATmega128 ATmegaS128 ATmega128A ATmega128RFA1 ATmega128RFR2 ATmega161
- * ATmega162 ATmega163 ATmega164A ATmega164P ATmega164PA ATmega165 ATmega165A ATmega165P
- * ATmega165PA ATmega168 ATmega168A ATmega168P ATmega168PA ATmega168PB ATmega169 ATmega169A
- * ATmega169P ATmega169PA ATmega256RFR2 ATmega323 ATmega324A ATmega324P ATmega324PA ATmega324PB
- * ATmega325 ATmega325A ATmega325P ATmega325PA ATmega328P ATmega329 ATmega329A ATmega329P
- * ATmega329PA ATmega406 ATmega640 ATmega644 ATmega644A ATmega644P ATmega644PA ATmega644RFR2
- * ATmega645 ATmega645A ATmega645P ATmega649 ATmega649A ATmega649P ATmega1280 ATmega1281
- * ATmega1284 ATmega1284P ATmega1284RFR2 ATmega2560 ATmega2561 ATmega2564RFR2 ATmega3250
- * ATmega3250A ATmega3250P ATmega3250PA ATmega3290 ATmega3290A ATmega3290P ATmega3290PA ATmega6450
- * ATmega6450A ATmega6450P ATmega6490 ATmega6490A ATmega6490P ATmega8535 AT90PWM1 AT90PWM2B
- * AT90PWM3 AT90PWM3B AT90CAN32 AT90CAN64 AT90USB82 AT90SCR100 AT90PWM161 AT90PWM216 AT90PWM316
- * AT90USB646 AT90USB647 AT90USB1286 AT90USB1287 AT90S8515comp ATA5702M322 ATA5782 ATA5783 ATA5787
- * ATA5831 ATA5832 ATA5833 ATA5835 ATA6286 ATA6289 ATA6612C ATA6613C ATA6614Q ATA8210 ATA8215
- * ATA8510 ATA8515 ATxmega8E5 ATxmega16A4 ATxmega16A4U ATxmega16C4 ATxmega16D4 ATxmega32C3
- * ATxmega32D3 ATxmega32A4 ATxmega32A4U ATxmega32C4 ATxmega32D4 ATxmega32E5 ATxmega64A1
- * ATxmega64A1U ATxmega64B1 ATxmega64A3 ATxmega64A3U ATxmega64B3 ATxmega64C3 ATxmega64D3
- * ATxmega64A4U ATxmega64D4 ATxmega128A1 ATxmega128A1revD ATxmega128A1U ATxmega128B1 ATxmega128B3
- * ATxmega128C3 ATxmega128D3 ATxmega128A4U ATxmega128D4 ATxmega192A3 ATxmega192A3U ATxmega192C3
- * ATxmega192D3 ATxmega256A3 ATxmega256A3B ATxmega256A3BU ATxmega256A3U ATxmega256C3 ATxmega256D3
- * ATxmega384C3 ATxmega384D3 ATmega32HVE2
+ * AT90CAN128 AT90USB162 ATA5700M322 ATA5781 ATA6285 ATxmega16E5 ATxmega192A1 ATxmega256A1
+ * ATxmega128A3 ATxmega128A3U ATxmega64A4 ATxmega128A4 ATmega103comp AT90SCR100H ATmega161comp
+ * AT90S8535comp ATtiny828 ATtiny828R ATmega8 ATmega8A ATmega8U2 ATmega16 ATmega16A ATmega16HVB
+ * ATmega16HVBrevB ATmega16U2 ATmega16U4 ATmega32 ATmega32A ATmega32HVB ATmega32C1 ATmega32M1
+ * ATmega32U2 ATmega32U4 ATmega32U6 ATmega64 ATmega64A ATmega64C1 ATmegaS64M1 ATmega64M1
+ * ATmega64HVE2 ATmega64RFR2 ATmega88 ATmega88A ATmega88P ATmega88PA ATmega88PB ATmega128
+ * ATmegaS128 ATmega128A ATmega128RFA1 ATmega128RFR2 ATmega161 ATmega162 ATmega163 ATmega164A
+ * ATmega164P ATmega164PA ATmega165 ATmega165A ATmega165P ATmega165PA ATmega168 ATmega168A
+ * ATmega168P ATmega168PA ATmega168PB ATmega169 ATmega169A ATmega169P ATmega169PA ATmega256RFR2
+ * ATmega323 ATmega324A ATmega324P ATmega324PA ATmega324PB ATmega325 ATmega325A ATmega325P
+ * ATmega325PA ATmega328P ATmega329 ATmega329A ATmega329P ATmega329PA ATmega406 ATmega640
+ * ATmega644 ATmega644A ATmega644P ATmega644PA ATmega644RFR2 ATmega645 ATmega645A ATmega645P
+ * ATmega649 ATmega649A ATmega649P ATmega1280 ATmega1281 ATmega1284 ATmega1284P ATmega1284RFR2
+ * ATmega2560 ATmega2561 ATmega2564RFR2 ATmega3250 ATmega3250A ATmega3250P ATmega3250PA ATmega3290
+ * ATmega3290A ATmega3290P ATmega3290PA ATmega6450 ATmega6450A ATmega6450P ATmega6490 ATmega6490A
+ * ATmega6490P ATmega8535 AT90PWM1 AT90PWM2B AT90PWM3 AT90PWM3B AT90CAN32 AT90CAN64 AT90USB82
+ * AT90SCR100 AT90PWM161 AT90PWM216 AT90PWM316 AT90USB646 AT90USB647 AT90USB1286 AT90USB1287
+ * AT90S8515comp ATA5702M322 ATA5782 ATA5783 ATA5787 ATA5831 ATA5832 ATA5833 ATA5835 ATA6286
+ * ATA6289 ATA6612C ATA6613C ATA6614Q ATA8210 ATA8215 ATA8510 ATA8515 ATxmega8E5 ATxmega16A4
+ * ATxmega16A4U ATxmega16C4 ATxmega16D4 ATxmega32C3 ATxmega32D3 ATxmega32A4 ATxmega32A4U
+ * ATxmega32C4 ATxmega32D4 ATxmega32E5 ATxmega64A1 ATxmega64A1U ATxmega64B1 ATxmega64A3
+ * ATxmega64A3U ATxmega64B3 ATxmega64C3 ATxmega64D3 ATxmega64A4U ATxmega64D4 ATxmega128A1
+ * ATxmega128A1revD ATxmega128A1U ATxmega128B1 ATxmega128B3 ATxmega128C3 ATxmega128D3
+ * ATxmega128A4U ATxmega128D4 ATxmega192A3 ATxmega192A3U ATxmega192C3 ATxmega192D3 ATxmega256A3
+ * ATxmega256A3B ATxmega256A3BU ATxmega256A3U ATxmega256C3 ATxmega256D3 ATxmega384C3 ATxmega384D3
+ * ATmega32HVE2
  */
 static const Configvalue _values_bootrst_atmega328[2] = {
   {0, "boot_section", "reset jumps to start of boot section"},
@@ -10180,35 +10181,35 @@ static const Configvalue _values_bootsz_at90usb646[4] = {
 /*
  * ATmega328 ATmega16M1 ATmega16HVA2 ATmega32HVBrevB ATmega64HVE ATmega328PB ATmega8515 ATtiny441
  * AT90PWM2 AT90PWM81 AT90CAN128 AT90USB162 ATA5700M322 ATA5781 ATA5790 ATA6285 ATxmega16E5
- * ATxmega128A3 ATxmega128A3U ATmega103comp AT90SCR100H ATmega161comp AT90S8535comp ATtiny13
- * ATtiny13A ATtiny24 ATtiny24A ATtiny25 ATtiny26 ATtiny43U ATtiny44 ATtiny44A ATtiny45 ATtiny48
- * ATtiny84 ATtiny84A ATtiny85 ATtiny87 ATtiny88 ATtiny167 ATtiny261 ATtiny261A ATtiny461
- * ATtiny461A ATtiny828 ATtiny828R ATtiny841 ATtiny861 ATtiny861A ATtiny1634 ATtiny1634R
- * ATtiny2313 ATtiny2313A ATtiny4313 ATmega8 ATmega8A ATmega8HVA ATmega8U2 ATmega16 ATmega16A
- * ATmega16HVA ATmega16HVB ATmega16HVBrevB ATmega16U2 ATmega16U4 ATmega32 ATmega32A ATmega32HVB
- * ATmega32C1 ATmega32M1 ATmega32U2 ATmega32U4 ATmega32U6 ATmega48 ATmega48A ATmega48P ATmega48PA
- * ATmega48PB ATmega64 ATmega64A ATmega64C1 ATmegaS64M1 ATmega64M1 ATmega64HVE2 ATmega64RFR2
- * ATmega88 ATmega88A ATmega88P ATmega88PA ATmega88PB ATmega103 ATmega128 ATmegaS128 ATmega128A
- * ATmega128RFA1 ATmega128RFR2 ATmega162 ATmega164A ATmega164P ATmega164PA ATmega165 ATmega165A
- * ATmega165P ATmega165PA ATmega168 ATmega168A ATmega168P ATmega168PA ATmega168PB ATmega169
- * ATmega169A ATmega169P ATmega169PA ATmega256RFR2 ATmega323 ATmega324A ATmega324P ATmega324PA
- * ATmega324PB ATmega325 ATmega325A ATmega325P ATmega325PA ATmega328P ATmega329 ATmega329A
- * ATmega329P ATmega329PA ATmega406 ATmega640 ATmega644 ATmega644A ATmega644P ATmega644PA
- * ATmega644RFR2 ATmega645 ATmega645A ATmega645P ATmega649 ATmega649A ATmega649P ATmega1280
- * ATmega1281 ATmega1284 ATmega1284P ATmega1284RFR2 ATmega2560 ATmega2561 ATmega2564RFR2
- * ATmega3250 ATmega3250A ATmega3250P ATmega3250PA ATmega3290 ATmega3290A ATmega3290P ATmega3290PA
- * ATmega6450 ATmega6450A ATmega6450P ATmega6490 ATmega6490A ATmega6490P ATmega8535 AT90PWM1
- * AT90PWM2B AT90PWM3 AT90PWM3B AT90CAN32 AT90CAN64 AT90USB82 AT90SCR100 AT90PWM161 AT90PWM216
- * AT90PWM316 AT90USB646 AT90USB647 AT90USB1286 AT90USB1287 AT90S8515comp ATA5272 ATA5505
- * ATA5702M322 ATA5782 ATA5783 ATA5787 ATA5790N ATA5791 ATA5795 ATA5831 ATA5832 ATA5833 ATA5835
- * ATA6286 ATA6289 ATA6612C ATA6613C ATA6614Q ATA6616C ATA6617C ATA8210 ATA8215 ATA8510 ATA8515
- * ATA664251 ATxmega8E5 ATxmega16A4 ATxmega16A4U ATxmega16C4 ATxmega16D4 ATxmega32C3 ATxmega32D3
- * ATxmega32A4 ATxmega32A4U ATxmega32C4 ATxmega32D4 ATxmega32E5 ATxmega64A1 ATxmega64A1U
- * ATxmega64B1 ATxmega64A3 ATxmega64A3U ATxmega64B3 ATxmega64C3 ATxmega64D3 ATxmega64A4U
- * ATxmega64D4 ATxmega128A1 ATxmega128A1revD ATxmega128A1U ATxmega128B1 ATxmega128B3 ATxmega128C3
- * ATxmega128D3 ATxmega128A4U ATxmega128D4 ATxmega192A3 ATxmega192A3U ATxmega192C3 ATxmega192D3
- * ATxmega256A3 ATxmega256A3B ATxmega256A3BU ATxmega256A3U ATxmega256C3 ATxmega256D3 ATxmega384C3
- * ATxmega384D3 ATmega32HVE2
+ * ATxmega192A1 ATxmega256A1 ATxmega128A3 ATxmega128A3U ATxmega64A4 ATxmega128A4 ATmega103comp
+ * AT90SCR100H ATmega161comp AT90S8535comp ATtiny13 ATtiny13A ATtiny24 ATtiny24A ATtiny25 ATtiny26
+ * ATtiny43U ATtiny44 ATtiny44A ATtiny45 ATtiny48 ATtiny84 ATtiny84A ATtiny85 ATtiny87 ATtiny88
+ * ATtiny167 ATtiny261 ATtiny261A ATtiny461 ATtiny461A ATtiny828 ATtiny828R ATtiny841 ATtiny861
+ * ATtiny861A ATtiny1634 ATtiny1634R ATtiny2313 ATtiny2313A ATtiny4313 ATmega8 ATmega8A ATmega8HVA
+ * ATmega8U2 ATmega16 ATmega16A ATmega16HVA ATmega16HVB ATmega16HVBrevB ATmega16U2 ATmega16U4
+ * ATmega32 ATmega32A ATmega32HVB ATmega32C1 ATmega32M1 ATmega32U2 ATmega32U4 ATmega32U6 ATmega48
+ * ATmega48A ATmega48P ATmega48PA ATmega48PB ATmega64 ATmega64A ATmega64C1 ATmegaS64M1 ATmega64M1
+ * ATmega64HVE2 ATmega64RFR2 ATmega88 ATmega88A ATmega88P ATmega88PA ATmega88PB ATmega103
+ * ATmega128 ATmegaS128 ATmega128A ATmega128RFA1 ATmega128RFR2 ATmega162 ATmega164A ATmega164P
+ * ATmega164PA ATmega165 ATmega165A ATmega165P ATmega165PA ATmega168 ATmega168A ATmega168P
+ * ATmega168PA ATmega168PB ATmega169 ATmega169A ATmega169P ATmega169PA ATmega256RFR2 ATmega323
+ * ATmega324A ATmega324P ATmega324PA ATmega324PB ATmega325 ATmega325A ATmega325P ATmega325PA
+ * ATmega328P ATmega329 ATmega329A ATmega329P ATmega329PA ATmega406 ATmega640 ATmega644 ATmega644A
+ * ATmega644P ATmega644PA ATmega644RFR2 ATmega645 ATmega645A ATmega645P ATmega649 ATmega649A
+ * ATmega649P ATmega1280 ATmega1281 ATmega1284 ATmega1284P ATmega1284RFR2 ATmega2560 ATmega2561
+ * ATmega2564RFR2 ATmega3250 ATmega3250A ATmega3250P ATmega3250PA ATmega3290 ATmega3290A
+ * ATmega3290P ATmega3290PA ATmega6450 ATmega6450A ATmega6450P ATmega6490 ATmega6490A ATmega6490P
+ * ATmega8535 AT90PWM1 AT90PWM2B AT90PWM3 AT90PWM3B AT90CAN32 AT90CAN64 AT90USB82 AT90SCR100
+ * AT90PWM161 AT90PWM216 AT90PWM316 AT90USB646 AT90USB647 AT90USB1286 AT90USB1287 AT90S8515comp
+ * ATA5272 ATA5505 ATA5702M322 ATA5782 ATA5783 ATA5787 ATA5790N ATA5791 ATA5795 ATA5831 ATA5832
+ * ATA5833 ATA5835 ATA6286 ATA6289 ATA6612C ATA6613C ATA6614Q ATA6616C ATA6617C ATA8210 ATA8215
+ * ATA8510 ATA8515 ATA664251 ATxmega8E5 ATxmega16A4 ATxmega16A4U ATxmega16C4 ATxmega16D4
+ * ATxmega32C3 ATxmega32D3 ATxmega32A4 ATxmega32A4U ATxmega32C4 ATxmega32D4 ATxmega32E5
+ * ATxmega64A1 ATxmega64A1U ATxmega64B1 ATxmega64A3 ATxmega64A3U ATxmega64B3 ATxmega64C3
+ * ATxmega64D3 ATxmega64A4U ATxmega64D4 ATxmega128A1 ATxmega128A1revD ATxmega128A1U ATxmega128B1
+ * ATxmega128B3 ATxmega128C3 ATxmega128D3 ATxmega128A4U ATxmega128D4 ATxmega192A3 ATxmega192A3U
+ * ATxmega192C3 ATxmega192D3 ATxmega256A3 ATxmega256A3B ATxmega256A3BU ATxmega256A3U ATxmega256C3
+ * ATxmega256D3 ATxmega384C3 ATxmega384D3 ATmega32HVE2
  */
 static const Configvalue _values_eesave_atmega328[2] = {
   {0, "ee_preserved", "EEPROM content is preserved during chip erase"},
@@ -10334,20 +10335,20 @@ static const Configvalue _values_rstdisbl_atmega328[2] = {
 };
 
 /*
- * ATtiny102 ATA5781 ATxmega16E5 ATxmega128A3 ATxmega128A3U ATtiny4 ATtiny5 ATtiny9 ATtiny10
- * ATtiny20 ATtiny40 ATtiny104 ATtiny2313 ATtiny2313A ATtiny4313 ATmega165 ATmega165A ATmega165P
- * ATmega165PA ATmega169 ATmega169A ATmega169P ATmega169PA ATmega325 ATmega325A ATmega325P
- * ATmega325PA ATmega329 ATmega329A ATmega329P ATmega329PA ATmega645 ATmega645A ATmega645P
- * ATmega649 ATmega649A ATmega649P ATmega3250 ATmega3250A ATmega3250P ATmega3250PA ATmega3290
- * ATmega3290A ATmega3290P ATmega3290PA ATmega6450 ATmega6450A ATmega6450P ATmega6490 ATmega6490A
- * ATmega6490P ATA5782 ATA5783 ATA5787 ATA5831 ATA5832 ATA5833 ATA5835 ATA8210 ATA8215 ATA8510
- * ATA8515 ATxmega8E5 ATxmega16A4 ATxmega16A4U ATxmega16C4 ATxmega16D4 ATxmega32C3 ATxmega32D3
- * ATxmega32A4 ATxmega32A4U ATxmega32C4 ATxmega32D4 ATxmega32E5 ATxmega64A1 ATxmega64A1U
- * ATxmega64B1 ATxmega64A3 ATxmega64A3U ATxmega64B3 ATxmega64C3 ATxmega64D3 ATxmega64A4U
- * ATxmega64D4 ATxmega128A1 ATxmega128A1revD ATxmega128A1U ATxmega128B1 ATxmega128B3 ATxmega128C3
- * ATxmega128D3 ATxmega128A4U ATxmega128D4 ATxmega192A3 ATxmega192A3U ATxmega192C3 ATxmega192D3
- * ATxmega256A3 ATxmega256A3B ATxmega256A3BU ATxmega256A3U ATxmega256C3 ATxmega256D3 ATxmega384C3
- * ATxmega384D3
+ * ATtiny102 ATA5781 ATxmega16E5 ATxmega192A1 ATxmega256A1 ATxmega128A3 ATxmega128A3U ATxmega64A4
+ * ATxmega128A4 ATtiny4 ATtiny5 ATtiny9 ATtiny10 ATtiny20 ATtiny40 ATtiny104 ATtiny2313
+ * ATtiny2313A ATtiny4313 ATmega165 ATmega165A ATmega165P ATmega165PA ATmega169 ATmega169A
+ * ATmega169P ATmega169PA ATmega325 ATmega325A ATmega325P ATmega325PA ATmega329 ATmega329A
+ * ATmega329P ATmega329PA ATmega645 ATmega645A ATmega645P ATmega649 ATmega649A ATmega649P
+ * ATmega3250 ATmega3250A ATmega3250P ATmega3250PA ATmega3290 ATmega3290A ATmega3290P ATmega3290PA
+ * ATmega6450 ATmega6450A ATmega6450P ATmega6490 ATmega6490A ATmega6490P ATA5782 ATA5783 ATA5787
+ * ATA5831 ATA5832 ATA5833 ATA5835 ATA8210 ATA8215 ATA8510 ATA8515 ATxmega8E5 ATxmega16A4
+ * ATxmega16A4U ATxmega16C4 ATxmega16D4 ATxmega32C3 ATxmega32D3 ATxmega32A4 ATxmega32A4U
+ * ATxmega32C4 ATxmega32D4 ATxmega32E5 ATxmega64A1 ATxmega64A1U ATxmega64B1 ATxmega64A3
+ * ATxmega64A3U ATxmega64B3 ATxmega64C3 ATxmega64D3 ATxmega64A4U ATxmega64D4 ATxmega128A1
+ * ATxmega128A1revD ATxmega128A1U ATxmega128B1 ATxmega128B3 ATxmega128C3 ATxmega128D3
+ * ATxmega128A4U ATxmega128D4 ATxmega192A3 ATxmega192A3U ATxmega192C3 ATxmega192D3 ATxmega256A3
+ * ATxmega256A3B ATxmega256A3BU ATxmega256A3U ATxmega256C3 ATxmega256D3 ATxmega384C3 ATxmega384D3
  */
 static const Configvalue _values_rstdisbl_attiny102[2] = {
   {0, "gpio_warning_external_reset_disabled", "reset pin configured as GPIO (warning: external reset disabled)"},
@@ -10496,14 +10497,26 @@ static const Configvalue _values_bodlevel_atxmega16e5[8] = {
 };
 
 /*
- * ATxmega128A3 ATxmega64A1 ATxmega64A3 ATxmega128A1 ATxmega128A1revD ATxmega192A3 ATxmega256A3
- * ATxmega256A3B
+ * ATxmega192A1 ATxmega256A1 ATxmega128A3 ATxmega64A1 ATxmega64A3 ATxmega128A1 ATxmega128A1revD
+ * ATxmega192A3 ATxmega256A3 ATxmega256A3B
  */
-static const Configvalue _values_bodlevel_atxmega128a3[8] = {
+static const Configvalue _values_bodlevel_atxmega192a1[8] = {
   {0, "bod_3v4", "brownout detection at 3.4 V"},
   {1, "bod_3v2", "brownout detection at 3.2 V"},
   {2, "bod_2v9", "brownout detection at 2.9 V"},
   {3, "bod_2v6", "brownout detection at 2.6 V"},
+  {4, "bod_2v4", "brownout detection at 2.4 V"},
+  {5, "bod_2v1", "brownout detection at 2.1 V"},
+  {6, "bod_1v9", "brownout detection at 1.9 V"},
+  {7, "bod_1v6", "brownout detection at 1.6 V"},
+};
+
+// ATxmega64A4 ATxmega128A4 ATxmega16A4 ATxmega32A4
+static const Configvalue _values_bodlevel_atxmega64a4[8] = {
+  {0, "bod_3v5", "brownout detection at 3.5 V"},
+  {1, "bod_3v2", "brownout detection at 3.2 V"},
+  {2, "bod_3v0", "brownout detection at 3.0 V"},
+  {3, "bod_2v7", "brownout detection at 2.7 V"},
   {4, "bod_2v4", "brownout detection at 2.4 V"},
   {5, "bod_2v1", "brownout detection at 2.1 V"},
   {6, "bod_1v9", "brownout detection at 1.9 V"},
@@ -10606,18 +10619,6 @@ static const Configvalue _values_bodlevel_atmega64rfr2[8] = {
   {7, "bod_disabled", "brownout detection disabled"},
 };
 
-// ATxmega16A4 ATxmega32A4
-static const Configvalue _values_bodlevel_atxmega16a4[8] = {
-  {0, "bod_3v5", "brownout detection at 3.5 V"},
-  {1, "bod_3v2", "brownout detection at 3.2 V"},
-  {2, "bod_3v0", "brownout detection at 3.0 V"},
-  {3, "bod_2v7", "brownout detection at 2.7 V"},
-  {4, "bod_2v4", "brownout detection at 2.4 V"},
-  {5, "bod_2v1", "brownout detection at 2.1 V"},
-  {6, "bod_1v9", "brownout detection at 1.9 V"},
-  {7, "bod_1v6", "brownout detection at 1.6 V"},
-};
-
 // ATtiny416auto
 static const Configvalue _values_bodlevel_attiny416auto[2] = {
   {2, "bod_2v6", "brownout detection at 2.6 V"},
@@ -10668,13 +10669,13 @@ static const Configvalue _values_lb_atmega328[3] = {
 };
 
 /*
- * ATxmega16E5 ATxmega128A3 ATxmega128A3U ATxmega8E5 ATxmega16A4 ATxmega16A4U ATxmega16C4
- * ATxmega16D4 ATxmega32C3 ATxmega32D3 ATxmega32A4 ATxmega32A4U ATxmega32C4 ATxmega32D4
- * ATxmega32E5 ATxmega64A1 ATxmega64A1U ATxmega64B1 ATxmega64A3 ATxmega64A3U ATxmega64B3
- * ATxmega64C3 ATxmega64D3 ATxmega64A4U ATxmega64D4 ATxmega128A1 ATxmega128A1revD ATxmega128A1U
- * ATxmega128B1 ATxmega128B3 ATxmega128C3 ATxmega128D3 ATxmega128A4U ATxmega128D4 ATxmega192A3
- * ATxmega192A3U ATxmega192C3 ATxmega192D3 ATxmega256A3 ATxmega256A3B ATxmega256A3BU ATxmega256A3U
- * ATxmega256C3 ATxmega256D3 ATxmega384C3 ATxmega384D3
+ * ATxmega16E5 ATxmega192A1 ATxmega256A1 ATxmega128A3 ATxmega128A3U ATxmega64A4 ATxmega128A4
+ * ATxmega8E5 ATxmega16A4 ATxmega16A4U ATxmega16C4 ATxmega16D4 ATxmega32C3 ATxmega32D3 ATxmega32A4
+ * ATxmega32A4U ATxmega32C4 ATxmega32D4 ATxmega32E5 ATxmega64A1 ATxmega64A1U ATxmega64B1
+ * ATxmega64A3 ATxmega64A3U ATxmega64B3 ATxmega64C3 ATxmega64D3 ATxmega64A4U ATxmega64D4
+ * ATxmega128A1 ATxmega128A1revD ATxmega128A1U ATxmega128B1 ATxmega128B3 ATxmega128C3 ATxmega128D3
+ * ATxmega128A4U ATxmega128D4 ATxmega192A3 ATxmega192A3U ATxmega192C3 ATxmega192D3 ATxmega256A3
+ * ATxmega256A3B ATxmega256A3BU ATxmega256A3U ATxmega256C3 ATxmega256D3 ATxmega384C3 ATxmega384D3
  */
 static const Configvalue _values_lb_atxmega16e5[3] = {
   {0, "rwlock", "read and write not allowed"},
@@ -11026,8 +11027,9 @@ static const Configvalue _values_bodact_attiny441[3] = {
 };
 
 /*
- * ATxmega16E5 ATxmega16E5 ATxmega128A3 ATxmega128A3 ATxmega128A3U ATxmega128A3U ATxmega8E5
- * ATxmega8E5 ATxmega16A4 ATxmega16A4 ATxmega16A4U ATxmega16A4U ATxmega16C4 ATxmega16C4
+ * ATxmega16E5 ATxmega16E5 ATxmega192A1 ATxmega192A1 ATxmega256A1 ATxmega256A1 ATxmega128A3
+ * ATxmega128A3 ATxmega128A3U ATxmega128A3U ATxmega64A4 ATxmega64A4 ATxmega128A4 ATxmega128A4
+ * ATxmega8E5 ATxmega8E5 ATxmega16A4 ATxmega16A4 ATxmega16A4U ATxmega16A4U ATxmega16C4 ATxmega16C4
  * ATxmega16D4 ATxmega16D4 ATxmega32C3 ATxmega32C3 ATxmega32D3 ATxmega32D3 ATxmega32A4 ATxmega32A4
  * ATxmega32A4U ATxmega32A4U ATxmega32C4 ATxmega32C4 ATxmega32D4 ATxmega32D4 ATxmega32E5
  * ATxmega32E5 ATxmega64A1 ATxmega64A1 ATxmega64A1U ATxmega64A1U ATxmega64B1 ATxmega64B1
@@ -11058,8 +11060,9 @@ static const Configvalue _values_bodpd_attiny441[3] = {
 };
 
 /*
- * ATxmega16E5 ATxmega16E5 ATxmega128A3 ATxmega128A3 ATxmega128A3U ATxmega128A3U ATxmega8E5
- * ATxmega8E5 ATxmega16A4 ATxmega16A4 ATxmega16A4U ATxmega16A4U ATxmega16C4 ATxmega16C4
+ * ATxmega16E5 ATxmega16E5 ATxmega192A1 ATxmega192A1 ATxmega256A1 ATxmega256A1 ATxmega128A3
+ * ATxmega128A3 ATxmega128A3U ATxmega128A3U ATxmega64A4 ATxmega64A4 ATxmega128A4 ATxmega128A4
+ * ATxmega8E5 ATxmega8E5 ATxmega16A4 ATxmega16A4 ATxmega16A4U ATxmega16A4U ATxmega16C4 ATxmega16C4
  * ATxmega16D4 ATxmega16D4 ATxmega32C3 ATxmega32C3 ATxmega32D3 ATxmega32D3 ATxmega32A4 ATxmega32A4
  * ATxmega32A4U ATxmega32A4U ATxmega32C4 ATxmega32C4 ATxmega32D4 ATxmega32D4 ATxmega32E5
  * ATxmega32E5 ATxmega64A1 ATxmega64A1 ATxmega64A1U ATxmega64A1U ATxmega64B1 ATxmega64B1
@@ -11125,21 +11128,22 @@ static const Configvalue _values_psc2rba_at90pwm81[2] = {
 };
 
 /*
- * AT90CAN128 ATxmega128A3 ATxmega128A3U ATmega103comp AT90SCR100H ATmega161comp ATmega16 ATmega16A
- * ATmega16U4 ATmega32 ATmega32A ATmega32U4 ATmega32U6 ATmega64 ATmega64A ATmega64RFR2 ATmega128
- * ATmegaS128 ATmega128A ATmega128RFA1 ATmega128RFR2 ATmega162 ATmega164A ATmega164P ATmega164PA
- * ATmega165 ATmega165A ATmega165P ATmega165PA ATmega169 ATmega169A ATmega169P ATmega169PA
- * ATmega256RFR2 ATmega323 ATmega324A ATmega324P ATmega324PA ATmega324PB ATmega325 ATmega325A
- * ATmega325P ATmega325PA ATmega329 ATmega329A ATmega329P ATmega329PA ATmega406 ATmega640
- * ATmega644 ATmega644A ATmega644P ATmega644PA ATmega644RFR2 ATmega645 ATmega645A ATmega645P
- * ATmega649 ATmega649A ATmega649P ATmega1280 ATmega1281 ATmega1284 ATmega1284P ATmega1284RFR2
- * ATmega2560 ATmega2561 ATmega2564RFR2 ATmega3250 ATmega3250A ATmega3250P ATmega3250PA ATmega3290
- * ATmega3290A ATmega3290P ATmega3290PA ATmega6450 ATmega6450A ATmega6450P ATmega6490 ATmega6490A
- * ATmega6490P AT90CAN32 AT90CAN64 AT90SCR100 AT90USB646 AT90USB647 AT90USB1286 AT90USB1287
- * ATxmega16A4 ATxmega16A4U ATxmega32A4 ATxmega32A4U ATxmega64A1 ATxmega64A1U ATxmega64B1
- * ATxmega64A3 ATxmega64A3U ATxmega64B3 ATxmega64A4U ATxmega128A1 ATxmega128A1revD ATxmega128A1U
- * ATxmega128B1 ATxmega128B3 ATxmega128A4U ATxmega192A3 ATxmega192A3U ATxmega256A3 ATxmega256A3B
- * ATxmega256A3BU ATxmega256A3U
+ * AT90CAN128 ATxmega192A1 ATxmega256A1 ATxmega128A3 ATxmega128A3U ATxmega64A4 ATxmega128A4
+ * ATmega103comp AT90SCR100H ATmega161comp ATmega16 ATmega16A ATmega16U4 ATmega32 ATmega32A
+ * ATmega32U4 ATmega32U6 ATmega64 ATmega64A ATmega64RFR2 ATmega128 ATmegaS128 ATmega128A
+ * ATmega128RFA1 ATmega128RFR2 ATmega162 ATmega164A ATmega164P ATmega164PA ATmega165 ATmega165A
+ * ATmega165P ATmega165PA ATmega169 ATmega169A ATmega169P ATmega169PA ATmega256RFR2 ATmega323
+ * ATmega324A ATmega324P ATmega324PA ATmega324PB ATmega325 ATmega325A ATmega325P ATmega325PA
+ * ATmega329 ATmega329A ATmega329P ATmega329PA ATmega406 ATmega640 ATmega644 ATmega644A ATmega644P
+ * ATmega644PA ATmega644RFR2 ATmega645 ATmega645A ATmega645P ATmega649 ATmega649A ATmega649P
+ * ATmega1280 ATmega1281 ATmega1284 ATmega1284P ATmega1284RFR2 ATmega2560 ATmega2561
+ * ATmega2564RFR2 ATmega3250 ATmega3250A ATmega3250P ATmega3250PA ATmega3290 ATmega3290A
+ * ATmega3290P ATmega3290PA ATmega6450 ATmega6450A ATmega6450P ATmega6490 ATmega6490A ATmega6490P
+ * AT90CAN32 AT90CAN64 AT90SCR100 AT90USB646 AT90USB647 AT90USB1286 AT90USB1287 ATxmega16A4
+ * ATxmega16A4U ATxmega32A4 ATxmega32A4U ATxmega64A1 ATxmega64A1U ATxmega64B1 ATxmega64A3
+ * ATxmega64A3U ATxmega64B3 ATxmega64A4U ATxmega128A1 ATxmega128A1revD ATxmega128A1U ATxmega128B1
+ * ATxmega128B3 ATxmega128A4U ATxmega192A3 ATxmega192A3U ATxmega256A3 ATxmega256A3B ATxmega256A3BU
+ * ATxmega256A3U
  */
 static const Configvalue _values_jtagen_at90can128[2] = {
   {0, "jtag_enabled", "JTAG interface enabled"},
@@ -11310,8 +11314,9 @@ static const Configvalue _values_eelock_ata6285[2] = {
 };
 
 /*
- * ATxmega16E5 ATxmega16E5 ATxmega128A3 ATxmega128A3 ATxmega128A3U ATxmega128A3U ATxmega8E5
- * ATxmega8E5 ATxmega16A4 ATxmega16A4 ATxmega16A4U ATxmega16A4U ATxmega16C4 ATxmega16C4
+ * ATxmega16E5 ATxmega16E5 ATxmega192A1 ATxmega192A1 ATxmega256A1 ATxmega256A1 ATxmega128A3
+ * ATxmega128A3 ATxmega128A3U ATxmega128A3U ATxmega64A4 ATxmega64A4 ATxmega128A4 ATxmega128A4
+ * ATxmega8E5 ATxmega8E5 ATxmega16A4 ATxmega16A4 ATxmega16A4U ATxmega16A4U ATxmega16C4 ATxmega16C4
  * ATxmega16D4 ATxmega16D4 ATxmega32C3 ATxmega32C3 ATxmega32D3 ATxmega32D3 ATxmega32A4 ATxmega32A4
  * ATxmega32A4U ATxmega32A4U ATxmega32C4 ATxmega32C4 ATxmega32D4 ATxmega32D4 ATxmega32E5
  * ATxmega32E5 ATxmega64A1 ATxmega64A1 ATxmega64A1U ATxmega64A1U ATxmega64B1 ATxmega64B1
@@ -11340,8 +11345,9 @@ static const Configvalue _values_wdper_atxmega16e5[11] = {
 };
 
 /*
- * ATxmega16E5 ATxmega16E5 ATxmega128A3 ATxmega128A3 ATxmega128A3U ATxmega128A3U ATxmega8E5
- * ATxmega8E5 ATxmega16A4 ATxmega16A4 ATxmega16A4U ATxmega16A4U ATxmega16C4 ATxmega16C4
+ * ATxmega16E5 ATxmega16E5 ATxmega192A1 ATxmega192A1 ATxmega256A1 ATxmega256A1 ATxmega128A3
+ * ATxmega128A3 ATxmega128A3U ATxmega128A3U ATxmega64A4 ATxmega64A4 ATxmega128A4 ATxmega128A4
+ * ATxmega8E5 ATxmega8E5 ATxmega16A4 ATxmega16A4 ATxmega16A4U ATxmega16A4U ATxmega16C4 ATxmega16C4
  * ATxmega16D4 ATxmega16D4 ATxmega32C3 ATxmega32C3 ATxmega32D3 ATxmega32D3 ATxmega32A4 ATxmega32A4
  * ATxmega32A4U ATxmega32A4U ATxmega32C4 ATxmega32C4 ATxmega32D4 ATxmega32D4 ATxmega32E5
  * ATxmega32E5 ATxmega64A1 ATxmega64A1 ATxmega64A1U ATxmega64A1U ATxmega64B1 ATxmega64B1
@@ -11370,13 +11376,13 @@ static const Configvalue _values_wdwper_atxmega16e5[11] = {
 };
 
 /*
- * ATxmega16E5 ATxmega128A3 ATxmega128A3U ATxmega8E5 ATxmega16A4 ATxmega16A4U ATxmega16C4
- * ATxmega16D4 ATxmega32C3 ATxmega32D3 ATxmega32A4 ATxmega32A4U ATxmega32C4 ATxmega32D4
- * ATxmega32E5 ATxmega64A1 ATxmega64A1U ATxmega64B1 ATxmega64A3 ATxmega64A3U ATxmega64B3
- * ATxmega64C3 ATxmega64D3 ATxmega64A4U ATxmega64D4 ATxmega128A1 ATxmega128A1revD ATxmega128A1U
- * ATxmega128B1 ATxmega128B3 ATxmega128C3 ATxmega128D3 ATxmega128A4U ATxmega128D4 ATxmega192A3
- * ATxmega192A3U ATxmega192C3 ATxmega192D3 ATxmega256A3 ATxmega256A3B ATxmega256A3BU ATxmega256A3U
- * ATxmega256C3 ATxmega256D3 ATxmega384C3 ATxmega384D3
+ * ATxmega16E5 ATxmega192A1 ATxmega256A1 ATxmega128A3 ATxmega128A3U ATxmega64A4 ATxmega128A4
+ * ATxmega8E5 ATxmega16A4 ATxmega16A4U ATxmega16C4 ATxmega16D4 ATxmega32C3 ATxmega32D3 ATxmega32A4
+ * ATxmega32A4U ATxmega32C4 ATxmega32D4 ATxmega32E5 ATxmega64A1 ATxmega64A1U ATxmega64B1
+ * ATxmega64A3 ATxmega64A3U ATxmega64B3 ATxmega64C3 ATxmega64D3 ATxmega64A4U ATxmega64D4
+ * ATxmega128A1 ATxmega128A1revD ATxmega128A1U ATxmega128B1 ATxmega128B3 ATxmega128C3 ATxmega128D3
+ * ATxmega128A4U ATxmega128D4 ATxmega192A3 ATxmega192A3U ATxmega192C3 ATxmega192D3 ATxmega256A3
+ * ATxmega256A3B ATxmega256A3BU ATxmega256A3U ATxmega256C3 ATxmega256D3 ATxmega384C3 ATxmega384D3
  */
 static const Configvalue _values_wdlock_atxmega16e5[2] = {
   {0, "wd_locked", "watchdog timer locked"},
@@ -11384,13 +11390,13 @@ static const Configvalue _values_wdlock_atxmega16e5[2] = {
 };
 
 /*
- * ATxmega16E5 ATxmega128A3 ATxmega128A3U ATxmega8E5 ATxmega16A4 ATxmega16A4U ATxmega16C4
- * ATxmega16D4 ATxmega32C3 ATxmega32D3 ATxmega32A4 ATxmega32A4U ATxmega32C4 ATxmega32D4
- * ATxmega32E5 ATxmega64A1 ATxmega64A1U ATxmega64B1 ATxmega64A3 ATxmega64A3U ATxmega64B3
- * ATxmega64C3 ATxmega64D3 ATxmega64A4U ATxmega64D4 ATxmega128A1 ATxmega128A1revD ATxmega128A1U
- * ATxmega128B1 ATxmega128B3 ATxmega128C3 ATxmega128D3 ATxmega128A4U ATxmega128D4 ATxmega192A3
- * ATxmega192A3U ATxmega192C3 ATxmega192D3 ATxmega256A3 ATxmega256A3B ATxmega256A3BU ATxmega256A3U
- * ATxmega256C3 ATxmega256D3 ATxmega384C3 ATxmega384D3
+ * ATxmega16E5 ATxmega192A1 ATxmega256A1 ATxmega128A3 ATxmega128A3U ATxmega64A4 ATxmega128A4
+ * ATxmega8E5 ATxmega16A4 ATxmega16A4U ATxmega16C4 ATxmega16D4 ATxmega32C3 ATxmega32D3 ATxmega32A4
+ * ATxmega32A4U ATxmega32C4 ATxmega32D4 ATxmega32E5 ATxmega64A1 ATxmega64A1U ATxmega64B1
+ * ATxmega64A3 ATxmega64A3U ATxmega64B3 ATxmega64C3 ATxmega64D3 ATxmega64A4U ATxmega64D4
+ * ATxmega128A1 ATxmega128A1revD ATxmega128A1U ATxmega128B1 ATxmega128B3 ATxmega128C3 ATxmega128D3
+ * ATxmega128A4U ATxmega128D4 ATxmega192A3 ATxmega192A3U ATxmega192C3 ATxmega192D3 ATxmega256A3
+ * ATxmega256A3B ATxmega256A3BU ATxmega256A3U ATxmega256C3 ATxmega256D3 ATxmega384C3 ATxmega384D3
  */
 static const Configvalue _values_startuptime_atxmega16e5[3] = {
   {0, "sut_64ms", "startup time 64 ms"},
@@ -11411,26 +11417,28 @@ static const Configvalue _values_fdact5_atxmega16e5[2] = {
 };
 
 /*
- * ATxmega16E5 ATxmega16E5 ATxmega16E5 ATxmega128A3 ATxmega128A3 ATxmega128A3 ATxmega128A3U
- * ATxmega128A3U ATxmega128A3U ATxmega8E5 ATxmega8E5 ATxmega8E5 ATxmega16A4 ATxmega16A4
- * ATxmega16A4 ATxmega16A4U ATxmega16A4U ATxmega16A4U ATxmega16C4 ATxmega16C4 ATxmega16C4
- * ATxmega16D4 ATxmega16D4 ATxmega16D4 ATxmega32C3 ATxmega32C3 ATxmega32C3 ATxmega32D3 ATxmega32D3
- * ATxmega32D3 ATxmega32A4 ATxmega32A4 ATxmega32A4 ATxmega32A4U ATxmega32A4U ATxmega32A4U
- * ATxmega32C4 ATxmega32C4 ATxmega32C4 ATxmega32D4 ATxmega32D4 ATxmega32D4 ATxmega32E5 ATxmega32E5
- * ATxmega32E5 ATxmega64A1 ATxmega64A1 ATxmega64A1 ATxmega64A1U ATxmega64A1U ATxmega64A1U
- * ATxmega64B1 ATxmega64B1 ATxmega64B1 ATxmega64A3 ATxmega64A3 ATxmega64A3 ATxmega64A3U
- * ATxmega64A3U ATxmega64A3U ATxmega64B3 ATxmega64B3 ATxmega64B3 ATxmega64C3 ATxmega64C3
- * ATxmega64C3 ATxmega64D3 ATxmega64D3 ATxmega64D3 ATxmega64A4U ATxmega64A4U ATxmega64A4U
- * ATxmega64D4 ATxmega64D4 ATxmega64D4 ATxmega128A1 ATxmega128A1 ATxmega128A1 ATxmega128A1revD
- * ATxmega128A1revD ATxmega128A1revD ATxmega128A1U ATxmega128A1U ATxmega128A1U ATxmega128B1
- * ATxmega128B1 ATxmega128B1 ATxmega128B3 ATxmega128B3 ATxmega128B3 ATxmega128C3 ATxmega128C3
- * ATxmega128C3 ATxmega128D3 ATxmega128D3 ATxmega128D3 ATxmega128A4U ATxmega128A4U ATxmega128A4U
- * ATxmega128D4 ATxmega128D4 ATxmega128D4 ATxmega192A3 ATxmega192A3 ATxmega192A3 ATxmega192A3U
- * ATxmega192A3U ATxmega192A3U ATxmega192C3 ATxmega192C3 ATxmega192C3 ATxmega192D3 ATxmega192D3
- * ATxmega192D3 ATxmega256A3 ATxmega256A3 ATxmega256A3 ATxmega256A3B ATxmega256A3B ATxmega256A3B
- * ATxmega256A3BU ATxmega256A3BU ATxmega256A3BU ATxmega256A3U ATxmega256A3U ATxmega256A3U
- * ATxmega256C3 ATxmega256C3 ATxmega256C3 ATxmega256D3 ATxmega256D3 ATxmega256D3 ATxmega384C3
- * ATxmega384C3 ATxmega384C3 ATxmega384D3 ATxmega384D3 ATxmega384D3
+ * ATxmega16E5 ATxmega16E5 ATxmega16E5 ATxmega192A1 ATxmega192A1 ATxmega192A1 ATxmega256A1
+ * ATxmega256A1 ATxmega256A1 ATxmega128A3 ATxmega128A3 ATxmega128A3 ATxmega128A3U ATxmega128A3U
+ * ATxmega128A3U ATxmega64A4 ATxmega64A4 ATxmega64A4 ATxmega128A4 ATxmega128A4 ATxmega128A4
+ * ATxmega8E5 ATxmega8E5 ATxmega8E5 ATxmega16A4 ATxmega16A4 ATxmega16A4 ATxmega16A4U ATxmega16A4U
+ * ATxmega16A4U ATxmega16C4 ATxmega16C4 ATxmega16C4 ATxmega16D4 ATxmega16D4 ATxmega16D4
+ * ATxmega32C3 ATxmega32C3 ATxmega32C3 ATxmega32D3 ATxmega32D3 ATxmega32D3 ATxmega32A4 ATxmega32A4
+ * ATxmega32A4 ATxmega32A4U ATxmega32A4U ATxmega32A4U ATxmega32C4 ATxmega32C4 ATxmega32C4
+ * ATxmega32D4 ATxmega32D4 ATxmega32D4 ATxmega32E5 ATxmega32E5 ATxmega32E5 ATxmega64A1 ATxmega64A1
+ * ATxmega64A1 ATxmega64A1U ATxmega64A1U ATxmega64A1U ATxmega64B1 ATxmega64B1 ATxmega64B1
+ * ATxmega64A3 ATxmega64A3 ATxmega64A3 ATxmega64A3U ATxmega64A3U ATxmega64A3U ATxmega64B3
+ * ATxmega64B3 ATxmega64B3 ATxmega64C3 ATxmega64C3 ATxmega64C3 ATxmega64D3 ATxmega64D3 ATxmega64D3
+ * ATxmega64A4U ATxmega64A4U ATxmega64A4U ATxmega64D4 ATxmega64D4 ATxmega64D4 ATxmega128A1
+ * ATxmega128A1 ATxmega128A1 ATxmega128A1revD ATxmega128A1revD ATxmega128A1revD ATxmega128A1U
+ * ATxmega128A1U ATxmega128A1U ATxmega128B1 ATxmega128B1 ATxmega128B1 ATxmega128B3 ATxmega128B3
+ * ATxmega128B3 ATxmega128C3 ATxmega128C3 ATxmega128C3 ATxmega128D3 ATxmega128D3 ATxmega128D3
+ * ATxmega128A4U ATxmega128A4U ATxmega128A4U ATxmega128D4 ATxmega128D4 ATxmega128D4 ATxmega192A3
+ * ATxmega192A3 ATxmega192A3 ATxmega192A3U ATxmega192A3U ATxmega192A3U ATxmega192C3 ATxmega192C3
+ * ATxmega192C3 ATxmega192D3 ATxmega192D3 ATxmega192D3 ATxmega256A3 ATxmega256A3 ATxmega256A3
+ * ATxmega256A3B ATxmega256A3B ATxmega256A3B ATxmega256A3BU ATxmega256A3BU ATxmega256A3BU
+ * ATxmega256A3U ATxmega256A3U ATxmega256A3U ATxmega256C3 ATxmega256C3 ATxmega256C3 ATxmega256D3
+ * ATxmega256D3 ATxmega256D3 ATxmega384C3 ATxmega384C3 ATxmega384C3 ATxmega384D3 ATxmega384D3
+ * ATxmega384D3
  */
 static const Configvalue _values_blbat_atxmega16e5[4] = {
   {0, "rwlock", "read and write not allowed"},
@@ -11440,26 +11448,28 @@ static const Configvalue _values_blbat_atxmega16e5[4] = {
 };
 
 /*
- * ATxmega16E5 ATxmega16E5 ATxmega16E5 ATxmega128A3 ATxmega128A3 ATxmega128A3 ATxmega128A3U
- * ATxmega128A3U ATxmega128A3U ATxmega8E5 ATxmega8E5 ATxmega8E5 ATxmega16A4 ATxmega16A4
- * ATxmega16A4 ATxmega16A4U ATxmega16A4U ATxmega16A4U ATxmega16C4 ATxmega16C4 ATxmega16C4
- * ATxmega16D4 ATxmega16D4 ATxmega16D4 ATxmega32C3 ATxmega32C3 ATxmega32C3 ATxmega32D3 ATxmega32D3
- * ATxmega32D3 ATxmega32A4 ATxmega32A4 ATxmega32A4 ATxmega32A4U ATxmega32A4U ATxmega32A4U
- * ATxmega32C4 ATxmega32C4 ATxmega32C4 ATxmega32D4 ATxmega32D4 ATxmega32D4 ATxmega32E5 ATxmega32E5
- * ATxmega32E5 ATxmega64A1 ATxmega64A1 ATxmega64A1 ATxmega64A1U ATxmega64A1U ATxmega64A1U
- * ATxmega64B1 ATxmega64B1 ATxmega64B1 ATxmega64A3 ATxmega64A3 ATxmega64A3 ATxmega64A3U
- * ATxmega64A3U ATxmega64A3U ATxmega64B3 ATxmega64B3 ATxmega64B3 ATxmega64C3 ATxmega64C3
- * ATxmega64C3 ATxmega64D3 ATxmega64D3 ATxmega64D3 ATxmega64A4U ATxmega64A4U ATxmega64A4U
- * ATxmega64D4 ATxmega64D4 ATxmega64D4 ATxmega128A1 ATxmega128A1 ATxmega128A1 ATxmega128A1revD
- * ATxmega128A1revD ATxmega128A1revD ATxmega128A1U ATxmega128A1U ATxmega128A1U ATxmega128B1
- * ATxmega128B1 ATxmega128B1 ATxmega128B3 ATxmega128B3 ATxmega128B3 ATxmega128C3 ATxmega128C3
- * ATxmega128C3 ATxmega128D3 ATxmega128D3 ATxmega128D3 ATxmega128A4U ATxmega128A4U ATxmega128A4U
- * ATxmega128D4 ATxmega128D4 ATxmega128D4 ATxmega192A3 ATxmega192A3 ATxmega192A3 ATxmega192A3U
- * ATxmega192A3U ATxmega192A3U ATxmega192C3 ATxmega192C3 ATxmega192C3 ATxmega192D3 ATxmega192D3
- * ATxmega192D3 ATxmega256A3 ATxmega256A3 ATxmega256A3 ATxmega256A3B ATxmega256A3B ATxmega256A3B
- * ATxmega256A3BU ATxmega256A3BU ATxmega256A3BU ATxmega256A3U ATxmega256A3U ATxmega256A3U
- * ATxmega256C3 ATxmega256C3 ATxmega256C3 ATxmega256D3 ATxmega256D3 ATxmega256D3 ATxmega384C3
- * ATxmega384C3 ATxmega384C3 ATxmega384D3 ATxmega384D3 ATxmega384D3
+ * ATxmega16E5 ATxmega16E5 ATxmega16E5 ATxmega192A1 ATxmega192A1 ATxmega192A1 ATxmega256A1
+ * ATxmega256A1 ATxmega256A1 ATxmega128A3 ATxmega128A3 ATxmega128A3 ATxmega128A3U ATxmega128A3U
+ * ATxmega128A3U ATxmega64A4 ATxmega64A4 ATxmega64A4 ATxmega128A4 ATxmega128A4 ATxmega128A4
+ * ATxmega8E5 ATxmega8E5 ATxmega8E5 ATxmega16A4 ATxmega16A4 ATxmega16A4 ATxmega16A4U ATxmega16A4U
+ * ATxmega16A4U ATxmega16C4 ATxmega16C4 ATxmega16C4 ATxmega16D4 ATxmega16D4 ATxmega16D4
+ * ATxmega32C3 ATxmega32C3 ATxmega32C3 ATxmega32D3 ATxmega32D3 ATxmega32D3 ATxmega32A4 ATxmega32A4
+ * ATxmega32A4 ATxmega32A4U ATxmega32A4U ATxmega32A4U ATxmega32C4 ATxmega32C4 ATxmega32C4
+ * ATxmega32D4 ATxmega32D4 ATxmega32D4 ATxmega32E5 ATxmega32E5 ATxmega32E5 ATxmega64A1 ATxmega64A1
+ * ATxmega64A1 ATxmega64A1U ATxmega64A1U ATxmega64A1U ATxmega64B1 ATxmega64B1 ATxmega64B1
+ * ATxmega64A3 ATxmega64A3 ATxmega64A3 ATxmega64A3U ATxmega64A3U ATxmega64A3U ATxmega64B3
+ * ATxmega64B3 ATxmega64B3 ATxmega64C3 ATxmega64C3 ATxmega64C3 ATxmega64D3 ATxmega64D3 ATxmega64D3
+ * ATxmega64A4U ATxmega64A4U ATxmega64A4U ATxmega64D4 ATxmega64D4 ATxmega64D4 ATxmega128A1
+ * ATxmega128A1 ATxmega128A1 ATxmega128A1revD ATxmega128A1revD ATxmega128A1revD ATxmega128A1U
+ * ATxmega128A1U ATxmega128A1U ATxmega128B1 ATxmega128B1 ATxmega128B1 ATxmega128B3 ATxmega128B3
+ * ATxmega128B3 ATxmega128C3 ATxmega128C3 ATxmega128C3 ATxmega128D3 ATxmega128D3 ATxmega128D3
+ * ATxmega128A4U ATxmega128A4U ATxmega128A4U ATxmega128D4 ATxmega128D4 ATxmega128D4 ATxmega192A3
+ * ATxmega192A3 ATxmega192A3 ATxmega192A3U ATxmega192A3U ATxmega192A3U ATxmega192C3 ATxmega192C3
+ * ATxmega192C3 ATxmega192D3 ATxmega192D3 ATxmega192D3 ATxmega256A3 ATxmega256A3 ATxmega256A3
+ * ATxmega256A3B ATxmega256A3B ATxmega256A3B ATxmega256A3BU ATxmega256A3BU ATxmega256A3BU
+ * ATxmega256A3U ATxmega256A3U ATxmega256A3U ATxmega256C3 ATxmega256C3 ATxmega256C3 ATxmega256D3
+ * ATxmega256D3 ATxmega256D3 ATxmega384C3 ATxmega384C3 ATxmega384C3 ATxmega384D3 ATxmega384D3
+ * ATxmega384D3
  */
 static const Configvalue _values_blba_atxmega16e5[4] = {
   {0, "rwlock", "read and write not allowed"},
@@ -11469,26 +11479,28 @@ static const Configvalue _values_blba_atxmega16e5[4] = {
 };
 
 /*
- * ATxmega16E5 ATxmega16E5 ATxmega16E5 ATxmega128A3 ATxmega128A3 ATxmega128A3 ATxmega128A3U
- * ATxmega128A3U ATxmega128A3U ATxmega8E5 ATxmega8E5 ATxmega8E5 ATxmega16A4 ATxmega16A4
- * ATxmega16A4 ATxmega16A4U ATxmega16A4U ATxmega16A4U ATxmega16C4 ATxmega16C4 ATxmega16C4
- * ATxmega16D4 ATxmega16D4 ATxmega16D4 ATxmega32C3 ATxmega32C3 ATxmega32C3 ATxmega32D3 ATxmega32D3
- * ATxmega32D3 ATxmega32A4 ATxmega32A4 ATxmega32A4 ATxmega32A4U ATxmega32A4U ATxmega32A4U
- * ATxmega32C4 ATxmega32C4 ATxmega32C4 ATxmega32D4 ATxmega32D4 ATxmega32D4 ATxmega32E5 ATxmega32E5
- * ATxmega32E5 ATxmega64A1 ATxmega64A1 ATxmega64A1 ATxmega64A1U ATxmega64A1U ATxmega64A1U
- * ATxmega64B1 ATxmega64B1 ATxmega64B1 ATxmega64A3 ATxmega64A3 ATxmega64A3 ATxmega64A3U
- * ATxmega64A3U ATxmega64A3U ATxmega64B3 ATxmega64B3 ATxmega64B3 ATxmega64C3 ATxmega64C3
- * ATxmega64C3 ATxmega64D3 ATxmega64D3 ATxmega64D3 ATxmega64A4U ATxmega64A4U ATxmega64A4U
- * ATxmega64D4 ATxmega64D4 ATxmega64D4 ATxmega128A1 ATxmega128A1 ATxmega128A1 ATxmega128A1revD
- * ATxmega128A1revD ATxmega128A1revD ATxmega128A1U ATxmega128A1U ATxmega128A1U ATxmega128B1
- * ATxmega128B1 ATxmega128B1 ATxmega128B3 ATxmega128B3 ATxmega128B3 ATxmega128C3 ATxmega128C3
- * ATxmega128C3 ATxmega128D3 ATxmega128D3 ATxmega128D3 ATxmega128A4U ATxmega128A4U ATxmega128A4U
- * ATxmega128D4 ATxmega128D4 ATxmega128D4 ATxmega192A3 ATxmega192A3 ATxmega192A3 ATxmega192A3U
- * ATxmega192A3U ATxmega192A3U ATxmega192C3 ATxmega192C3 ATxmega192C3 ATxmega192D3 ATxmega192D3
- * ATxmega192D3 ATxmega256A3 ATxmega256A3 ATxmega256A3 ATxmega256A3B ATxmega256A3B ATxmega256A3B
- * ATxmega256A3BU ATxmega256A3BU ATxmega256A3BU ATxmega256A3U ATxmega256A3U ATxmega256A3U
- * ATxmega256C3 ATxmega256C3 ATxmega256C3 ATxmega256D3 ATxmega256D3 ATxmega256D3 ATxmega384C3
- * ATxmega384C3 ATxmega384C3 ATxmega384D3 ATxmega384D3 ATxmega384D3
+ * ATxmega16E5 ATxmega16E5 ATxmega16E5 ATxmega192A1 ATxmega192A1 ATxmega192A1 ATxmega256A1
+ * ATxmega256A1 ATxmega256A1 ATxmega128A3 ATxmega128A3 ATxmega128A3 ATxmega128A3U ATxmega128A3U
+ * ATxmega128A3U ATxmega64A4 ATxmega64A4 ATxmega64A4 ATxmega128A4 ATxmega128A4 ATxmega128A4
+ * ATxmega8E5 ATxmega8E5 ATxmega8E5 ATxmega16A4 ATxmega16A4 ATxmega16A4 ATxmega16A4U ATxmega16A4U
+ * ATxmega16A4U ATxmega16C4 ATxmega16C4 ATxmega16C4 ATxmega16D4 ATxmega16D4 ATxmega16D4
+ * ATxmega32C3 ATxmega32C3 ATxmega32C3 ATxmega32D3 ATxmega32D3 ATxmega32D3 ATxmega32A4 ATxmega32A4
+ * ATxmega32A4 ATxmega32A4U ATxmega32A4U ATxmega32A4U ATxmega32C4 ATxmega32C4 ATxmega32C4
+ * ATxmega32D4 ATxmega32D4 ATxmega32D4 ATxmega32E5 ATxmega32E5 ATxmega32E5 ATxmega64A1 ATxmega64A1
+ * ATxmega64A1 ATxmega64A1U ATxmega64A1U ATxmega64A1U ATxmega64B1 ATxmega64B1 ATxmega64B1
+ * ATxmega64A3 ATxmega64A3 ATxmega64A3 ATxmega64A3U ATxmega64A3U ATxmega64A3U ATxmega64B3
+ * ATxmega64B3 ATxmega64B3 ATxmega64C3 ATxmega64C3 ATxmega64C3 ATxmega64D3 ATxmega64D3 ATxmega64D3
+ * ATxmega64A4U ATxmega64A4U ATxmega64A4U ATxmega64D4 ATxmega64D4 ATxmega64D4 ATxmega128A1
+ * ATxmega128A1 ATxmega128A1 ATxmega128A1revD ATxmega128A1revD ATxmega128A1revD ATxmega128A1U
+ * ATxmega128A1U ATxmega128A1U ATxmega128B1 ATxmega128B1 ATxmega128B1 ATxmega128B3 ATxmega128B3
+ * ATxmega128B3 ATxmega128C3 ATxmega128C3 ATxmega128C3 ATxmega128D3 ATxmega128D3 ATxmega128D3
+ * ATxmega128A4U ATxmega128A4U ATxmega128A4U ATxmega128D4 ATxmega128D4 ATxmega128D4 ATxmega192A3
+ * ATxmega192A3 ATxmega192A3 ATxmega192A3U ATxmega192A3U ATxmega192A3U ATxmega192C3 ATxmega192C3
+ * ATxmega192C3 ATxmega192D3 ATxmega192D3 ATxmega192D3 ATxmega256A3 ATxmega256A3 ATxmega256A3
+ * ATxmega256A3B ATxmega256A3B ATxmega256A3B ATxmega256A3BU ATxmega256A3BU ATxmega256A3BU
+ * ATxmega256A3U ATxmega256A3U ATxmega256A3U ATxmega256C3 ATxmega256C3 ATxmega256C3 ATxmega256D3
+ * ATxmega256D3 ATxmega256D3 ATxmega384C3 ATxmega384C3 ATxmega384C3 ATxmega384D3 ATxmega384D3
+ * ATxmega384D3
  */
 static const Configvalue _values_blbb_atxmega16e5[4] = {
   {0, "rwlock", "read and write not allowed"},
@@ -12479,10 +12491,10 @@ const Configitem cfgtab_atxmega16e5[17] = {
 };
 
 /*
- * ATxmega128A3 ATxmega64A1 ATxmega64A3 ATxmega128A1 ATxmega128A1revD ATxmega192A3 ATxmega256A3
- * ATxmega256A3B
+ * ATxmega192A1 ATxmega256A1 ATxmega128A3 ATxmega64A1 ATxmega64A3 ATxmega128A1 ATxmega128A1revD
+ * ATxmega192A3 ATxmega256A3 ATxmega256A3B
  */
-const Configitem cfgtab_atxmega128a3[16] = {
+const Configitem cfgtab_atxmega192a1[16] = {
   {"jtaguserid", 0, NULL, "fuse0", 0, 0xff, 0, 0xff, "JTAG User ID"},
   {"wdper", 11, _values_wdper_atxmega16e5, "fuse1", 1, 0x0f, 0, 0x00, "watchdog timeout period"},
   {"wdwper", 11, _values_wdwper_atxmega16e5, "fuse1", 1, 0xf0, 4, 0x00, "watchdog window timeout period"},
@@ -12492,7 +12504,7 @@ const Configitem cfgtab_atxmega128a3[16] = {
   {"wdlock", 2, _values_wdlock_atxmega16e5, "fuse4", 4, 0x02, 1, 1, "watchdog timer"},
   {"startuptime", 3, _values_startuptime_atxmega16e5, "fuse4", 4, 0x0c, 2, 3, "startup time"},
   {"rstdisbl", 2, _values_rstdisbl_attiny102, "fuse4", 4, 0x10, 4, 1, "reset configuration"},
-  {"bodlevel", 8, _values_bodlevel_atxmega128a3, "fuse5", 5, 0x07, 0, 7, "brownout detection trigger level"},
+  {"bodlevel", 8, _values_bodlevel_atxmega192a1, "fuse5", 5, 0x07, 0, 7, "brownout detection trigger level"},
   {"eesave", 2, _values_eesave_atmega328, "fuse5", 5, 0x08, 3, 1, "EEPROM after chip erase"},
   {"bodact", 3, _values_bodact_atxmega16e5, "fuse5", 5, 0x30, 4, 3, "brownout detection in active/idle mode"},
   {"lb", 3, _values_lb_atxmega16e5, "lock", 0, 0x03, 0, 3, "lock bits"},
@@ -12517,6 +12529,26 @@ const Configitem cfgtab_atxmega128a3u[17] = {
   {"startuptime", 3, _values_startuptime_atxmega16e5, "fuse4", 4, 0x0c, 2, 3, "startup time"},
   {"rstdisbl", 2, _values_rstdisbl_attiny102, "fuse4", 4, 0x10, 4, 1, "reset configuration"},
   {"bodlevel", 8, _values_bodlevel_atxmega16e5, "fuse5", 5, 0x07, 0, 7, "brownout detection trigger level"},
+  {"eesave", 2, _values_eesave_atmega328, "fuse5", 5, 0x08, 3, 1, "EEPROM after chip erase"},
+  {"bodact", 3, _values_bodact_atxmega16e5, "fuse5", 5, 0x30, 4, 3, "brownout detection in active/idle mode"},
+  {"lb", 3, _values_lb_atxmega16e5, "lock", 0, 0x03, 0, 3, "lock bits"},
+  {"blbat", 4, _values_blbat_atxmega16e5, "lock", 0, 0x0c, 2, 3, "boot lock bits: application table"},
+  {"blba", 4, _values_blba_atxmega16e5, "lock", 0, 0x30, 4, 3, "boot lock bits: application section"},
+  {"blbb", 4, _values_blbb_atxmega16e5, "lock", 0, 0xc0, 6, 3, "boot lock bits: boot section"},
+};
+
+// ATxmega64A4 ATxmega128A4 ATxmega16A4 ATxmega32A4
+const Configitem cfgtab_atxmega64a4[16] = {
+  {"jtaguserid", 0, NULL, "fuse0", 0, 0xff, 0, 0xff, "JTAG User ID"},
+  {"wdper", 11, _values_wdper_atxmega16e5, "fuse1", 1, 0x0f, 0, 0x00, "watchdog timeout period"},
+  {"wdwper", 11, _values_wdwper_atxmega16e5, "fuse1", 1, 0xf0, 4, 0x00, "watchdog window timeout period"},
+  {"bodpd", 3, _values_bodpd_atxmega16e5, "fuse2", 2, 0x03, 0, 3, "brownout detection in power-down mode"},
+  {"bootrst", 2, _values_bootrst_atmega328, "fuse2", 2, 0x40, 6, 1, "reset address"},
+  {"jtagen", 2, _values_jtagen_at90can128, "fuse4", 4, 0x01, 0, 0, "JTAG interface"},
+  {"wdlock", 2, _values_wdlock_atxmega16e5, "fuse4", 4, 0x02, 1, 1, "watchdog timer"},
+  {"startuptime", 3, _values_startuptime_atxmega16e5, "fuse4", 4, 0x0c, 2, 3, "startup time"},
+  {"rstdisbl", 2, _values_rstdisbl_attiny102, "fuse4", 4, 0x10, 4, 1, "reset configuration"},
+  {"bodlevel", 8, _values_bodlevel_atxmega64a4, "fuse5", 5, 0x07, 0, 7, "brownout detection trigger level"},
   {"eesave", 2, _values_eesave_atmega328, "fuse5", 5, 0x08, 3, 1, "EEPROM after chip erase"},
   {"bodact", 3, _values_bodact_atxmega16e5, "fuse5", 5, 0x30, 4, 3, "brownout detection in active/idle mode"},
   {"lb", 3, _values_lb_atxmega16e5, "lock", 0, 0x03, 0, 3, "lock bits"},
@@ -13959,26 +13991,6 @@ const Configitem cfgtab_ata6289[17] = {
   {"blb1", 4, _values_blb1_atmega328, "lock", 0, 0x30, 4, 3, "boot lock bits: boot section"},
 };
 
-// ATxmega16A4 ATxmega32A4
-const Configitem cfgtab_atxmega16a4[16] = {
-  {"jtaguserid", 0, NULL, "fuse0", 0, 0xff, 0, 0xff, "JTAG User ID"},
-  {"wdper", 11, _values_wdper_atxmega16e5, "fuse1", 1, 0x0f, 0, 0x00, "watchdog timeout period"},
-  {"wdwper", 11, _values_wdwper_atxmega16e5, "fuse1", 1, 0xf0, 4, 0x00, "watchdog window timeout period"},
-  {"bodpd", 3, _values_bodpd_atxmega16e5, "fuse2", 2, 0x03, 0, 3, "brownout detection in power-down mode"},
-  {"bootrst", 2, _values_bootrst_atmega328, "fuse2", 2, 0x40, 6, 1, "reset address"},
-  {"jtagen", 2, _values_jtagen_at90can128, "fuse4", 4, 0x01, 0, 0, "JTAG interface"},
-  {"wdlock", 2, _values_wdlock_atxmega16e5, "fuse4", 4, 0x02, 1, 1, "watchdog timer"},
-  {"startuptime", 3, _values_startuptime_atxmega16e5, "fuse4", 4, 0x0c, 2, 3, "startup time"},
-  {"rstdisbl", 2, _values_rstdisbl_attiny102, "fuse4", 4, 0x10, 4, 1, "reset configuration"},
-  {"bodlevel", 8, _values_bodlevel_atxmega16a4, "fuse5", 5, 0x07, 0, 7, "brownout detection trigger level"},
-  {"eesave", 2, _values_eesave_atmega328, "fuse5", 5, 0x08, 3, 1, "EEPROM after chip erase"},
-  {"bodact", 3, _values_bodact_atxmega16e5, "fuse5", 5, 0x30, 4, 3, "brownout detection in active/idle mode"},
-  {"lb", 3, _values_lb_atxmega16e5, "lock", 0, 0x03, 0, 3, "lock bits"},
-  {"blbat", 4, _values_blbat_atxmega16e5, "lock", 0, 0x0c, 2, 3, "boot lock bits: application table"},
-  {"blba", 4, _values_blba_atxmega16e5, "lock", 0, 0x30, 4, 3, "boot lock bits: application section"},
-  {"blbb", 4, _values_blbb_atxmega16e5, "lock", 0, 0xc0, 6, 3, "boot lock bits: boot section"},
-};
-
 /*
  * ATxmega16C4 ATxmega16D4 ATxmega32C3 ATxmega32D3 ATxmega32C4 ATxmega32D4 ATxmega64C3 ATxmega64D3
  * ATxmega64D4 ATxmega128C3 ATxmega128D3 ATxmega128D4 ATxmega192C3 ATxmega192D3 ATxmega256C3
@@ -14576,7 +14588,7 @@ const Register_file rgftab_atmega32hvbrevb[91] = { // I/O memory [0, 223] + 32
 };
 
 // ATmega328PB
-const Register_file rgftab_atmega328pb[123] = { // I/O memory [0, 223] + 32
+const Register_file rgftab_atmega328pb[125] = { // I/O memory [0, 223] + 32
   {"portb.pinb",             0x03,  1,   0xff,     -1, "port B input register"},
   {"portb.ddrb",             0x04,  1,   0xff,     -1, "port B data direction register"},
   {"portb.portb",            0x05,  1,   0xff,     -1, "port B data register"},
@@ -14611,7 +14623,9 @@ const Register_file rgftab_atmega328pb[123] = { // I/O memory [0, 223] + 32
   {"tc0.ocr0b",              0x28,  1,   0xff,     -1, "T/C 0 output compare register B"},
   {"cpu.gpior1",             0x2a,  1,   0xff,     -1, "general purpose I/O register 1"},
   {"cpu.gpior2",             0x2b,  1,   0xff,     -1, "general purpose I/O register 2"},
+  {"spi0.spcr",              0x2c,  1,     -1,     -1, "SPI control register"},
   {"spi0.spcr0",             0x2c,  1,     -1,     -1, "SPI control register"},
+  {"spi0.spsr",              0x2d,  1,     -1,     -1, "SPI status register"},
   {"spi0.spsr0",             0x2d,  1,     -1,     -1, "SPI status register"},
   {"spi0.spdr0",             0x2e,  1,   0xff,     -1, "SPI data register"},
   {"ac.acsrb",               0x2f,  1,     -1,     -1, "analog comparator control and status register B"},
@@ -49211,7 +49225,7 @@ const Register_file rgftab_avr32sd20[540] = { // I/O memory [0, 4159]
   {"ramctrl.syndrome",       0x0e34,  1,     -1,   0x00, "ECC syndrome register"},
   {"errctrl.ctrla",          0x0e40,  1,     -1,   0x01, "control register A"},
   {"errctrl.statusa",        0x0e41,  1,     -1,     -1, "status A register"},
-  {"errctrl.timeout",        0x0e42,  1,     -1,   0xff, "timeout register"},
+  {"errctrl.timeout",        0x0e42,  1,     -1,   0xff, "timeout value register"},
   {"errctrl.timecnt",        0x0e43,  1,     -1,   0xff, "timeout counter register"},
   {"errctrl.cause",          0x0e44,  1,     -1,     -1, "reset cause register"},
   {"errctrl.escvregfail",    0x0e50,  1,     -1,   0x82, "error source control VREGFAIL register"},
@@ -49231,8 +49245,8 @@ const Register_file rgftab_avr32sd20[540] = { // I/O memory [0, 4159]
   {"errctrl.esceeprom",      0x0e5e,  1,     -1,   0x82, "error source control EEPROM register"},
   {"errctrl.escevsys0",      0x0e5f,  1,     -1,   0x82, "error source control EVSYS0 register"},
   {"errctrl.escevsys1",      0x0e60,  1,     -1,   0x82, "error source control EVSYS1 register"},
-  {"errctrl.esf",            0x0e70,  4,     -1,     -1, "error status flag register (32 bits)"},
-  {"errctrl.esftest",        0x0e74,  4,     -1, 0x00000000, "error status flag test strobe register (32 bits)"},
+  {"errctrl.esf",            0x0e70,  4,     -1,     -1, "error status flags register (32 bits)"},
+  {"errctrl.esftest",        0x0e74,  4,     -1, 0x00000000, "error status flag test injection register (32 bits)"},
   {"syscfg.revid",           0x0f01,  1,     -1,     -1, "revision ID register"},
   {"nvmctrl.ctrla",          0x1000,  1,     -1,   0x00, "control register A"},
   {"nvmctrl.ctrlb",          0x1001,  1,     -1,   0x30, "control register B"},
@@ -50675,7 +50689,7 @@ const Register_file rgftab_avr32sd28[559] = { // I/O memory [0, 4159]
   {"ramctrl.syndrome",       0x0e34,  1,     -1,   0x00, "ECC syndrome register"},
   {"errctrl.ctrla",          0x0e40,  1,     -1,   0x01, "control register A"},
   {"errctrl.statusa",        0x0e41,  1,     -1,     -1, "status A register"},
-  {"errctrl.timeout",        0x0e42,  1,     -1,   0xff, "timeout register"},
+  {"errctrl.timeout",        0x0e42,  1,     -1,   0xff, "timeout value register"},
   {"errctrl.timecnt",        0x0e43,  1,     -1,   0xff, "timeout counter register"},
   {"errctrl.cause",          0x0e44,  1,     -1,     -1, "reset cause register"},
   {"errctrl.escvregfail",    0x0e50,  1,     -1,   0x82, "error source control VREGFAIL register"},
@@ -50695,8 +50709,8 @@ const Register_file rgftab_avr32sd28[559] = { // I/O memory [0, 4159]
   {"errctrl.esceeprom",      0x0e5e,  1,     -1,   0x82, "error source control EEPROM register"},
   {"errctrl.escevsys0",      0x0e5f,  1,     -1,   0x82, "error source control EVSYS0 register"},
   {"errctrl.escevsys1",      0x0e60,  1,     -1,   0x82, "error source control EVSYS1 register"},
-  {"errctrl.esf",            0x0e70,  4,     -1,     -1, "error status flag register (32 bits)"},
-  {"errctrl.esftest",        0x0e74,  4,     -1, 0x00000000, "error status flag test strobe register (32 bits)"},
+  {"errctrl.esf",            0x0e70,  4,     -1,     -1, "error status flags register (32 bits)"},
+  {"errctrl.esftest",        0x0e74,  4,     -1, 0x00000000, "error status flag test injection register (32 bits)"},
   {"syscfg.revid",           0x0f01,  1,     -1,     -1, "revision ID register"},
   {"nvmctrl.ctrla",          0x1000,  1,     -1,   0x00, "control register A"},
   {"nvmctrl.ctrlb",          0x1001,  1,     -1,   0x30, "control register B"},
@@ -52185,7 +52199,7 @@ const Register_file rgftab_avr32sd32[575] = { // I/O memory [0, 4159]
   {"ramctrl.syndrome",       0x0e34,  1,     -1,   0x00, "ECC syndrome register"},
   {"errctrl.ctrla",          0x0e40,  1,     -1,   0x01, "control register A"},
   {"errctrl.statusa",        0x0e41,  1,     -1,     -1, "status A register"},
-  {"errctrl.timeout",        0x0e42,  1,     -1,   0xff, "timeout register"},
+  {"errctrl.timeout",        0x0e42,  1,     -1,   0xff, "timeout value register"},
   {"errctrl.timecnt",        0x0e43,  1,     -1,   0xff, "timeout counter register"},
   {"errctrl.cause",          0x0e44,  1,     -1,     -1, "reset cause register"},
   {"errctrl.escvregfail",    0x0e50,  1,     -1,   0x82, "error source control VREGFAIL register"},
@@ -52205,8 +52219,8 @@ const Register_file rgftab_avr32sd32[575] = { // I/O memory [0, 4159]
   {"errctrl.esceeprom",      0x0e5e,  1,     -1,   0x82, "error source control EEPROM register"},
   {"errctrl.escevsys0",      0x0e5f,  1,     -1,   0x82, "error source control EVSYS0 register"},
   {"errctrl.escevsys1",      0x0e60,  1,     -1,   0x82, "error source control EVSYS1 register"},
-  {"errctrl.esf",            0x0e70,  4,     -1,     -1, "error status flag register (32 bits)"},
-  {"errctrl.esftest",        0x0e74,  4,     -1, 0x00000000, "error status flag test strobe register (32 bits)"},
+  {"errctrl.esf",            0x0e70,  4,     -1,     -1, "error status flags register (32 bits)"},
+  {"errctrl.esftest",        0x0e74,  4,     -1, 0x00000000, "error status flag test injection register (32 bits)"},
   {"syscfg.revid",           0x0f01,  1,     -1,     -1, "revision ID register"},
   {"nvmctrl.ctrla",          0x1000,  1,     -1,   0x00, "control register A"},
   {"nvmctrl.ctrlb",          0x1001,  1,     -1,   0x30, "control register B"},
@@ -60647,10 +60661,22 @@ const Uart_conf uarts_atxmega8e5[4] = {
   { 2, 1, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
 };
 
+// ATxmega64A1 ATxmega128A1 ATxmega128A1revD ATxmega192A1 ATxmega256A1
+const Uart_conf uarts_atxmega64a1[8] = {
+  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
+  { 1, 0, PC6, PC7, PC5, PNA, PNA, PNA, PNA, PNA, PNA }, // C1
+  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
+  { 3, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // D1
+  { 4, 0, PE2, PE3, PE1, PNA, PNA, PNA, PNA, PNA, PNA }, // E0
+  { 5, 0, PE6, PE7, PE5, PNA, PNA, PNA, PNA, PNA, PNA }, // E1
+  { 6, 0, PF2, PF3, PF1, PNA, PNA, PNA, PNA, PNA, PNA }, // F0
+  { 7, 0, PF6, PF7, PF5, PNA, PNA, PNA, PNA, PNA, PNA }, // F1
+};
+
 // ATxmega64A3 ATxmega128A3 ATxmega192A3 ATxmega256A3
 const Uart_conf uarts_atxmega64a3[7] = {
   { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
-  { 1, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // C1
+  { 1, 0, PC6, PC7, PC5, PNA, PNA, PNA, PNA, PNA, PNA }, // C1
   { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
   { 3, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // D1
   { 4, 0, PE2, PE3, PE1, PNA, PNA, PNA, PNA, PNA, PNA }, // E0
@@ -60662,7 +60688,7 @@ const Uart_conf uarts_atxmega64a3[7] = {
 const Uart_conf uarts_atxmega64a3u[11] = {
   { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
   { 0, 1, PC6, PC7, PC5, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
-  { 1, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // C1
+  { 1, 0, PC6, PC7, PC5, PNA, PNA, PNA, PNA, PNA, PNA }, // C1
   { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
   { 2, 1, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
   { 3, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // D1
@@ -60671,6 +60697,20 @@ const Uart_conf uarts_atxmega64a3u[11] = {
   { 5, 0, PE6, PE7, PE5, PNA, PNA, PNA, PNA, PNA, PNA }, // E1
   { 6, 0, PF2, PF3, PF1, PNA, PNA, PNA, PNA, PNA, PNA }, // F0
   { 6, 1, PF6, PF7, PF5, PNA, PNA, PNA, PNA, PNA, PNA }, // F0
+};
+
+/*
+ * ATxmega16A4 ATxmega16A4U ATxmega32A4 ATxmega32A4U ATxmega64A4 ATxmega64A4U ATxmega128A4
+ * ATxmega128A4U
+ */
+const Uart_conf uarts_atxmega16a4[7] = {
+  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
+  { 0, 1, PC6, PC7, PC5, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
+  { 1, 0, PC6, PC7, PC5, PNA, PNA, PNA, PNA, PNA, PNA }, // C1
+  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
+  { 2, 1, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
+  { 3, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // D1
+  { 4, 0, PE2, PE3, PE1, PNA, PNA, PNA, PNA, PNA, PNA }, // E0
 };
 
 /*
@@ -60801,28 +60841,6 @@ const Uart_conf uarts_atmega640[4] = {
   { 3, 0, PJ0, PJ1, PJ2, PNA, PNA, PNA, PNA, PNA, PNA },
 };
 
-// ATxmega16A4 ATxmega32A4
-const Uart_conf uarts_atxmega16a4[7] = {
-  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
-  { 0, 1, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
-  { 1, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // C1
-  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
-  { 2, 1, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
-  { 3, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // D1
-  { 4, 0, PE2, PE3, PE1, PNA, PNA, PNA, PNA, PNA, PNA }, // E0
-};
-
-// ATxmega16A4U ATxmega32A4U ATxmega64A4U ATxmega128A4U
-const Uart_conf uarts_atxmega16a4u[7] = {
-  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
-  { 0, 1, PC6, PC7, PC5, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
-  { 1, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // C1
-  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
-  { 2, 1, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
-  { 3, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // D1
-  { 4, 0, PE2, PE3, PE1, PNA, PNA, PNA, PNA, PNA, PNA }, // E0
-};
-
 // ATxmega16C4 ATxmega32C4
 const Uart_conf uarts_atxmega16c4[4] = {
   { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
@@ -60847,18 +60865,6 @@ const Uart_conf uarts_atxmega32c3[4] = {
   { 0, 1, PC6, PC7, PC5, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
   { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
   { 4, 0, PE2, PE3, PE1, PNA, PNA, PNA, PNA, PNA, PNA }, // E0
-};
-
-// ATxmega64A1 ATxmega128A1 ATxmega128A1revD
-const Uart_conf uarts_atxmega64a1[8] = {
-  { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
-  { 1, 0, PC6, PC7, PC5, PNA, PNA, PNA, PNA, PNA, PNA }, // C1
-  { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
-  { 3, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // D1
-  { 4, 0, PE2, PE3, PE1, PNA, PNA, PNA, PNA, PNA, PNA }, // E0
-  { 5, 0, PE6, PE7, PE5, PNA, PNA, PNA, PNA, PNA, PNA }, // E1
-  { 6, 0, PF2, PF3, PF1, PNA, PNA, PNA, PNA, PNA, PNA }, // F0
-  { 7, 0, PF6, PF7, PF5, PNA, PNA, PNA, PNA, PNA, PNA }, // F1
 };
 
 // ATxmega64A1U ATxmega128A1U
@@ -60891,7 +60897,7 @@ const Uart_conf uarts_atxmega64b3[2] = {
 // ATxmega256A3B
 const Uart_conf uarts_atxmega256a3b[6] = {
   { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
-  { 1, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // C1
+  { 1, 0, PC6, PC7, PC5, PNA, PNA, PNA, PNA, PNA, PNA }, // C1
   { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
   { 3, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // D1
   { 4, 0, PE2, PE3, PE1, PNA, PNA, PNA, PNA, PNA, PNA }, // E0
@@ -60902,7 +60908,7 @@ const Uart_conf uarts_atxmega256a3b[6] = {
 const Uart_conf uarts_atxmega256a3bu[8] = {
   { 0, 0, PC2, PC3, PC1, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
   { 0, 1, PC6, PC7, PC5, PNA, PNA, PNA, PNA, PNA, PNA }, // C0
-  { 1, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // C1
+  { 1, 0, PC6, PC7, PC5, PNA, PNA, PNA, PNA, PNA, PNA }, // C1
   { 2, 0, PD2, PD3, PD1, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
   { 2, 1, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // D0
   { 3, 0, PD6, PD7, PD5, PNA, PNA, PNA, PNA, PNA, PNA }, // D1
