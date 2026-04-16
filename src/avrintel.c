@@ -9,7 +9,7 @@
  * Meta-author Stefan Rueger <stefan.rueger@urclocks.com>
  *
  * v 1.46
- * 09.04.2026
+ * 15.04.2026
  *
  */
 
@@ -178,7 +178,7 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   //ATtiny40        atdf, avr-gcc 12.2.0, avrdude, boot size (manual) // Sources
   {"ATtiny40",           5, F_AVR8L, {0x1E, 0x92, 0x0E}, // ID
   /*ATtiny40*/           0, 0x01000, 0x040,  0,      0,       0,      0,  0, 0x0040, 0x0100, // Mem
-  /*ATtiny40*/           1,  1,  18, vtab_attiny40,         5, cfgtab_attiny20, // ISRs, Config
+  /*ATtiny40*/           1,  1,  18, vtab_attiny40,         5, cfgtab_attiny40, // ISRs, Config
   /*ATtiny40*/          63, rgftab_attiny40,        0,         UART_NONE, -1, NULL, // Register file, UART
   /*ATtiny40*/           3, ports_attiny40, WDT_CLASSIC4}, // Ports, WDT
 
@@ -354,14 +354,14 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   //ATtiny261                           atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATtiny261",         30,  F_AVR8, {0x1E, 0x91, 0x0C}, // ID
   /*ATtiny261*/          0, 0x00800, 0x020,  0,      0,       0, 0x0080,  4, 0x0060, 0x0080, // Mem
-  /*ATtiny261*/          3,  1,  19, vtab_attiny861a,      11, cfgtab_attiny43u, // ISRs, Config
+  /*ATtiny261*/          3,  1,  19, vtab_attiny861a,      11, cfgtab_attiny261, // ISRs, Config
   /*ATtiny261*/         63, rgftab_attiny261,       0,         UART_NONE, -1, NULL, // Register file, UART
   /*ATtiny261*/          2, ports_attiny26, WDT_CLASSIC4}, // Ports, WDT
 
   //ATtiny261A                          atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATtiny261A",        31,  F_AVR8, {0x1E, 0x91, 0x0C}, // ID
   /*ATtiny261A*/         0, 0x00800, 0x020,  0,      0,       0, 0x0080,  4, 0x0060, 0x0080, // Mem
-  /*ATtiny261A*/         3,  1,  19, vtab_attiny861a,      11, cfgtab_attiny43u, // ISRs, Config
+  /*ATtiny261A*/         3,  1,  19, vtab_attiny861a,      11, cfgtab_attiny261, // ISRs, Config
   /*ATtiny261A*/        63, rgftab_attiny261,       0,         UART_NONE, -1, NULL, // Register file, UART
   /*ATtiny261A*/         2, ports_attiny26, WDT_CLASSIC4}, // Ports, WDT
 
@@ -375,14 +375,14 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   //ATtiny461                           atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATtiny461",         33,  F_AVR8, {0x1E, 0x92, 0x08}, // ID
   /*ATtiny461*/          0, 0x01000, 0x040,  0,      0,       0, 0x0100,  4, 0x0060, 0x0100, // Mem
-  /*ATtiny461*/          3,  1,  19, vtab_attiny861a,      11, cfgtab_attiny43u, // ISRs, Config
+  /*ATtiny461*/          3,  1,  19, vtab_attiny861a,      11, cfgtab_attiny261, // ISRs, Config
   /*ATtiny461*/         63, rgftab_attiny461,       0,         UART_NONE, -1, NULL, // Register file, UART
   /*ATtiny461*/          2, ports_attiny26, WDT_CLASSIC4}, // Ports, WDT
 
   //ATtiny461A                          atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATtiny461A",        34,  F_AVR8, {0x1E, 0x92, 0x08}, // ID
   /*ATtiny461A*/         0, 0x01000, 0x040,  0,      0,       0, 0x0100,  4, 0x0060, 0x0100, // Mem
-  /*ATtiny461A*/         3,  1,  19, vtab_attiny861a,      11, cfgtab_attiny43u, // ISRs, Config
+  /*ATtiny461A*/         3,  1,  19, vtab_attiny861a,      11, cfgtab_attiny261, // ISRs, Config
   /*ATtiny461A*/        63, rgftab_attiny461,       0,         UART_NONE, -1, NULL, // Register file, UART
   /*ATtiny461A*/         2, ports_attiny26, WDT_CLASSIC4}, // Ports, WDT
 
@@ -410,14 +410,14 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   //ATtiny861                           atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATtiny861",         38,  F_AVR8, {0x1E, 0x93, 0x0D}, // ID
   /*ATtiny861*/          0, 0x02000, 0x040,  0,      0,       0, 0x0200,  4, 0x0060, 0x0200, // Mem
-  /*ATtiny861*/          3,  1,  19, vtab_attiny861a,      11, cfgtab_attiny43u, // ISRs, Config
+  /*ATtiny861*/          3,  1,  19, vtab_attiny861a,      11, cfgtab_attiny261, // ISRs, Config
   /*ATtiny861*/         63, rgftab_attiny861,       0,         UART_NONE, -1, NULL, // Register file, UART
   /*ATtiny861*/          2, ports_attiny26, WDT_CLASSIC4}, // Ports, WDT
 
   //ATtiny861A                          atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATtiny861A",        39,  F_AVR8, {0x1E, 0x93, 0x0D}, // ID
   /*ATtiny861A*/         0, 0x02000, 0x040,  0,      0,       0, 0x0200,  4, 0x0060, 0x0200, // Mem
-  /*ATtiny861A*/         3,  1,  19, vtab_attiny861a,      11, cfgtab_attiny43u, // ISRs, Config
+  /*ATtiny861A*/         3,  1,  19, vtab_attiny861a,      11, cfgtab_attiny261, // ISRs, Config
   /*ATtiny861A*/        63, rgftab_attiny861,       0,         UART_NONE, -1, NULL, // Register file, UART
   /*ATtiny861A*/         2, ports_attiny26, WDT_CLASSIC4}, // Ports, WDT
 
@@ -851,21 +851,21 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   //ATmega165A                          atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATmega165A",        96,  F_AVR8, {0x1E, 0x94, 0x10}, // ID
   /*ATmega165A*/         0, 0x04000, 0x080,  4, 0x0100,       0, 0x0200,  4, 0x0100, 0x0400, // Mem
-  /*ATmega165A*/         3,  1,  22, vtab_atmega645p,      15, cfgtab_atmega165, // ISRs, Config
+  /*ATmega165A*/         3,  1,  22, vtab_atmega645p,      15, cfgtab_atmega165a, // ISRs, Config
   /*ATmega165A*/        86, rgftab_atmega165a,      1, UART_CLASSIC_2x12,  1, uarts_atmega103, // Register file, UART
   /*ATmega165A*/         7, ports_atmega165a, WDT_CLASSIC3}, // Ports, WDT
 
   //ATmega165P                          atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATmega165P",        97,  F_AVR8, {0x1E, 0x94, 0x07}, // ID
   /*ATmega165P*/         0, 0x04000, 0x080,  4, 0x0100,       0, 0x0200,  4, 0x0100, 0x0400, // Mem
-  /*ATmega165P*/         3,  1,  22, vtab_atmega645p,      15, cfgtab_atmega165, // ISRs, Config
+  /*ATmega165P*/         3,  1,  22, vtab_atmega645p,      15, cfgtab_atmega165a, // ISRs, Config
   /*ATmega165P*/        86, rgftab_atmega165a,      1, UART_CLASSIC_2x12,  1, uarts_atmega103, // Register file, UART
   /*ATmega165P*/         7, ports_atmega165a, WDT_CLASSIC3}, // Ports, WDT
 
   //ATmega165PA                         atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATmega165PA",       98,  F_AVR8, {0x1E, 0x94, 0x07}, // ID
   /*ATmega165PA*/        0, 0x04000, 0x080,  4, 0x0100,       0, 0x0200,  4, 0x0100, 0x0400, // Mem
-  /*ATmega165PA*/        3,  1,  22, vtab_atmega645p,      15, cfgtab_atmega165, // ISRs, Config
+  /*ATmega165PA*/        3,  1,  22, vtab_atmega645p,      15, cfgtab_atmega165a, // ISRs, Config
   /*ATmega165PA*/       86, rgftab_atmega165a,      1, UART_CLASSIC_2x12,  1, uarts_atmega103, // Register file, UART
   /*ATmega165PA*/        7, ports_atmega165a, WDT_CLASSIC3}, // Ports, WDT
 
@@ -914,21 +914,21 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   //ATmega169A                          atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATmega169A",       105,  F_AVR8, {0x1E, 0x94, 0x11}, // ID
   /*ATmega169A*/         0, 0x04000, 0x080,  4, 0x0100,       0, 0x0200,  4, 0x0100, 0x0400, // Mem
-  /*ATmega169A*/         3,  1,  23, vtab_atmega649p,      15, cfgtab_atmega165, // ISRs, Config
+  /*ATmega169A*/         3,  1,  23, vtab_atmega649p,      15, cfgtab_atmega165a, // ISRs, Config
   /*ATmega169A*/       106, rgftab_atmega169a,      1, UART_CLASSIC_2x12,  1, uarts_atmega169a, // Register file, UART
   /*ATmega169A*/         7, ports_atmega165a, WDT_CLASSIC3}, // Ports, WDT
 
   //ATmega169P                          atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATmega169P",       106,  F_AVR8, {0x1E, 0x94, 0x05}, // ID
   /*ATmega169P*/         0, 0x04000, 0x080,  4, 0x0100,       0, 0x0200,  4, 0x0100, 0x0400, // Mem
-  /*ATmega169P*/         3,  1,  23, vtab_atmega649p,      15, cfgtab_atmega165, // ISRs, Config
+  /*ATmega169P*/         3,  1,  23, vtab_atmega649p,      15, cfgtab_atmega165a, // ISRs, Config
   /*ATmega169P*/       106, rgftab_atmega169a,      1, UART_CLASSIC_2x12,  1, uarts_atmega169a, // Register file, UART
   /*ATmega169P*/         7, ports_atmega165a, WDT_CLASSIC3}, // Ports, WDT
 
   //ATmega169PA                         atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATmega169PA",      107,  F_AVR8, {0x1E, 0x94, 0x05}, // ID
   /*ATmega169PA*/        0, 0x04000, 0x080,  4, 0x0100,       0, 0x0200,  4, 0x0100, 0x0400, // Mem
-  /*ATmega169PA*/        3,  1,  23, vtab_atmega649p,      15, cfgtab_atmega165, // ISRs, Config
+  /*ATmega169PA*/        3,  1,  23, vtab_atmega649p,      15, cfgtab_atmega165a, // ISRs, Config
   /*ATmega169PA*/      106, rgftab_atmega169a,      1, UART_CLASSIC_2x12,  1, uarts_atmega169a, // Register file, UART
   /*ATmega169PA*/        7, ports_atmega64rfr2, WDT_CLASSIC3}, // Ports, WDT
 
@@ -1684,7 +1684,7 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   //ATA5835                                                      atdf // Sources
   {"ATA5835",          212,  F_AVR8, {0x1E, 0x94, 0x6B}, // ID
   /*ATA5835*/      0x08000, 0x05200, 0x040,  0,      0,       0, 0x0400, 16, 0x0200, 0x0800, // Mem
-  /*ATA5835*/            1,  1,  44, vtab_ata5835,         11, cfgtab_ata5787, // ISRs, Config
+  /*ATA5835*/            1,  1,  44, vtab_ata5835,         11, cfgtab_ata5835, // ISRs, Config
   /*ATA5835*/          307, rgftab_ata5835,         1,          UART_LIN, -1, NULL, // Register file, UART
   /*ATA5835*/            0, NULL, WDT_UNKNOWN}, // Ports, WDT
 
@@ -1747,28 +1747,28 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   //ATA8210                                       atdf, avr-gcc 7.3.0 // Sources
   {"ATA8210",          221,  F_AVR8, {0x1E, 0x95, 0x65}, // ID
   /*ATA8210*/      0x08000, 0x05000, 0x040,  1, 0x5000,       0, 0x0400, 16, 0x0200, 0x0400, // Mem
-  /*ATA8210*/            1,  1,  42, vtab_ata8515,         11, cfgtab_ata5781, // ISRs, Config
+  /*ATA8210*/            1,  1,  42, vtab_ata8515,         11, cfgtab_ata8210, // ISRs, Config
   /*ATA8210*/          262, rgftab_ata5781,         0,         UART_NONE, -1, NULL, // Register file, UART
   /*ATA8210*/            2, ports_ata5782, WDT_UNKNOWN}, // Ports, WDT
 
   //ATA8215                                                      atdf // Sources
   {"ATA8215",          222,  F_AVR8, {0x1E, 0x95, 0x64}, // ID
   /*ATA8215*/           -1,      -1,    -1,  0,      0,       0, 0x0400, 16, 0x0200, 0x0400, // Mem
-  /*ATA8215*/            1,  1,  42, vtab_ata8515,         11, cfgtab_ata5781, // ISRs, Config
+  /*ATA8215*/            1,  1,  42, vtab_ata8515,         11, cfgtab_ata8210, // ISRs, Config
   /*ATA8215*/          262, rgftab_ata5781,         0,         UART_NONE, -1, NULL, // Register file, UART
   /*ATA8215*/            0, NULL, WDT_UNKNOWN}, // Ports, WDT
 
   //ATA8510                                       atdf, avr-gcc 7.3.0 // Sources
   {"ATA8510",          223,  F_AVR8, {0x1E, 0x95, 0x61}, // ID
   /*ATA8510*/      0x08000, 0x05000, 0x040,  1, 0x5000,       0, 0x0400, 16, 0x0200, 0x0400, // Mem
-  /*ATA8510*/            1,  1,  42, vtab_ata8515,         11, cfgtab_ata5781, // ISRs, Config
+  /*ATA8510*/            1,  1,  42, vtab_ata8515,         11, cfgtab_ata8210, // ISRs, Config
   /*ATA8510*/          279, rgftab_ata5831,         0,         UART_NONE, -1, NULL, // Register file, UART
   /*ATA8510*/            2, ports_ata5782, WDT_UNKNOWN}, // Ports, WDT
 
   //ATA8515                                                      atdf // Sources
   {"ATA8515",          224,  F_AVR8, {0x1E, 0x95, 0x63}, // ID
   /*ATA8515*/           -1,      -1,    -1,  0,      0,       0, 0x0400, 16, 0x0200, 0x0400, // Mem
-  /*ATA8515*/            1,  1,  42, vtab_ata8515,         11, cfgtab_ata5781, // ISRs, Config
+  /*ATA8515*/            1,  1,  42, vtab_ata8515,         11, cfgtab_ata8210, // ISRs, Config
   /*ATA8515*/          279, rgftab_ata5831,         0,         UART_NONE, -1, NULL, // Register file, UART
   /*ATA8515*/            0, NULL, WDT_UNKNOWN}, // Ports, WDT
 
@@ -9902,31 +9902,46 @@ static const Configvalue _values_sut_cksel_at90s2333[8] = {
 };
 
 /*
- * ATmega328 ATmega328PB AT90PWM2 ATmega161comp ATtiny48 ATtiny88 ATtiny828 ATtiny828R ATmega48
- * ATmega48A ATmega48P ATmega48PA ATmega48PB ATmega88 ATmega88A ATmega88P ATmega88PA ATmega88PB
- * ATmega162 ATmega168 ATmega168A ATmega168P ATmega168PA ATmega168PB ATmega328P AT90PWM1 AT90PWM2B
- * AT90PWM3 AT90PWM3B AT90PWM216 AT90PWM316 ATA6612C ATA6613C ATA6614Q
+ * ATmega328 ATmega328PB ATmega161comp ATtiny48 ATtiny88 ATmega48 ATmega48A ATmega48P ATmega48PA
+ * ATmega48PB ATmega88 ATmega88A ATmega88P ATmega88PA ATmega88PB ATmega162 ATmega168 ATmega168A
+ * ATmega168P ATmega168PA ATmega168PB ATmega328P ATA6612C ATA6613C ATA6614Q
  */
 static const Configvalue _values_ckout_atmega328[2] = {
   {0, "gpio_pb0", "clock output on GPIO PB0"},
   {1, "co_disabled", "clock signal is not output on a pin"},
 };
 
-// ATmega16M1 AT90PWM81 ATmega32C1 ATmega32M1 ATmega64C1 ATmegaS64M1 ATmega64M1 AT90PWM161
+/*
+ * ATmega16M1 AT90PWM2 ATmega32C1 ATmega32M1 ATmega64C1 ATmegaS64M1 ATmega64M1 AT90PWM1 AT90PWM2B
+ * AT90PWM3 AT90PWM3B AT90PWM216 AT90PWM316
+ */
 static const Configvalue _values_ckout_atmega16m1[2] = {
   {0, "gpio_pd1", "clock output on GPIO PD1"},
   {1, "co_disabled", "clock signal is not output on a pin"},
 };
 
-// ATtiny102 ATtiny4 ATtiny5 ATtiny9 ATtiny10 ATtiny20 ATtiny40 ATtiny104
+/*
+ * ATtiny102 AT90SCR100H ATtiny104 ATmega164A ATmega164P ATmega164PA ATmega324A ATmega324P
+ * ATmega324PA ATmega324PB ATmega644 ATmega644A ATmega644P ATmega644PA ATmega1284 ATmega1284P
+ * AT90SCR100
+ */
 static const Configvalue _values_ckout_attiny102[2] = {
-  {0, "gpio", "clock output on GPIO"},
+  {0, "gpio_pb1", "clock output on GPIO PB1"},
   {1, "co_disabled", "clock signal is not output on a pin"},
 };
 
-// ATtiny441 ATtiny841 ATtiny1634 ATtiny1634R
+/*
+ * ATtiny441 ATtiny4 ATtiny5 ATtiny9 ATtiny10 ATtiny20 ATtiny24 ATtiny24A ATtiny44 ATtiny44A
+ * ATtiny84 ATtiny84A ATtiny841
+ */
 static const Configvalue _values_ckout_attiny441[2] = {
-  {0, "gpio_pc2", "clock output on GPIO PC2"},
+  {0, "gpio_pb2", "clock output on GPIO PB2"},
+  {1, "co_disabled", "clock signal is not output on a pin"},
+};
+
+// AT90PWM81 AT90PWM161
+static const Configvalue _values_ckout_at90pwm81[2] = {
+  {0, "gpio_pd0", "clock output on GPIO PD0"},
   {1, "co_disabled", "clock signal is not output on a pin"},
 };
 
@@ -9939,24 +9954,15 @@ static const Configvalue _values_ckout_at90can128[2] = {
   {1, "co_disabled", "clock signal is not output on a pin"},
 };
 
-// ATA6285 ATA6286 ATA6289
+// ATA6285 ATtiny828 ATtiny828R ATA6286 ATA6289
 static const Configvalue _values_ckout_ata6285[2] = {
   {0, "gpio_pc1", "clock output on GPIO PC1"},
   {1, "co_disabled", "clock signal is not output on a pin"},
 };
 
-/*
- * AT90SCR100H ATmega164A ATmega164P ATmega164PA ATmega324A ATmega324P ATmega324PA ATmega324PB
- * ATmega644 ATmega644A ATmega644P ATmega644PA ATmega1284 ATmega1284P AT90SCR100
- */
-static const Configvalue _values_ckout_at90scr100h[2] = {
-  {0, "gpio_pb1", "clock output on GPIO PB1"},
-  {1, "co_disabled", "clock signal is not output on a pin"},
-};
-
-// ATtiny24 ATtiny24A ATtiny44 ATtiny44A ATtiny84 ATtiny84A
-static const Configvalue _values_ckout_attiny24[2] = {
-  {0, "gpio_pb2", "clock output on GPIO PB2"},
+// ATtiny40 ATtiny1634 ATtiny1634R
+static const Configvalue _values_ckout_attiny40[2] = {
+  {0, "gpio_pc2", "clock output on GPIO PC2"},
   {1, "co_disabled", "clock signal is not output on a pin"},
 };
 
@@ -9966,11 +9972,17 @@ static const Configvalue _values_ckout_attiny25[2] = {
   {1, "co_disabled", "clock signal is not output on a pin"},
 };
 
-/*
- * ATtiny43U ATtiny87 ATtiny167 ATtiny261 ATtiny261A ATtiny461 ATtiny461A ATtiny861 ATtiny861A
- * ATA5272 ATA5505 ATA6616C ATA6617C ATA664251
- */
+// ATtiny43U
 static const Configvalue _values_ckout_attiny43u[2] = {
+  {0, "gpio_pb3", "clock output on GPIO PB3"},
+  {1, "co_disabled", "clock signal is not output on a pin"},
+};
+
+/*
+ * ATtiny87 ATtiny167 ATtiny261 ATtiny261A ATtiny461 ATtiny461A ATtiny861 ATtiny861A ATA5272
+ * ATA5505 ATA6616C ATA6617C ATA664251
+ */
+static const Configvalue _values_ckout_attiny87[2] = {
   {0, "gpio_pb5", "clock output on GPIO PB5"},
   {1, "co_disabled", "clock signal is not output on a pin"},
 };
@@ -10322,12 +10334,9 @@ static const Configvalue _values_dwen_atmega328[2] = {
 };
 
 /*
- * ATmega328 ATmega16M1 ATmega328PB AT90PWM2 AT90USB162 ATtiny48 ATtiny88 ATtiny828 ATtiny828R
- * ATmega8 ATmega8A ATmega8U2 ATmega16U2 ATmega32C1 ATmega32M1 ATmega32U2 ATmega48 ATmega48A
- * ATmega48P ATmega48PA ATmega48PB ATmega64C1 ATmegaS64M1 ATmega64M1 ATmega88 ATmega88A ATmega88P
- * ATmega88PA ATmega88PB ATmega168 ATmega168A ATmega168P ATmega168PA ATmega168PB ATmega328P
- * AT90PWM1 AT90PWM2B AT90PWM3 AT90PWM3B AT90USB82 AT90PWM216 AT90PWM316 ATA6612C ATA6613C
- * ATA6614Q
+ * ATmega328 ATmega328PB ATtiny48 ATtiny88 ATmega8 ATmega8A ATmega48 ATmega48A ATmega48P ATmega48PA
+ * ATmega48PB ATmega88 ATmega88A ATmega88P ATmega88PA ATmega88PB ATmega168 ATmega168A ATmega168P
+ * ATmega168PA ATmega168PB ATmega328P ATA6612C ATA6613C ATA6614Q
  */
 static const Configvalue _values_rstdisbl_atmega328[2] = {
   {0, "gpio_pc6_warning_external_reset_disabled", "reset pin configured as GPIO PC6 (warning: external reset disabled)"},
@@ -10335,35 +10344,59 @@ static const Configvalue _values_rstdisbl_atmega328[2] = {
 };
 
 /*
- * ATtiny102 ATA5781 ATxmega16E5 ATxmega192A1 ATxmega256A1 ATxmega128A3 ATxmega128A3U ATxmega64A4
- * ATxmega128A4 ATtiny4 ATtiny5 ATtiny9 ATtiny10 ATtiny20 ATtiny40 ATtiny104 ATtiny2313
- * ATtiny2313A ATtiny4313 ATmega165 ATmega165A ATmega165P ATmega165PA ATmega169 ATmega169A
- * ATmega169P ATmega169PA ATmega325 ATmega325A ATmega325P ATmega325PA ATmega329 ATmega329A
- * ATmega329P ATmega329PA ATmega645 ATmega645A ATmega645P ATmega649 ATmega649A ATmega649P
- * ATmega3250 ATmega3250A ATmega3250P ATmega3250PA ATmega3290 ATmega3290A ATmega3290P ATmega3290PA
- * ATmega6450 ATmega6450A ATmega6450P ATmega6490 ATmega6490A ATmega6490P ATA5782 ATA5783 ATA5787
- * ATA5831 ATA5832 ATA5833 ATA5835 ATA8210 ATA8215 ATA8510 ATA8515 ATxmega8E5 ATxmega16A4
- * ATxmega16A4U ATxmega16C4 ATxmega16D4 ATxmega32C3 ATxmega32D3 ATxmega32A4 ATxmega32A4U
- * ATxmega32C4 ATxmega32D4 ATxmega32E5 ATxmega64A1 ATxmega64A1U ATxmega64B1 ATxmega64A3
- * ATxmega64A3U ATxmega64B3 ATxmega64C3 ATxmega64D3 ATxmega64A4U ATxmega64D4 ATxmega128A1
- * ATxmega128A1revD ATxmega128A1U ATxmega128B1 ATxmega128B3 ATxmega128C3 ATxmega128D3
- * ATxmega128A4U ATxmega128D4 ATxmega192A3 ATxmega192A3U ATxmega192C3 ATxmega192D3 ATxmega256A3
- * ATxmega256A3B ATxmega256A3BU ATxmega256A3U ATxmega256C3 ATxmega256D3 ATxmega384C3 ATxmega384D3
+ * ATmega16M1 AT90PWM2 AT90PWM81 ATmega32C1 ATmega32M1 ATmega64C1 ATmegaS64M1 ATmega64M1 AT90PWM1
+ * AT90PWM2B AT90PWM3 AT90PWM3B AT90PWM161 AT90PWM216 AT90PWM316
  */
-static const Configvalue _values_rstdisbl_attiny102[2] = {
-  {0, "gpio_warning_external_reset_disabled", "reset pin configured as GPIO (warning: external reset disabled)"},
-  {1, "external_reset", "reset pin configured as external reset"},
-};
-
-// ATtiny441 ATtiny841 ATtiny1634 ATtiny1634R
-static const Configvalue _values_rstdisbl_attiny441[2] = {
-  {0, "gpio_pc2_warning_external_reset_disabled", "reset pin configured as GPIO PC2 (warning: external reset disabled)"},
-  {1, "external_reset", "reset pin configured as external reset"},
-};
-
-// AT90PWM81 AT90PWM161
-static const Configvalue _values_rstdisbl_at90pwm81[2] = {
+static const Configvalue _values_rstdisbl_atmega16m1[2] = {
   {0, "gpio_pe0_warning_external_reset_disabled", "reset pin configured as GPIO PE0 (warning: external reset disabled)"},
+  {1, "external_reset", "reset pin configured as external reset"},
+};
+
+// ATtiny102 ATtiny104 ATtiny2313 ATtiny2313A ATtiny4313
+static const Configvalue _values_rstdisbl_attiny102[2] = {
+  {0, "gpio_pa2_warning_external_reset_disabled", "reset pin configured as GPIO PA2 (warning: external reset disabled)"},
+  {1, "external_reset", "reset pin configured as external reset"},
+};
+
+/*
+ * ATtiny441 ATtiny4 ATtiny5 ATtiny9 ATtiny10 ATtiny20 ATtiny24 ATtiny24A ATtiny44 ATtiny44A
+ * ATtiny84 ATtiny84A ATtiny841
+ */
+static const Configvalue _values_rstdisbl_attiny441[2] = {
+  {0, "gpio_pb3_warning_external_reset_disabled", "reset pin configured as GPIO PB3 (warning: external reset disabled)"},
+  {1, "external_reset", "reset pin configured as external reset"},
+};
+
+// AT90USB162 ATmega8U2 ATmega16U2 ATmega32U2 AT90USB82
+static const Configvalue _values_rstdisbl_at90usb162[2] = {
+  {0, "gpio_pc1_warning_external_reset_disabled", "reset pin configured as GPIO PC1 (warning: external reset disabled)"},
+  {1, "external_reset", "reset pin configured as external reset"},
+};
+
+// ATA5781 ATA5782 ATA5783 ATA5831 ATA5832 ATA5833 ATA5835
+static const Configvalue _values_rstdisbl_ata5781[2] = {
+  {0, "gpio_pc0_warning_external_reset_disabled", "reset pin configured as GPIO PC0 (warning: external reset disabled)"},
+  {1, "external_reset", "reset pin configured as external reset"},
+};
+
+/*
+ * ATxmega16E5 ATxmega192A1 ATxmega256A1 ATxmega128A3 ATxmega128A3U ATxmega64A4 ATxmega128A4
+ * ATmega165 ATmega169 ATxmega8E5 ATxmega16A4 ATxmega16A4U ATxmega16C4 ATxmega16D4 ATxmega32C3
+ * ATxmega32D3 ATxmega32A4 ATxmega32A4U ATxmega32C4 ATxmega32D4 ATxmega32E5 ATxmega64A1
+ * ATxmega64A1U ATxmega64B1 ATxmega64A3 ATxmega64A3U ATxmega64B3 ATxmega64C3 ATxmega64D3
+ * ATxmega64A4U ATxmega64D4 ATxmega128A1 ATxmega128A1revD ATxmega128A1U ATxmega128B1 ATxmega128B3
+ * ATxmega128C3 ATxmega128D3 ATxmega128A4U ATxmega128D4 ATxmega192A3 ATxmega192A3U ATxmega192C3
+ * ATxmega192D3 ATxmega256A3 ATxmega256A3B ATxmega256A3BU ATxmega256A3U ATxmega256C3 ATxmega256D3
+ * ATxmega384C3 ATxmega384D3
+ */
+static const Configvalue _values_rstdisbl_atxmega16e5[2] = {
+  {0, "rst_disabled", "external reset disabled"},
+  {1, "rst_enabled", "external reset enabled"},
+};
+
+// ATtiny40 ATtiny1634 ATtiny1634R
+static const Configvalue _values_rstdisbl_attiny40[2] = {
+  {0, "gpio_pc3_warning_external_reset_disabled", "reset pin configured as GPIO PC3 (warning: external reset disabled)"},
   {1, "external_reset", "reset pin configured as external reset"},
 };
 
@@ -10373,18 +10406,42 @@ static const Configvalue _values_rstdisbl_attiny11[2] = {
   {1, "external_reset", "reset pin configured as external reset"},
 };
 
-// ATtiny24 ATtiny24A ATtiny44 ATtiny44A ATtiny84 ATtiny84A
-static const Configvalue _values_rstdisbl_attiny24[2] = {
-  {0, "gpio_pb3_warning_external_reset_disabled", "reset pin configured as GPIO PB3 (warning: external reset disabled)"},
+/*
+ * ATtiny26 ATtiny87 ATtiny167 ATtiny261 ATtiny261A ATtiny461 ATtiny461A ATtiny861 ATtiny861A
+ * ATA5272 ATA5505 ATA6616C ATA6617C ATA664251
+ */
+static const Configvalue _values_rstdisbl_attiny26[2] = {
+  {0, "gpio_pb7_warning_external_reset_disabled", "reset pin configured as GPIO PB7 (warning: external reset disabled)"},
+  {1, "external_reset", "reset pin configured as external reset"},
+};
+
+// ATtiny43U
+static const Configvalue _values_rstdisbl_attiny43u[2] = {
+  {0, "gpio_pa7_warning_external_reset_disabled", "reset pin configured as GPIO PA7 (warning: external reset disabled)"},
+  {1, "external_reset", "reset pin configured as external reset"},
+};
+
+// ATtiny828 ATtiny828R
+static const Configvalue _values_rstdisbl_attiny828[2] = {
+  {0, "gpio_pd2_warning_external_reset_disabled", "reset pin configured as GPIO PD2 (warning: external reset disabled)"},
   {1, "external_reset", "reset pin configured as external reset"},
 };
 
 /*
- * ATtiny26 ATtiny43U ATtiny87 ATtiny167 ATtiny261 ATtiny261A ATtiny461 ATtiny461A ATtiny861
- * ATtiny861A ATA5272 ATA5505 ATA6616C ATA6617C ATA664251
+ * ATmega165A ATmega165P ATmega165PA ATmega169A ATmega169P ATmega169PA ATmega325 ATmega325A
+ * ATmega325P ATmega325PA ATmega329 ATmega329A ATmega329P ATmega329PA ATmega645 ATmega645A
+ * ATmega645P ATmega649 ATmega649A ATmega649P ATmega3250 ATmega3250A ATmega3250P ATmega3250PA
+ * ATmega3290 ATmega3290A ATmega3290P ATmega3290PA ATmega6450 ATmega6450A ATmega6450P ATmega6490
+ * ATmega6490A ATmega6490P
  */
-static const Configvalue _values_rstdisbl_attiny26[2] = {
-  {0, "gpio_pb7_warning_external_reset_disabled", "reset pin configured as GPIO PB7 (warning: external reset disabled)"},
+static const Configvalue _values_rstdisbl_atmega165a[2] = {
+  {0, "gpio_pg5_warning_external_reset_disabled", "reset pin configured as GPIO PG5 (warning: external reset disabled)"},
+  {1, "external_reset", "reset pin configured as external reset"},
+};
+
+// ATA5787 ATA8210 ATA8215 ATA8510 ATA8515
+static const Configvalue _values_rstdisbl_ata5787[2] = {
+  {0, "gpio_warning_external_reset_disabled", "reset pin configured as GPIO (warning: external reset disabled)"},
   {1, "external_reset", "reset pin configured as external reset"},
 };
 
@@ -12182,7 +12239,7 @@ const Configitem cfgtab_atmega16m1[17] = {
   {"wdton", 2, _values_wdton_atmega328, "hfuse", 1, 0x10, 4, 1, "watchdog timer"},
   {"spien", 2, _values_spien_atmega328, "hfuse", 1, 0x20, 5, 0, "serial programming"},
   {"dwen", 2, _values_dwen_atmega328, "hfuse", 1, 0x40, 6, 1, "debugWIRE"},
-  {"rstdisbl", 2, _values_rstdisbl_atmega328, "hfuse", 1, 0x80, 7, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_atmega16m1, "hfuse", 1, 0x80, 7, 1, "reset configuration"},
   {"bodlevel", 8, _values_bodlevel_atmega16m1, "efuse", 2, 0x07, 0, 7, "brownout detection trigger level"},
   {"pscrvb", 2, _values_pscrvb_atmega16m1, "efuse", 2, 0x08, 3, 1, "PSC0UTnB reset value"},
   {"pscrva", 2, _values_pscrva_atmega16m1, "efuse", 2, 0x10, 4, 1, "PSCOUTnA reset value"},
@@ -12311,14 +12368,14 @@ const Configitem cfgtab_attiny441[14] = {
 // AT90PWM2 AT90PWM3
 const Configitem cfgtab_at90pwm2[18] = {
   {"sut_cksel", 42, _values_sut_cksel_at90pwm2, "lfuse", 0, 0x3f, 0, 0x22, "clock source"},
-  {"ckout", 2, _values_ckout_atmega328, "lfuse", 0, 0x40, 6, 1, "clock output"},
+  {"ckout", 2, _values_ckout_atmega16m1, "lfuse", 0, 0x40, 6, 1, "clock output"},
   {"ckdiv8", 2, _values_ckdiv8_atmega328, "lfuse", 0, 0x80, 7, 0, "clock prescaled"},
   {"bodlevel", 8, _values_bodlevel_atmega16m1, "hfuse", 1, 0x07, 0, 7, "brownout detection trigger level"},
   {"eesave", 2, _values_eesave_atmega328, "hfuse", 1, 0x08, 3, 1, "EEPROM after chip erase"},
   {"wdton", 2, _values_wdton_atmega328, "hfuse", 1, 0x10, 4, 1, "watchdog timer"},
   {"spien", 2, _values_spien_atmega328, "hfuse", 1, 0x20, 5, 0, "serial programming"},
   {"dwen", 2, _values_dwen_atmega328, "hfuse", 1, 0x40, 6, 1, "debugWIRE"},
-  {"rstdisbl", 2, _values_rstdisbl_atmega328, "hfuse", 1, 0x80, 7, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_atmega16m1, "hfuse", 1, 0x80, 7, 1, "reset configuration"},
   {"bootrst", 2, _values_bootrst_atmega328, "efuse", 2, 0x01, 0, 1, "reset address"},
   {"bootsz", 4, _values_bootsz_atmega8515, "efuse", 2, 0x06, 1, 0, "boot section size"},
   {"pscrv", 2, _values_pscrv_at90pwm2, "efuse", 2, 0x10, 4, 1, "PSCOUT reset value"},
@@ -12333,7 +12390,7 @@ const Configitem cfgtab_at90pwm2[18] = {
 // AT90PWM81 AT90PWM161
 const Configitem cfgtab_at90pwm81[19] = {
   {"sut_cksel", 56, _values_sut_cksel_at90pwm81, "lfuse", 0, 0x3f, 0, 0x22, "clock source"},
-  {"ckout", 2, _values_ckout_atmega16m1, "lfuse", 0, 0x40, 6, 1, "clock output"},
+  {"ckout", 2, _values_ckout_at90pwm81, "lfuse", 0, 0x40, 6, 1, "clock output"},
   {"ckdiv8", 2, _values_ckdiv8_atmega328, "lfuse", 0, 0x80, 7, 0, "clock prescaled"},
   {"bootrst", 2, _values_bootrst_atmega328, "hfuse", 1, 0x01, 0, 1, "reset address"},
   {"bootsz", 4, _values_bootsz_atmega8515, "hfuse", 1, 0x06, 1, 0, "boot section size"},
@@ -12341,7 +12398,7 @@ const Configitem cfgtab_at90pwm81[19] = {
   {"wdton", 2, _values_wdton_atmega328, "hfuse", 1, 0x10, 4, 1, "watchdog timer"},
   {"spien", 2, _values_spien_atmega328, "hfuse", 1, 0x20, 5, 0, "serial programming"},
   {"dwen", 2, _values_dwen_atmega328, "hfuse", 1, 0x40, 6, 1, "debugWIRE"},
-  {"rstdisbl", 2, _values_rstdisbl_at90pwm81, "hfuse", 1, 0x80, 7, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_atmega16m1, "hfuse", 1, 0x80, 7, 1, "reset configuration"},
   {"bodlevel", 8, _values_bodlevel_at90pwm81, "efuse", 2, 0x07, 0, 5, "brownout detection trigger level"},
   {"pscinrb", 2, _values_pscinrb_at90pwm81, "efuse", 2, 0x08, 3, 1, "PSC2 and PSC0 input reset behavior"},
   {"pscrv", 2, _values_pscrv_at90pwm2, "efuse", 2, 0x10, 4, 1, "PSCOUT reset value"},
@@ -12382,7 +12439,7 @@ const Configitem cfgtab_at90usb162[15] = {
   {"eesave", 2, _values_eesave_atmega328, "hfuse", 1, 0x08, 3, 1, "EEPROM after chip erase"},
   {"wdton", 2, _values_wdton_atmega328, "hfuse", 1, 0x10, 4, 1, "watchdog timer"},
   {"spien", 2, _values_spien_atmega328, "hfuse", 1, 0x20, 5, 0, "serial programming"},
-  {"rstdisbl", 2, _values_rstdisbl_atmega328, "hfuse", 1, 0x40, 6, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_at90usb162, "hfuse", 1, 0x40, 6, 1, "reset configuration"},
   {"dwen", 2, _values_dwen_atmega328, "hfuse", 1, 0x80, 7, 1, "debugWIRE"},
   {"bodlevel", 8, _values_bodlevel_at90usb162, "efuse", 2, 0x07, 0, 4, "brownout detection trigger level"},
   {"hwbe", 2, _values_hwbe_at90usb162, "efuse", 2, 0x08, 3, 0, "hardware boot"},
@@ -12418,10 +12475,10 @@ const Configitem cfgtab_ata5700m322[9] = {
   {"lb", 3, _values_lb_atmega328, "lock", 0, 0x03, 0, 3, "lock bits"},
 };
 
-// ATA5781 ATA5782 ATA5783 ATA5831 ATA5832 ATA5833 ATA8210 ATA8215 ATA8510 ATA8515
+// ATA5781 ATA5782 ATA5783 ATA5831 ATA5832 ATA5833
 const Configitem cfgtab_ata5781[11] = {
   {"extclken", 2, _values_extclken_ata5781, "fuse", 0, 0x01, 0, 1, "external clock"},
-  {"rstdisbl", 2, _values_rstdisbl_attiny102, "fuse", 0, 0x02, 1, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_ata5781, "fuse", 0, 0x02, 1, 1, "reset configuration"},
   {"bootrst", 2, _values_bootrst_atmega328, "fuse", 0, 0x04, 2, 1, "reset address"},
   {"eesave", 2, _values_eesave_atmega328, "fuse", 0, 0x08, 3, 1, "EEPROM after chip erase"},
   {"wdton", 2, _values_wdton_atmega328, "fuse", 0, 0x10, 4, 1, "watchdog timer"},
@@ -12477,7 +12534,7 @@ const Configitem cfgtab_atxmega16e5[17] = {
   {"bootrst", 2, _values_bootrst_atmega328, "fuse2", 2, 0x40, 6, 1, "reset address"},
   {"wdlock", 2, _values_wdlock_atxmega16e5, "fuse4", 4, 0x02, 1, 1, "watchdog timer"},
   {"startuptime", 3, _values_startuptime_atxmega16e5, "fuse4", 4, 0x0c, 2, 3, "startup time"},
-  {"rstdisbl", 2, _values_rstdisbl_attiny102, "fuse4", 4, 0x10, 4, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_atxmega16e5, "fuse4", 4, 0x10, 4, 1, "reset configuration"},
   {"bodlevel", 8, _values_bodlevel_atxmega16e5, "fuse5", 5, 0x07, 0, 7, "brownout detection trigger level"},
   {"eesave", 2, _values_eesave_atmega328, "fuse5", 5, 0x08, 3, 1, "EEPROM after chip erase"},
   {"bodact", 3, _values_bodact_atxmega16e5, "fuse5", 5, 0x30, 4, 3, "brownout detection in active/idle mode"},
@@ -12503,7 +12560,7 @@ const Configitem cfgtab_atxmega192a1[16] = {
   {"jtagen", 2, _values_jtagen_at90can128, "fuse4", 4, 0x01, 0, 0, "JTAG interface"},
   {"wdlock", 2, _values_wdlock_atxmega16e5, "fuse4", 4, 0x02, 1, 1, "watchdog timer"},
   {"startuptime", 3, _values_startuptime_atxmega16e5, "fuse4", 4, 0x0c, 2, 3, "startup time"},
-  {"rstdisbl", 2, _values_rstdisbl_attiny102, "fuse4", 4, 0x10, 4, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_atxmega16e5, "fuse4", 4, 0x10, 4, 1, "reset configuration"},
   {"bodlevel", 8, _values_bodlevel_atxmega192a1, "fuse5", 5, 0x07, 0, 7, "brownout detection trigger level"},
   {"eesave", 2, _values_eesave_atmega328, "fuse5", 5, 0x08, 3, 1, "EEPROM after chip erase"},
   {"bodact", 3, _values_bodact_atxmega16e5, "fuse5", 5, 0x30, 4, 3, "brownout detection in active/idle mode"},
@@ -12527,7 +12584,7 @@ const Configitem cfgtab_atxmega128a3u[17] = {
   {"jtagen", 2, _values_jtagen_at90can128, "fuse4", 4, 0x01, 0, 0, "JTAG interface"},
   {"wdlock", 2, _values_wdlock_atxmega16e5, "fuse4", 4, 0x02, 1, 1, "watchdog timer"},
   {"startuptime", 3, _values_startuptime_atxmega16e5, "fuse4", 4, 0x0c, 2, 3, "startup time"},
-  {"rstdisbl", 2, _values_rstdisbl_attiny102, "fuse4", 4, 0x10, 4, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_atxmega16e5, "fuse4", 4, 0x10, 4, 1, "reset configuration"},
   {"bodlevel", 8, _values_bodlevel_atxmega16e5, "fuse5", 5, 0x07, 0, 7, "brownout detection trigger level"},
   {"eesave", 2, _values_eesave_atmega328, "fuse5", 5, 0x08, 3, 1, "EEPROM after chip erase"},
   {"bodact", 3, _values_bodact_atxmega16e5, "fuse5", 5, 0x30, 4, 3, "brownout detection in active/idle mode"},
@@ -12547,7 +12604,7 @@ const Configitem cfgtab_atxmega64a4[16] = {
   {"jtagen", 2, _values_jtagen_at90can128, "fuse4", 4, 0x01, 0, 0, "JTAG interface"},
   {"wdlock", 2, _values_wdlock_atxmega16e5, "fuse4", 4, 0x02, 1, 1, "watchdog timer"},
   {"startuptime", 3, _values_startuptime_atxmega16e5, "fuse4", 4, 0x0c, 2, 3, "startup time"},
-  {"rstdisbl", 2, _values_rstdisbl_attiny102, "fuse4", 4, 0x10, 4, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_atxmega16e5, "fuse4", 4, 0x10, 4, 1, "reset configuration"},
   {"bodlevel", 8, _values_bodlevel_atxmega64a4, "fuse5", 5, 0x07, 0, 7, "brownout detection trigger level"},
   {"eesave", 2, _values_eesave_atmega328, "fuse5", 5, 0x08, 3, 1, "EEPROM after chip erase"},
   {"bodact", 3, _values_bodact_atxmega16e5, "fuse5", 5, 0x30, 4, 3, "brownout detection in active/idle mode"},
@@ -12677,7 +12734,7 @@ const Configitem cfgtab_atmega103comp[15] = {
 // AT90SCR100H AT90SCR100
 const Configitem cfgtab_at90scr100h[13] = {
   {"sut_cksel", 14, _values_sut_cksel_at90scr100h, "lfuse", 0, 0x39, 0, -1, "clock source"},
-  {"ckout", 2, _values_ckout_at90scr100h, "lfuse", 0, 0x40, 6, -1, "clock output"},
+  {"ckout", 2, _values_ckout_attiny102, "lfuse", 0, 0x40, 6, -1, "clock output"},
   {"bootrst", 2, _values_bootrst_atmega328, "hfuse", 1, 0x01, 0, -1, "reset address"},
   {"bootsz", 4, _values_bootsz_atmega64hve, "hfuse", 1, 0x06, 1, -1, "boot section size"},
   {"eesave", 2, _values_eesave_atmega328, "hfuse", 1, 0x08, 3, -1, "EEPROM after chip erase"},
@@ -12729,17 +12786,26 @@ const Configitem cfgtab_at90s8535comp[13] = {
 
 // ATtiny4 ATtiny5 ATtiny9 ATtiny10
 const Configitem cfgtab_attiny4[4] = {
-  {"rstdisbl", 2, _values_rstdisbl_attiny102, "fuse", 0, 0x01, 0, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_attiny441, "fuse", 0, 0x01, 0, 1, "reset configuration"},
   {"wdton", 2, _values_wdton_atmega328, "fuse", 0, 0x02, 1, 1, "watchdog timer"},
-  {"ckout", 2, _values_ckout_attiny102, "fuse", 0, 0x04, 2, 1, "clock output"},
+  {"ckout", 2, _values_ckout_attiny441, "fuse", 0, 0x04, 2, 1, "clock output"},
   {"lb", 3, _values_lb_atmega328, "lock", 0, 0x03, 0, 3, "lock bits"},
 };
 
-// ATtiny20 ATtiny40
+// ATtiny20
 const Configitem cfgtab_attiny20[5] = {
-  {"rstdisbl", 2, _values_rstdisbl_attiny102, "fuse", 0, 0x01, 0, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_attiny441, "fuse", 0, 0x01, 0, 1, "reset configuration"},
   {"wdton", 2, _values_wdton_atmega328, "fuse", 0, 0x02, 1, 1, "watchdog timer"},
-  {"ckout", 2, _values_ckout_attiny102, "fuse", 0, 0x04, 2, 1, "clock output"},
+  {"ckout", 2, _values_ckout_attiny441, "fuse", 0, 0x04, 2, 1, "clock output"},
+  {"bodlevel", 4, _values_bodlevel_atmega328, "fuse", 0, 0x70, 4, 7, "brownout detection trigger level"},
+  {"lb", 3, _values_lb_atmega328, "lock", 0, 0x03, 0, 3, "lock bits"},
+};
+
+// ATtiny40
+const Configitem cfgtab_attiny40[5] = {
+  {"rstdisbl", 2, _values_rstdisbl_attiny40, "fuse", 0, 0x01, 0, 1, "reset configuration"},
+  {"wdton", 2, _values_wdton_atmega328, "fuse", 0, 0x02, 1, 1, "watchdog timer"},
+  {"ckout", 2, _values_ckout_attiny40, "fuse", 0, 0x04, 2, 1, "clock output"},
   {"bodlevel", 4, _values_bodlevel_atmega328, "fuse", 0, 0x70, 4, 7, "brownout detection trigger level"},
   {"lb", 3, _values_lb_atmega328, "lock", 0, 0x03, 0, 3, "lock bits"},
 };
@@ -12796,14 +12862,14 @@ const Configitem cfgtab_attiny22[3] = {
 // ATtiny24 ATtiny24A ATtiny44 ATtiny44A ATtiny84 ATtiny84A
 const Configitem cfgtab_attiny24[11] = {
   {"sut_cksel", 44, _values_sut_cksel_attiny24, "lfuse", 0, 0x3f, 0, 0x22, "clock source"},
-  {"ckout", 2, _values_ckout_attiny24, "lfuse", 0, 0x40, 6, 1, "clock output"},
+  {"ckout", 2, _values_ckout_attiny441, "lfuse", 0, 0x40, 6, 1, "clock output"},
   {"ckdiv8", 2, _values_ckdiv8_atmega328, "lfuse", 0, 0x80, 7, 0, "clock prescaled"},
   {"bodlevel", 4, _values_bodlevel_atmega328, "hfuse", 1, 0x07, 0, 7, "brownout detection trigger level"},
   {"eesave", 2, _values_eesave_atmega328, "hfuse", 1, 0x08, 3, 1, "EEPROM after chip erase"},
   {"wdton", 2, _values_wdton_atmega328, "hfuse", 1, 0x10, 4, 1, "watchdog timer"},
   {"spien", 2, _values_spien_atmega328, "hfuse", 1, 0x20, 5, 0, "serial programming"},
   {"dwen", 2, _values_dwen_atmega328, "hfuse", 1, 0x40, 6, 1, "debugWIRE"},
-  {"rstdisbl", 2, _values_rstdisbl_attiny24, "hfuse", 1, 0x80, 7, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_attiny441, "hfuse", 1, 0x80, 7, 1, "reset configuration"},
   {"selfprgen", 2, _values_selfprgen_atmega16hva2, "efuse", 2, 0x01, 0, 1, "self programming"},
   {"lb", 3, _values_lb_atmega328, "lock", 0, 0x03, 0, 3, "lock bits"},
 };
@@ -12835,7 +12901,7 @@ const Configitem cfgtab_attiny26[8] = {
   {"lb", 3, _values_lb_atmega328, "lock", 0, 0x03, 0, 3, "lock bits"},
 };
 
-// ATtiny43U ATtiny261 ATtiny261A ATtiny461 ATtiny461A ATtiny861 ATtiny861A
+// ATtiny43U
 const Configitem cfgtab_attiny43u[11] = {
   {"sut_cksel", 48, _values_sut_cksel_attiny43u, "lfuse", 0, 0x3f, 0, 0x22, "clock source"},
   {"ckout", 2, _values_ckout_attiny43u, "lfuse", 0, 0x40, 6, 1, "clock output"},
@@ -12845,7 +12911,7 @@ const Configitem cfgtab_attiny43u[11] = {
   {"wdton", 2, _values_wdton_atmega328, "hfuse", 1, 0x10, 4, 1, "watchdog timer"},
   {"spien", 2, _values_spien_atmega328, "hfuse", 1, 0x20, 5, 0, "serial programming"},
   {"dwen", 2, _values_dwen_atmega328, "hfuse", 1, 0x40, 6, 1, "debugWIRE"},
-  {"rstdisbl", 2, _values_rstdisbl_attiny26, "hfuse", 1, 0x80, 7, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_attiny43u, "hfuse", 1, 0x80, 7, 1, "reset configuration"},
   {"selfprgen", 2, _values_selfprgen_atmega16hva2, "efuse", 2, 0x01, 0, 1, "self programming"},
   {"lb", 3, _values_lb_atmega328, "lock", 0, 0x03, 0, 3, "lock bits"},
 };
@@ -12868,7 +12934,22 @@ const Configitem cfgtab_attiny48[11] = {
 // ATtiny87 ATtiny167 ATA5272 ATA5505 ATA6616C ATA6617C ATA664251
 const Configitem cfgtab_attiny87[11] = {
   {"sut_cksel", 44, _values_sut_cksel_attiny87, "lfuse", 0, 0x3f, 0, 0x22, "clock source"},
-  {"ckout", 2, _values_ckout_attiny43u, "lfuse", 0, 0x40, 6, 1, "clock output"},
+  {"ckout", 2, _values_ckout_attiny87, "lfuse", 0, 0x40, 6, 1, "clock output"},
+  {"ckdiv8", 2, _values_ckdiv8_atmega328, "lfuse", 0, 0x80, 7, 0, "clock prescaled"},
+  {"bodlevel", 8, _values_bodlevel_at90pwm81, "hfuse", 1, 0x07, 0, 7, "brownout detection trigger level"},
+  {"eesave", 2, _values_eesave_atmega328, "hfuse", 1, 0x08, 3, 1, "EEPROM after chip erase"},
+  {"wdton", 2, _values_wdton_atmega328, "hfuse", 1, 0x10, 4, 1, "watchdog timer"},
+  {"spien", 2, _values_spien_atmega328, "hfuse", 1, 0x20, 5, 0, "serial programming"},
+  {"dwen", 2, _values_dwen_atmega328, "hfuse", 1, 0x40, 6, 1, "debugWIRE"},
+  {"rstdisbl", 2, _values_rstdisbl_attiny26, "hfuse", 1, 0x80, 7, 1, "reset configuration"},
+  {"selfprgen", 2, _values_selfprgen_atmega16hva2, "efuse", 2, 0x01, 0, 1, "self programming"},
+  {"lb", 3, _values_lb_atmega328, "lock", 0, 0x03, 0, 3, "lock bits"},
+};
+
+// ATtiny261 ATtiny261A ATtiny461 ATtiny461A ATtiny861 ATtiny861A
+const Configitem cfgtab_attiny261[11] = {
+  {"sut_cksel", 48, _values_sut_cksel_attiny43u, "lfuse", 0, 0x3f, 0, 0x22, "clock source"},
+  {"ckout", 2, _values_ckout_attiny87, "lfuse", 0, 0x40, 6, 1, "clock output"},
   {"ckdiv8", 2, _values_ckdiv8_atmega328, "lfuse", 0, 0x80, 7, 0, "clock prescaled"},
   {"bodlevel", 8, _values_bodlevel_at90pwm81, "hfuse", 1, 0x07, 0, 7, "brownout detection trigger level"},
   {"eesave", 2, _values_eesave_atmega328, "hfuse", 1, 0x08, 3, 1, "EEPROM after chip erase"},
@@ -12883,14 +12964,14 @@ const Configitem cfgtab_attiny87[11] = {
 // ATtiny828 ATtiny828R
 const Configitem cfgtab_attiny828[16] = {
   {"sut_cksel", 16, _values_sut_cksel_attiny828, "lfuse", 0, 0x33, 0, 0x22, "clock source"},
-  {"ckout", 2, _values_ckout_atmega328, "lfuse", 0, 0x40, 6, 1, "clock output"},
+  {"ckout", 2, _values_ckout_ata6285, "lfuse", 0, 0x40, 6, 1, "clock output"},
   {"ckdiv8", 2, _values_ckdiv8_atmega328, "lfuse", 0, 0x80, 7, 0, "clock prescaled"},
   {"bodlevel", 4, _values_bodlevel_atmega328, "hfuse", 1, 0x07, 0, 7, "brownout detection trigger level"},
   {"eesave", 2, _values_eesave_atmega328, "hfuse", 1, 0x08, 3, 1, "EEPROM after chip erase"},
   {"wdton", 2, _values_wdton_atmega328, "hfuse", 1, 0x10, 4, 1, "watchdog timer"},
   {"spien", 2, _values_spien_atmega328, "hfuse", 1, 0x20, 5, 0, "serial programming"},
   {"dwen", 2, _values_dwen_atmega328, "hfuse", 1, 0x40, 6, 1, "debugWIRE"},
-  {"rstdisbl", 2, _values_rstdisbl_atmega328, "hfuse", 1, 0x80, 7, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_attiny828, "hfuse", 1, 0x80, 7, 1, "reset configuration"},
   {"bootrst", 2, _values_bootrst_atmega328, "efuse", 2, 0x01, 0, 1, "reset address"},
   {"bootsz", 4, _values_bootsz_atmega8515, "efuse", 2, 0x06, 1, 3, "boot section size"},
   {"bodact", 3, _values_bodact_attiny441, "efuse", 2, 0x30, 4, 3, "brownout detection in active/idle mode"},
@@ -12903,14 +12984,14 @@ const Configitem cfgtab_attiny828[16] = {
 // ATtiny1634 ATtiny1634R
 const Configitem cfgtab_attiny1634[13] = {
   {"sut_cksel", 15, _values_sut_cksel_attiny1634, "lfuse", 0, 0x1f, 0, 0x02, "clock source"},
-  {"ckout", 2, _values_ckout_attiny441, "lfuse", 0, 0x40, 6, 1, "clock output"},
+  {"ckout", 2, _values_ckout_attiny40, "lfuse", 0, 0x40, 6, 1, "clock output"},
   {"ckdiv8", 2, _values_ckdiv8_atmega328, "lfuse", 0, 0x80, 7, 0, "clock prescaled"},
   {"bodlevel", 4, _values_bodlevel_attiny441, "hfuse", 1, 0x07, 0, 7, "brownout detection trigger level"},
   {"eesave", 2, _values_eesave_atmega328, "hfuse", 1, 0x08, 3, 1, "EEPROM after chip erase"},
   {"wdton", 2, _values_wdton_atmega328, "hfuse", 1, 0x10, 4, 1, "watchdog timer"},
   {"spien", 2, _values_spien_atmega328, "hfuse", 1, 0x20, 5, 0, "serial programming"},
   {"dwen", 2, _values_dwen_atmega328, "hfuse", 1, 0x40, 6, 1, "debugWIRE"},
-  {"rstdisbl", 2, _values_rstdisbl_attiny441, "hfuse", 1, 0x80, 7, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_attiny40, "hfuse", 1, 0x80, 7, 1, "reset configuration"},
   {"selfprgen", 2, _values_selfprgen_atmega16hva2, "efuse", 2, 0x01, 0, 1, "self programming"},
   {"bodact", 3, _values_bodact_attiny441, "efuse", 2, 0x06, 1, 3, "brownout detection in active/idle mode"},
   {"bodpd", 3, _values_bodpd_attiny441, "efuse", 2, 0x18, 3, 3, "brownout detection in power-down mode"},
@@ -12985,7 +13066,7 @@ const Configitem cfgtab_atmega8u2[15] = {
   {"eesave", 2, _values_eesave_atmega328, "hfuse", 1, 0x08, 3, 1, "EEPROM after chip erase"},
   {"wdton", 2, _values_wdton_atmega328, "hfuse", 1, 0x10, 4, 1, "watchdog timer"},
   {"spien", 2, _values_spien_atmega328, "hfuse", 1, 0x20, 5, 0, "serial programming"},
-  {"rstdisbl", 2, _values_rstdisbl_atmega328, "hfuse", 1, 0x40, 6, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_at90usb162, "hfuse", 1, 0x40, 6, 1, "reset configuration"},
   {"dwen", 2, _values_dwen_atmega328, "hfuse", 1, 0x80, 7, 1, "debugWIRE"},
   {"bodlevel", 8, _values_bodlevel_at90usb162, "efuse", 2, 0x07, 0, 4, "brownout detection trigger level"},
   {"hwbe", 2, _values_hwbe_at90usb162, "efuse", 2, 0x08, 3, 0, "hardware boot"},
@@ -13106,7 +13187,7 @@ const Configitem cfgtab_atmega32c1[17] = {
   {"wdton", 2, _values_wdton_atmega328, "hfuse", 1, 0x10, 4, 1, "watchdog timer"},
   {"spien", 2, _values_spien_atmega328, "hfuse", 1, 0x20, 5, 0, "serial programming"},
   {"dwen", 2, _values_dwen_atmega328, "hfuse", 1, 0x40, 6, 1, "debugWIRE"},
-  {"rstdisbl", 2, _values_rstdisbl_atmega328, "hfuse", 1, 0x80, 7, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_atmega16m1, "hfuse", 1, 0x80, 7, 1, "reset configuration"},
   {"bodlevel", 8, _values_bodlevel_atmega16m1, "efuse", 2, 0x07, 0, 7, "brownout detection trigger level"},
   {"pscrvb", 2, _values_pscrvb_atmega16m1, "efuse", 2, 0x08, 3, 1, "PSC0UTnB reset value"},
   {"pscrva", 2, _values_pscrva_atmega16m1, "efuse", 2, 0x10, 4, 1, "PSCOUTnA reset value"},
@@ -13126,7 +13207,7 @@ const Configitem cfgtab_atmega32u2[15] = {
   {"eesave", 2, _values_eesave_atmega328, "hfuse", 1, 0x08, 3, 1, "EEPROM after chip erase"},
   {"wdton", 2, _values_wdton_atmega328, "hfuse", 1, 0x10, 4, 1, "watchdog timer"},
   {"spien", 2, _values_spien_atmega328, "hfuse", 1, 0x20, 5, 0, "serial programming"},
-  {"rstdisbl", 2, _values_rstdisbl_atmega328, "hfuse", 1, 0x40, 6, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_at90usb162, "hfuse", 1, 0x40, 6, 1, "reset configuration"},
   {"dwen", 2, _values_dwen_atmega328, "hfuse", 1, 0x80, 7, 1, "debugWIRE"},
   {"bodlevel", 8, _values_bodlevel_at90usb162, "efuse", 2, 0x07, 0, 4, "brownout detection trigger level"},
   {"hwbe", 2, _values_hwbe_at90usb162, "efuse", 2, 0x08, 3, 0, "hardware boot"},
@@ -13233,7 +13314,7 @@ const Configitem cfgtab_atmega64c1[17] = {
   {"wdton", 2, _values_wdton_atmega328, "hfuse", 1, 0x10, 4, 1, "watchdog timer"},
   {"spien", 2, _values_spien_atmega328, "hfuse", 1, 0x20, 5, 0, "serial programming"},
   {"dwen", 2, _values_dwen_atmega328, "hfuse", 1, 0x40, 6, 1, "debugWIRE"},
-  {"rstdisbl", 2, _values_rstdisbl_atmega328, "hfuse", 1, 0x80, 7, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_atmega16m1, "hfuse", 1, 0x80, 7, 1, "reset configuration"},
   {"bodlevel", 8, _values_bodlevel_atmega16m1, "efuse", 2, 0x07, 0, 7, "brownout detection trigger level"},
   {"pscrvb", 2, _values_pscrvb_atmega16m1, "efuse", 2, 0x08, 3, 1, "PSC0UTnB reset value"},
   {"pscrva", 2, _values_pscrva_atmega16m1, "efuse", 2, 0x10, 4, 1, "PSCOUTnA reset value"},
@@ -13423,7 +13504,7 @@ const Configitem cfgtab_atmega163[9] = {
 // ATmega164A ATmega164P ATmega164PA
 const Configitem cfgtab_atmega164a[14] = {
   {"sut_cksel", 55, _values_sut_cksel_atmega164a, "lfuse", 0, 0x3f, 0, 0x22, "clock source"},
-  {"ckout", 2, _values_ckout_at90scr100h, "lfuse", 0, 0x40, 6, 1, "clock output"},
+  {"ckout", 2, _values_ckout_attiny102, "lfuse", 0, 0x40, 6, 1, "clock output"},
   {"ckdiv8", 2, _values_ckdiv8_atmega328, "lfuse", 0, 0x80, 7, 0, "clock prescaled"},
   {"bootrst", 2, _values_bootrst_atmega328, "hfuse", 1, 0x01, 0, 1, "reset address"},
   {"bootsz", 4, _values_bootsz_atmega161comp, "hfuse", 1, 0x06, 1, 0, "boot section size"},
@@ -13438,7 +13519,7 @@ const Configitem cfgtab_atmega164a[14] = {
   {"blb1", 4, _values_blb1_atmega328, "lock", 0, 0x30, 4, 3, "boot lock bits: boot section"},
 };
 
-// ATmega165 ATmega165A ATmega165P ATmega165PA ATmega169 ATmega169A ATmega169P ATmega169PA
+// ATmega165 ATmega169
 const Configitem cfgtab_atmega165[15] = {
   {"sut_cksel", 44, _values_sut_cksel_atmega165, "lfuse", 0, 0x3f, 0, 0x22, "clock source"},
   {"ckout", 2, _values_ckout_atmega64rfr2, "lfuse", 0, 0x40, 6, 1, "clock output"},
@@ -13450,7 +13531,26 @@ const Configitem cfgtab_atmega165[15] = {
   {"spien", 2, _values_spien_atmega328, "hfuse", 1, 0x20, 5, 0, "serial programming"},
   {"jtagen", 2, _values_jtagen_at90can128, "hfuse", 1, 0x40, 6, 0, "JTAG interface"},
   {"ocden", 2, _values_ocden_at90can128, "hfuse", 1, 0x80, 7, 1, "on-chip debug"},
-  {"rstdisbl", 2, _values_rstdisbl_attiny102, "efuse", 2, 0x01, 0, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_atxmega16e5, "efuse", 2, 0x01, 0, 1, "reset configuration"},
+  {"bodlevel", 4, _values_bodlevel_atmega328, "efuse", 2, 0x0e, 1, 7, "brownout detection trigger level"},
+  {"lb", 3, _values_lb_atmega328, "lock", 0, 0x03, 0, 3, "lock bits"},
+  {"blb0", 4, _values_blb0_atmega328, "lock", 0, 0x0c, 2, 3, "boot lock bits: application section"},
+  {"blb1", 4, _values_blb1_atmega328, "lock", 0, 0x30, 4, 3, "boot lock bits: boot section"},
+};
+
+// ATmega165A ATmega165P ATmega165PA ATmega169A ATmega169P ATmega169PA
+const Configitem cfgtab_atmega165a[15] = {
+  {"sut_cksel", 44, _values_sut_cksel_atmega165, "lfuse", 0, 0x3f, 0, 0x22, "clock source"},
+  {"ckout", 2, _values_ckout_atmega64rfr2, "lfuse", 0, 0x40, 6, 1, "clock output"},
+  {"ckdiv8", 2, _values_ckdiv8_atmega328, "lfuse", 0, 0x80, 7, 0, "clock prescaled"},
+  {"bootrst", 2, _values_bootrst_atmega328, "hfuse", 1, 0x01, 0, 1, "reset address"},
+  {"bootsz", 4, _values_bootsz_atmega161comp, "hfuse", 1, 0x06, 1, 0, "boot section size"},
+  {"eesave", 2, _values_eesave_atmega328, "hfuse", 1, 0x08, 3, 1, "EEPROM after chip erase"},
+  {"wdton", 2, _values_wdton_atmega328, "hfuse", 1, 0x10, 4, 1, "watchdog timer"},
+  {"spien", 2, _values_spien_atmega328, "hfuse", 1, 0x20, 5, 0, "serial programming"},
+  {"jtagen", 2, _values_jtagen_at90can128, "hfuse", 1, 0x40, 6, 0, "JTAG interface"},
+  {"ocden", 2, _values_ocden_at90can128, "hfuse", 1, 0x80, 7, 1, "on-chip debug"},
+  {"rstdisbl", 2, _values_rstdisbl_atmega165a, "efuse", 2, 0x01, 0, 1, "reset configuration"},
   {"bodlevel", 4, _values_bodlevel_atmega328, "efuse", 2, 0x0e, 1, 7, "brownout detection trigger level"},
   {"lb", 3, _values_lb_atmega328, "lock", 0, 0x03, 0, 3, "lock bits"},
   {"blb0", 4, _values_blb0_atmega328, "lock", 0, 0x0c, 2, 3, "boot lock bits: application section"},
@@ -13530,7 +13630,7 @@ const Configitem cfgtab_atmega323[12] = {
 // ATmega324A ATmega324P ATmega324PA
 const Configitem cfgtab_atmega324a[14] = {
   {"sut_cksel", 55, _values_sut_cksel_atmega164a, "lfuse", 0, 0x3f, 0, 0x22, "clock source"},
-  {"ckout", 2, _values_ckout_at90scr100h, "lfuse", 0, 0x40, 6, 1, "clock output"},
+  {"ckout", 2, _values_ckout_attiny102, "lfuse", 0, 0x40, 6, 1, "clock output"},
   {"ckdiv8", 2, _values_ckdiv8_atmega328, "lfuse", 0, 0x80, 7, 0, "clock prescaled"},
   {"bootrst", 2, _values_bootrst_atmega328, "hfuse", 1, 0x01, 0, 1, "reset address"},
   {"bootsz", 4, _values_bootsz_atmega328, "hfuse", 1, 0x06, 1, 0, "boot section size"},
@@ -13548,7 +13648,7 @@ const Configitem cfgtab_atmega324a[14] = {
 // ATmega324PB
 const Configitem cfgtab_atmega324pb[15] = {
   {"sut_cksel", 47, _values_sut_cksel_atmega328pb, "lfuse", 0, 0x3f, 0, 0x22, "clock source"},
-  {"ckout", 2, _values_ckout_at90scr100h, "lfuse", 0, 0x40, 6, 1, "clock output"},
+  {"ckout", 2, _values_ckout_attiny102, "lfuse", 0, 0x40, 6, 1, "clock output"},
   {"ckdiv8", 2, _values_ckdiv8_atmega328, "lfuse", 0, 0x80, 7, 0, "clock prescaled"},
   {"bootrst", 2, _values_bootrst_atmega328, "hfuse", 1, 0x01, 0, 1, "reset address"},
   {"bootsz", 4, _values_bootsz_atmega328, "hfuse", 1, 0x06, 1, 0, "boot section size"},
@@ -13579,7 +13679,7 @@ const Configitem cfgtab_atmega325[15] = {
   {"spien", 2, _values_spien_atmega328, "hfuse", 1, 0x20, 5, 0, "serial programming"},
   {"jtagen", 2, _values_jtagen_at90can128, "hfuse", 1, 0x40, 6, 0, "JTAG interface"},
   {"ocden", 2, _values_ocden_at90can128, "hfuse", 1, 0x80, 7, 1, "on-chip debug"},
-  {"rstdisbl", 2, _values_rstdisbl_attiny102, "efuse", 2, 0x01, 0, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_atmega165a, "efuse", 2, 0x01, 0, 1, "reset configuration"},
   {"bodlevel", 4, _values_bodlevel_attiny13, "efuse", 2, 0x06, 1, 3, "brownout detection trigger level"},
   {"lb", 3, _values_lb_atmega328, "lock", 0, 0x03, 0, 3, "lock bits"},
   {"blb0", 4, _values_blb0_atmega328, "lock", 0, 0x0c, 2, 3, "boot lock bits: application section"},
@@ -13621,7 +13721,7 @@ const Configitem cfgtab_atmega640[14] = {
 // ATmega644 ATmega644A ATmega644P ATmega644PA
 const Configitem cfgtab_atmega644[14] = {
   {"sut_cksel", 55, _values_sut_cksel_atmega164a, "lfuse", 0, 0x3f, 0, 0x22, "clock source"},
-  {"ckout", 2, _values_ckout_at90scr100h, "lfuse", 0, 0x40, 6, 1, "clock output"},
+  {"ckout", 2, _values_ckout_attiny102, "lfuse", 0, 0x40, 6, 1, "clock output"},
   {"ckdiv8", 2, _values_ckdiv8_atmega328, "lfuse", 0, 0x80, 7, 0, "clock prescaled"},
   {"bootrst", 2, _values_bootrst_atmega328, "hfuse", 1, 0x01, 0, 1, "reset address"},
   {"bootsz", 4, _values_bootsz_atmega64hve, "hfuse", 1, 0x06, 1, 0, "boot section size"},
@@ -13651,7 +13751,7 @@ const Configitem cfgtab_atmega645[15] = {
   {"spien", 2, _values_spien_atmega328, "hfuse", 1, 0x20, 5, 0, "serial programming"},
   {"jtagen", 2, _values_jtagen_at90can128, "hfuse", 1, 0x40, 6, 0, "JTAG interface"},
   {"ocden", 2, _values_ocden_at90can128, "hfuse", 1, 0x80, 7, 1, "on-chip debug"},
-  {"rstdisbl", 2, _values_rstdisbl_attiny102, "efuse", 2, 0x01, 0, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_atmega165a, "efuse", 2, 0x01, 0, 1, "reset configuration"},
   {"bodlevel", 4, _values_bodlevel_attiny13, "efuse", 2, 0x06, 1, 3, "brownout detection trigger level"},
   {"lb", 3, _values_lb_atmega328, "lock", 0, 0x03, 0, 3, "lock bits"},
   {"blb0", 4, _values_blb0_atmega328, "lock", 0, 0x0c, 2, 3, "boot lock bits: application section"},
@@ -13679,7 +13779,7 @@ const Configitem cfgtab_atmega1280[14] = {
 // ATmega1284 ATmega1284P
 const Configitem cfgtab_atmega1284[14] = {
   {"sut_cksel", 55, _values_sut_cksel_atmega164a, "lfuse", 0, 0x3f, 0, 0x22, "clock source"},
-  {"ckout", 2, _values_ckout_at90scr100h, "lfuse", 0, 0x40, 6, 1, "clock output"},
+  {"ckout", 2, _values_ckout_attiny102, "lfuse", 0, 0x40, 6, 1, "clock output"},
   {"ckdiv8", 2, _values_ckdiv8_atmega328, "lfuse", 0, 0x80, 7, 0, "clock prescaled"},
   {"bootrst", 2, _values_bootrst_atmega328, "hfuse", 1, 0x01, 0, 1, "reset address"},
   {"bootsz", 4, _values_bootsz_at90can128, "hfuse", 1, 0x06, 1, 0, "boot section size"},
@@ -13732,14 +13832,14 @@ const Configitem cfgtab_atmega8535[13] = {
 // AT90PWM1
 const Configitem cfgtab_at90pwm1[17] = {
   {"sut_cksel", 42, _values_sut_cksel_at90pwm2, "lfuse", 0, 0x3f, 0, 0x22, "clock source"},
-  {"ckout", 2, _values_ckout_atmega328, "lfuse", 0, 0x40, 6, 1, "clock output"},
+  {"ckout", 2, _values_ckout_atmega16m1, "lfuse", 0, 0x40, 6, 1, "clock output"},
   {"ckdiv8", 2, _values_ckdiv8_atmega328, "lfuse", 0, 0x80, 7, 0, "clock prescaled"},
   {"bodlevel", 8, _values_bodlevel_atmega16m1, "hfuse", 1, 0x07, 0, 7, "brownout detection trigger level"},
   {"eesave", 2, _values_eesave_atmega328, "hfuse", 1, 0x08, 3, 1, "EEPROM after chip erase"},
   {"wdton", 2, _values_wdton_atmega328, "hfuse", 1, 0x10, 4, 1, "watchdog timer"},
   {"spien", 2, _values_spien_atmega328, "hfuse", 1, 0x20, 5, 0, "serial programming"},
   {"dwen", 2, _values_dwen_atmega328, "hfuse", 1, 0x40, 6, 1, "debugWIRE"},
-  {"rstdisbl", 2, _values_rstdisbl_atmega328, "hfuse", 1, 0x80, 7, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_atmega16m1, "hfuse", 1, 0x80, 7, 1, "reset configuration"},
   {"bootrst", 2, _values_bootrst_atmega328, "efuse", 2, 0x01, 0, 1, "reset address"},
   {"bootsz", 4, _values_bootsz_atmega8515, "efuse", 2, 0x06, 1, 0, "boot section size"},
   {"pscrv", 2, _values_pscrv_at90pwm2, "efuse", 2, 0x10, 4, 1, "PSCOUT reset value"},
@@ -13753,14 +13853,14 @@ const Configitem cfgtab_at90pwm1[17] = {
 // AT90PWM2B AT90PWM3B
 const Configitem cfgtab_at90pwm2b[18] = {
   {"sut_cksel", 53, _values_sut_cksel_atmega16m1, "lfuse", 0, 0x3f, 0, 0x22, "clock source"},
-  {"ckout", 2, _values_ckout_atmega328, "lfuse", 0, 0x40, 6, 1, "clock output"},
+  {"ckout", 2, _values_ckout_atmega16m1, "lfuse", 0, 0x40, 6, 1, "clock output"},
   {"ckdiv8", 2, _values_ckdiv8_atmega328, "lfuse", 0, 0x80, 7, 0, "clock prescaled"},
   {"bodlevel", 8, _values_bodlevel_atmega16m1, "hfuse", 1, 0x07, 0, 7, "brownout detection trigger level"},
   {"eesave", 2, _values_eesave_atmega328, "hfuse", 1, 0x08, 3, 1, "EEPROM after chip erase"},
   {"wdton", 2, _values_wdton_atmega328, "hfuse", 1, 0x10, 4, 1, "watchdog timer"},
   {"spien", 2, _values_spien_atmega328, "hfuse", 1, 0x20, 5, 0, "serial programming"},
   {"dwen", 2, _values_dwen_atmega328, "hfuse", 1, 0x40, 6, 1, "debugWIRE"},
-  {"rstdisbl", 2, _values_rstdisbl_atmega328, "hfuse", 1, 0x80, 7, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_atmega16m1, "hfuse", 1, 0x80, 7, 1, "reset configuration"},
   {"bootrst", 2, _values_bootrst_atmega328, "efuse", 2, 0x01, 0, 1, "reset address"},
   {"bootsz", 4, _values_bootsz_atmega8515, "efuse", 2, 0x06, 1, 0, "boot section size"},
   {"pscrv", 2, _values_pscrv_at90pwm2, "efuse", 2, 0x10, 4, 1, "PSCOUT reset value"},
@@ -13813,14 +13913,14 @@ const Configitem cfgtab_at90can64[15] = {
 // AT90PWM216
 const Configitem cfgtab_at90pwm216[18] = {
   {"sut_cksel", 42, _values_sut_cksel_at90pwm2, "lfuse", 0, 0x3f, 0, 0x22, "clock source"},
-  {"ckout", 2, _values_ckout_atmega328, "lfuse", 0, 0x40, 6, 1, "clock output"},
+  {"ckout", 2, _values_ckout_atmega16m1, "lfuse", 0, 0x40, 6, 1, "clock output"},
   {"ckdiv8", 2, _values_ckdiv8_atmega328, "lfuse", 0, 0x80, 7, 0, "clock prescaled"},
   {"bodlevel", 8, _values_bodlevel_atmega16m1, "hfuse", 1, 0x07, 0, 7, "brownout detection trigger level"},
   {"eesave", 2, _values_eesave_atmega328, "hfuse", 1, 0x08, 3, 1, "EEPROM after chip erase"},
   {"wdton", 2, _values_wdton_atmega328, "hfuse", 1, 0x10, 4, 1, "watchdog timer"},
   {"spien", 2, _values_spien_atmega328, "hfuse", 1, 0x20, 5, 0, "serial programming"},
   {"dwen", 2, _values_dwen_atmega328, "hfuse", 1, 0x40, 6, 1, "debugWIRE"},
-  {"rstdisbl", 2, _values_rstdisbl_atmega328, "hfuse", 1, 0x80, 7, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_atmega16m1, "hfuse", 1, 0x80, 7, 1, "reset configuration"},
   {"bootrst", 2, _values_bootrst_atmega328, "efuse", 2, 0x01, 0, 1, "reset address"},
   {"bootsz", 4, _values_bootsz_atmega16m1, "efuse", 2, 0x06, 1, 0, "boot section size"},
   {"pscrv", 2, _values_pscrv_at90pwm2, "efuse", 2, 0x10, 4, 1, "PSCOUT reset value"},
@@ -13835,14 +13935,14 @@ const Configitem cfgtab_at90pwm216[18] = {
 // AT90PWM316
 const Configitem cfgtab_at90pwm316[18] = {
   {"sut_cksel", 53, _values_sut_cksel_atmega16m1, "lfuse", 0, 0x3f, 0, 0x22, "clock source"},
-  {"ckout", 2, _values_ckout_atmega328, "lfuse", 0, 0x40, 6, 1, "clock output"},
+  {"ckout", 2, _values_ckout_atmega16m1, "lfuse", 0, 0x40, 6, 1, "clock output"},
   {"ckdiv8", 2, _values_ckdiv8_atmega328, "lfuse", 0, 0x80, 7, 0, "clock prescaled"},
   {"bodlevel", 8, _values_bodlevel_atmega16m1, "hfuse", 1, 0x07, 0, 7, "brownout detection trigger level"},
   {"eesave", 2, _values_eesave_atmega328, "hfuse", 1, 0x08, 3, 1, "EEPROM after chip erase"},
   {"wdton", 2, _values_wdton_atmega328, "hfuse", 1, 0x10, 4, 1, "watchdog timer"},
   {"spien", 2, _values_spien_atmega328, "hfuse", 1, 0x20, 5, 0, "serial programming"},
   {"dwen", 2, _values_dwen_atmega328, "hfuse", 1, 0x40, 6, 1, "debugWIRE"},
-  {"rstdisbl", 2, _values_rstdisbl_atmega328, "hfuse", 1, 0x80, 7, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_atmega16m1, "hfuse", 1, 0x80, 7, 1, "reset configuration"},
   {"bootrst", 2, _values_bootrst_atmega328, "efuse", 2, 0x01, 0, 1, "reset address"},
   {"bootsz", 4, _values_bootsz_atmega16m1, "efuse", 2, 0x06, 1, 0, "boot section size"},
   {"pscrv", 2, _values_pscrv_at90pwm2, "efuse", 2, 0x10, 4, 1, "PSCOUT reset value"},
@@ -13941,10 +14041,10 @@ const Configitem cfgtab_at90s8515comp[13] = {
   {"blb1", 4, _values_blb1_atmega328, "lock", 0, 0x30, 4, 3, "boot lock bits: boot section"},
 };
 
-// ATA5787 ATA5835
+// ATA5787
 const Configitem cfgtab_ata5787[11] = {
   {"extclken", 2, _values_extclken_ata5781, "fuse", 0, 0x01, 0, 1, "external clock"},
-  {"rstdisbl", 2, _values_rstdisbl_attiny102, "fuse", 0, 0x02, 1, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_ata5787, "fuse", 0, 0x02, 1, 1, "reset configuration"},
   {"bootrst", 2, _values_bootrst_atmega328, "fuse", 0, 0x04, 2, 1, "reset address"},
   {"eesave", 2, _values_eesave_atmega328, "fuse", 0, 0x08, 3, 1, "EEPROM after chip erase"},
   {"wdton", 2, _values_wdton_atmega328, "fuse", 0, 0x10, 4, 1, "watchdog timer"},
@@ -13965,6 +14065,21 @@ const Configitem cfgtab_ata5790n[10] = {
   {"spien", 2, _values_spien_atmega328, "fuse", 0, 0x20, 5, 0, "serial programming"},
   {"dwen", 2, _values_dwen_atmega328, "fuse", 0, 0x40, 6, 1, "debugWIRE"},
   {"ckdiv8", 2, _values_ckdiv8_atmega328, "fuse", 0, 0x80, 7, 0, "clock prescaled"},
+  {"lb", 3, _values_lb_atmega328, "lock", 0, 0x03, 0, 3, "lock bits"},
+  {"blb0", 4, _values_blb0_atmega328, "lock", 0, 0x0c, 2, 3, "boot lock bits: application section"},
+  {"blb1", 4, _values_blb1_atmega328, "lock", 0, 0x30, 4, 3, "boot lock bits: boot section"},
+};
+
+// ATA5835
+const Configitem cfgtab_ata5835[11] = {
+  {"extclken", 2, _values_extclken_ata5781, "fuse", 0, 0x01, 0, 1, "external clock"},
+  {"rstdisbl", 2, _values_rstdisbl_ata5781, "fuse", 0, 0x02, 1, 1, "reset configuration"},
+  {"bootrst", 2, _values_bootrst_atmega328, "fuse", 0, 0x04, 2, 1, "reset address"},
+  {"eesave", 2, _values_eesave_atmega328, "fuse", 0, 0x08, 3, 1, "EEPROM after chip erase"},
+  {"wdton", 2, _values_wdton_atmega328, "fuse", 0, 0x10, 4, 1, "watchdog timer"},
+  {"spien", 2, _values_spien_atmega328, "fuse", 0, 0x20, 5, 0, "serial programming"},
+  {"dwen", 2, _values_dwen_atmega328, "fuse", 0, 0x40, 6, 1, "debugWIRE"},
+  {"ckdiv8", 2, _values_ckdiv8_atmega328, "fuse", 0, 0x80, 7, 1, "clock prescaled"},
   {"lb", 3, _values_lb_atmega328, "lock", 0, 0x03, 0, 3, "lock bits"},
   {"blb0", 4, _values_blb0_atmega328, "lock", 0, 0x0c, 2, 3, "boot lock bits: application section"},
   {"blb1", 4, _values_blb1_atmega328, "lock", 0, 0x30, 4, 3, "boot lock bits: boot section"},
@@ -13991,6 +14106,21 @@ const Configitem cfgtab_ata6289[17] = {
   {"blb1", 4, _values_blb1_atmega328, "lock", 0, 0x30, 4, 3, "boot lock bits: boot section"},
 };
 
+// ATA8210 ATA8215 ATA8510 ATA8515
+const Configitem cfgtab_ata8210[11] = {
+  {"extclken", 2, _values_extclken_ata5781, "fuse", 0, 0x01, 0, 1, "external clock"},
+  {"rstdisbl", 2, _values_rstdisbl_ata5787, "fuse", 0, 0x02, 1, 1, "reset configuration"},
+  {"bootrst", 2, _values_bootrst_atmega328, "fuse", 0, 0x04, 2, 1, "reset address"},
+  {"eesave", 2, _values_eesave_atmega328, "fuse", 0, 0x08, 3, 1, "EEPROM after chip erase"},
+  {"wdton", 2, _values_wdton_atmega328, "fuse", 0, 0x10, 4, 1, "watchdog timer"},
+  {"spien", 2, _values_spien_atmega328, "fuse", 0, 0x20, 5, 0, "serial programming"},
+  {"dwen", 2, _values_dwen_atmega328, "fuse", 0, 0x40, 6, 1, "debugWIRE"},
+  {"ckdiv8", 2, _values_ckdiv8_atmega328, "fuse", 0, 0x80, 7, 1, "clock prescaled"},
+  {"lb", 3, _values_lb_atmega328, "lock", 0, 0x03, 0, 3, "lock bits"},
+  {"ap", 4, _values_ap_atmega328, "lock", 0, 0x0c, 2, 3, "application protection"},
+  {"blp", 4, _values_blp_atmega328, "lock", 0, 0x30, 4, 3, "boot loader protection"},
+};
+
 /*
  * ATxmega16C4 ATxmega16D4 ATxmega32C3 ATxmega32D3 ATxmega32C4 ATxmega32D4 ATxmega64C3 ATxmega64D3
  * ATxmega64D4 ATxmega128C3 ATxmega128D3 ATxmega128D4 ATxmega192C3 ATxmega192D3 ATxmega256C3
@@ -14004,7 +14134,7 @@ const Configitem cfgtab_atxmega16c4[15] = {
   {"bootrst", 2, _values_bootrst_atmega328, "fuse2", 2, 0x40, 6, 1, "reset address"},
   {"wdlock", 2, _values_wdlock_atxmega16e5, "fuse4", 4, 0x02, 1, 1, "watchdog timer"},
   {"startuptime", 3, _values_startuptime_atxmega16e5, "fuse4", 4, 0x0c, 2, 3, "startup time"},
-  {"rstdisbl", 2, _values_rstdisbl_attiny102, "fuse4", 4, 0x10, 4, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_atxmega16e5, "fuse4", 4, 0x10, 4, 1, "reset configuration"},
   {"bodlevel", 8, _values_bodlevel_atxmega16e5, "fuse5", 5, 0x07, 0, 7, "brownout detection trigger level"},
   {"eesave", 2, _values_eesave_atmega328, "fuse5", 5, 0x08, 3, 1, "EEPROM after chip erase"},
   {"bodact", 3, _values_bodact_atxmega16e5, "fuse5", 5, 0x30, 4, 3, "brownout detection in active/idle mode"},
@@ -14025,7 +14155,7 @@ const Configitem cfgtab_atxmega64b1[17] = {
   {"jtagen", 2, _values_jtagen_at90can128, "fuse4", 4, 0x01, 0, 1, "JTAG interface"},
   {"wdlock", 2, _values_wdlock_atxmega16e5, "fuse4", 4, 0x02, 1, 1, "watchdog timer"},
   {"startuptime", 3, _values_startuptime_atxmega16e5, "fuse4", 4, 0x0c, 2, 3, "startup time"},
-  {"rstdisbl", 2, _values_rstdisbl_attiny102, "fuse4", 4, 0x10, 4, 1, "reset configuration"},
+  {"rstdisbl", 2, _values_rstdisbl_atxmega16e5, "fuse4", 4, 0x10, 4, 1, "reset configuration"},
   {"bodlevel", 8, _values_bodlevel_atxmega16e5, "fuse5", 5, 0x07, 0, 7, "brownout detection trigger level"},
   {"eesave", 2, _values_eesave_atmega328, "fuse5", 5, 0x08, 3, 1, "EEPROM after chip erase"},
   {"bodact", 3, _values_bodact_atxmega16e5, "fuse5", 5, 0x30, 4, 3, "brownout detection in active/idle mode"},
