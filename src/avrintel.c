@@ -8,8 +8,8 @@
  * Published under GNU General Public License, version 3 (GPL-3.0)
  * Meta-author Stefan Rueger <stefan.rueger@urclocks.com>
  *
- * v 1.50
- * 17.04.2026
+ * v 1.51
+ * 20.04.2026
  *
  */
 
@@ -132,7 +132,7 @@ int upmatchingsig(uint8_t sigs[3], char *p, size_t n) {
 #define UART_XMEGA        UARTTYPE_XMEGA,   1, 12, 4
 #define UART_AVR8X        UARTTYPE_AVR8X,   1, 12, 4
 
-const Avrintel uP_table[422] = { // Value of -1 typically means unknown
+const Avrintel uP_table[431] = { // Value of -1 typically means unknown
   //mcu_name                                                          // Sources
   //{mcu_name,       mcuid,  family, {sig,    na, ture}, // ID
   //mcu_name       flstart,  flsize, pgsiz, nb, bootsz, eestart, eesize, ep, rambeg, ramsiz, // Mem
@@ -2301,12 +2301,26 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   /*ATtiny417*/        283, rgftab_attiny417,       1,        UART_AVR8X,  2, uarts_attiny204, // Register file, UART
   /*ATtiny417*/          3, ports_attiny807, WDT_AVR8X}, // Ports, WDT
 
+  //ATtiny417auto                             avrdude, from ATtiny417 // Sources
+  {"ATtiny417auto",    422, F_AVR8X, {0x1E, 0x92, 0x20}, // ID
+  /*ATtiny417auto*/      0, 0x01000, 0x040,  1, 0x0100, 0x01400, 0x0080, 32, 0x3f00, 0x0100, // Mem
+  /*ATtiny417auto*/     10,  1,  26, vtab_attiny416,       23, cfgtab_attiny416auto, // ISRs, Config
+  /*ATtiny417auto*/    283, rgftab_attiny417,       1,        UART_AVR8X,  2, uarts_attiny204, // Register file, UART
+  /*ATtiny417auto*/      3, ports_attiny807, WDT_AVR8X}, // Ports, WDT
+
   //ATtiny814                           atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATtiny814",        298, F_AVR8X, {0x1E, 0x93, 0x22}, // ID
   /*ATtiny814*/          0, 0x02000, 0x040,  1, 0x0100, 0x01400, 0x0080, 32, 0x3e00, 0x0200, // Mem
   /*ATtiny814*/         10,  1,  26, vtab_attiny214,       23, cfgtab_attiny202, // ISRs, Config
   /*ATtiny814*/        265, rgftab_attiny814,       1,        UART_AVR8X,  2, uarts_attiny204, // Register file, UART
   /*ATtiny814*/          2, ports_attiny204, WDT_AVR8X}, // Ports, WDT
+
+  //ATtiny814auto                             avrdude, from ATtiny814 // Sources
+  {"ATtiny814auto",    423, F_AVR8X, {0x1E, 0x93, 0x22}, // ID
+  /*ATtiny814auto*/      0, 0x02000, 0x040,  1, 0x0100, 0x01400, 0x0080, 32, 0x3e00, 0x0200, // Mem
+  /*ATtiny814auto*/     10,  1,  26, vtab_attiny214,       23, cfgtab_attiny416auto, // ISRs, Config
+  /*ATtiny814auto*/    265, rgftab_attiny814,       1,        UART_AVR8X,  2, uarts_attiny204, // Register file, UART
+  /*ATtiny814auto*/      2, ports_attiny204, WDT_AVR8X}, // Ports, WDT
 
   //ATtiny816                           atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATtiny816",        299, F_AVR8X, {0x1E, 0x93, 0x21}, // ID
@@ -2315,12 +2329,26 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   /*ATtiny816*/        283, rgftab_attiny417,       1,        UART_AVR8X,  2, uarts_attiny204, // Register file, UART
   /*ATtiny816*/          3, ports_attiny406, WDT_AVR8X}, // Ports, WDT
 
+  //ATtiny816auto                             avrdude, from ATtiny816 // Sources
+  {"ATtiny816auto",    424, F_AVR8X, {0x1E, 0x93, 0x21}, // ID
+  /*ATtiny816auto*/      0, 0x02000, 0x040,  1, 0x0100, 0x01400, 0x0080, 32, 0x3e00, 0x0200, // Mem
+  /*ATtiny816auto*/     10,  1,  26, vtab_attiny416,       23, cfgtab_attiny416auto, // ISRs, Config
+  /*ATtiny816auto*/    283, rgftab_attiny417,       1,        UART_AVR8X,  2, uarts_attiny204, // Register file, UART
+  /*ATtiny816auto*/      3, ports_attiny406, WDT_AVR8X}, // Ports, WDT
+
   //ATtiny817                           atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATtiny817",        300, F_AVR8X, {0x1E, 0x93, 0x20}, // ID
   /*ATtiny817*/          0, 0x02000, 0x040,  1, 0x0100, 0x01400, 0x0080, 32, 0x3e00, 0x0200, // Mem
   /*ATtiny817*/         10,  1,  26, vtab_attiny416,       23, cfgtab_attiny202, // ISRs, Config
   /*ATtiny817*/        283, rgftab_attiny417,       1,        UART_AVR8X,  2, uarts_attiny204, // Register file, UART
   /*ATtiny817*/          3, ports_attiny807, WDT_AVR8X}, // Ports, WDT
+
+  //ATtiny817auto                             avrdude, from ATtiny817 // Sources
+  {"ATtiny817auto",    425, F_AVR8X, {0x1E, 0x93, 0x20}, // ID
+  /*ATtiny817auto*/      0, 0x02000, 0x040,  1, 0x0100, 0x01400, 0x0080, 32, 0x3e00, 0x0200, // Mem
+  /*ATtiny817auto*/     10,  1,  26, vtab_attiny416,       23, cfgtab_attiny416auto, // ISRs, Config
+  /*ATtiny817auto*/    283, rgftab_attiny417,       1,        UART_AVR8X,  2, uarts_attiny204, // Register file, UART
+  /*ATtiny817auto*/      3, ports_attiny807, WDT_AVR8X}, // Ports, WDT
 
   //ATtiny1614                          atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATtiny1614",       307, F_AVR8X, {0x1E, 0x94, 0x22}, // ID
@@ -2329,6 +2357,13 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   /*ATtiny1614*/       308, rgftab_attiny1614,      1,        UART_AVR8X,  2, uarts_attiny204, // Register file, UART
   /*ATtiny1614*/         2, ports_attiny204, WDT_AVR8X}, // Ports, WDT
 
+  //ATtiny1614auto                           avrdude, from ATtiny1614 // Sources
+  {"ATtiny1614auto",   426, F_AVR8X, {0x1E, 0x94, 0x22}, // ID
+  /*ATtiny1614auto*/     0, 0x04000, 0x040,  1, 0x0100, 0x01400, 0x0100, 32, 0x3800, 0x0800, // Mem
+  /*ATtiny1614auto*/    10,  1,  31, vtab_attiny1614,      23, cfgtab_attiny416auto, // ISRs, Config
+  /*ATtiny1614auto*/   308, rgftab_attiny1614,      1,        UART_AVR8X,  2, uarts_attiny204, // Register file, UART
+  /*ATtiny1614auto*/     2, ports_attiny204, WDT_AVR8X}, // Ports, WDT
+
   //ATtiny1616                          atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATtiny1616",       308, F_AVR8X, {0x1E, 0x94, 0x21}, // ID
   /*ATtiny1616*/         0, 0x04000, 0x040,  1, 0x0100, 0x01400, 0x0100, 32, 0x3800, 0x0800, // Mem
@@ -2336,12 +2371,26 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   /*ATtiny1616*/       326, rgftab_attiny1616,      1,        UART_AVR8X,  2, uarts_attiny204, // Register file, UART
   /*ATtiny1616*/         3, ports_attiny406, WDT_AVR8X}, // Ports, WDT
 
+  //ATtiny1616auto                           avrdude, from ATtiny1616 // Sources
+  {"ATtiny1616auto",   427, F_AVR8X, {0x1E, 0x94, 0x21}, // ID
+  /*ATtiny1616auto*/     0, 0x04000, 0x040,  1, 0x0100, 0x01400, 0x0100, 32, 0x3800, 0x0800, // Mem
+  /*ATtiny1616auto*/    10,  1,  31, vtab_attiny1616,      23, cfgtab_attiny416auto, // ISRs, Config
+  /*ATtiny1616auto*/   326, rgftab_attiny1616,      1,        UART_AVR8X,  2, uarts_attiny204, // Register file, UART
+  /*ATtiny1616auto*/     3, ports_attiny406, WDT_AVR8X}, // Ports, WDT
+
   //ATtiny1617                          atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATtiny1617",       309, F_AVR8X, {0x1E, 0x94, 0x20}, // ID
   /*ATtiny1617*/         0, 0x04000, 0x040,  1, 0x0100, 0x01400, 0x0100, 32, 0x3800, 0x0800, // Mem
   /*ATtiny1617*/        10,  1,  31, vtab_attiny1616,      23, cfgtab_attiny202, // ISRs, Config
   /*ATtiny1617*/       326, rgftab_attiny1616,      1,        UART_AVR8X,  2, uarts_attiny204, // Register file, UART
   /*ATtiny1617*/         3, ports_attiny807, WDT_AVR8X}, // Ports, WDT
+
+  //ATtiny1617auto                           avrdude, from ATtiny1617 // Sources
+  {"ATtiny1617auto",   428, F_AVR8X, {0x1E, 0x94, 0x20}, // ID
+  /*ATtiny1617auto*/     0, 0x04000, 0x040,  1, 0x0100, 0x01400, 0x0100, 32, 0x3800, 0x0800, // Mem
+  /*ATtiny1617auto*/    10,  1,  31, vtab_attiny1616,      23, cfgtab_attiny416auto, // ISRs, Config
+  /*ATtiny1617auto*/   326, rgftab_attiny1616,      1,        UART_AVR8X,  2, uarts_attiny204, // Register file, UART
+  /*ATtiny1617auto*/     3, ports_attiny807, WDT_AVR8X}, // Ports, WDT
 
   //ATtiny3214                                         avr-gcc 12.2.0 // Sources
   {"ATtiny3214",       313, F_AVR8X, {0x1E, 0x95, 0x20}, // ID
@@ -2357,12 +2406,26 @@ const Avrintel uP_table[422] = { // Value of -1 typically means unknown
   /*ATtiny3216*/       326, rgftab_attiny3216,      1,        UART_AVR8X,  2, uarts_attiny204, // Register file, UART
   /*ATtiny3216*/         3, ports_attiny406, WDT_AVR8X}, // Ports, WDT
 
+  //ATtiny3216auto                           avrdude, from ATtiny3216 // Sources
+  {"ATtiny3216auto",   429, F_AVR8X, {0x1E, 0x95, 0x21}, // ID
+  /*ATtiny3216auto*/     0, 0x08000, 0x080,  1, 0x0100, 0x01400, 0x0100, 64, 0x3800, 0x0800, // Mem
+  /*ATtiny3216auto*/    10,  1,  31, vtab_attiny1616,      23, cfgtab_attiny416auto, // ISRs, Config
+  /*ATtiny3216auto*/   326, rgftab_attiny3216,      1,        UART_AVR8X,  2, uarts_attiny204, // Register file, UART
+  /*ATtiny3216auto*/     3, ports_attiny406, WDT_AVR8X}, // Ports, WDT
+
   //ATtiny3217                          atdf, avr-gcc 12.2.0, avrdude // Sources
   {"ATtiny3217",       315, F_AVR8X, {0x1E, 0x95, 0x22}, // ID
   /*ATtiny3217*/         0, 0x08000, 0x080,  1, 0x0100, 0x01400, 0x0100, 64, 0x3800, 0x0800, // Mem
   /*ATtiny3217*/        10,  1,  31, vtab_attiny1616,      23, cfgtab_attiny202, // ISRs, Config
   /*ATtiny3217*/       326, rgftab_attiny3216,      1,        UART_AVR8X,  2, uarts_attiny204, // Register file, UART
   /*ATtiny3217*/         3, ports_attiny807, WDT_AVR8X}, // Ports, WDT
+
+  //ATtiny3217auto                           avrdude, from ATtiny3217 // Sources
+  {"ATtiny3217auto",   430, F_AVR8X, {0x1E, 0x95, 0x22}, // ID
+  /*ATtiny3217auto*/     0, 0x08000, 0x080,  1, 0x0100, 0x01400, 0x0100, 64, 0x3800, 0x0800, // Mem
+  /*ATtiny3217auto*/    10,  1,  31, vtab_attiny1616,      23, cfgtab_attiny416auto, // ISRs, Config
+  /*ATtiny3217auto*/   326, rgftab_attiny3216,      1,        UART_AVR8X,  2, uarts_attiny204, // Register file, UART
+  /*ATtiny3217auto*/     3, ports_attiny807, WDT_AVR8X}, // Ports, WDT
 
   //ATtiny424                                           atdf, avrdude // Sources
   {"ATtiny424",        292, F_AVR8X, {0x1E, 0x92, 0x2C}, // ID
@@ -7517,7 +7580,7 @@ const char * const vtab_attiny212[vts_attiny212] = {
   "NVMCTRL_EE",                 //  25: NVM EEPROM
 };
 
-// ATtiny214 ATtiny414 ATtiny814
+// ATtiny214 ATtiny414 ATtiny814 ATtiny814auto
 const char * const vtab_attiny214[vts_attiny214] = {
   "RESET",                      //   0: Reset (various reasons)
   "CRCSCAN_NMI",                //   1: CRCSCAN Non-maskable Interrupt
@@ -7547,7 +7610,7 @@ const char * const vtab_attiny214[vts_attiny214] = {
   "NVMCTRL_EE",                 //  25: NVM EEPROM
 };
 
-// ATtiny416 ATtiny416auto ATtiny417 ATtiny816 ATtiny817
+// ATtiny416 ATtiny416auto ATtiny417 ATtiny417auto ATtiny816 ATtiny816auto ATtiny817 ATtiny817auto
 const char * const vtab_attiny416[vts_attiny416] = {
   "RESET",                      //   0: Reset (various reasons)
   "CRCSCAN_NMI",                //   1: CRCSCAN Non-maskable Interrupt
@@ -7577,7 +7640,7 @@ const char * const vtab_attiny416[vts_attiny416] = {
   "NVMCTRL_EE",                 //  25: NVM EEPROM
 };
 
-// ATtiny1614
+// ATtiny1614 ATtiny1614auto
 const char * const vtab_attiny1614[vts_attiny1614] = {
   "RESET",                      //   0: Reset (various reasons)
   "CRCSCAN_NMI",                //   1: CRCSCAN Non-maskable Interrupt
@@ -7612,7 +7675,10 @@ const char * const vtab_attiny1614[vts_attiny1614] = {
   "NVMCTRL_EE",                 //  30: NVM EEPROM
 };
 
-// ATtiny1616 ATtiny1617 ATtiny3216 ATtiny3217
+/*
+ * ATtiny1616 ATtiny1616auto ATtiny1617 ATtiny1617auto ATtiny3216 ATtiny3216auto ATtiny3217
+ * ATtiny3217auto
+ */
 const char * const vtab_attiny1616[vts_attiny1616] = {
   "RESET",                      //   0: Reset (various reasons)
   "CRCSCAN_NMI",                //   1: CRCSCAN Non-maskable Interrupt
@@ -9125,10 +9191,11 @@ static const Configvalue _values_lb_atxmega64a1[3] = {
 /*
  * ATtiny202 ATtiny204 ATtiny402 ATtiny404 ATtiny406 ATtiny804 ATtiny806 ATtiny807 ATtiny1604
  * ATtiny1606 ATtiny1607 ATtiny212 ATtiny214 ATtiny412 ATtiny414 ATtiny416 ATtiny416auto ATtiny417
- * ATtiny814 ATtiny816 ATtiny817 ATtiny1614 ATtiny1616 ATtiny1617 ATtiny3216 ATtiny3217 ATtiny424
- * ATtiny426 ATtiny427 ATtiny824 ATtiny826 ATtiny827 ATtiny1624 ATtiny1626 ATtiny1627 ATtiny3224
- * ATtiny3226 ATtiny3227 ATmega808 ATmega809 ATmega1608 ATmega1609 ATmega3208 ATmega3209
- * ATmega4808 ATmega4809
+ * ATtiny417auto ATtiny814 ATtiny814auto ATtiny816 ATtiny816auto ATtiny817 ATtiny817auto
+ * ATtiny1614 ATtiny1614auto ATtiny1616 ATtiny1616auto ATtiny1617 ATtiny1617auto ATtiny3216
+ * ATtiny3216auto ATtiny3217 ATtiny3217auto ATtiny424 ATtiny426 ATtiny427 ATtiny824 ATtiny826
+ * ATtiny827 ATtiny1624 ATtiny1626 ATtiny1627 ATtiny3224 ATtiny3226 ATtiny3227 ATmega808 ATmega809
+ * ATmega1608 ATmega1609 ATmega3208 ATmega3209 ATmega4808 ATmega4809
  */
 static const Configvalue _values_lb_attiny202[2] = {
   {0x3a, "rwlock", "read and write not allowed"},
@@ -9339,7 +9406,10 @@ static const Configvalue _values_bodlevel_attiny202[3] = {
   {7, "bod_4v2", "brownout detection at 4.2 V"},
 };
 
-// ATtiny416auto
+/*
+ * ATtiny416auto ATtiny417auto ATtiny814auto ATtiny816auto ATtiny817auto ATtiny1614auto
+ * ATtiny1616auto ATtiny1617auto ATtiny3216auto ATtiny3217auto
+ */
 static const Configvalue _values_bodlevel_attiny416auto[2] = {
   {2, "bod_2v6", "brownout detection at 2.6 V"},
   {7, "bod_4v2", "brownout detection at 4.2 V"},
@@ -10737,19 +10807,21 @@ static const Configvalue _values_eesave_at90s8515comp[2] = {
 /*
  * ATtiny202 ATtiny204 ATtiny402 ATtiny404 ATtiny406 ATtiny804 ATtiny806 ATtiny807 ATtiny1604
  * ATtiny1606 ATtiny1607 ATtiny212 ATtiny214 ATtiny412 ATtiny414 ATtiny416 ATtiny416auto ATtiny417
- * ATtiny814 ATtiny816 ATtiny817 ATtiny1614 ATtiny1616 ATtiny1617 ATtiny3216 ATtiny3217 ATtiny424
- * ATtiny426 ATtiny427 ATtiny824 ATtiny826 ATtiny827 ATtiny1624 ATtiny1626 ATtiny1627 ATtiny3224
- * ATtiny3226 ATtiny3227 ATmega808 ATmega809 ATmega1608 ATmega1609 ATmega3208 ATmega3209
- * ATmega4808 ATmega4809 AVR32DA28 AVR32DA28S AVR32DA32 AVR32DA32S AVR32DA48 AVR32DA48S AVR64DA28
- * AVR64DA28S AVR64DA32 AVR64DA32S AVR64DA48 AVR64DA48S AVR64DA64 AVR64DA64S AVR128DA28
- * AVR128DA28S AVR128DA32 AVR128DA32S AVR128DA48 AVR128DA48S AVR128DA64 AVR128DA64S AVR32DB28
- * AVR32DB32 AVR32DB48 AVR64DB28 AVR64DB32 AVR64DB48 AVR64DB64 AVR128DB28 AVR128DB32 AVR128DB48
- * AVR128DB64 AVR16DD14 AVR16DD20 AVR16DD28 AVR16DD32 AVR32DD14 AVR32DD20 AVR32DD28 AVR32DD32
- * AVR64DD14 AVR64DD20 AVR64DD28 AVR64DD32 AVR16DU14 AVR16DU20 AVR16DU28 AVR16DU32 AVR32DU14
- * AVR32DU20 AVR32DU28 AVR32DU32 AVR64DU28 AVR64DU32 AVR16EA28 AVR16EA32 AVR16EA48 AVR32EA28
- * AVR32EA32 AVR32EA48 AVR64EA28 AVR64EA32 AVR64EA48 AVR16EB14 AVR16EB20 AVR16EB28 AVR16EB32
- * AVR32EB14 AVR32EB20 AVR32EB28 AVR32EB32 AVR16LA14 AVR16LA20 AVR16LA28 AVR16LA32 AVR32LA14
- * AVR32LA20 AVR32LA28 AVR32LA32 AVR32SD20 AVR32SD28 AVR32SD32
+ * ATtiny417auto ATtiny814 ATtiny814auto ATtiny816 ATtiny816auto ATtiny817 ATtiny817auto
+ * ATtiny1614 ATtiny1614auto ATtiny1616 ATtiny1616auto ATtiny1617 ATtiny1617auto ATtiny3216
+ * ATtiny3216auto ATtiny3217 ATtiny3217auto ATtiny424 ATtiny426 ATtiny427 ATtiny824 ATtiny826
+ * ATtiny827 ATtiny1624 ATtiny1626 ATtiny1627 ATtiny3224 ATtiny3226 ATtiny3227 ATmega808 ATmega809
+ * ATmega1608 ATmega1609 ATmega3208 ATmega3209 ATmega4808 ATmega4809 AVR32DA28 AVR32DA28S
+ * AVR32DA32 AVR32DA32S AVR32DA48 AVR32DA48S AVR64DA28 AVR64DA28S AVR64DA32 AVR64DA32S AVR64DA48
+ * AVR64DA48S AVR64DA64 AVR64DA64S AVR128DA28 AVR128DA28S AVR128DA32 AVR128DA32S AVR128DA48
+ * AVR128DA48S AVR128DA64 AVR128DA64S AVR32DB28 AVR32DB32 AVR32DB48 AVR64DB28 AVR64DB32 AVR64DB48
+ * AVR64DB64 AVR128DB28 AVR128DB32 AVR128DB48 AVR128DB64 AVR16DD14 AVR16DD20 AVR16DD28 AVR16DD32
+ * AVR32DD14 AVR32DD20 AVR32DD28 AVR32DD32 AVR64DD14 AVR64DD20 AVR64DD28 AVR64DD32 AVR16DU14
+ * AVR16DU20 AVR16DU28 AVR16DU32 AVR32DU14 AVR32DU20 AVR32DU28 AVR32DU32 AVR64DU28 AVR64DU32
+ * AVR16EA28 AVR16EA32 AVR16EA48 AVR32EA28 AVR32EA32 AVR32EA48 AVR64EA28 AVR64EA32 AVR64EA48
+ * AVR16EB14 AVR16EB20 AVR16EB28 AVR16EB32 AVR32EB14 AVR32EB20 AVR32EB28 AVR32EB32 AVR16LA14
+ * AVR16LA20 AVR16LA28 AVR16LA32 AVR32LA14 AVR32LA20 AVR32LA28 AVR32LA32 AVR32SD20 AVR32SD28
+ * AVR32SD32
  */
 static const Configvalue _values_eesave_attiny202[2] = {
   {0, "eex_erased", "EEPROM content is erased during chip erase"},
@@ -11225,19 +11297,21 @@ static const Configvalue _values_sut_atmega64hve[4] = {
 /*
  * ATtiny202 ATtiny204 ATtiny402 ATtiny404 ATtiny406 ATtiny804 ATtiny806 ATtiny807 ATtiny1604
  * ATtiny1606 ATtiny1607 ATtiny212 ATtiny214 ATtiny412 ATtiny414 ATtiny416 ATtiny416auto ATtiny417
- * ATtiny814 ATtiny816 ATtiny817 ATtiny1614 ATtiny1616 ATtiny1617 ATtiny3216 ATtiny3217 ATtiny424
- * ATtiny426 ATtiny427 ATtiny824 ATtiny826 ATtiny827 ATtiny1624 ATtiny1626 ATtiny1627 ATtiny3224
- * ATtiny3226 ATtiny3227 ATmega808 ATmega809 ATmega1608 ATmega1609 ATmega3208 ATmega3209
- * ATmega4808 ATmega4809 AVR32DA28 AVR32DA28S AVR32DA32 AVR32DA32S AVR32DA48 AVR32DA48S AVR64DA28
- * AVR64DA28S AVR64DA32 AVR64DA32S AVR64DA48 AVR64DA48S AVR64DA64 AVR64DA64S AVR128DA28
- * AVR128DA28S AVR128DA32 AVR128DA32S AVR128DA48 AVR128DA48S AVR128DA64 AVR128DA64S AVR32DB28
- * AVR32DB32 AVR32DB48 AVR64DB28 AVR64DB32 AVR64DB48 AVR64DB64 AVR128DB28 AVR128DB32 AVR128DB48
- * AVR128DB64 AVR16DD14 AVR16DD20 AVR16DD28 AVR16DD32 AVR32DD14 AVR32DD20 AVR32DD28 AVR32DD32
- * AVR64DD14 AVR64DD20 AVR64DD28 AVR64DD32 AVR16DU14 AVR16DU20 AVR16DU28 AVR16DU32 AVR32DU14
- * AVR32DU20 AVR32DU28 AVR32DU32 AVR64DU28 AVR64DU32 AVR16EA28 AVR16EA32 AVR16EA48 AVR32EA28
- * AVR32EA32 AVR32EA48 AVR64EA28 AVR64EA32 AVR64EA48 AVR16EB14 AVR16EB20 AVR16EB28 AVR16EB32
- * AVR32EB14 AVR32EB20 AVR32EB28 AVR32EB32 AVR16LA14 AVR16LA20 AVR16LA28 AVR16LA32 AVR32LA14
- * AVR32LA20 AVR32LA28 AVR32LA32 AVR32SD20 AVR32SD28 AVR32SD32
+ * ATtiny417auto ATtiny814 ATtiny814auto ATtiny816 ATtiny816auto ATtiny817 ATtiny817auto
+ * ATtiny1614 ATtiny1614auto ATtiny1616 ATtiny1616auto ATtiny1617 ATtiny1617auto ATtiny3216
+ * ATtiny3216auto ATtiny3217 ATtiny3217auto ATtiny424 ATtiny426 ATtiny427 ATtiny824 ATtiny826
+ * ATtiny827 ATtiny1624 ATtiny1626 ATtiny1627 ATtiny3224 ATtiny3226 ATtiny3227 ATmega808 ATmega809
+ * ATmega1608 ATmega1609 ATmega3208 ATmega3209 ATmega4808 ATmega4809 AVR32DA28 AVR32DA28S
+ * AVR32DA32 AVR32DA32S AVR32DA48 AVR32DA48S AVR64DA28 AVR64DA28S AVR64DA32 AVR64DA32S AVR64DA48
+ * AVR64DA48S AVR64DA64 AVR64DA64S AVR128DA28 AVR128DA28S AVR128DA32 AVR128DA32S AVR128DA48
+ * AVR128DA48S AVR128DA64 AVR128DA64S AVR32DB28 AVR32DB32 AVR32DB48 AVR64DB28 AVR64DB32 AVR64DB48
+ * AVR64DB64 AVR128DB28 AVR128DB32 AVR128DB48 AVR128DB64 AVR16DD14 AVR16DD20 AVR16DD28 AVR16DD32
+ * AVR32DD14 AVR32DD20 AVR32DD28 AVR32DD32 AVR64DD14 AVR64DD20 AVR64DD28 AVR64DD32 AVR16DU14
+ * AVR16DU20 AVR16DU28 AVR16DU32 AVR32DU14 AVR32DU20 AVR32DU28 AVR32DU32 AVR64DU28 AVR64DU32
+ * AVR16EA28 AVR16EA32 AVR16EA48 AVR32EA28 AVR32EA32 AVR32EA48 AVR64EA28 AVR64EA32 AVR64EA48
+ * AVR16EB14 AVR16EB20 AVR16EB28 AVR16EB32 AVR32EB14 AVR32EB20 AVR32EB28 AVR32EB32 AVR16LA14
+ * AVR16LA20 AVR16LA28 AVR16LA32 AVR32LA14 AVR32LA20 AVR32LA28 AVR32LA32 AVR32SD20 AVR32SD28
+ * AVR32SD32
  */
 static const Configvalue _values_sut_attiny202[8] = {
   {0, "sut_0ms", "startup time 0 ms"},
@@ -11607,11 +11681,12 @@ static const Configvalue _values_fdact5_atxmega8e5[2] = {
 /*
  * ATtiny202 ATtiny204 ATtiny402 ATtiny404 ATtiny406 ATtiny804 ATtiny806 ATtiny807 ATtiny1604
  * ATtiny1606 ATtiny1607 ATtiny212 ATtiny214 ATtiny412 ATtiny414 ATtiny416 ATtiny416auto ATtiny417
- * ATtiny814 ATtiny816 ATtiny817 ATtiny1614 ATtiny1616 ATtiny1617 ATtiny3216 ATtiny3217 ATtiny424
- * ATtiny426 ATtiny427 ATtiny824 ATtiny826 ATtiny827 ATtiny1624 ATtiny1626 ATtiny1627 ATtiny3224
- * ATtiny3226 ATtiny3227 ATmega808 ATmega809 ATmega1608 ATmega1609 ATmega3208 ATmega3209
- * ATmega4808 ATmega4809 AVR16LA14 AVR16LA20 AVR16LA28 AVR16LA32 AVR32LA14 AVR32LA20 AVR32LA28
- * AVR32LA32
+ * ATtiny417auto ATtiny814 ATtiny814auto ATtiny816 ATtiny816auto ATtiny817 ATtiny817auto
+ * ATtiny1614 ATtiny1614auto ATtiny1616 ATtiny1616auto ATtiny1617 ATtiny1617auto ATtiny3216
+ * ATtiny3216auto ATtiny3217 ATtiny3217auto ATtiny424 ATtiny426 ATtiny427 ATtiny824 ATtiny826
+ * ATtiny827 ATtiny1624 ATtiny1626 ATtiny1627 ATtiny3224 ATtiny3226 ATtiny3227 ATmega808 ATmega809
+ * ATmega1608 ATmega1609 ATmega3208 ATmega3209 ATmega4808 ATmega4809 AVR16LA14 AVR16LA20 AVR16LA28
+ * AVR16LA32 AVR32LA14 AVR32LA20 AVR32LA28 AVR32LA32
  */
 static const Configvalue _values_wdtperiod_attiny202[12] = {
   {0x00, "t_off", "watchdog timer off"},
@@ -11673,11 +11748,12 @@ static const Configvalue _values_wdtperiod_avr32sd20[12] = {
 /*
  * ATtiny202 ATtiny204 ATtiny402 ATtiny404 ATtiny406 ATtiny804 ATtiny806 ATtiny807 ATtiny1604
  * ATtiny1606 ATtiny1607 ATtiny212 ATtiny214 ATtiny412 ATtiny414 ATtiny416 ATtiny416auto ATtiny417
- * ATtiny814 ATtiny816 ATtiny817 ATtiny1614 ATtiny1616 ATtiny1617 ATtiny3216 ATtiny3217 ATtiny424
- * ATtiny426 ATtiny427 ATtiny824 ATtiny826 ATtiny827 ATtiny1624 ATtiny1626 ATtiny1627 ATtiny3224
- * ATtiny3226 ATtiny3227 ATmega808 ATmega809 ATmega1608 ATmega1609 ATmega3208 ATmega3209
- * ATmega4808 ATmega4809 AVR16LA14 AVR16LA20 AVR16LA28 AVR16LA32 AVR32LA14 AVR32LA20 AVR32LA28
- * AVR32LA32
+ * ATtiny417auto ATtiny814 ATtiny814auto ATtiny816 ATtiny816auto ATtiny817 ATtiny817auto
+ * ATtiny1614 ATtiny1614auto ATtiny1616 ATtiny1616auto ATtiny1617 ATtiny1617auto ATtiny3216
+ * ATtiny3216auto ATtiny3217 ATtiny3217auto ATtiny424 ATtiny426 ATtiny427 ATtiny824 ATtiny826
+ * ATtiny827 ATtiny1624 ATtiny1626 ATtiny1627 ATtiny3224 ATtiny3226 ATtiny3227 ATmega808 ATmega809
+ * ATmega1608 ATmega1609 ATmega3208 ATmega3209 ATmega4808 ATmega4809 AVR16LA14 AVR16LA20 AVR16LA28
+ * AVR16LA32 AVR32LA14 AVR32LA20 AVR32LA28 AVR32LA32
  */
 static const Configvalue _values_wdtwindow_attiny202[12] = {
   {0x00, "t_off", "window mode off"},
@@ -11739,10 +11815,11 @@ static const Configvalue _values_wdtwindow_avr32sd20[12] = {
 /*
  * ATtiny202 ATtiny204 ATtiny402 ATtiny404 ATtiny406 ATtiny804 ATtiny806 ATtiny807 ATtiny1604
  * ATtiny1606 ATtiny1607 ATtiny212 ATtiny214 ATtiny412 ATtiny414 ATtiny416 ATtiny416auto ATtiny417
- * ATtiny814 ATtiny816 ATtiny817 ATtiny1614 ATtiny1616 ATtiny1617 ATtiny3216 ATtiny3217 ATtiny424
- * ATtiny426 ATtiny427 ATtiny824 ATtiny826 ATtiny827 ATtiny1624 ATtiny1626 ATtiny1627 ATtiny3224
- * ATtiny3226 ATtiny3227 ATmega808 ATmega809 ATmega1608 ATmega1609 ATmega3208 ATmega3209
- * ATmega4808 ATmega4809
+ * ATtiny417auto ATtiny814 ATtiny814auto ATtiny816 ATtiny816auto ATtiny817 ATtiny817auto
+ * ATtiny1614 ATtiny1614auto ATtiny1616 ATtiny1616auto ATtiny1617 ATtiny1617auto ATtiny3216
+ * ATtiny3216auto ATtiny3217 ATtiny3217auto ATtiny424 ATtiny426 ATtiny427 ATtiny824 ATtiny826
+ * ATtiny827 ATtiny1624 ATtiny1626 ATtiny1627 ATtiny3224 ATtiny3226 ATtiny3227 ATmega808 ATmega809
+ * ATmega1608 ATmega1609 ATmega3208 ATmega3209 ATmega4808 ATmega4809
  */
 static const Configvalue _values_bodsleep_attiny202[3] = {
   {0, "bod_disabled", "brownout detection disabled"},
@@ -11771,10 +11848,11 @@ static const Configvalue _values_bodsleep_avr32da28[3] = {
 /*
  * ATtiny202 ATtiny204 ATtiny402 ATtiny404 ATtiny406 ATtiny804 ATtiny806 ATtiny807 ATtiny1604
  * ATtiny1606 ATtiny1607 ATtiny212 ATtiny214 ATtiny412 ATtiny414 ATtiny416 ATtiny416auto ATtiny417
- * ATtiny814 ATtiny816 ATtiny817 ATtiny1614 ATtiny1616 ATtiny1617 ATtiny3216 ATtiny3217 ATtiny424
- * ATtiny426 ATtiny427 ATtiny824 ATtiny826 ATtiny827 ATtiny1624 ATtiny1626 ATtiny1627 ATtiny3224
- * ATtiny3226 ATtiny3227 ATmega808 ATmega809 ATmega1608 ATmega1609 ATmega3208 ATmega3209
- * ATmega4808 ATmega4809
+ * ATtiny417auto ATtiny814 ATtiny814auto ATtiny816 ATtiny816auto ATtiny817 ATtiny817auto
+ * ATtiny1614 ATtiny1614auto ATtiny1616 ATtiny1616auto ATtiny1617 ATtiny1617auto ATtiny3216
+ * ATtiny3216auto ATtiny3217 ATtiny3217auto ATtiny424 ATtiny426 ATtiny427 ATtiny824 ATtiny826
+ * ATtiny827 ATtiny1624 ATtiny1626 ATtiny1627 ATtiny3224 ATtiny3226 ATtiny3227 ATmega808 ATmega809
+ * ATmega1608 ATmega1609 ATmega3208 ATmega3209 ATmega4808 ATmega4809
  */
 static const Configvalue _values_bodactive_attiny202[4] = {
   {0, "bod_disabled", "brownout detection disabled"},
@@ -11805,10 +11883,11 @@ static const Configvalue _values_bodactive_avr32da28[4] = {
 /*
  * ATtiny202 ATtiny204 ATtiny402 ATtiny404 ATtiny406 ATtiny804 ATtiny806 ATtiny807 ATtiny1604
  * ATtiny1606 ATtiny1607 ATtiny212 ATtiny214 ATtiny412 ATtiny414 ATtiny416 ATtiny416auto ATtiny417
- * ATtiny814 ATtiny816 ATtiny817 ATtiny1614 ATtiny1616 ATtiny1617 ATtiny3216 ATtiny3217 ATtiny424
- * ATtiny426 ATtiny427 ATtiny824 ATtiny826 ATtiny827 ATtiny1624 ATtiny1626 ATtiny1627 ATtiny3224
- * ATtiny3226 ATtiny3227 ATmega808 ATmega809 ATmega1608 ATmega1609 ATmega3208 ATmega3209
- * ATmega4808 ATmega4809
+ * ATtiny417auto ATtiny814 ATtiny814auto ATtiny816 ATtiny816auto ATtiny817 ATtiny817auto
+ * ATtiny1614 ATtiny1614auto ATtiny1616 ATtiny1616auto ATtiny1617 ATtiny1617auto ATtiny3216
+ * ATtiny3216auto ATtiny3217 ATtiny3217auto ATtiny424 ATtiny426 ATtiny427 ATtiny824 ATtiny826
+ * ATtiny827 ATtiny1624 ATtiny1626 ATtiny1627 ATtiny3224 ATtiny3226 ATtiny3227 ATmega808 ATmega809
+ * ATmega1608 ATmega1609 ATmega3208 ATmega3209 ATmega4808 ATmega4809
  */
 static const Configvalue _values_bodsampfreq_attiny202[2] = {
   {0, "bod_1khz", "1 kHz sampling frequency"},
@@ -11845,7 +11924,10 @@ static const Configvalue _values_freqsel_attiny202[2] = {
   {2, "fcpu_20mhz", "internal clock running at 20 MHz"},
 };
 
-// ATtiny416auto
+/*
+ * ATtiny416auto ATtiny417auto ATtiny814auto ATtiny816auto ATtiny817auto ATtiny1614auto
+ * ATtiny1616auto ATtiny1617auto ATtiny3216auto ATtiny3217auto
+ */
 static const Configvalue _values_freqsel_attiny416auto[1] = {
   {1, "fcpu_16mhz", "internal clock running at 16 MHz"},
 };
@@ -11863,10 +11945,11 @@ static const Configvalue _values_freqsel_avr16ea28[2] = {
 /*
  * ATtiny202 ATtiny204 ATtiny402 ATtiny404 ATtiny406 ATtiny804 ATtiny806 ATtiny807 ATtiny1604
  * ATtiny1606 ATtiny1607 ATtiny212 ATtiny214 ATtiny412 ATtiny414 ATtiny416 ATtiny416auto ATtiny417
- * ATtiny814 ATtiny816 ATtiny817 ATtiny1614 ATtiny1616 ATtiny1617 ATtiny3216 ATtiny3217 ATtiny424
- * ATtiny426 ATtiny427 ATtiny824 ATtiny826 ATtiny827 ATtiny1624 ATtiny1626 ATtiny1627 ATtiny3224
- * ATtiny3226 ATtiny3227 ATmega808 ATmega809 ATmega1608 ATmega1609 ATmega3208 ATmega3209
- * ATmega4808 ATmega4809
+ * ATtiny417auto ATtiny814 ATtiny814auto ATtiny816 ATtiny816auto ATtiny817 ATtiny817auto
+ * ATtiny1614 ATtiny1614auto ATtiny1616 ATtiny1616auto ATtiny1617 ATtiny1617auto ATtiny3216
+ * ATtiny3216auto ATtiny3217 ATtiny3217auto ATtiny424 ATtiny426 ATtiny427 ATtiny824 ATtiny826
+ * ATtiny827 ATtiny1624 ATtiny1626 ATtiny1627 ATtiny3224 ATtiny3226 ATtiny3227 ATmega808 ATmega809
+ * ATmega1608 ATmega1609 ATmega3208 ATmega3209 ATmega4808 ATmega4809
  */
 static const Configvalue _values_osclock_attiny202[2] = {
   {0, "olock_disabled", "oscillator lock disabled"},
@@ -11875,8 +11958,9 @@ static const Configvalue _values_osclock_attiny202[2] = {
 
 /*
  * ATtiny202 ATtiny204 ATtiny402 ATtiny404 ATtiny406 ATtiny212 ATtiny214 ATtiny412 ATtiny414
- * ATtiny416 ATtiny416auto ATtiny417 ATtiny814 ATtiny816 ATtiny817 ATtiny1614 ATtiny1616
- * ATtiny1617 ATtiny3216 ATtiny3217
+ * ATtiny416 ATtiny416auto ATtiny417 ATtiny417auto ATtiny814 ATtiny814auto ATtiny816 ATtiny816auto
+ * ATtiny817 ATtiny817auto ATtiny1614 ATtiny1614auto ATtiny1616 ATtiny1616auto ATtiny1617
+ * ATtiny1617auto ATtiny3216 ATtiny3216auto ATtiny3217 ATtiny3217auto
  */
 static const Configvalue _values_cmpa_attiny202[2] = {
   {0, "v_0", "compare A default output value 0"},
@@ -11885,8 +11969,9 @@ static const Configvalue _values_cmpa_attiny202[2] = {
 
 /*
  * ATtiny202 ATtiny204 ATtiny402 ATtiny404 ATtiny406 ATtiny212 ATtiny214 ATtiny412 ATtiny414
- * ATtiny416 ATtiny416auto ATtiny417 ATtiny814 ATtiny816 ATtiny817 ATtiny1614 ATtiny1616
- * ATtiny1617 ATtiny3216 ATtiny3217
+ * ATtiny416 ATtiny416auto ATtiny417 ATtiny417auto ATtiny814 ATtiny814auto ATtiny816 ATtiny816auto
+ * ATtiny817 ATtiny817auto ATtiny1614 ATtiny1614auto ATtiny1616 ATtiny1616auto ATtiny1617
+ * ATtiny1617auto ATtiny3216 ATtiny3216auto ATtiny3217 ATtiny3217auto
  */
 static const Configvalue _values_cmpb_attiny202[2] = {
   {0, "v_0", "compare B default output value 0"},
@@ -11895,8 +11980,9 @@ static const Configvalue _values_cmpb_attiny202[2] = {
 
 /*
  * ATtiny202 ATtiny204 ATtiny402 ATtiny404 ATtiny406 ATtiny212 ATtiny214 ATtiny412 ATtiny414
- * ATtiny416 ATtiny416auto ATtiny417 ATtiny814 ATtiny816 ATtiny817 ATtiny1614 ATtiny1616
- * ATtiny1617 ATtiny3216 ATtiny3217
+ * ATtiny416 ATtiny416auto ATtiny417 ATtiny417auto ATtiny814 ATtiny814auto ATtiny816 ATtiny816auto
+ * ATtiny817 ATtiny817auto ATtiny1614 ATtiny1614auto ATtiny1616 ATtiny1616auto ATtiny1617
+ * ATtiny1617auto ATtiny3216 ATtiny3216auto ATtiny3217 ATtiny3217auto
  */
 static const Configvalue _values_cmpc_attiny202[2] = {
   {0, "v_0", "compare C default output value 0"},
@@ -11905,8 +11991,9 @@ static const Configvalue _values_cmpc_attiny202[2] = {
 
 /*
  * ATtiny202 ATtiny204 ATtiny402 ATtiny404 ATtiny406 ATtiny212 ATtiny214 ATtiny412 ATtiny414
- * ATtiny416 ATtiny416auto ATtiny417 ATtiny814 ATtiny816 ATtiny817 ATtiny1614 ATtiny1616
- * ATtiny1617 ATtiny3216 ATtiny3217
+ * ATtiny416 ATtiny416auto ATtiny417 ATtiny417auto ATtiny814 ATtiny814auto ATtiny816 ATtiny816auto
+ * ATtiny817 ATtiny817auto ATtiny1614 ATtiny1614auto ATtiny1616 ATtiny1616auto ATtiny1617
+ * ATtiny1617auto ATtiny3216 ATtiny3216auto ATtiny3217 ATtiny3217auto
  */
 static const Configvalue _values_cmpd_attiny202[2] = {
   {0, "v_0", "compare D default output value 0"},
@@ -11915,8 +12002,9 @@ static const Configvalue _values_cmpd_attiny202[2] = {
 
 /*
  * ATtiny202 ATtiny204 ATtiny402 ATtiny404 ATtiny406 ATtiny212 ATtiny214 ATtiny412 ATtiny414
- * ATtiny416 ATtiny416auto ATtiny417 ATtiny814 ATtiny816 ATtiny817 ATtiny1614 ATtiny1616
- * ATtiny1617 ATtiny3216 ATtiny3217
+ * ATtiny416 ATtiny416auto ATtiny417 ATtiny417auto ATtiny814 ATtiny814auto ATtiny816 ATtiny816auto
+ * ATtiny817 ATtiny817auto ATtiny1614 ATtiny1614auto ATtiny1616 ATtiny1616auto ATtiny1617
+ * ATtiny1617auto ATtiny3216 ATtiny3216auto ATtiny3217 ATtiny3217auto
  */
 static const Configvalue _values_cmpaen_attiny202[2] = {
   {0, "cpa_disabled", "compare A output disabled"},
@@ -11925,8 +12013,9 @@ static const Configvalue _values_cmpaen_attiny202[2] = {
 
 /*
  * ATtiny202 ATtiny204 ATtiny402 ATtiny404 ATtiny406 ATtiny212 ATtiny214 ATtiny412 ATtiny414
- * ATtiny416 ATtiny416auto ATtiny417 ATtiny814 ATtiny816 ATtiny817 ATtiny1614 ATtiny1616
- * ATtiny1617 ATtiny3216 ATtiny3217
+ * ATtiny416 ATtiny416auto ATtiny417 ATtiny417auto ATtiny814 ATtiny814auto ATtiny816 ATtiny816auto
+ * ATtiny817 ATtiny817auto ATtiny1614 ATtiny1614auto ATtiny1616 ATtiny1616auto ATtiny1617
+ * ATtiny1617auto ATtiny3216 ATtiny3216auto ATtiny3217 ATtiny3217auto
  */
 static const Configvalue _values_cmpben_attiny202[2] = {
   {0, "cpb_disabled", "compare B output disabled"},
@@ -11935,8 +12024,9 @@ static const Configvalue _values_cmpben_attiny202[2] = {
 
 /*
  * ATtiny202 ATtiny204 ATtiny402 ATtiny404 ATtiny406 ATtiny212 ATtiny214 ATtiny412 ATtiny414
- * ATtiny416 ATtiny416auto ATtiny417 ATtiny814 ATtiny816 ATtiny817 ATtiny1614 ATtiny1616
- * ATtiny1617 ATtiny3216 ATtiny3217
+ * ATtiny416 ATtiny416auto ATtiny417 ATtiny417auto ATtiny814 ATtiny814auto ATtiny816 ATtiny816auto
+ * ATtiny817 ATtiny817auto ATtiny1614 ATtiny1614auto ATtiny1616 ATtiny1616auto ATtiny1617
+ * ATtiny1617auto ATtiny3216 ATtiny3216auto ATtiny3217 ATtiny3217auto
  */
 static const Configvalue _values_cmpcen_attiny202[2] = {
   {0, "cpc_disabled", "compare C output disabled"},
@@ -11945,8 +12035,9 @@ static const Configvalue _values_cmpcen_attiny202[2] = {
 
 /*
  * ATtiny202 ATtiny204 ATtiny402 ATtiny404 ATtiny406 ATtiny212 ATtiny214 ATtiny412 ATtiny414
- * ATtiny416 ATtiny416auto ATtiny417 ATtiny814 ATtiny816 ATtiny817 ATtiny1614 ATtiny1616
- * ATtiny1617 ATtiny3216 ATtiny3217
+ * ATtiny416 ATtiny416auto ATtiny417 ATtiny417auto ATtiny814 ATtiny814auto ATtiny816 ATtiny816auto
+ * ATtiny817 ATtiny817auto ATtiny1614 ATtiny1614auto ATtiny1616 ATtiny1616auto ATtiny1617
+ * ATtiny1617auto ATtiny3216 ATtiny3216auto ATtiny3217 ATtiny3217auto
  */
 static const Configvalue _values_cmpden_attiny202[2] = {
   {0, "cpd_disabled", "compare D output disabled"},
@@ -11956,7 +12047,9 @@ static const Configvalue _values_cmpden_attiny202[2] = {
 /*
  * ATtiny202 ATtiny204 ATtiny402 ATtiny404 ATtiny406 ATtiny804 ATtiny806 ATtiny807 ATtiny1604
  * ATtiny1606 ATtiny1607 ATtiny212 ATtiny214 ATtiny412 ATtiny414 ATtiny416 ATtiny416auto ATtiny417
- * ATtiny814 ATtiny816 ATtiny817 ATtiny1614 ATtiny1616 ATtiny1617 ATtiny3216 ATtiny3217
+ * ATtiny417auto ATtiny814 ATtiny814auto ATtiny816 ATtiny816auto ATtiny817 ATtiny817auto
+ * ATtiny1614 ATtiny1614auto ATtiny1616 ATtiny1616auto ATtiny1617 ATtiny1617auto ATtiny3216
+ * ATtiny3216auto ATtiny3217 ATtiny3217auto
  */
 static const Configvalue _values_rstpincfg_attiny202[3] = {
   {0, "gpio", "GPIO mode"},
@@ -12015,18 +12108,19 @@ static const Configvalue _values_rstpincfg_avr16la14[2] = {
 /*
  * ATtiny202 ATtiny204 ATtiny402 ATtiny404 ATtiny406 ATtiny804 ATtiny806 ATtiny807 ATtiny1604
  * ATtiny1606 ATtiny1607 ATtiny212 ATtiny214 ATtiny412 ATtiny414 ATtiny416 ATtiny416auto ATtiny417
- * ATtiny814 ATtiny816 ATtiny817 ATtiny1614 ATtiny1616 ATtiny1617 ATtiny3216 ATtiny3217 ATtiny424
- * ATtiny426 ATtiny427 ATtiny824 ATtiny826 ATtiny827 ATtiny1624 ATtiny1626 ATtiny1627 ATtiny3224
- * ATtiny3226 ATtiny3227 ATmega808 ATmega809 ATmega1608 ATmega1609 ATmega3208 ATmega3209
- * ATmega4808 ATmega4809 AVR32DA28 AVR32DA28S AVR32DA32 AVR32DA32S AVR32DA48 AVR32DA48S AVR64DA28
- * AVR64DA28S AVR64DA32 AVR64DA32S AVR64DA48 AVR64DA48S AVR64DA64 AVR64DA64S AVR128DA28
- * AVR128DA28S AVR128DA32 AVR128DA32S AVR128DA48 AVR128DA48S AVR128DA64 AVR128DA64S AVR32DB28
- * AVR32DB32 AVR32DB48 AVR64DB28 AVR64DB32 AVR64DB48 AVR64DB64 AVR128DB28 AVR128DB32 AVR128DB48
- * AVR128DB64 AVR16DD14 AVR16DD20 AVR16DD28 AVR16DD32 AVR32DD14 AVR32DD20 AVR32DD28 AVR32DD32
- * AVR64DD14 AVR64DD20 AVR64DD28 AVR64DD32 AVR16DU14 AVR16DU20 AVR16DU28 AVR16DU32 AVR32DU14
- * AVR32DU20 AVR32DU28 AVR32DU32 AVR64DU28 AVR64DU32 AVR16EA28 AVR16EA32 AVR16EA48 AVR32EA28
- * AVR32EA32 AVR32EA48 AVR64EA28 AVR64EA32 AVR64EA48 AVR16EB14 AVR16EB20 AVR16EB28 AVR16EB32
- * AVR32EB14 AVR32EB20 AVR32EB28 AVR32EB32
+ * ATtiny417auto ATtiny814 ATtiny814auto ATtiny816 ATtiny816auto ATtiny817 ATtiny817auto
+ * ATtiny1614 ATtiny1614auto ATtiny1616 ATtiny1616auto ATtiny1617 ATtiny1617auto ATtiny3216
+ * ATtiny3216auto ATtiny3217 ATtiny3217auto ATtiny424 ATtiny426 ATtiny427 ATtiny824 ATtiny826
+ * ATtiny827 ATtiny1624 ATtiny1626 ATtiny1627 ATtiny3224 ATtiny3226 ATtiny3227 ATmega808 ATmega809
+ * ATmega1608 ATmega1609 ATmega3208 ATmega3209 ATmega4808 ATmega4809 AVR32DA28 AVR32DA28S
+ * AVR32DA32 AVR32DA32S AVR32DA48 AVR32DA48S AVR64DA28 AVR64DA28S AVR64DA32 AVR64DA32S AVR64DA48
+ * AVR64DA48S AVR64DA64 AVR64DA64S AVR128DA28 AVR128DA28S AVR128DA32 AVR128DA32S AVR128DA48
+ * AVR128DA48S AVR128DA64 AVR128DA64S AVR32DB28 AVR32DB32 AVR32DB48 AVR64DB28 AVR64DB32 AVR64DB48
+ * AVR64DB64 AVR128DB28 AVR128DB32 AVR128DB48 AVR128DB64 AVR16DD14 AVR16DD20 AVR16DD28 AVR16DD32
+ * AVR32DD14 AVR32DD20 AVR32DD28 AVR32DD32 AVR64DD14 AVR64DD20 AVR64DD28 AVR64DD32 AVR16DU14
+ * AVR16DU20 AVR16DU28 AVR16DU32 AVR32DU14 AVR32DU20 AVR32DU28 AVR32DU32 AVR64DU28 AVR64DU32
+ * AVR16EA28 AVR16EA32 AVR16EA48 AVR32EA28 AVR32EA32 AVR32EA48 AVR64EA28 AVR64EA32 AVR64EA48
+ * AVR16EB14 AVR16EB20 AVR16EB28 AVR16EB32 AVR32EB14 AVR32EB20 AVR32EB28 AVR32EB32
  */
 static const Configvalue _values_crcsrc_attiny202[4] = {
   {0, "flash", "CRC of entire flash (boot, application code and application data)"},
@@ -14125,7 +14219,10 @@ const Configitem cfgtab_attiny804[15] = {
   {"lb", 2, _values_lb_attiny202, "lock", 0, 0xff, 0, 0xc5, "lock bits"},
 };
 
-// ATtiny416auto
+/*
+ * ATtiny416auto ATtiny417auto ATtiny814auto ATtiny816auto ATtiny817auto ATtiny1614auto
+ * ATtiny1616auto ATtiny1617auto ATtiny3216auto ATtiny3217auto
+ */
 const Configitem cfgtab_attiny416auto[23] = {
   {"wdtperiod", 12, _values_wdtperiod_attiny202, "wdtcfg", 0, 0x0f, 0, 0x00, "watchdog timeout period"},
   {"wdtwindow", 12, _values_wdtwindow_attiny202, "wdtcfg", 0, 0xf0, 4, 0x00, "watchdog window timeout period"},
@@ -61022,8 +61119,9 @@ const Uart_conf uarts_attiny202[2] = {
 
 /*
  * ATtiny204 ATtiny404 ATtiny406 ATtiny804 ATtiny806 ATtiny807 ATtiny1604 ATtiny1606 ATtiny1607
- * ATtiny214 ATtiny414 ATtiny416 ATtiny416auto ATtiny417 ATtiny814 ATtiny816 ATtiny817 ATtiny1614
- * ATtiny1616 ATtiny1617 ATtiny3216 ATtiny3217
+ * ATtiny214 ATtiny414 ATtiny416 ATtiny416auto ATtiny417 ATtiny417auto ATtiny814 ATtiny814auto
+ * ATtiny816 ATtiny816auto ATtiny817 ATtiny817auto ATtiny1614 ATtiny1614auto ATtiny1616
+ * ATtiny1616auto ATtiny1617 ATtiny1617auto ATtiny3216 ATtiny3216auto ATtiny3217 ATtiny3217auto
  */
 const Uart_conf uarts_attiny204[2] = {
   { 0, 0, PB3, PB2, PB1, PB0, PNA, PNA, PNA, PNA, PNA },
