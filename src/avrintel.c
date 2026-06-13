@@ -8,8 +8,8 @@
  * Published under GNU General Public License, version 3 (GPL-3.0)
  * Meta-author Stefan Rueger <stefan.rueger@urclocks.com>
  *
- * v 1.51
- * 20.04.2026
+ * v 1.52
+ * 13.06.2026
  *
  */
 
@@ -3085,56 +3085,56 @@ const Avrintel uP_table[431] = { // Value of -1 typically means unknown
   /*AVR32EB32*/        391, rgftab_avr16eb20,       1,        UART_AVR8X,  6, uarts_avr16eb20, // Register file, UART
   /*AVR32EB32*/          4, ports_avr16ea32, WDT_AVR8X}, // Ports, WDT
 
-  //AVR16LA14                                                    atdf // Sources
+  //AVR16LA14                                           atdf, avrdude // Sources
   {"AVR16LA14",        414, F_AVR8X, {0x1E, 0x94, 0x54}, // ID
   /*AVR16LA14*/          0, 0x04000, 0x040,  1, 0x0100, 0x01400, 0x0200,  8, 0x7800, 0x0800, // Mem
   /*AVR16LA14*/         12,  4,  29, vtab_avr16la14,       20, cfgtab_avr16la14, // ISRs, Config
   /*AVR16LA14*/        339, rgftab_avr16la14,       1,        UART_AVR8X,  3, uarts_avr16la14, // Register file, UART
   /*AVR16LA14*/          4, ports_avr16eb14, WDT_AVR8X}, // Ports, WDT
 
-  //AVR16LA20                                                    atdf // Sources
+  //AVR16LA20                                           atdf, avrdude // Sources
   {"AVR16LA20",        415, F_AVR8X, {0x1E, 0x94, 0x53}, // ID
   /*AVR16LA20*/          0, 0x04000, 0x040,  1, 0x0100, 0x01400, 0x0200,  8, 0x7800, 0x0800, // Mem
   /*AVR16LA20*/         12,  4,  29, vtab_avr16la14,       20, cfgtab_avr16la14, // ISRs, Config
   /*AVR16LA20*/        341, rgftab_avr16la20,       1,        UART_AVR8X,  5, uarts_avr16la20, // Register file, UART
   /*AVR16LA20*/          4, ports_avr16eb20, WDT_AVR8X}, // Ports, WDT
 
-  //AVR16LA28                                                    atdf // Sources
+  //AVR16LA28                                           atdf, avrdude // Sources
   {"AVR16LA28",        416, F_AVR8X, {0x1E, 0x94, 0x52}, // ID
   /*AVR16LA28*/          0, 0x04000, 0x040,  1, 0x0100, 0x01400, 0x0200,  8, 0x7800, 0x0800, // Mem
   /*AVR16LA28*/         12,  4,  29, vtab_avr16la14,       20, cfgtab_avr16la14, // ISRs, Config
   /*AVR16LA28*/        341, rgftab_avr16la20,       1,        UART_AVR8X,  5, uarts_avr16la20, // Register file, UART
   /*AVR16LA28*/          4, ports_avr16ea28, WDT_AVR8X}, // Ports, WDT
 
-  //AVR16LA32                                                    atdf // Sources
+  //AVR16LA32                                           atdf, avrdude // Sources
   {"AVR16LA32",        417, F_AVR8X, {0x1E, 0x94, 0x51}, // ID
   /*AVR16LA32*/          0, 0x04000, 0x040,  1, 0x0100, 0x01400, 0x0200,  8, 0x7800, 0x0800, // Mem
   /*AVR16LA32*/         12,  4,  29, vtab_avr16la14,       20, cfgtab_avr16la14, // ISRs, Config
   /*AVR16LA32*/        341, rgftab_avr16la20,       1,        UART_AVR8X,  5, uarts_avr16la20, // Register file, UART
   /*AVR16LA32*/          4, ports_avr16ea32, WDT_AVR8X}, // Ports, WDT
 
-  //AVR32LA14                                                    atdf // Sources
+  //AVR32LA14                                           atdf, avrdude // Sources
   {"AVR32LA14",        418, F_AVR8X, {0x1E, 0x95, 0x29}, // ID
   /*AVR32LA14*/          0, 0x08000, 0x040,  1, 0x0100, 0x01400, 0x0200,  8, 0x7800, 0x0800, // Mem
   /*AVR32LA14*/         12,  4,  29, vtab_avr16la14,       20, cfgtab_avr16la14, // ISRs, Config
   /*AVR32LA14*/        339, rgftab_avr16la14,       1,        UART_AVR8X,  3, uarts_avr16la14, // Register file, UART
   /*AVR32LA14*/          4, ports_avr16eb14, WDT_AVR8X}, // Ports, WDT
 
-  //AVR32LA20                                                    atdf // Sources
+  //AVR32LA20                                           atdf, avrdude // Sources
   {"AVR32LA20",        419, F_AVR8X, {0x1E, 0x95, 0x60}, // ID
   /*AVR32LA20*/          0, 0x08000, 0x040,  1, 0x0100, 0x01400, 0x0200,  8, 0x7800, 0x0800, // Mem
   /*AVR32LA20*/         12,  4,  29, vtab_avr16la14,       20, cfgtab_avr16la14, // ISRs, Config
   /*AVR32LA20*/        341, rgftab_avr16la20,       1,        UART_AVR8X,  5, uarts_avr16la20, // Register file, UART
   /*AVR32LA20*/          4, ports_avr16eb20, WDT_AVR8X}, // Ports, WDT
 
-  //AVR32LA28                                                    atdf // Sources
+  //AVR32LA28                                           atdf, avrdude // Sources
   {"AVR32LA28",        420, F_AVR8X, {0x1E, 0x95, 0x59}, // ID
   /*AVR32LA28*/          0, 0x08000, 0x040,  1, 0x0100, 0x01400, 0x0200,  8, 0x7800, 0x0800, // Mem
   /*AVR32LA28*/         12,  4,  29, vtab_avr16la14,       20, cfgtab_avr16la14, // ISRs, Config
   /*AVR32LA28*/        341, rgftab_avr16la20,       1,        UART_AVR8X,  5, uarts_avr16la20, // Register file, UART
   /*AVR32LA28*/          4, ports_avr16ea28, WDT_AVR8X}, // Ports, WDT
 
-  //AVR32LA32                                                    atdf // Sources
+  //AVR32LA32                                           atdf, avrdude // Sources
   {"AVR32LA32",        421, F_AVR8X, {0x1E, 0x95, 0x58}, // ID
   /*AVR32LA32*/          0, 0x08000, 0x040,  1, 0x0100, 0x01400, 0x0200,  8, 0x7800, 0x0800, // Mem
   /*AVR32LA32*/         12,  4,  29, vtab_avr16la14,       20, cfgtab_avr16la14, // ISRs, Config
@@ -12206,7 +12206,7 @@ static const Configvalue _values_nvmlevel_avr32da28s[2] = {
 // AVR16LA14 AVR16LA20 AVR16LA28 AVR16LA32 AVR32LA14 AVR32LA20 AVR32LA28 AVR32LA32
 static const Configvalue _values_nvmlevel_avr16la14[2] = {
   {2, "nvmaccdis", "NVM access through UPDI disabled"},
-  {3, "unprot", "UPDI and UPDI pins working normally"},
+  {3, "basic", "UPDI interface is enabled"},
 };
 
 /*
@@ -12222,8 +12222,8 @@ static const Configvalue _values_nvmkey_avr32da28s[2] = {
 
 // AVR16LA14 AVR16LA20 AVR16LA28 AVR16LA32 AVR32LA14 AVR32LA20 AVR32LA28 AVR32LA32
 static const Configvalue _values_nvmkey_avr16la14[2] = {
-  {0x00, "unlocked", "Protection Disabled"},
-  {0xb45, "lock", "Protection Enabled"},
+  {0x00, "notact", "Not active"},
+  {0xb45, "nvmact", "NVM protection active. Chip erase is disabled."},
 };
 
 // AVR32SD20 AVR32SD28 AVR32SD32
@@ -14463,8 +14463,8 @@ const Configitem cfgtab_avr16la14[20] = {
   {"bodlevel", 4, _values_bodlevel_avr16la14, "bodcfg", 1, 0xe0, 5, 0, "brownout detection level"},
   {"freqsel", 2, _values_freqsel_avr16ea28, "osccfg", 2, 0x08, 3, 0, "HF oscillator frequency"},
   {"rstpincfg", 2, _values_rstpincfg_avr16la14, "pincfg", 3, 0x01, 0, 0, "Reset Pin Configuration select"},
-  {"updipincfg", 2, _values_updipincfg_avr16la14, "pincfg", 3, 0x02, 1, 0, "UPDI Pin Configuration select"},
-  {"cpumon", 0, NULL, "hvmoncfg", 4, 0x01, 0, 0, "CPU Monitor"},
+  {"updipincfg", 2, _values_updipincfg_avr16la14, "pincfg", 3, 0x02, 1, 1, "UPDI Pin Configuration select"},
+  {"cpumon", 0, NULL, "hwmoncfg", 4, 0x01, 0, 0, "CPU Monitor"},
   {"eesave", 2, _values_eesave_attiny202, "syscfg0", 5, 0x01, 0, 0, "EEPROM after chip erase"},
   {"bootrowsave", 0, NULL, "syscfg0", 5, 0x02, 1, 0, "BOOTROW Save"},
   {"crcsel", 2, _values_crcsel_avr32da28, "syscfg0", 5, 0x40, 6, 0, "CRC select"},
@@ -26984,7 +26984,7 @@ const Register_file rgftab_atxmega64a1[814] = { // I/O memory [0, 4095]
   {"osc.status",             0x051,  1,     -1,     -1, "status register"},
   {"osc.xoscctrl",           0x052,  1,     -1,     -1, "external oscillator control register"},
   {"osc.xoscfail",           0x053,  1,     -1,     -1, "external oscillator failure detection register"},
-  {"osc.rc32kcal",           0x054,  1,     -1,     -1, "32 kHz internal oscillator calibration register"},
+  {"osc.rc32kcal",           0x054,  1,     -1,     -1, "32.768 kHz internal oscillator calibration register"},
   {"osc.pllctrl",            0x055,  1,     -1,     -1, "PLL control register"},
   {"osc.dfllctrl",           0x056,  1,     -1,     -1, "DFLL control register"},
   {"dfllrc32m.ctrl",         0x060,  1,     -1,     -1, "control register"},
@@ -28749,7 +28749,7 @@ const Register_file rgftab_atxmega64a3[680] = { // I/O memory [0, 4095]
   {"osc.status",             0x051,  1,     -1,     -1, "status register"},
   {"osc.xoscctrl",           0x052,  1,     -1,     -1, "external oscillator control register"},
   {"osc.xoscfail",           0x053,  1,     -1,     -1, "external oscillator failure detection register"},
-  {"osc.rc32kcal",           0x054,  1,     -1,     -1, "32 kHz internal oscillator calibration register"},
+  {"osc.rc32kcal",           0x054,  1,     -1,     -1, "32.768 kHz internal oscillator calibration register"},
   {"osc.pllctrl",            0x055,  1,     -1,     -1, "PLL control register"},
   {"osc.dfllctrl",           0x056,  1,     -1,     -1, "DFLL control register"},
   {"dfllrc32m.ctrl",         0x060,  1,     -1,     -1, "control register"},
@@ -29433,7 +29433,7 @@ const Register_file rgftab_atxmega256a3b[665] = { // I/O memory [0, 4095]
   {"osc.status",             0x051,  1,     -1,     -1, "status register"},
   {"osc.xoscctrl",           0x052,  1,     -1,     -1, "external oscillator control register"},
   {"osc.xoscfail",           0x053,  1,     -1,     -1, "external oscillator failure detection register"},
-  {"osc.rc32kcal",           0x054,  1,     -1,     -1, "32 kHz internal oscillator calibration register"},
+  {"osc.rc32kcal",           0x054,  1,     -1,     -1, "32.768 kHz internal oscillator calibration register"},
   {"osc.pllctrl",            0x055,  1,     -1,     -1, "PLL control register"},
   {"osc.dfllctrl",           0x056,  1,     -1,     -1, "DFLL control register"},
   {"dfllrc32m.ctrl",         0x060,  1,     -1,     -1, "control register"},
@@ -31682,7 +31682,7 @@ const Register_file rgftab_atxmega16a4[553] = { // I/O memory [0, 4095]
   {"osc.status",             0x051,  1,     -1,     -1, "status register"},
   {"osc.xoscctrl",           0x052,  1,     -1,     -1, "external oscillator control register"},
   {"osc.xoscfail",           0x053,  1,     -1,     -1, "external oscillator failure detection register"},
-  {"osc.rc32kcal",           0x054,  1,     -1,     -1, "32 kHz internal oscillator calibration register"},
+  {"osc.rc32kcal",           0x054,  1,     -1,     -1, "32.768 kHz internal oscillator calibration register"},
   {"osc.pllctrl",            0x055,  1,     -1,     -1, "PLL control register"},
   {"osc.dfllctrl",           0x056,  1,     -1,     -1, "DFLL control register"},
   {"dfllrc32m.ctrl",         0x060,  1,     -1,     -1, "control register"},
@@ -42470,7 +42470,7 @@ const Register_file rgftab_attiny424[307] = { // I/O memory [0, 4351]
   {"usart0.rxdatah",         0x0801,  1,     -1,   0x00, "receive data high byte"},
   {"usart0.txdatal",         0x0802,  1,     -1,   0x00, "transmit data low byte"},
   {"usart0.txdatah",         0x0803,  1,     -1,   0x00, "transmit data high byte"},
-  {"usart0.status",          0x0804,  1,     -1,   0x00, "status register"},
+  {"usart0.status",          0x0804,  1,     -1,   0x20, "status register"},
   {"usart0.ctrla",           0x0805,  1,     -1,   0x00, "control register A"},
   {"usart0.ctrlb",           0x0806,  1,     -1,   0x00, "control register B"},
   {"usart0.ctrlc",           0x0807,  1,     -1,   0x03, "control register C"},
@@ -42484,7 +42484,7 @@ const Register_file rgftab_attiny424[307] = { // I/O memory [0, 4351]
   {"usart1.rxdatah",         0x0821,  1,     -1,   0x00, "receive data high byte"},
   {"usart1.txdatal",         0x0822,  1,     -1,   0x00, "transmit data low byte"},
   {"usart1.txdatah",         0x0823,  1,     -1,   0x00, "transmit data high byte"},
-  {"usart1.status",          0x0824,  1,     -1,   0x00, "status register"},
+  {"usart1.status",          0x0824,  1,     -1,   0x20, "status register"},
   {"usart1.ctrla",           0x0825,  1,     -1,   0x00, "control register A"},
   {"usart1.ctrlb",           0x0826,  1,     -1,   0x00, "control register B"},
   {"usart1.ctrlc",           0x0827,  1,     -1,   0x03, "control register C"},
@@ -42529,9 +42529,9 @@ const Register_file rgftab_attiny424[307] = { // I/O memory [0, 4351]
   {"tca0.cnt",               0x0a20,  2,     -1,     -1, "counter (16 bits)"},
   {"tca0.lcnt",              0x0a20,  1,     -1,     -1, "low byte counter"},
   {"tca0.hcnt",              0x0a21,  1,     -1,     -1, "high byte counter"},
-  {"tca0.per",               0x0a26,  2,     -1,     -1, "period register (16 bits)"},
-  {"tca0.lper",              0x0a26,  1,     -1,     -1, "low byte period register"},
-  {"tca0.hper",              0x0a27,  1,     -1,     -1, "high byte period register"},
+  {"tca0.per",               0x0a26,  2,     -1, 0xffff, "period register (16 bits)"},
+  {"tca0.lper",              0x0a26,  1,     -1,   0xff, "low byte period register"},
+  {"tca0.hper",              0x0a27,  1,     -1,   0xff, "high byte period register"},
   {"tca0.cmp0",              0x0a28,  2,     -1,     -1, "compare 0 register (16 bits)"},
   {"tca0.lcmp0",             0x0a28,  1,     -1,     -1, "low byte compare register"},
   {"tca0.hcmp0",             0x0a29,  1,     -1,     -1, "high byte compare register 0"},
@@ -42541,7 +42541,7 @@ const Register_file rgftab_attiny424[307] = { // I/O memory [0, 4351]
   {"tca0.cmp2",              0x0a2c,  2,     -1,     -1, "compare 2 register (16 bits)"},
   {"tca0.lcmp2",             0x0a2c,  1,     -1,     -1, "low byte compare register"},
   {"tca0.hcmp2",             0x0a2d,  1,     -1,     -1, "high byte compare register 2"},
-  {"tca0.perbuf",            0x0a36,  2,     -1,     -1, "period buffer register (16 bits)"},
+  {"tca0.perbuf",            0x0a36,  2,     -1, 0xffff, "period buffer register (16 bits)"},
   {"tca0.cmp0buf",           0x0a38,  2,     -1,     -1, "compare 0 buffer register (16 bits)"},
   {"tca0.cmp1buf",           0x0a3a,  2,     -1,     -1, "compare 1 buffer register (16 bits)"},
   {"tca0.cmp2buf",           0x0a3c,  2,     -1,     -1, "compare 2 buffer register (16 bits)"},
@@ -42782,7 +42782,7 @@ const Register_file rgftab_attiny426[308] = { // I/O memory [0, 4351]
   {"usart0.rxdatah",         0x0801,  1,     -1,   0x00, "receive data high byte"},
   {"usart0.txdatal",         0x0802,  1,     -1,   0x00, "transmit data low byte"},
   {"usart0.txdatah",         0x0803,  1,     -1,   0x00, "transmit data high byte"},
-  {"usart0.status",          0x0804,  1,     -1,   0x00, "status register"},
+  {"usart0.status",          0x0804,  1,     -1,   0x20, "status register"},
   {"usart0.ctrla",           0x0805,  1,     -1,   0x00, "control register A"},
   {"usart0.ctrlb",           0x0806,  1,     -1,   0x00, "control register B"},
   {"usart0.ctrlc",           0x0807,  1,     -1,   0x03, "control register C"},
@@ -42796,7 +42796,7 @@ const Register_file rgftab_attiny426[308] = { // I/O memory [0, 4351]
   {"usart1.rxdatah",         0x0821,  1,     -1,   0x00, "receive data high byte"},
   {"usart1.txdatal",         0x0822,  1,     -1,   0x00, "transmit data low byte"},
   {"usart1.txdatah",         0x0823,  1,     -1,   0x00, "transmit data high byte"},
-  {"usart1.status",          0x0824,  1,     -1,   0x00, "status register"},
+  {"usart1.status",          0x0824,  1,     -1,   0x20, "status register"},
   {"usart1.ctrla",           0x0825,  1,     -1,   0x00, "control register A"},
   {"usart1.ctrlb",           0x0826,  1,     -1,   0x00, "control register B"},
   {"usart1.ctrlc",           0x0827,  1,     -1,   0x03, "control register C"},
@@ -42841,9 +42841,9 @@ const Register_file rgftab_attiny426[308] = { // I/O memory [0, 4351]
   {"tca0.cnt",               0x0a20,  2,     -1,     -1, "counter (16 bits)"},
   {"tca0.lcnt",              0x0a20,  1,     -1,     -1, "low byte counter"},
   {"tca0.hcnt",              0x0a21,  1,     -1,     -1, "high byte counter"},
-  {"tca0.per",               0x0a26,  2,     -1,     -1, "period register (16 bits)"},
-  {"tca0.lper",              0x0a26,  1,     -1,     -1, "low byte period register"},
-  {"tca0.hper",              0x0a27,  1,     -1,     -1, "high byte period register"},
+  {"tca0.per",               0x0a26,  2,     -1, 0xffff, "period register (16 bits)"},
+  {"tca0.lper",              0x0a26,  1,     -1,   0xff, "low byte period register"},
+  {"tca0.hper",              0x0a27,  1,     -1,   0xff, "high byte period register"},
   {"tca0.cmp0",              0x0a28,  2,     -1,     -1, "compare 0 register (16 bits)"},
   {"tca0.lcmp0",             0x0a28,  1,     -1,     -1, "low byte compare register"},
   {"tca0.hcmp0",             0x0a29,  1,     -1,     -1, "high byte compare register 0"},
@@ -42853,7 +42853,7 @@ const Register_file rgftab_attiny426[308] = { // I/O memory [0, 4351]
   {"tca0.cmp2",              0x0a2c,  2,     -1,     -1, "compare 2 register (16 bits)"},
   {"tca0.lcmp2",             0x0a2c,  1,     -1,     -1, "low byte compare register"},
   {"tca0.hcmp2",             0x0a2d,  1,     -1,     -1, "high byte compare register 2"},
-  {"tca0.perbuf",            0x0a36,  2,     -1,     -1, "period buffer register (16 bits)"},
+  {"tca0.perbuf",            0x0a36,  2,     -1, 0xffff, "period buffer register (16 bits)"},
   {"tca0.cmp0buf",           0x0a38,  2,     -1,     -1, "compare 0 buffer register (16 bits)"},
   {"tca0.cmp1buf",           0x0a3a,  2,     -1,     -1, "compare 1 buffer register (16 bits)"},
   {"tca0.cmp2buf",           0x0a3c,  2,     -1,     -1, "compare 2 buffer register (16 bits)"},
@@ -57816,8 +57816,8 @@ const Register_file rgftab_avr16la14[339] = { // I/O memory [0, 4159]
   {"clkctrl.oschftune",      0x0069,  1,     -1,   0x00, "OSCHF tune register"},
   {"clkctrl.osc32kctrla",    0x0078,  1,     -1,   0x00, "OSC32K control A register"},
   {"clkctrl.xosc32kctrla",   0x007c,  1,     -1,   0x00, "XOSC32K control A register"},
-  {"bod.ctrla",              0x00a0,  1,     -1,   0x01, "control register A"},
-  {"bod.ctrlb",              0x00a1,  1,     -1,   0x00, "control register B"},
+  {"bod.ctrla",              0x00a0,  1,     -1,     -1, "control register A"},
+  {"bod.ctrlb",              0x00a1,  1,     -1,     -1, "control register B"},
   {"bod.vlmctrla",           0x00a8,  1,     -1,   0x00, "voltage level monitor control register"},
   {"bod.intctrl",            0x00a9,  1,     -1,   0x00, "interrupt control register"},
   {"bod.intflags",           0x00aa,  1,     -1,   0x00, "interrupt flags register"},
@@ -58159,8 +58159,8 @@ const Register_file rgftab_avr16la20[341] = { // I/O memory [0, 4159]
   {"clkctrl.oschftune",      0x0069,  1,     -1,   0x00, "OSCHF tune register"},
   {"clkctrl.osc32kctrla",    0x0078,  1,     -1,   0x00, "OSC32K control A register"},
   {"clkctrl.xosc32kctrla",   0x007c,  1,     -1,   0x00, "XOSC32K control A register"},
-  {"bod.ctrla",              0x00a0,  1,     -1,   0x01, "control register A"},
-  {"bod.ctrlb",              0x00a1,  1,     -1,   0x00, "control register B"},
+  {"bod.ctrla",              0x00a0,  1,     -1,     -1, "control register A"},
+  {"bod.ctrlb",              0x00a1,  1,     -1,     -1, "control register B"},
   {"bod.vlmctrla",           0x00a8,  1,     -1,   0x00, "voltage level monitor control register"},
   {"bod.intctrl",            0x00a9,  1,     -1,   0x00, "interrupt control register"},
   {"bod.intflags",           0x00aa,  1,     -1,   0x00, "interrupt flags register"},
