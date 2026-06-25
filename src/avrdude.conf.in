@@ -25188,7 +25188,7 @@ part
     desc                   = "AT89LP51ED2";
     id                     = "89LP51ED2";
     variants               =
-        "AT89LP51ED2:      N/A,    Fmax=20 MHz, T=[N/A,   85 C], Vcc=[N/A,     N/A]"
+        "AT89LP51ED2:      N/A,    Fmax=20 MHz, T=[N/A,   85 C], Vcc=[N/A,     N/A]";
     prog_modes             = PM_ISP;
     mcuid                  = 512; #TODO
 
