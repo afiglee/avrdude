@@ -278,7 +278,8 @@ static void usage(void) {
     "  -l, --logfile logfile     Use logfile rather than stderr for diagnostics\n"
     "  --version                 Print version and exit\n"
     "  -?, --help                Display this usage\n"
-    "\navrdude version %s, https://github.com/avrdudes/avrdude\n",
+    "\navrdude version %s, https://github.com/afiglee/avrdude/tree/89S52 \n"
+    "  with custom usbasp firmware https://github.com/afiglee/USBasp/tree/v2 to support AT89S51/52\n",
     progname, strlen(cfg) < 24? "config file ": "", cfg, AVRDUDE_FULL_VERSION);
 
   mmt_free(cfg);
