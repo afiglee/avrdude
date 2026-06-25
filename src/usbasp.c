@@ -745,6 +745,7 @@ static int usbasp_initialize(const PROGRAMMER *pgm, const AVRPART *p) {
     // Set sck period
     pgm->set_sck_period(pgm, pgm->bitclock);
 
+    // Pass stk500_devcode for reset polarity orientation
     // Connect to target device
     temp[0] = p->stk500_devcode; // to support AT89S51/52
     usbasp_transmit(pgm, 1, USBASP_FUNC_CONNECT, temp, res, sizeof(res));

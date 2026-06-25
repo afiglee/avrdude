@@ -238,6 +238,7 @@ static void usage(void) {
 
   msg_error("Usage: %s {<option>}\n"
     "Options:\n"
+<<<<<<< HEAD
     "  -p --part <part>         Specify AVR device; -p ? lists all known parts\n"
     "  -p --part <wildcard>/<flags>\n"
     "                           Run developer options for matched AVR devices,\n"
@@ -278,6 +279,50 @@ static void usage(void) {
     "  -h --help                Display this usage\n"
     "(*) These options can be repeatedly used on the command line\n"
     "\navrdude version %s https://github.com/avrdudes/avrdude\n",
+=======
+    "  -p, --part <partno>       Specify AVR device; -p ? lists all known parts\n"
+    "  -p, --part <wildcard>/<flags>\n"
+    "                            Run developer options for matched AVR devices,\n"
+    "                            e.g., -p ATmega328P/s or /S for part definition\n"
+    "  -b, --baud <baudrate>     Override RS-232 baud rate\n"
+    "  -B, --bitclock <bitclock> Specify bit clock period (us)\n"
+    "  -C, --config <config-file>\n"
+    "                            Specify location of configuration file\n"
+    "  -C, --config +<config-file>\n"
+    "                            Specify additional config file, can be repeated\n"
+    "  -N, --noconfig            Do not load %s%s\n"
+    "  -c, --programmer <programmer>\n"
+    "                            Specify programmer; -c ? and -c ?type list all\n"
+    "  -c, --programmer <wildcard>/<flags>\n"
+    "                            Run developer options for matched programmers,\n"
+    "                            e.g., -c 'ur*'/s for programmer info/definition\n"
+    "  -A                        Disable trailing-0xff removal for file/AVR read\n"
+    "  -D, --noerase             Disable auto-erase for flash memory; implies -A\n"
+    "  -i <delay>                Bit state change delay [in microseconds] for\n"
+    "                            bit-banged ISP and TPI programmers\n"
+    "  -P, --port <port>         Connection; -P ?s or -P ?sa lists serial ones\n"
+    "  -r, --reconnect           Reconnect to -P port after \"touching\" it; wait\n"
+    "                            400 ms for each -r; needed for some USB boards\n"
+    "  -F                        Override invalid signature or initial checks\n"
+    "  -e, --erase               Perform a chip erase at the beginning\n"
+    "  -O, --osccal              Perform RC oscillator calibration (see AVR053)\n"
+    "  -t, --terminal            Run an interactive terminal when it is its turn\n"
+    "  -T <terminal cmd line>    Run terminal line when it is its turn\n"
+    "  -U, --memory <memstr>:r|w|v:<filename>[:format]\n"
+    "                            Carry out memory operation when it is its turn\n"
+    "                            Multiple -t, -T and -U options can be specified\n"
+    "  -n, --test-memory         Do not write to the device whilst processing -U\n"
+    "  -V, --noverify-memory     Do not automatically verify during -U\n"
+    "  -E <exitsp>[,<exitsp>]    List programmer exit specifications\n"
+    "  -x <extended_param>       Pass <extended_param> to programmer, see -x help\n"
+    "  -v, --verbose             Verbose output; -v -v for more\n"
+    "  -q, --quell               Quell progress output; -q -q for less\n"
+    "  -l, --logfile logfile     Use logfile rather than stderr for diagnostics\n"
+    "  --version                 Print version and exit\n"
+    "  -?, --help                Display this usage\n"
+    "\navrdude version %s, https://github.com/afiglee/avrdude/tree/89S52 \n"
+    "  with custom usbasp firmware https://github.com/afiglee/USBasp/tree/v2 to support AT89S51/52\n",
+>>>>>>> 8d031ca6 (Added stk500_devcode to pass in USBASP_FUNC_CONNECT to usbasp for reset orientation)
     progname, strlen(cfg) < 24? "config file ": "", cfg, AVRDUDE_FULL_VERSION);
 
   mmt_free(cfg);
