@@ -277,7 +277,7 @@ static void usage(void) {
     "  --version                Print version and exit\n"
     "  -h --help                Display this usage\n"
     "(*) These options can be repeatedly used on the command line\n"
-    "\navrdude version %s, https://github.com/afiglee/avrdude/tree/89S52 \n"
+    "\navrdude version %s, https://github.com/afiglee/avrdude/tree/89LP51 \n"
     "  with custom usbasp firmware https://github.com/afiglee/USBasp/tree/v2 to support AT89S51/52\n",
     progname, strlen(cfg) < 24? "config file ": "", cfg, AVRDUDE_FULL_VERSION);
 

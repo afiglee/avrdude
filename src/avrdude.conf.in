@@ -25184,73 +25184,113 @@ part parent ".avr-sx" # 32sd32
 # AT89LP51ED2
 #------------------------------------------------------------
 
-part 
+part
     desc                   = "AT89LP51ED2";
     id                     = "89LP51ED2";
     variants               =
-        "AT89LP51ED2:      N/A,    Fmax=20 MHz, T=[N/A,   85 C], Vcc=[N/A,     N/A]";
+        "AT89LP51ED2-20AU: TQFP44, Fmax=20 MHz, T=[-40 C, 85 C], Vcc=[2.4 V, 5.5 V]",
+        "AT89LP51ED2-20JU: PLCC44, Fmax=20 MHz, T=[-40 C, 85 C], Vcc=[2.4 V, 5.5 V]",
+        "AT89LP51ED2-20PU: PDIP40, Fmax=20 MHz, T=[-40 C, 85 C], Vcc=[2.4 V, 5.5 V]";
     prog_modes             = PM_ISP;
     mcuid                  = 512; #TODO
 
-    chip_erase_delay       = 8000;
+    # ISP packet format: preamble AA 55, then opcode, addr_hi, addr_lo, data
+    # tERS=7.5ms, tWR=2.5ms, tAWR=5ms  (Datasheet Table 23-23)
+    chip_erase_delay       = 7500;
     signature              = 0x1e 0x64 0x65;
 
+    pgm_enable             = "1010.1100--0101.0011--xxxx.xxxx--xxxx.xxxx";
+    chip_erase             = "1000.1010--xxxx.xxxx--xxxx.xxxx--xxxx.xxxx";
+
+    # Atmel Signature Array: 128 bytes at ISP address 0x0200-0x027F
+    # Read Atmel Signature Page opcode 0x38, addr_hi=0x00, addr_lo=0sbbbbbb
+    # 7-bit linear address: s selects high/low 64-byte half, b is byte offset
     memory "signature"
         size               = 128;
         read               = "0011.1000--0000.0000--0aaa.aaaa--oooo.oooo";
     ;
 
-    memory "eeprom"
-        size               = 64;
-        page_size          = 4;
-        min_write_delay    = 4000;
-        max_write_delay    = 4000;
+    # User Signature Array: 512 bytes, 4 pages of 128 bytes (0x0000-0x01FF)
+    # Read/Write User Signature Page opcodes 0x32/0x52/0x72
+    # addr_hi=0x00, addr_lo=asbbbbbb: a=page-addr[0], s=half-page, b=byte-offset
+    memory "usersig"
+        paged              = yes;
+        size               = 512;
+        page_size          = 128;
+        num_pages          = 4;
+        offset             = 0x0000;
+        min_write_delay    = 2500;
+        max_write_delay    = 5000;
         mode               = 0x41;
-        delay              = 5;
-        blocksize          = 4;
+        delay              = 50;
+        blocksize          = 64;
         readsize           = 256;
-        read               = "1010.0000--000x.xxxx--xxaa.aaaa--oooo.oooo";
-        write              = "1100.0000--000x.xxxx--xxaa.aaaa--iiii.iiii";
-        loadpage_lo        = "1100.0001--0000.0000--0000.00aa--iiii.iiii";
-        writepage          = "1100.0010--00xx.xxxx--xxaa.aa00--xxxx.xxxx";
+        read               = "0011.0010--0000.000a--aaaa.aaaa--oooo.oooo";
+        loadpage_lo        = "0101.0010--0000.0000--0aaa.aaaa--iiii.iiii";
+        loadpage_hi        = "0101.0010--0000.0000--0aaa.aaaa--iiii.iiii";
+        writepage          = "0111.0010--0000.000a--axxx.xxxx--xxxx.xxxx";
     ;
 
-    memory "flash"
+    # Data EEPROM: 4096 bytes, 32-byte pages, 128 pages (0x0000-0x0FFF)
+    # Read Data Page 0xB0, Write Data Page 0xD0, Write w/ Auto-Erase 0xD2
+    # addr_hi=000aaaaa (page[6:2]), addr_lo=asbbbbbb (page[1:0] + half-page + byte-offset)
+    memory "eeprom"
         paged              = yes;
-        size               = 1024;
+        size               = 4096;
         page_size          = 32;
-        num_pages          = 32;
-        min_write_delay    = 4500;
-        max_write_delay    = 4500;
+        num_pages          = 128;
+        offset             = 0x0000;
+        min_write_delay    = 2500;
+        max_write_delay    = 5000;
         mode               = 0x41;
         delay              = 10;
         blocksize          = 32;
         readsize           = 256;
-        read_lo            = "0010.0000--0000.000a--aaaa.aaaa--oooo.oooo";
-        read_hi            = "0010.1000--0000.000a--aaaa.aaaa--oooo.oooo";
-        loadpage_lo        = "0100.0000--000x.xxxx--xxxx.aaaa--iiii.iiii";
-        loadpage_hi        = "0100.1000--000x.xxxx--xxxx.aaaa--iiii.iiii";
-        writepage          = "0100.1100--0000.000a--aaaa.xxxx--xxxx.xxxx";
+        read               = "1011.0000--000a.aaaa--aaaa.aaaa--oooo.oooo";
+        loadpage_lo        = "1101.0000--000x.xxxx--0aaa.aaaa--iiii.iiii";
+        writepage          = "1101.0010--000a.aaaa--aaax.xxxx--xxxx.xxxx";
     ;
 
+    # Flash code memory: 65536 bytes, 128-byte pages (two 64-byte half-pages), 512 pages
+    # Read Code Page 0x30, Load Page Buffer 0x51, Write Code Page 0x50/0x70
+    # addr_hi=aaaaaaaa (page[8:1]), addr_lo=asbbbbbb (page[0] + half-page-sel + byte-offset)
+    memory "flash"
+        paged              = yes;
+        size               = 0x10000;
+        page_size          = 128;
+        num_pages          = 512;
+        min_write_delay    = 2500;
+        max_write_delay    = 5000;
+        mode               = 0x41;
+        delay              = 10;
+        blocksize          = 64;
+        readsize           = 256;
+        read               = "0011.0000--aaaa.aaaa--aaaa.aaaa--oooo.oooo";
+        loadpage_lo        = "0101.0001--xxxx.xxxx--00aa.aaaa--iiii.iiii";
+        loadpage_hi        = "0101.0001--xxxx.xxxx--01aa.aaaa--iiii.iiii";
+        writepage          = "0111.0000--aaaa.aaaa--aaxx.xxxx--xxxx.xxxx";
+    ;
+
+    # Hardware Security Bits: 3 lock bytes at ISP addresses 0x00, 0x01, 0x02
+    # Each byte is 0xFF (unprogrammed) or 0x00 (programmed)
+    # Read Lock Bits 0x64, Write Lock Bits 0xE4
     memory "lock"
-        bitmask            = 0x03;
-        min_write_delay    = 4500;
-        max_write_delay    = 4500;
+        size               = 3;
+        bitmask            = 0x07;
+        min_write_delay    = 2500;
+        max_write_delay    = 2500;
+        read               = "0110.0100--0000.0000--00aa.aaaa--oooo.oooo";
+        write              = "1110.0100--0000.0000--00aa.aaaa--iiii.iiii";
     ;
 
-    memory "calibration"
-        size               = 2;
-        read               = "0011.1000--000x.xxxx--0000.000a--oooo.oooo";
-    ;
-
-    memory "io"
-        size               = 64;
-    ;
-
-    memory "sram"
-        size               = 64;
-        offset             = 0x60;
+    # User Configuration Fuses: 19 bytes at ISP fuse row addresses 0x00-0x12
+    # Read User Fuses 0x61, Write User Fuses 0xE1, Write w/ Auto-Erase 0xF1
+    memory "fuse"
+        size               = 19;
+        min_write_delay    = 2500;
+        max_write_delay    = 2500;
+        read               = "0110.0001--0000.0000--00aa.aaaa--oooo.oooo";
+        write              = "1111.0001--0000.0000--00aa.aaaa--iiii.iiii";
     ;
 ;
 
