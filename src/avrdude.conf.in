@@ -1776,6 +1776,23 @@ programmer # avr910
 ;
 
 #------------------------------------------------------------
+# oddprog
+#------------------------------------------------------------
+
+# OddProg is an 8051-based serial SPI bridge for programming
+# AT89LP-family microcontrollers, https://github.com/afiglee/OddProg
+# Default baud rate is 57600, override with -b.
+
+programmer # oddprog
+    id                     = "oddprog";
+    desc                   = "OddProg serial SPI bridge for AT89LP microcontrollers";
+    type                   = "oddprog";
+    prog_modes             = PM_ISP;
+    connection_type        = serial;
+    baudrate               = 57600;
+;
+
+#------------------------------------------------------------
 # ft245r
 #------------------------------------------------------------
 
@@ -25228,7 +25245,7 @@ part
         read               = "0011.0010--0000.000a--aaaa.aaaa--oooo.oooo";
         loadpage_lo        = "0101.0010--0000.0000--0aaa.aaaa--iiii.iiii";
         loadpage_hi        = "0101.0010--0000.0000--0aaa.aaaa--iiii.iiii";
-        writepage          = "0111.0010--0000.000a--axxx.xxxx--xxxx.xxxx";
+        writepage          = "0111.0010--0000.000a--aaxx.xxxx--xxxx.xxxx";
     ;
 
     # Data EEPROM: 4096 bytes, 32-byte pages, 128 pages (0x0000-0x0FFF)
@@ -25274,9 +25291,10 @@ part
     # Hardware Security Bits: 3 lock bytes at ISP addresses 0x00, 0x01, 0x02
     # Each byte is 0xFF (unprogrammed) or 0x00 (programmed)
     # Read Lock Bits 0x64, Write Lock Bits 0xE4
+    # Each lock byte is fully significant: 0xFF unprogrammed, 0x00 programmed
     memory "lock"
         size               = 3;
-        bitmask            = 0x07;
+        bitmask            = 0xffffff;
         min_write_delay    = 2500;
         max_write_delay    = 2500;
         read               = "0110.0100--0000.0000--00aa.aaaa--oooo.oooo";

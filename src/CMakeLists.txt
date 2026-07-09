@@ -229,6 +229,8 @@ set(SOURCES
     lists.c
     micronucleus.c
     micronucleus.h
+    oddprog.c
+    oddprog.h
     par.c
     par.h
     pgm.c

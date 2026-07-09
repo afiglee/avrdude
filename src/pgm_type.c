@@ -42,6 +42,7 @@
 #include "linuxgpio.h"
 #include "linuxspi.h"
 #include "micronucleus.h"
+#include "oddprog.h"
 #include "par.h"
 #include "pickit2.h"
 #include "pickit5.h"
@@ -95,6 +96,7 @@ const PROGRAMMER_TYPE programmers_types[] = {   // Name(s) the programmers call 
   {"linuxgpio", linuxgpio_initpgm, linuxgpio_desc},     // "linuxgpio"
   {"linuxspi", linuxspi_initpgm, linuxspi_desc},        // LINUXSPI
   {"micronucleus", micronucleus_initpgm, micronucleus_desc},    // "micronucleus" or "Micronucleus V2.0"
+  {"oddprog", oddprog_initpgm, oddprog_desc},   // "oddprog"
   {"par", par_initpgm, par_desc},       // "PPI"
   {"pickit2", pickit2_initpgm, pickit2_desc},   // "pickit2"
   {"pickit5", pickit5_initpgm, pickit5_desc},   // "pickit5"
