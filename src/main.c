@@ -1130,7 +1130,7 @@ int main(int argc, char *argv[]) {
     terminal_setup_update_progress();
 
   // Print out an identifying string so folks can tell what version they are running
-  pmsg_notice("%s version %s\n", progname, AVRDUDE_FULL_VERSION);
+  pmsg_notice("%s (89LP51) version %s\n", progname, AVRDUDE_FULL_VERSION);
   pmsg_notice("Copyright see https://github.com/avrdudes/avrdude/blob/main/AUTHORS\n\n");
 
   if(*sys_config) {
